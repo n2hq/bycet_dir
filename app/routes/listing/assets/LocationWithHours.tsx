@@ -78,32 +78,32 @@ const LocationWithHours = ({ listing, operatingHoursStatus }: any) => {
 
         opHours.push({
             day: "Mon",
-            hours: constructDailyHour(operatingHours.monday_from, operatingHours.monday_to)
+            hours: constructDailyHour(operatingHours?.monday_from, operatingHours?.monday_to)
         })
         opHours.push({
             day: "Tue",
-            hours: constructDailyHour(operatingHours.tuesday_from, operatingHours.tuesday_to)
+            hours: constructDailyHour(operatingHours?.tuesday_from, operatingHours?.tuesday_to)
         })
         opHours.push({
             day: "Wed",
-            hours: constructDailyHour(operatingHours.wednesday_from, operatingHours.wednesday_to)
+            hours: constructDailyHour(operatingHours?.wednesday_from, operatingHours?.wednesday_to)
         })
         opHours.push({
             day: "Thu",
-            hours: constructDailyHour(operatingHours.thursday_from, operatingHours.thursday_to)
+            hours: constructDailyHour(operatingHours?.thursday_from, operatingHours?.thursday_to)
         })
         opHours.push({
             day: "Fri",
-            hours: constructDailyHour(operatingHours.friday_from, operatingHours.friday_to)
+            hours: constructDailyHour(operatingHours?.friday_from, operatingHours?.friday_to)
         })
         opHours.push({
             day: "Sat",
-            hours: constructDailyHour(operatingHours.saturday_from, operatingHours.saturday_to)
+            hours: constructDailyHour(operatingHours?.saturday_from, operatingHours?.saturday_to)
         })
 
         opHours.push({
             day: "Sun",
-            hours: constructDailyHour(operatingHours.sunday_from, operatingHours.sunday_to)
+            hours: constructDailyHour(operatingHours?.sunday_from, operatingHours?.sunday_to)
         })
         setOpHours(opHours)
     }
@@ -117,7 +117,9 @@ const LocationWithHours = ({ listing, operatingHoursStatus }: any) => {
             getOpHours(businessGuid, userGuid).then((data) => {
 
                 //console.log(data)
-                constructHours(data)
+                if (data) {
+                    constructHours(data)
+                }
                 //setOperatingHours(data)
             })
 
