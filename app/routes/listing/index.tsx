@@ -157,6 +157,7 @@ const index = () => {
     businessProfileBgData = data.businessProfileBgData
     reportTime = data.reportTime
 
+    console.log(reportTime)
 
 
 
