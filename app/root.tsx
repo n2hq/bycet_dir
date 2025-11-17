@@ -123,7 +123,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
 
-        {loading && <LoadingMessage />}
+        {loading && <LoadingMessage loading={loading} />}
         <NotificationProvider>
           <OperationProvider>
             <VideoSliderProvider>
