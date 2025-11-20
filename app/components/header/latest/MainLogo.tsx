@@ -8,7 +8,7 @@ const MainLogo = () => {
                 <div className={`flex place-items-center w-fit text-[21px] tracking-tight gap-[2px] font-extrabold font-sans place-content-between`}>
 
                     <div className={`text-blue-800 first-letter:`}>
-                        veycet.
+                        <i>b</i>ycet.
                     </div>
 
                     <div className={``}>
