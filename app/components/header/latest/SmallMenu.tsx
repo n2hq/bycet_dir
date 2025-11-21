@@ -9,16 +9,16 @@ const menudata = [
     },
     {
         title: "New York",
-        url: "/web/browse?q=&category=shopping and retail&city=new york city"
+        url: "/web/browse?q=new york"
     },
 
     {
         title: "London",
-        url: "/web/browse?q=&category=shopping and retail&city=london"
+        url: "/web/browse?q=london"
     },
     {
         title: "Dubai",
-        url: "/web/browse?q=&category=shopping and retail&city=dubai"
+        url: "/web/browse?q=dubai"
     },
 ]
 const SmallMenu = () => {
