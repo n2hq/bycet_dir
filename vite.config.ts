@@ -30,7 +30,9 @@ export default defineConfig({
       "garssete.gasimg.com",
       "edition.garssete.com",
       "index.veycet.com",
-      "testindex.veycet.com"
+      "testindex.veycet.com",
+      "index.bycet.com",
+      "testindex.bycet.com"
     ], // <-- your domain here
     hmr: {
       port: Number(process.env.VITE_HMR_PORT), // or any other available port
