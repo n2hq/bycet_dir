@@ -16,7 +16,7 @@ const Header = ({ listing, profileImageData, operatingHoursStatus, ratingsData }
     }, [profileImageData])
 
     return (
-        <div className={`px-[12px] mt-2`}>
+        <div className={` mt-4`}>
             {/* <div className={`h-[5px] bg-gradient-to-r from-black to-blue-500 w-full mt-2 `}>
 
             </div> */}
