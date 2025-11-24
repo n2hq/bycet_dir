@@ -9,6 +9,7 @@ import { MdOutlineImage } from 'react-icons/md'
 import { RiYoutubeFill } from 'react-icons/ri'
 import { useVideoSliderContext } from '~/context/VideoSliderContext'
 import { AddVideoType, OutVideoType, VideoGalleryProps } from '~/lib/types'
+import ComponentTitle from './ComponentTitle'
 
 const videos = [
     {
@@ -190,7 +191,11 @@ export const VideoScrollerAlt = ({ outVideo, handleOpen, showCarousel, listing }
 
     return (
         <div className={` mt-6 mb-5`}>
+            <div className={`px-[12px] md:px-0`}>
+                <ComponentTitle title='Videos' />
+            </div>
             <div className={`relative w-full max-w-[1100px] mx-auto`}>
+
                 <VideoGallery
                     outVideo={outVideo}
                     openGallery={openGallery}
@@ -214,7 +219,7 @@ export const VideoScrollerAlt = ({ outVideo, handleOpen, showCarousel, listing }
                                     <div key={i}>
                                         {
                                             i < maxSlides && i < video20?.length ?
-                                                <div key={video20[i]?.videoGuid} className={` w-[${slideWidth}px] min-w-[${slideWidth}px] relative z-[30] hover:cursor-pointer border  rounded-none overflow-hidden hover:bg-white/50`}
+                                                <div key={video20[i]?.videoGuid} className={` w-[${slideWidth}px] min-w-[${slideWidth}px] relative z-[30] hover:cursor-pointer border  rounded-xl overflow-hidden hover:bg-white/50`}
                                                     /*  onClick={() => { handleOpen(video) }} */
                                                     onClick={() => showCarousel(i)}
                                                 >
@@ -244,12 +249,12 @@ export const VideoScrollerAlt = ({ outVideo, handleOpen, showCarousel, listing }
 
                                                     </div>
                                                 </div> :
-                                                <div className={`w-[${slideWidth}px] h-full border flex place-items-center place-content-center hover:cursor-pointer hover:bg-gray-300 bg-gray-200 rounded-none `}
+                                                <div className={`w-[${slideWidth}px] h-full border flex place-items-center place-content-center hover:cursor-pointer hover:bg-gray-300 bg-gray-200 rounded-xl `}
                                                     onClick={() => {
                                                         setOpenGallery(true)
                                                     }}
                                                 >
-                                                    <div className={`text-white/60 w-[85%] text-center rounded-none h-[75%] border border-dashed border-black/30 flex place-items-center place-content-center text-[23px]`}>
+                                                    <div className={`text-white/60 w-[85%] text-center rounded-xl h-[75%] border border-dashed border-black/30 flex place-items-center place-content-center text-[23px]`}>
                                                         <MdOutlineImage />
                                                     </div>
                                                 </div>

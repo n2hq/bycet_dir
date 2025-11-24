@@ -155,13 +155,7 @@ const BusinessLayout = ({
                                 }
                             </div>
 
-                            {
-                                videoGallery?.length > 0 &&
-                                <Videos
-                                    videoGallery={videoGallery}
-                                    listing={listing}
-                                />
-                            }
+
 
                             {/**  */}
                             <div className={``}>
@@ -179,6 +173,14 @@ const BusinessLayout = ({
                                     } */}
 
                                 </div>
+
+                                {
+                                    videoGallery?.length > 0 &&
+                                    <Videos
+                                        videoGallery={videoGallery}
+                                        listing={listing}
+                                    />
+                                }
 
                                 <div className={`px-[15px] md:px-[0px]`}>
                                     {/** short description */}
