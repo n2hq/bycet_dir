@@ -140,7 +140,7 @@ const BusinessLayout = ({
 
             <div className={` md:pt-12 md:px-[12px]`}>
                 <div className={`max-w-[1100px] w-full mx-auto bg-white`}>
-                    <div className={`grid grid-cols-12 gap-0 md:gap-16 relative
+                    <div className={`grid grid-cols-12 gap-0 md:gap-6 relative
                     `}>
                         <div className={` col-span-12 lg:col-span-8`}>
 
