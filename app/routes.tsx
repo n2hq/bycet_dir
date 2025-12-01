@@ -9,7 +9,7 @@ export function setupRoutes(defineRoutes: DefineRoutesFunction) {
         route("/landing", "routes/landing/index.tsx");
         route("/web/search", "routes/web/browse/index.tsx");
         route("/web/:category/:city", "routes/web/categorycity/index.tsx");
-        route("/web/sitemap", "routes/sitemap.xml.tsx");
+        route("/web/sitemap.xml", "routes/sitemap.xml.tsx");
 
 
         //route("/web/browse", "routes/web/browse/index.tsx");
