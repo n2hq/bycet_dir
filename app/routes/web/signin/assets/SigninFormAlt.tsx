@@ -193,7 +193,7 @@ export default function SigninFormAlt() {
                                     </label>
                                 </div>
 
-                                <Link to="/web/reset_password" className="text-sm text-indigo-600 hover:text-indigo-500 transition-colors duration-300">
+                                <Link to="/web/reset-password" className="text-sm text-indigo-600 hover:text-indigo-500 transition-colors duration-300">
                                     Forgot password?
                                 </Link>
                             </div>

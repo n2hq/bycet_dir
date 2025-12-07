@@ -44,12 +44,12 @@ export const InfoContact = () => {
             </h2>
 
             <p data-start="272" data-end="485">
-                <strong data-start="283" data-end="302">Garssete.com</strong> Support and Technical team are  available Monday to Sunday, 09:00 to 18:00 Central European Time.
+                <strong data-start="283" data-end="302">Bycet.com</strong> Support and Technical team are  available Monday to Sunday, 09:00 to 18:00 Central European Time.
             </p>
             <hr data-start="487" data-end="490" />
 
             <p className={`text-lg underline`}>
-                Garssete Support
+                Bycet Support
             </p>
 
             <ul>
@@ -58,7 +58,7 @@ export const InfoContact = () => {
                         Email:
                     </span>
                     <span>
-                        support@garssete.com
+                        info@bycet.com
                     </span>
                 </li>
 
@@ -73,7 +73,7 @@ export const InfoContact = () => {
                 </span>
             </h3>
             <p className={``}>
-                To claim your business, please sign up and then send an email to <span>support@garssete.com</span>.
+                To claim your business, please sign up and then send an email to <span>info@bycet.com</span>.
             </p>
 
 

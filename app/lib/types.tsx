@@ -146,6 +146,8 @@ export type ListingType = {
     city_name: string
     first_name: string
     last_name: string
+    rating_average: any
+    rating_count: any
 }
 
 export type ContactType = {

@@ -67,7 +67,7 @@ const BusinessDrawer = ({ isOpen, userGuid, businessGuid }: any) => {
 
     return (
         <div className={`relative`}>
-            <div className={` fixed ${navOpen}   w-[250px] h-screen bg-white shadow-lg transform transition-transform ease-in-out duration-500 z-[10] `}>
+            <div className={` fixed ${navOpen}   w-[250px] h-screen bg-white shadow-lg transform transition-transform ease-in-out duration-500 z-[10] absolute top-0 left-0`}>
                 <div className={`p-5 border-b font-bold text-lg`}>
                     Settings
                 </div>

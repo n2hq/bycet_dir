@@ -1,8 +1,8 @@
 import GenericNav from "~/components/header/generic/GenericNav";
-import MainNav from "~/components/header/latest/MainNav";
 import ResponsiveNav from "~/components/header/lite/ResponsiveNav"
 import SearchNavbar from "~/components/header/new/SearchNavbar";
 import SrchNavbar from "~/components/header/new/SrchNavbar";
+import MainNav from "~/components/header/v1/MainNav";
 
 export function loader() {
     //throw new Response("Not Found", { status: 404 });

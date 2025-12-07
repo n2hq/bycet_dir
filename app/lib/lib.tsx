@@ -1081,8 +1081,8 @@ export function escapeRegex(str: string): string {
     return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-export const IsAuthenticated = (localStorage: any) => {
-    const tokens = localStorage.getItem("authTokens")
+export const IsAuthenticated = (tokens: any) => {
+
     if (tokens === null) {
         window.location.href = "/web/signin"
     }
@@ -1414,9 +1414,9 @@ export const logError = (e: any) => {
 }
 
 
-export const getBusinessByCategoryAndCity = async (category: string | null, city: string | null): Promise<any | undefined> => {
+export const getBusinessByCategoryAndCity = async (category: string | null, city: string | null, page: number): Promise<any | undefined> => {
 
-    const endpoint = `/api/listing/category_city/${category}/${city}`
+    const endpoint = `/api/listing/category_city/${category}/${city}?page=${page}`
     const url = config.BASE_URL + endpoint
 
 
@@ -1469,6 +1469,33 @@ export const getBusinessCategoryAndCity = async (): Promise<any | undefined> => 
     }
 }
 
+
+export const getBusinessCategory = async (): Promise<any | undefined> => {
+
+    const endpoint = `/api/listing/cat_sitexml`
+    const url = config.BASE_URL + endpoint
+
+    try {
+        const response = await fetch(url, {
+            method: "GET",
+            headers: headers,
+        }
+        )
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data: any = await response.json();
+
+        return new Promise((resolve) => setTimeout(() => {
+
+            resolve(data)
+        }, 10))
+    } catch (error: any) {
+        return undefined
+    }
+}
+
 export const sanitizeWord = (url: string) => {
     return url
         .trim() // Remove leading/trailing spaces
@@ -1480,3 +1507,31 @@ export const sanitizeWord = (url: string) => {
 export const convertDashToSpace = (str: string) => {
     return str.replace(/-/g, ' ');
 };
+
+
+export const getBusinessByCategory = async (category: string | null, page: number): Promise<any | undefined> => {
+
+    const endpoint = `/api/listing/category/${category}?page=${page}`
+    const url = config.BASE_URL + endpoint
+
+
+    try {
+        const response = await fetch(url, {
+            method: "GET",
+            headers: headers,
+        }
+        )
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data: any = await response.json();
+
+        return new Promise((resolve) => setTimeout(() => {
+
+            resolve(data)
+        }, 10))
+    } catch (error: any) {
+        return undefined
+    }
+}

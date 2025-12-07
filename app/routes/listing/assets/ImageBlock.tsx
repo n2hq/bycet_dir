@@ -182,7 +182,7 @@ export function ComposeImages({ imgs, index, showCarousel, showGallery }: BlockP
 
             {
                 imageTotal >= 4 && <div className={`space-y-[5px]`}>
-                    <div className={`h-[350px]
+                    <div className={`h-[300px]
                 grid grid-cols-12 gap-[5px] rounded-t-xl overflow-hidden`}>
 
                         <div className={`col-span-7 row-span-2 overflow-hidden `}

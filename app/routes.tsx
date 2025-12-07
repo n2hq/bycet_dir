@@ -8,15 +8,19 @@ export function setupRoutes(defineRoutes: DefineRoutesFunction) {
         route("/:id", "routes/listing/index.tsx");
         route("/landing", "routes/landing/index.tsx");
         route("/web/search", "routes/web/browse/index.tsx");
-        route("/web/:category/:city", "routes/web/categorycity/index.tsx");
-        route("/web/sitemap.xml", "routes/sitemap.xml.tsx");
+        route("/web/category/:category/city/:city", "routes/web/categorycity/index.tsx");
+        route("/web/category/:category", "routes/web/categorycity/category.tsx")
+        route("/sitemap.xml", "routes/sitemap.xml.tsx");
+        route("/sitemap-main.xml", "routes/sitemap-main.xml.tsx");
+        route("/sitemap-categories.xml", "routes/sitemap-categories.xml.tsx");
+        route("/sitemap-categories-cities.xml", "routes/sitemap-categories-cities.xml.tsx");
 
 
         //route("/web/browse", "routes/web/browse/index.tsx");
         route("/web/browser", "routes/web/browse/browse.tsx");
         route("/web/signin", "routes/web/signin/index.tsx");
         route("/web/signup", "routes/web/signup/index.tsx");
-        route("/web/reset_password", "routes/web/reset_password/index.tsx");
+        route("/web/reset-password", "routes/web/reset_password/index.tsx");
         route("/web/account", "routes/web/account/index.tsx");
         route("/web/account/profile", "routes/web/account/profile/index.tsx");
         route("/web/account/email_address", "routes/web/account/email_address/index.tsx");
@@ -27,6 +31,8 @@ export function setupRoutes(defineRoutes: DefineRoutesFunction) {
         route("/web/privacy", "routes/web/privacy/index.tsx");
         route("/web/contact", "routes/web/contact/index.tsx");
         route("/web/db", "routes/web/browse/db.tsx")
+        route("/web/copyright", "routes/web/copyright/Copyright.tsx")
+        route("/web/responsible-disclosure", "routes/web/responsible_disclosure/ResponsibleDisclosure.tsx")
 
         {/** account portfolio */ }
         route("/web/account/portfolio", "routes/web/account/portfolio/index.tsx");
@@ -111,9 +117,11 @@ export function setupRoutes(defineRoutes: DefineRoutesFunction) {
         route("api/listing/products/:business_guid/:user_guid", "routes/api/listing/products/index.tsx")
 
 
+        route("api/listing/category/:category", "routes/api/listing/category.tsx")
         route("api/listing/category_city/:category/:city", "routes/api/listing/category_city.tsx")
 
         route("api/listing/cat_city_sitexml", "routes/api/listing/category_city_sitexml.tsx")
+        route("api/listing/cat_sitexml", "routes/api/listing/category_sitexml.tsx")
 
         route("api/rating", "routes/api/rating/index.tsx");
         route("api/rating/:user_guid/:business_guid", "routes/api/rating/rating.tsx");

@@ -23,11 +23,9 @@ export const loader: LoaderFunction = async ({ request, params }) => {
     }
     return data
 }
-const index = () => {
-    useEffect(() => {
-
-        IsAuthenticated(localStorage)
-    }, [])
+const Index = () => {
+    const tokens = localStorage?.getItem("authTokens")
+    IsAuthenticated(tokens)
 
     const loaderData: any = useLoaderData()
     const auth = useAuth();
@@ -150,4 +148,4 @@ const index = () => {
     )
 }
 
-export default index
+export default Index

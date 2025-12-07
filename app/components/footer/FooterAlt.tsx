@@ -19,16 +19,8 @@ const aboutLinks = [
         link: '/web/contact'
     },
     {
-        title: "Account",
-        link: '/web/account/profile'
-    },
-    {
-        title: "Portfolio",
-        link: '/web/account/'
-    },
-    {
         title: "Forgot Password",
-        link: '/web/reset_password'
+        link: '/web/reset-password'
     },
     {
         title: "Signup",
@@ -39,27 +31,27 @@ const aboutLinks = [
 const explorLinks = [
     {
         title: "London",
-        link: "/web/browse?q=&city=london"
+        query: "q=&city=london"
     },
     {
         title: "New York",
-        link: "/web/browse?q=&city=new york city"
+        query: "q=&city=new york city"
     },
     {
         title: "Paris",
-        link: "/web/browse?q=&city=paris"
+        query: "q=&city=paris"
     },
     {
         title: "Berlin",
-        link: "/web/browse?q=&city=berlin"
+        query: "q=&city=berlin"
     },
     {
         title: "Dubai",
-        link: "/web/browse?q=&city=dubai"
+        query: "q=&city=dubai"
     },
     {
         title: "Beijing",
-        link: "/web/browse?q=&city=beijing"
+        query: "q=&city=beijing"
     }
 ]
 
@@ -67,7 +59,7 @@ const explorLinks = [
 const doBusinessLinks = [
     {
         title: "Hotels",
-        id: "hotel"
+        id: "hotels"
     },
     {
         title: "Restaurants",
@@ -75,7 +67,7 @@ const doBusinessLinks = [
     },
     {
         title: "Travel",
-        id: "travel, hospitality and rentals"
+        id: "travel-hospitality-rentals"
     },
     {
         title: "Business Services",
@@ -99,15 +91,15 @@ const doBusinessLinks = [
 const garsseteSocialLinks = [
     {
         icon: <FaFacebook />,
-        link: 'http://facebook.com/garssete'
+        link: 'http://facebook.com/bycetinc'
     },
     {
         icon: <FaXTwitter />,
-        link: 'http://x.com/garssete'
+        link: 'http://x.com/bycetinc'
     },
     {
         icon: <FaInstagram />,
-        link: 'http://instagram.com/garssete'
+        link: 'http://instagram.com/bycetinc'
     },
 ]
 
@@ -123,6 +115,11 @@ const garsseteSites = [
     },
 
 ]
+
+export type DiscoverType = {
+    title: string
+    query: string
+}
 
 export type AboutLinksType = {
     title: string
@@ -148,7 +145,7 @@ const FooterAlt = () => {
                     {/** first column */}
                     <div className={`lg:col-span-2 flex flex-col place-items-center text-center md:place-items-start md:text-left`}>
                         <div className={`font-poppins font-[300] text-xl`}>
-                            About Garssete
+                            About Bycet
                         </div>
 
                         <div className={`flex flex-col space-y-2 mt-2 font-poppins font-[300]`}>
@@ -178,9 +175,11 @@ const FooterAlt = () => {
 
                         <div className={`flex flex-col space-y-2 mt-2 font-poppins font-[300]`}>
                             {
-                                explorLinks.map((link: AboutLinksType, index: number) => {
+                                explorLinks.map((link: DiscoverType, index: number) => {
+                                    const baseUrl = `/web/search?`
+                                    const url = baseUrl + link?.query
                                     return (
-                                        <Link to={link?.link}
+                                        <Link to={url}
                                             key={index}
                                             className={`hover:underline`}
                                         >
@@ -204,7 +203,7 @@ const FooterAlt = () => {
                         <div className={`flex flex-col space-y-2 mt-2 font-poppins font-[300]`}>
                             {
                                 doBusinessLinks?.map((link: CategoriesType, index: number) => {
-                                    const lnk = `/web/browse?q=&category=${link?.id}`
+                                    const lnk = `/web/search?q=&category=${link?.id}`
                                     return (
                                         <Link to={lnk}
                                             key={index}
@@ -261,14 +260,14 @@ const FooterAlt = () => {
                         </div>
                     </div>
                     <div className={`font-poppins text-[13px] mt-[-2px]`}>
-                        © 2025 Index by Veycet. All rights reserved.
+                        © 2025 Bycet. All rights reserved.
                     </div>
 
                 </div>
 
                 <div className={`mt-3 font-poppins font-[300] grid-cols-1 md:grid-cols-12 flex flex-col place-items-center text-center md:place-items-start md:text-left`}>
                     <div className={`md:col-span-8`}>
-                        Veycet connects you to trusted local businesses. Discover services, read reviews, and support your community. Find everything from restaurants to contractors in one comprehensive directory. Your journey to better local experiences starts here.
+                        Bycet connects you to trusted local businesses. Discover services, read reviews, and support your community. Find everything from restaurants to contractors in one comprehensive directory. Your journey to better local experiences starts here.
                     </div>
                     <div className={`md:col-span-4`}>
 
@@ -298,7 +297,10 @@ const FooterAlt = () => {
                 <div>
                     <div>
                         <p className="text-[10px] text-gray-400 text-center mt-2">
-                            Icon by <a href="https://www.flaticon.com/" target="_blank" className="underline">Flaticon</a> (CC BY 3.0)
+                            <a href="https://bycet.com/" target="_blank"
+                                className={`hover:underline`}>
+                                Bycet Business Directory
+                            </a>
                         </p>
                     </div>
                 </div>

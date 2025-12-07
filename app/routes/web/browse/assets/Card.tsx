@@ -18,7 +18,7 @@ import Placeholder from '~/components/content/Placeholder'
 
 
 const Card = ({ listing }: any) => {
-
+    const fallbackImg = `/images/fallbackBusinessImg.png`
     const [placeholder, setPlaceholder] = useState('/images/bycetplaceholder.png')
     const [imgscr, setImgsrc] = useState('')
     const [userId, setUserId] = useState('')
@@ -75,6 +75,7 @@ const Card = ({ listing }: any) => {
 
     useEffect(() => {
         if (listing?.social_media) {
+
             let socialMedia: any = []
             const separatedMedia = strToList(listing?.social_media, ",")
 
@@ -87,6 +88,7 @@ const Card = ({ listing }: any) => {
                         mediaHandle: mediaInfo[1],
                         baseUrl: mediaInfo[2]
                     }
+                    console.log(mediaObj)
                     socialMedia.push(mediaObj)
                 })
             }
@@ -161,7 +163,7 @@ const Card = ({ listing }: any) => {
                     <div className={`flex place-content-between gap-2`}>
                         {/** left */}
                         <div className={`flex place-items-start gap-2 w-full`}>
-                            <div className={`max-w-[85px] h-[90px] min-w-[85px]   bg-gray-50 bg-cover bg-center overflow-hidden relative border flex place-items-center place-content-center rounded`}
+                            <div className={`max-w-[85px] h-[90px] min-w-[85px]   bg-gray-50  relative border flex place-items-center place-content-center  overflow-hidden shadow-xl shadow-gray-400/30`}
 
                             >
                                 {
@@ -170,9 +172,14 @@ const Card = ({ listing }: any) => {
                                             src={imgscr}
                                             alt={""}
                                             className={` w-full h-auto text-sm
-                             z-0 bg-gray-100`}
+                             z-0 bg-gray-100 `}
                                         /> :
-                                        <Placeholder />
+                                        <div className={`h-full w-full  md:p-3`}>
+                                            <img
+                                                src={fallbackImg}
+                                                alt=""
+                                            />
+                                        </div>
 
                                 }
 
@@ -201,7 +208,7 @@ const Card = ({ listing }: any) => {
                                                     <RatingCount averageRating={baseListing?.average_rating} />
                                                 </div> :
                                                 <div className={` flex gap-2 place-items-center`}>
-                                                    <RatingBoxRounded rating={Number(1)} />
+                                                    <RatingBoxRounded rating={Number(0)} />
                                                     <RatingCount averageRating={0} />
                                                 </div>
                                         }
@@ -212,7 +219,7 @@ const Card = ({ listing }: any) => {
                                             Number(baseListing?.total_reviews) > 0 ?
                                                 baseListing?.total_reviews :
                                                 0
-                                        }
+                                        } Reviews
                                     </div>
                                 </div>
                             </div>

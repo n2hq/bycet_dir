@@ -192,7 +192,7 @@ export const ListingCarousel = ({ images, listing }: any) => {
 
 
                 <div className={`z-[50]`}>
-                    <button onMouseDown={handlePrev} className={`block absolute top-0 bottom-0 z-[50] p-[1rem] cursor-pointer left-0 group h-full transition duration-1000 ease-in-out`}>
+                    <button onMouseDown={handlePrev} className={`block absolute top-0 bottom-0 z-[5] p-[1rem] cursor-pointer left-0 group h-full transition duration-1000 ease-in-out`}>
                         <div className={`w-[50px] h-[50px] bg-white/60 rounded-full 
            flex place-content-center place-items-center group-hover:bg-white/30
             z-[300] transition duration-500 ease-in-out`}>
@@ -201,7 +201,7 @@ export const ListingCarousel = ({ images, listing }: any) => {
 
                     </button>
                     <button onMouseDown={handleNext} className={`block absolute top-0 bottom-0 
-                                                        z-[50]    p-[1rem] cursor-pointer right-0 group 
+                                                        z-[5]    p-[1rem] cursor-pointer right-0 group 
                                                              transition duration-1000 ease-in-out`}>
                         <div className={`w-[50px] h-[50px] bg-white/60 rounded-full 
             flex place-content-center place-items-center group-hover:bg-white/30

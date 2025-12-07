@@ -179,8 +179,8 @@ const QueryBuilder: React.FC<QueryBuilderProps> = ({
 
         // Reset to page 1 when performing a new search
         searchParams.set('page', '1')
-
-        navigate(`${location.pathname}?${searchParams.toString()}`)
+        const baseSearchPath = '/web/search'
+        navigate(`${baseSearchPath}?${searchParams.toString()}`)
     }
 
     const handleKeyPress = (event: React.KeyboardEvent) => {

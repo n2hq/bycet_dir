@@ -206,7 +206,7 @@ export const VideoScrollerAlt = ({ outVideo, handleOpen, showCarousel, listing }
                 />
                 <div
                     ref={scrollRef}
-                    className={`w-full px-0 py-0 mt-3 relative flex flex-1 overflow-x-auto bottom-scrollbar-hidden rounded-none overflow-hidden`}>
+                    className={`w-full px-0 py-0 mt-3 relative flex flex-1 overflow-x-auto bottom-scrollbar-hidden rounded-xl overflow-hidden`}>
                     {/** videos */}
                     <div className={`flex gap-x-3`} id='videobar'>
 
@@ -219,23 +219,23 @@ export const VideoScrollerAlt = ({ outVideo, handleOpen, showCarousel, listing }
                                     <div key={i}>
                                         {
                                             i < maxSlides && i < video20?.length ?
-                                                <div key={video20[i]?.videoGuid} className={` w-[${slideWidth}px] min-w-[${slideWidth}px] relative z-[30] hover:cursor-pointer border  rounded-xl overflow-hidden hover:bg-white/50`}
+                                                <div key={video20[i]?.videoGuid} className={` w-[${slideWidth}px] min-w-[${slideWidth}px] relative z-[3] hover:cursor-pointer border  rounded-xl overflow-hidden hover:bg-white/50`}
                                                     /*  onClick={() => { handleOpen(video) }} */
                                                     onClick={() => showCarousel(i)}
                                                 >
 
                                                     {/** video thumbnail */}
-                                                    <div className={`relative w-full h-[${slideHeight}px]   z-[20]`}
+                                                    <div className={`relative w-full h-[${slideHeight}px]   z-[2]`}
                                                     >
                                                         {/** youtube logo */}
-                                                        <div className={`absolute top-0 left-0 w-full h-full bg-transparent  z-[300000] hover:bg-white/40`}>
+                                                        <div className={`absolute top-0 left-0 w-full h-full bg-transparent  z-[3] hover:bg-white/40`}>
                                                             <RiYoutubeFill size={20} className={`text-white absolute top-0.5 right-1 `} />
                                                         </div>
 
                                                         <img src={video20[i]?.videoThumbnail} alt={video20[i]?.videoTitle} className={`object-cover w-full h-full`} />
 
                                                         {/** bottom title */}
-                                                        <div className={` block w-full absolute z-[30] text-white bottom-0 px-2 py-[5px] bg-black/80 `}>
+                                                        <div className={` block w-full absolute z-[3] text-white bottom-0 px-2 py-[5px] bg-black/80 `}>
 
                                                             <div className={`w-full text-white bottom-0  `}>
 
@@ -264,7 +264,7 @@ export const VideoScrollerAlt = ({ outVideo, handleOpen, showCarousel, listing }
                             })}
 
                         {/** last slide that opens gallery */}
-                        <div className={`w-[${slideWidth}px] h-full border border-gray-200 rounded-none flex place-items-center place-content-center hover:cursor-pointer hover:bg-gray-300 bg-gray-200`}
+                        <div className={`w-[${slideWidth}px] h-full border border-gray-200 rounded-xl flex place-items-center place-content-center hover:cursor-pointer hover:bg-gray-300 bg-gray-200`}
                             onClick={() => {
                                 setOpenGallery(true)
                             }}
@@ -282,7 +282,7 @@ export const VideoScrollerAlt = ({ outVideo, handleOpen, showCarousel, listing }
 
                 {/** navlinks */}
                 {/** left arrow */}
-                <div className={`absolute text-white top-1/2 -translate-y-1/2 left-2 w-[40px] min-w-[40px] h-[40px] bg-black/50 hover:bg-white/70 hover:text-black flex place-content-center place-items-center hover:cursor-pointer border-[1px] border-gray-400 rounded z-[50]`}
+                <div className={`absolute text-white top-1/2 -translate-y-1/2 left-2 w-[40px] min-w-[40px] h-[40px] bg-black/50 hover:bg-white/70 hover:text-black flex place-content-center place-items-center hover:cursor-pointer border-[1px] border-gray-400 rounded z-[5]`}
                     onClick={() => { scrollLeft() }}
                 >
                     <FaChevronLeft />
@@ -290,7 +290,7 @@ export const VideoScrollerAlt = ({ outVideo, handleOpen, showCarousel, listing }
 
 
                 {/** right arrow */}
-                <div className={`absolute text-white top-1/2 -translate-y-1/2 right-2 w-[40px] min-w-[40px] h-[40px] bg-black/50 hover:bg-white/70 hover:text-black flex place-content-center place-items-center hover:cursor-pointer border-[1px] border-gray-400 rounded z-[50]`}
+                <div className={`absolute text-white top-1/2 -translate-y-1/2 right-2 w-[40px] min-w-[40px] h-[40px] bg-black/50 hover:bg-white/70 hover:text-black flex place-content-center place-items-center hover:cursor-pointer border-[1px] border-gray-400 rounded z-[5]`}
                     onClick={() => { scrollRight() }}
                 >
                     <FaChevronRight />

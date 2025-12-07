@@ -1,8 +1,16 @@
-import { createContext, useState } from "react"
+import { createContext, useContext, useState } from "react"
 
 
 
 const MainNavContext = createContext<any | null>(null)
+
+export const useMainNav = () => {
+    const mainnav = useContext(MainNavContext)
+    if (mainnav) {
+        return mainnav
+    }
+    return null
+}
 
 export const MainNavProvider = ({ children }: any) => {
 

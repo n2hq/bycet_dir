@@ -16,6 +16,8 @@ const Header = ({ listing, profileImageData, operatingHoursStatus, ratingsData }
         }
     }, [profileImageData])
 
+    const fallbackImg = `/images/fallbackBusinessImg.png`
+
     return (
         <div className={` mt-4`}>
             {/* <div className={`h-[5px] bg-gradient-to-r from-black to-blue-500 w-full mt-2 `}>
@@ -24,15 +26,21 @@ const Header = ({ listing, profileImageData, operatingHoursStatus, ratingsData }
             <div className={`flex gap-3  w-full   md:rounded-xl`}>
 
                 {/** business logo */}
-                <div className={`bg-white w-[60px] min-w-[60px] md:w-[95px] md:min-w-[95px] h-[60px] md:h-[95px] relative overflow-hidden border-[1px]  border-gray-200`}>
+                <div className={`bg-white w-[60px] min-w-[60px] md:w-[95px] md:min-w-[95px] h-[60px] md:h-[95px] relative border-[1px]  border-gray-100`}>
                     {
                         profileImageData?.image_url ?
                             <img
                                 src={config.IMG_BASE_URL + profileImageData?.image_url}
                                 alt="85x90"
-                                className={` object-scale-down w-full h-full `}
+                                className={` object-scale-down w-full h-full shadow-xl shadow-gray-300 `}
                             /> :
-                            <Placeholder />
+                            <div className={`h-full w-full p-2 md:p-4 shadow-xl shadow-gray-300`}>
+                                <img
+                                    src={fallbackImg}
+                                    alt=""
+                                    className={`object-scale-down w-full h-full`}
+                                />
+                            </div>
                     }
                 </div>
 

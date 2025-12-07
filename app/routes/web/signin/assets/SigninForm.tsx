@@ -160,7 +160,7 @@ const SigninForm = () => {
                         <div className={`w-full flex flex-col 
                                             place-items-center mt-[20px] `}>
                             <Link className={`w-[85%]`}
-                                to={`/web/reset_password`}>
+                                to={`/web/reset-password`}>
                                 <div
                                     className={`border-b w-full
                                                     px-[0px] py-1 text-[14px]

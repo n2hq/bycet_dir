@@ -57,7 +57,7 @@ const MainNav = () => {
             <MainNavProvider>
                 <AuthProvider>
                     <div className={`w-full h-[60px] border-b border-b-gray-200 fixed left-0 top-0 right-0 z-[100] bg-white ${isOverThreshold && ' shadow-lg'} transition-all duration-1000 ease-in-out`}>
-                        <div className={`max-w-[98%] h-full mx-auto w-full flex place-items-center place-content-between gap-2 relative `}>
+                        <div className={`max-w-[98%] h-full mx-auto w-full flex place-items-center place-content-around gap-4 relative `}>
                             {/** hamburger */}
                             <HamburgerMenu />
 

@@ -1,8 +1,9 @@
 import React from 'react'
-import MainNav from '~/components/header/latest/MainNav'
+
 import Navbar from '~/components/header/new/Navbar'
 import SearchNavbar from '~/components/header/new/SearchNavbar'
 import SrchNavbar from '~/components/header/new/SrchNavbar'
+import MainNav from '~/components/header/v1/MainNav'
 import { appConfig } from '~/lib/lib'
 import HomeNav from '~/routes/assets/header/HomeNav'
 

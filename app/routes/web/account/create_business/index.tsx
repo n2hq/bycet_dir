@@ -11,9 +11,8 @@ import { OperationProvider } from '~/context/OperationContext'
 import LoadingMessage from '~/components/content/LoadingMessage'
 
 const index = () => {
-    useEffect(() => {
-        IsAuthenticated(localStorage)
-    }, [])
+    const tokens = localStorage?.getItem("authTokens")
+    IsAuthenticated(tokens)
 
     const auth = useAuth()
     if (!auth) { return null }

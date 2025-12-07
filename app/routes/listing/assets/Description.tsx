@@ -4,7 +4,7 @@ import ComponentTitle from './ComponentTitle'
 
 const Description = ({ listing }: any) => {
     const [img, setImg] = useState('')
-    const [placeholder, setPlaceholder] = useState('/images/placeholder22.png')
+    const [placeholder, setPlaceholder] = useState('/images/fallbackBusinessImg.png')
 
     useEffect(() => {
         if (listing.gid) {
@@ -26,7 +26,7 @@ const Description = ({ listing }: any) => {
             <div className={`flex place-items-start place-content-start
                 gap-2 mt-4 mb-3`}>
                 <div className={`rounded-full bg-white w-[30px] h-[30px]
-                    overflow-hidden relative border`}>
+                    overflow-hidden relative border border-black`}>
                     <img
                         className={`object-cover w-full h-full`}
                         src={img} alt="" />

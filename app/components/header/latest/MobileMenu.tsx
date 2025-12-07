@@ -62,7 +62,7 @@ const MobileMenu = ({ openMenu, closeNav }: MobileMenuProps) => {
 
 
             {/** navlinks body wrapper */}
-            <div className={`transform transition-all duration-500 delay-0 fixed justify-start h-full w-full md:w-[300px] bg-white z-4001 overflow-y-auto top-0 left-0 text-black ${navOpen} ${openMenu ? 'shadow-lg shadow-black/50' : ''} bg-[url(https://unbound.radiantthemes.com/wp-content/uploads/2022/03/Banner-Image.png?id=8229)]`}>
+            <div className={`transform transition-all duration-500 delay-0 fixed justify-start h-full w-full md:w-[300px] bg-white z-[4001] overflow-y-auto top-0 left-0 text-black ${navOpen} ${openMenu ? 'shadow-lg shadow-black/50' : ''} bg-[url(https://unbound.radiantthemes.com/wp-content/uploads/2022/03/Banner-Image.png?id=8229)]`}>
 
                 {/** navlinks body */}
                 <div className={`bg-transparent `}>

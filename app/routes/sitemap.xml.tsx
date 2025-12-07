@@ -1,40 +1,33 @@
-// app/routes/sitemap.xml.tsx
-import { LoaderFunction } from "@remix-run/node";
-import { config, getBusinessByCategoryAndCity, getBusinessCategoryAndCity, sanitizeWord } from "~/lib/lib";
+import { LoaderFunction } from '@remix-run/node'
+import React from 'react'
+import { config } from '~/lib/lib'
 
-export const loader: LoaderFunction = async ({ params }) => {
-
+export const loader: LoaderFunction = async () => {
   const baseUrl = config.BASE_URL
 
-  const items = await getBusinessCategoryAndCity();
+  const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
+  <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+    <sitemap>
+      <loc>${baseUrl}/sitemap-main.xml</loc>
+      <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    </sitemap>  
 
-  const homeUrl = `<url>
-    <loc>${baseUrl}</loc>
-    <lastmod>${new Date().toISOString()}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>`
+    <sitemap>
+      <loc>${baseUrl}/sitemap-categories.xml</loc>
+      <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    </sitemap>
 
-  const urls = items?.map((item: any, index: number) =>
-    `<url>
-        <loc>${baseUrl}/web/${sanitizeWord(item.category)}/${sanitizeWord(item.city)}</loc>
-        <lastmod>${new Date().toISOString()}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-      </url>`
-  )
-    .join("");
+    <sitemap>
+      <loc>${baseUrl}/sitemap-categories-cities.xml</loc>
+      <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    </sitemap>
+  </sitemapindex>`
 
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    ${homeUrl}  
-    ${urls}
-  </urlset>`;
-
-  return new Response(sitemap, {
+  return new Response(sitemapContent, {
     headers: {
-      "Content-Type": "application/xml",
-      "Cache-Control": "public, max-age=3600"
+      'Content-Type': 'application/xml',
+      'Cache-Control': 'public, max-age=3600',
     },
-  });
-};
+  })
+}

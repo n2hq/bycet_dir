@@ -22,7 +22,8 @@ import Pagination from './assets/Pagination';
 import { OnlineStatusProvider } from '~/context/OnlineStatusContext';
 import QueryBuilder from './assets/QueryBuilder';
 import LoadingMessage from '~/components/content/LoadingMessage';
-import MainNav from '~/components/header/latest/MainNav';
+import MainNav from '~/components/header/v1/MainNav';
+
 
 
 export const loader: LoaderFunction = async ({ request, params }) => {
@@ -104,7 +105,7 @@ const Index = () => {
                     {/** left */}
                     <aside className={`col-span-3 h-full overflow-y-auto scrollbar-hidden pt-2 hidden xl:block`}>
 
-                        <div className={``}>
+                        {/* <div className={``}>
                             <div className={`mt-3 text-[17px] mb-4 font-bold ml-6`}>
                                 Search Filter
                             </div>
@@ -112,7 +113,7 @@ const Index = () => {
                                 loading={isLoading}
                                 initialFilters={initialFilters}
                             />
-                        </div>
+                        </div> */}
 
                         <div className={``}>
                             <div className={`mt-3 text-[17px] mb-4 font-bold ml-6`}>
@@ -143,15 +144,7 @@ const Index = () => {
 
                             {/** left */}
                             <div className={`col-span-12 md:col-span-8  pt-3`}>
-                                <div className={`mb-12 block xl:hidden`}>
-                                    <div className={`mt-3 text-[17px] mb-4 font-bold ml-6`}>
-                                        Search Filter
-                                    </div>
-                                    <QueryBuilder
-                                        loading={isLoading}
-                                        initialFilters={initialFilters}
-                                    />
-                                </div>
+
 
 
                                 <div className={`space-y-8`}>

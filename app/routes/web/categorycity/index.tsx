@@ -1,10 +1,13 @@
 import { LoaderFunction, LoaderFunctionArgs, MetaFunction } from '@remix-run/node';
-import { Link, useLoaderData } from '@remix-run/react';
+import { Link, useLoaderData, useLocation, useNavigate } from '@remix-run/react';
 import React, { useEffect } from 'react'
 import Footer from '~/components/footer/Footer';
 import FooterAlt from '~/components/footer/FooterAlt';
-import MainNav from '~/components/header/latest/MainNav';
-import { appConfig, config, convertDashToSpace, getBusinessByCategoryAndCity } from '~/lib/lib';
+import MainNav from '~/components/header/v1/MainNav';
+import { appConfig, config, convertDashToSpace, getBusinessByCategoryAndCity, logError } from '~/lib/lib';
+import Card from './Card';
+import { AltCard } from './AltCard';
+import Pagination from './Pagination';
 
 
 // schema-types.ts
@@ -53,18 +56,36 @@ type ParamsType = {
     city?: string;
 };
 
-export const loader: LoaderFunction = async ({ params }) => {
+export const loader: LoaderFunction = async ({ params, request }) => {
 
     const category = params.category
     const city = params.city
     // Fetch businesses from DB
-    const businesses = await getBusinessByCategoryAndCity(category!, city!);
+
+
+    const url = new URL(request.url);
+    let page = Math.max(1, parseInt(url?.searchParams.get("page") || "1"));
+
+    let data: any = ""
+    let countries = null
+    let businesses: any = ""
+
+    try {
+
+        businesses = await getBusinessByCategoryAndCity(category!, city!, page);
+        console.log(businesses)
+        console.log("======")
+
+    } catch (error: any) {
+        logError(error)
+    }
 
 
     return {
         category: category,
         city: city,
-        businesses: businesses
+        businesses: businesses || { items: [], pagination: null },
+        currentPage: page
     };
 };
 
@@ -223,9 +244,121 @@ export const schemaData = (object: any, fallbackImg: string) => {
 const index = () => {
 
     const baseUrl = config.BASE_URL
-    const { category, city, businesses } = useLoaderData<typeof loader>();
+    const { category, city, businesses, currentPage } = useLoaderData<typeof loader>();
+    const location = useLocation();
+    const navigate = useNavigate();
+
     const fallbackImg = `/images/fallbackBusinessImg.png`
 
+    const data = businesses?.data || []
+
+
+    const pagination = businesses?.pagination || null
+
+
+    const goToPage = (pageNumber: number) => {
+        const params = new URLSearchParams(location.search);
+        params.set('page', pageNumber.toString());
+        navigate(`${location.pathname}?${params.toString()}`);
+    };
+
+
+    // Helper to generate page numbers with ellipsis
+    const generatePageNumbers = (current: number, total: number) => {
+        const pages: (number | string)[] = [];
+
+        if (total <= 7) {
+            // Show all pages
+            for (let i = 1; i <= total; i++) pages.push(i);
+        } else {
+            // Show first page, current page, and last page with ellipsis
+            if (current <= 4) {
+                // Near the start
+                for (let i = 1; i <= 5; i++) pages.push(i);
+                pages.push('...');
+                pages.push(total);
+            } else if (current >= total - 3) {
+                // Near the end
+                pages.push(1);
+                pages.push('...');
+                for (let i = total - 4; i <= total; i++) pages.push(i);
+            } else {
+                // In the middle
+                pages.push(1);
+                pages.push('...');
+                pages.push(current - 1);
+                pages.push(current);
+                pages.push(current + 1);
+                pages.push('...');
+                pages.push(total);
+            }
+        }
+
+        return pages;
+    };
+
+    const renderPagination = () => {
+        if (!pagination || pagination.total_pages <= 1) return null;
+
+        return (
+            <div className="mt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                {/* Page info */}
+                <div className="text-sm text-gray-600">
+                    Showing {(pagination.current_page - 1) * pagination.items_per_page + 1}-
+                    {Math.min(pagination.current_page * pagination.items_per_page, pagination.total_items)}
+                    of {pagination.total_items} businesses
+                </div>
+
+                {/* Pagination buttons */}
+                <div className="flex items-center gap-2">
+                    {/* Previous button */}
+                    <button
+                        onClick={() => goToPage(pagination.prev_page!)}
+                        disabled={!pagination.has_prev_page}
+                        className={`px-4 py-2 rounded border ${pagination.has_prev_page
+                            ? 'bg-white hover:bg-gray-50 text-gray-700 border-gray-300'
+                            : 'bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed'
+                            }`}
+                    >
+                        ← Previous
+                    </button>
+
+                    {/* Page numbers */}
+                    <div className="flex items-center gap-1">
+                        {generatePageNumbers(pagination.current_page, pagination.total_pages).map((pageNum, idx) => (
+                            <React.Fragment key={idx}>
+                                {pageNum === '...' ? (
+                                    <span className="px-2 text-gray-400">...</span>
+                                ) : (
+                                    <button
+                                        onClick={() => goToPage(pageNum as number)}
+                                        className={`w-10 h-10 rounded border flex items-center justify-center ${pageNum === pagination.current_page
+                                            ? 'bg-blue-600 text-white border-blue-600'
+                                            : 'bg-white hover:bg-gray-50 text-gray-700 border-gray-300'
+                                            }`}
+                                    >
+                                        {pageNum}
+                                    </button>
+                                )}
+                            </React.Fragment>
+                        ))}
+                    </div>
+
+                    {/* Next button */}
+                    <button
+                        onClick={() => goToPage(pagination.next_page!)}
+                        disabled={!pagination.has_next_page}
+                        className={`px-4 py-2 rounded border ${pagination.has_next_page
+                            ? 'bg-white hover:bg-gray-50 text-gray-700 border-gray-300'
+                            : 'bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed'
+                            }`}
+                    >
+                        Next →
+                    </button>
+                </div>
+            </div>
+        );
+    };
 
 
 
@@ -244,6 +377,13 @@ const index = () => {
                         <p className="mt-2 text-gray-600">
                             Explore verified {category} services in {city}. View contact info, working hours, and reviews.
                         </p>
+
+                        {/* Total count display */}
+                        {pagination && (
+                            <div className="mt-2 text-sm text-gray-500">
+                                Found {pagination.total_items} businesses
+                            </div>
+                        )}
                     </div>
                     <div className={`grid grid-cols-1 lg:grid-cols-12 gap-6`}>
                         <div className={`md:col-span-8`}>
@@ -251,47 +391,21 @@ const index = () => {
 
                             <div className="mt-6 grid grid-cols-1 gap-4">
                                 {
-                                    businesses?.length > 0 ?
-                                        businesses?.map((b: any, index: number) => (
+                                    data?.length > 0 ?
+                                        data?.map((b: any, index: number) => (
                                             <div className={`group`} key={index}>
                                                 <Link to={`/${b.username !== null && b.username !== '' && b.username !== undefined ? b.username : b.gid}`}>
-                                                    <div key={b.id} className="border-b border-blue-200 py-4">
-                                                        <h2 className={`text-2xl font-normal text-[#1a0dab] group-hover:underline`}>
+                                                    <div key={b.id} className=" border-blue-200 py-4">
 
-                                                            {b.title}
+                                                        <Card
+                                                            key={index}
+                                                            listing={b}
+                                                        />
 
-
-
-                                                        </h2>
-                                                        <p>{b.address_one} {b.address_two && `, ${b.address_two}`}</p>
-
-
-                                                        <div className={`flex gap-2 place-items-start place-content-start`}>
-                                                            <div className={`relative min-w-[40px] w-[40px] h-[40px] bg-blue-300 mt-[5px]`}>
-                                                                <img src={
-                                                                    b.image_url ?
-                                                                        config.IMG_BASE_URL + b.image_url :
-                                                                        fallbackImg
-                                                                }
-                                                                    alt=""
-                                                                    className={`object-cover w-full h-full border`}
-                                                                />
-                                                            </div>
-                                                            <div className={` h-full`}>
-                                                                {b.short_description}
-                                                            </div>
-                                                        </div>
-
-                                                        {
-                                                            b?.phone &&
-                                                            <div className="text-sm mt-2 hover:underline">
-                                                                <a href={`tel:${b.phone}`}>📞 {b.phone}</a>
-                                                            </div>
-                                                        }
-
-                                                        <div className="text-sm mt-2 hover:underline">
-                                                            <a href={`mailto:${b?.email_address}`}>📨 Contact via email: {b?.email_address}</a>
-                                                        </div>
+                                                        {/* <AltCard
+                                                            key={index}
+                                                            b={b}
+                                                        /> */}
 
                                                         <script
                                                             key={`schema-${b.id}`}
@@ -305,10 +419,14 @@ const index = () => {
                                             </div>
                                         )) :
                                         <div className={`text-xl text-[#1a0dab]`}>
-                                            We didn't find any!
+                                            No businesses found in this category and city.
                                         </div>
                                 }
                             </div>
+
+                            {/* Pagination Controls */}
+
+                            {renderPagination()}
                         </div>
                         <div className={`md:col-span-4`}>
 

@@ -6,17 +6,15 @@ const OnlineStatusContext = createContext<boolean | null>(null);
 export function useOnlineStatusContext() {
     const context = useContext(OnlineStatusContext);
 
-    if (context === null) {
-        return null
-        //throw new Error("useOnlineStatusContext must be used within an OnlineStatusProvider");
-    } else {
+    if (context) {
         return context
+        //throw new Error("useOnlineStatusContext must be used within an OnlineStatusProvider");
     }
-
+    return null
 }
 
 export const OnlineStatusProvider = ({ children }: { children: React.ReactNode }) => {
-    const [isOnline, setIsOnline] = useState<boolean>(navigator.onLine);
+    const [isOnline, setIsOnline] = useState<boolean>(navigator?.onLine);
 
     useEffect(() => {
         const updateStatus = () => setIsOnline(navigator.onLine);

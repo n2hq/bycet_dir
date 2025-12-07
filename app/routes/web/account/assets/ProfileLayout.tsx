@@ -16,7 +16,8 @@ import { FiAlertCircle, FiAlertTriangle } from 'react-icons/fi'
 import SearchNavbar from '~/components/header/new/SearchNavbar'
 import SrchNavbar from '~/components/header/new/SrchNavbar'
 import { AuthContextType } from '~/lib/types'
-import MainNav from '~/components/header/latest/MainNav'
+import MainNav from '~/components/header/v1/MainNav'
+
 
 const ProfileLayout = ({ children }: any) => {
     const [show, setShow] = useState(true)
@@ -133,7 +134,7 @@ const ProfileLayout = ({ children }: any) => {
                 className={`text-xl text-white bg-gray-700 p-2 
                 rounded-full hover:bg-gray-700 shadow-lg top-[72px]
                 ${show ? 'left-[295px]' : 'left-[15px]'}
-                focus:outline-none fixed z-50 top-[60px] 
+                focus:outline-none fixed z-[6] top-[60px] 
                 transition-all duration-1000 ease-in-out
                 hidden lg:block`}
             >
@@ -146,7 +147,7 @@ const ProfileLayout = ({ children }: any) => {
                 {/** sidebar */}
                 <aside
                     className={`bg-gray-50 text-gray-900 
-                        h-full overflow-y-auto transition-all z-30
+                        h-full overflow-y-auto transition-all z-0
                         duration-1000 ease-in-out border-r shadow-md
                         hidden lg:block 
                         ${show ? 'w-[350px] min-w-[350px]' : 'w-0 min-w-0 overflow-hidden'}`}

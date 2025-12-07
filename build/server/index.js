@@ -4,17 +4,17 @@ var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "sy
 import { jsx, jsxs, Fragment } from "react/jsx-runtime";
 import { PassThrough } from "node:stream";
 import { createReadableStreamFromReadable } from "@remix-run/node";
-import { RemixServer, useNavigate, useRouteError, Outlet, useNavigation, isRouteErrorResponse, Meta, Links, ScrollRestoration, Scripts, Link, useLocation, useLoaderData, NavLink as NavLink$1, useSearchParams, useParams } from "@remix-run/react";
+import { RemixServer, useNavigate, useRouteError, Outlet, useNavigation, isRouteErrorResponse, Meta, Links, ScrollRestoration, Scripts, Link, useLocation, useLoaderData, useSearchParams, NavLink as NavLink$1, useParams } from "@remix-run/react";
 import { isbot } from "isbot";
 import { renderToPipeableStream } from "react-dom/server";
-import React, { useContext, createContext, useState, useEffect, useRef } from "react";
+import React, { createContext, useContext, useState, useEffect, useRef } from "react";
 import NProgress from "nprogress";
-import { FaSpinner, FaSchool, FaWheelchair, FaSwimmingPool, FaParking, FaTiktok, FaVimeoSquare, FaLinkedinIn, FaWifi, FaSignOutAlt, FaCarSide, FaAngleDown, FaMobile, FaQuestion, FaBriefcase, FaShoppingBag, FaBlenderPhone, FaChevronLeft, FaChevronRight, FaFacebook, FaInstagram, FaStore, FaYoutubeSquare, FaPinterestSquare, FaFacebookSquare } from "react-icons/fa";
+import { FaSpinner, FaSchool, FaWheelchair, FaSwimmingPool, FaParking, FaTiktok, FaVimeoSquare, FaLinkedinIn, FaWifi, FaSignOutAlt, FaCarSide, FaAngleDown, FaMobile, FaQuestion, FaBriefcase, FaHome, FaShoppingBag, FaBlenderPhone, FaSearch, FaChevronLeft, FaChevronRight, FaFacebook, FaInstagram, FaYoutubeSquare, FaPinterestSquare, FaFacebookSquare, FaStore } from "react-icons/fa";
 import CryptoJS from "crypto-js";
-import { BsPersonWheelchair, BsPinterest, BsInstagram, BsTwitterX, BsPersonFillGear, BsPersonFill, BsCircleFill, BsCircle, BsSearchHeart, BsFillBriefcaseFill, BsThreeDotsVertical, BsHouse, BsAirplane, BsStarFill, BsStar, BsBagCheckFill, BsPhone, BsLinkedin, BsBank } from "react-icons/bs";
+import { BsPersonWheelchair, BsPinterest, BsInstagram, BsTwitterX, BsPersonFillGear, BsPersonFill, BsCircleFill, BsCircle, BsSearchHeart, BsHouse, BsAirplane, BsStarFill, BsStar, BsBagCheckFill, BsPhone, BsLinkedin, BsBank } from "react-icons/bs";
 import { CgChart, CgFeed, CgPrinter, CgShoppingCart, CgShoppingBag, CgAirplane, CgGym, CgFacebook, CgMoreVertical, CgChevronDown, CgChevronRight, CgPhone, CgMenu, CgWebsite, CgBandAid } from "react-icons/cg";
 import { GrLanguage, GrRestaurant, GrCloudComputer, GrCafeteria, GrLounge, GrWheelchairActive, GrYoutube, GrClose, GrLaunch } from "react-icons/gr";
-import { BiHotel, BiFoodMenu, BiWine, BiLibrary, BiSpa, BiChevronLeft, BiChevronRight, BiSearch, BiBriefcase, BiUser, BiSolidRightArrow, BiHome, BiCategory, BiMenu, BiBullseye, BiWorld, BiLock, BiCopyright, BiSolidStar, BiPhone, BiSolidUser, BiBuilding, BiEditAlt } from "react-icons/bi";
+import { BiHotel, BiFoodMenu, BiWine, BiLibrary, BiSpa, BiChevronLeft, BiChevronRight, BiSearch, BiBriefcase, BiUser, BiSolidRightArrow, BiHome, BiCategory, BiMenu, BiBullseye, BiLock, BiCopyright, BiSolidStar, BiPhone, BiSolidUser, BiBuilding, BiEditAlt } from "react-icons/bi";
 import { FcLandscape, FcAutomotive, FcBusiness, FcSettings, FcHome, FcBusinessman } from "react-icons/fc";
 import { GiFemaleLegs, GiHumanTarget, GiHealthNormal, GiPadlock, GiStarGate, GiKnifeFork } from "react-icons/gi";
 import { IoMdMusicalNotes } from "react-icons/io";
@@ -30,7 +30,7 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAudible, faFacebookSquare, faInstagram, faTwitterSquare, faLinkedin, faYoutubeSquare } from "@fortawesome/free-brands-svg-icons";
 import { Link as Link$1 } from "react-router-dom";
-import { LuSearch } from "react-icons/lu";
+import { useNavigate as useNavigate$1, useLocation as useLocation$1 } from "react-router";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import tzLookup from "tz-lookup";
@@ -667,13 +667,13 @@ const facilityFeatures = [
   }
 ];
 const config = {
-  BASE_URL: "https://index.bycet.com",
-  IMG_BASE_URL: "https://pics.gasimg.com",
+  BASE_URL: "https://testindex.bycet.com",
+  IMG_BASE_URL: "https://tpics.gasimg.com",
   MAIL_SERVICE: "https://mailsvc.gasimg.com/emailservice/",
-  SITENAME: "Garssete",
-  FORMATTED_SITENAME: "Garssete",
+  SITENAME: "Bycet",
+  FORMATTED_SITENAME: "Bycet",
   SESSION_SECRET: void 0,
-  ENV: "prod"
+  ENV: "test"
 };
 const appConfig = {
   NAVBAR_HEIGHT: 0,
@@ -918,7 +918,7 @@ const getBusinessProfileBgData = async (guid) => {
   }
 };
 const getBusinessGallery = async (businessGuid) => {
-  const BASE_URL = "https://index.bycet.com";
+  const BASE_URL = "https://testindex.bycet.com";
   const endpoint = `/api/listing/business_gallery/${businessGuid}`;
   const url = BASE_URL + endpoint;
   try {
@@ -976,7 +976,7 @@ const getPage = async (criteria) => {
   }
 };
 const getBusinessRatings = async (businessGuid) => {
-  const BASE_URL = "https://index.bycet.com";
+  const BASE_URL = "https://testindex.bycet.com";
   const endpoint = `/api/rating/business_ratings/${businessGuid}`;
   const url = BASE_URL + endpoint;
   try {
@@ -1013,7 +1013,7 @@ const getLocalDate = (date) => {
   return formatted;
 };
 const getBusinessFeatures = async (businessGuid) => {
-  const BASE_URL = "https://index.bycet.com";
+  const BASE_URL = "https://testindex.bycet.com";
   const endpoint = `/api/listing/business_facility_features/${businessGuid}`;
   const url = BASE_URL + endpoint;
   try {
@@ -1175,7 +1175,7 @@ const getCategories = async () => {
   }
 };
 const getUserProfile = async (guid) => {
-  const BASE_URL = "https://index.bycet.com";
+  const BASE_URL = "https://testindex.bycet.com";
   const endpoint = "/api/user/" + guid;
   const url = BASE_URL + endpoint;
   try {
@@ -1264,7 +1264,7 @@ const getPortfolio = async (guid, q) => {
   }
 };
 const getOperatingHours = async (businessGuid, userGuid) => {
-  const BASE_URL = "https://index.bycet.com";
+  const BASE_URL = "https://testindex.bycet.com";
   const endpoint = `/api/listing/operating_hours?business_guid=${businessGuid}&user_guid=${userGuid}`;
   const url = BASE_URL + endpoint;
   try {
@@ -1289,7 +1289,7 @@ const getOperatingHours = async (businessGuid, userGuid) => {
   }
 };
 const saveOperatingHours = async (openStatus, workingHours, businessGuid, userGuid) => {
-  const BASE_URL = "https://index.bycet.com";
+  const BASE_URL = "https://testindex.bycet.com";
   const endpoint = `/api/listing/operating_hours?business_guid=${businessGuid}&user_guid=${userGuid}`;
   const url = BASE_URL + endpoint;
   try {
@@ -1360,7 +1360,7 @@ const getSysFacilityFeatures = async () => {
   }
 };
 const getSelectedFacilityFeatures = async (userGuid, businessGuid) => {
-  const BASE_URL = "https://index.bycet.com";
+  const BASE_URL = "https://testindex.bycet.com";
   const endpoint = `/api/listing/selected_facility_features/${userGuid}/${businessGuid}`;
   const url = BASE_URL + endpoint;
   try {
@@ -1535,8 +1535,7 @@ const sendEmail = async (data) => {
 function escapeRegex(str) {
   return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
-const IsAuthenticated = (localStorage2) => {
-  const tokens = localStorage2.getItem("authTokens");
+const IsAuthenticated = (tokens) => {
   if (tokens === null) {
     window.location.href = "/web/signin";
   }
@@ -1761,8 +1760,8 @@ const logError = (e) => {
     console.log(e.message);
   }
 };
-const getBusinessByCategoryAndCity = async (category, city) => {
-  const endpoint = `/api/listing/category_city/${category}/${city}`;
+const getBusinessByCategoryAndCity = async (category, city, page) => {
+  const endpoint = `/api/listing/category_city/${category}/${city}?page=${page}`;
   const url = config.BASE_URL + endpoint;
   try {
     const response = await fetch(
@@ -1805,14 +1804,58 @@ const getBusinessCategoryAndCity = async () => {
     return void 0;
   }
 };
+const getBusinessCategory = async () => {
+  const endpoint = `/api/listing/cat_sitexml`;
+  const url = config.BASE_URL + endpoint;
+  try {
+    const response = await fetch(
+      url,
+      {
+        method: "GET",
+        headers: headers$1
+      }
+    );
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const data = await response.json();
+    return new Promise((resolve) => setTimeout(() => {
+      resolve(data);
+    }, 10));
+  } catch (error) {
+    return void 0;
+  }
+};
 const sanitizeWord = (url) => {
   return url.trim().replace(/\s+/g, "-").toLowerCase();
 };
 const convertDashToSpace = (str) => {
   return str.replace(/-/g, " ");
 };
+const getBusinessByCategory = async (category, page) => {
+  const endpoint = `/api/listing/category/${category}?page=${page}`;
+  const url = config.BASE_URL + endpoint;
+  try {
+    const response = await fetch(
+      url,
+      {
+        method: "GET",
+        headers: headers$1
+      }
+    );
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const data = await response.json();
+    return new Promise((resolve) => setTimeout(() => {
+      resolve(data);
+    }, 10));
+  } catch (error) {
+    return void 0;
+  }
+};
 const AuthContext = createContext(null);
-const SITE_BASE_URL = "https://index.bycet.com";
+const SITE_BASE_URL = "https://testindex.bycet.com";
 function useAuth() {
   const context = useContext(AuthContext);
   if (context)
@@ -1925,7 +1968,7 @@ function AuthProvider({ children }) {
     window.location.reload();
   };
   const resetpw = async (data) => {
-    const BASE_URL = "https://index.bycet.com";
+    const BASE_URL = "https://testindex.bycet.com";
     const endpoint2 = "/api/user/reset_password_request";
     const url = BASE_URL + endpoint2;
     try {
@@ -1967,7 +2010,7 @@ function useSliderContext() {
   const context = useContext(SliderContext);
   return context;
 }
-const IMG_BASE_URL$1 = "https://pics.gasimg.com";
+const IMG_BASE_URL$1 = "https://tpics.gasimg.com";
 const SliderProvider = ({ children }) => {
   const [dialog, setDialog] = useState(false);
   const [selectedSlide, setSelectedSlide] = useState(null);
@@ -2385,7 +2428,7 @@ function AddPhotoDialogProvider({ children }) {
       formData.append("image_title", imageTitle.value);
       showOperation("processing", "Saving picture");
       await new Promise((resolve) => setTimeout(resolve, 2e3));
-      const IMG_BASE_URL2 = "https://pics.gasimg.com";
+      const IMG_BASE_URL2 = "https://tpics.gasimg.com";
       const endpoint = "/business_gallery_pic_upload";
       const url = IMG_BASE_URL2 + endpoint;
       try {
@@ -2546,7 +2589,7 @@ function EditPhotoDialogProvider({ children }) {
     formData2.append("bid", businessGuid);
     formData2.append("image_title", imageTitle2.value);
     formData2.append("image_guid", imageGuid);
-    const IMG_BASE_URL2 = "https://pics.gasimg.com";
+    const IMG_BASE_URL2 = "https://tpics.gasimg.com";
     const endpoint = "/business_gallery_pic_update";
     const url = IMG_BASE_URL2 + endpoint;
     try {
@@ -2576,7 +2619,7 @@ function EditPhotoDialogProvider({ children }) {
     }
   };
   const deletePhoto = async (userGuid2, businessGuid2, imageGuid2) => {
-    const IMG_BASE_URL2 = "https://pics.gasimg.com";
+    const IMG_BASE_URL2 = "https://tpics.gasimg.com";
     const endpoint = `/delete_business_gallery_pic`;
     const url = IMG_BASE_URL2 + endpoint;
     const data = {
@@ -3488,7 +3531,7 @@ function EditVideoDialogProvider({ children }) {
 }
 const OnlineStatusContext = createContext(null);
 const OnlineStatusProvider = ({ children }) => {
-  const [isOnline, setIsOnline] = useState(navigator.onLine);
+  const [isOnline, setIsOnline] = useState(navigator == null ? void 0 : navigator.onLine);
   useEffect(() => {
     const updateStatus = () => setIsOnline(navigator.onLine);
     window.addEventListener("online", updateStatus);
@@ -3656,14 +3699,7 @@ function Layout$1({ children }) {
       /* @__PURE__ */ jsx("meta", { charSet: "utf-8" }),
       /* @__PURE__ */ jsx("meta", { name: "viewport", content: "width=device-width, initial-scale=1" }),
       /* @__PURE__ */ jsx("link", { rel: "icon", href: "/bycetlogo.png?v=3", type: "image/png" }),
-      /* @__PURE__ */ jsx(
-        "script",
-        {
-          async: true,
-          src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
-          crossOrigin: "anonymous"
-        }
-      ),
+      false,
       /* @__PURE__ */ jsx(Meta, {}),
       /* @__PURE__ */ jsx(Links, {})
     ] }),
@@ -3684,6 +3720,72 @@ const route0 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   default: App,
   headers,
   links
+}, Symbol.toStringTag, { value: "Module" }));
+const loader$16 = async ({ params }) => {
+  const baseUrl = config.BASE_URL;
+  const items = await getBusinessCategoryAndCity();
+  const homeUrl = `<url>
+    <loc>${baseUrl}</loc>
+    <lastmod>${(/* @__PURE__ */ new Date()).toISOString()}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>`;
+  const urls = items == null ? void 0 : items.map(
+    (item, index2) => `<url>
+        <loc>${baseUrl}/web/category/${sanitizeWord(item.category)}/city/${sanitizeWord(item.city)}</loc>
+        <lastmod>${(/* @__PURE__ */ new Date()).toISOString()}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>`
+  ).join("");
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    ${homeUrl}  
+    ${urls}
+  </urlset>`;
+  return new Response(sitemap, {
+    headers: {
+      "Content-Type": "application/xml",
+      "Cache-Control": "public, max-age=3600"
+    }
+  });
+};
+const route1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  loader: loader$16
+}, Symbol.toStringTag, { value: "Module" }));
+const loader$15 = async ({ params }) => {
+  const baseUrl = config.BASE_URL;
+  const items = await getBusinessCategory();
+  const homeUrl = `<url>
+    <loc>${baseUrl}</loc>
+    <lastmod>${(/* @__PURE__ */ new Date()).toISOString()}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>`;
+  const urls = items == null ? void 0 : items.map(
+    (item, index2) => `<url>
+        <loc>${baseUrl}/web/category/${sanitizeWord(item.category)}</loc>
+        <lastmod>${(/* @__PURE__ */ new Date()).toISOString()}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>`
+  ).join("");
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    ${homeUrl}  
+    ${urls}
+  </urlset>`;
+  return new Response(sitemap, {
+    headers: {
+      "Content-Type": "application/xml",
+      "Cache-Control": "public, max-age=3600"
+    }
+  });
+};
+const route2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  loader: loader$15
 }, Symbol.toStringTag, { value: "Module" }));
 const HomeNav = () => {
   const [scrollHeight, setScrollHeight] = useState(1);
@@ -3728,7 +3830,7 @@ const DarkLogo = () => {
                 cursor-pointer tracking-tight relative
                 top-[-1px] font-poppins`, children: getSiteLogo() }) });
 };
-const Hamburger = ({ theme, openNav, navBg }) => {
+const Hamburger$1 = ({ theme, openNav, navBg }) => {
   return /* @__PURE__ */ jsx(Fragment, { children: /* @__PURE__ */ jsx(
     "div",
     {
@@ -3994,7 +4096,7 @@ const MobileNav = ({
     ] })
   ] }) });
 };
-const AccountSettings = () => {
+const AccountSettings$1 = () => {
   return /* @__PURE__ */ jsx(Link, { to: `/web/account/profile`, children: /* @__PURE__ */ jsxs("div", { className: `flex hover:bg-gray-100 px-[10px] py-[5px] 
         hover:cursor-pointer gap-2 place-items-center`, children: [
     /* @__PURE__ */ jsx("div", { className: `bg-gray-200 h-[30px] w-[30px] rounded-full
@@ -4002,7 +4104,7 @@ const AccountSettings = () => {
     /* @__PURE__ */ jsx("div", { className: `truncate text-[13px] text-gray-500`, children: "Account & Settings" })
   ] }) });
 };
-const AccountSignout = () => {
+const AccountSignout$1 = () => {
   const auth = useAuth();
   if (!auth) {
     return null;
@@ -4022,7 +4124,7 @@ const AccountSignout = () => {
     }
   );
 };
-const AccountUser = () => {
+const AccountUser$1 = () => {
   const auth = useAuth();
   if (!auth) {
     return null;
@@ -4058,19 +4160,19 @@ const AccountUser = () => {
                     text-gray-500`, children: name })
   ] }) });
 };
-const DropDown = ({ open }) => {
+const DropDown$1 = ({ open }) => {
   return /* @__PURE__ */ jsx("div", { children: open && /* @__PURE__ */ jsx("div", { className: `absolute z-[1000]`, children: /* @__PURE__ */ jsx("div", { className: `relative`, children: /* @__PURE__ */ jsx("div", { className: `absolute right-[-25px] top-[5px]`, children: /* @__PURE__ */ jsxs("div", { className: `w-[250px] bg-white rounded-xl p-[5px] 
                             shadow-lg
                                 shadow-black/30`, children: [
-    /* @__PURE__ */ jsx(AccountUser, {}),
+    /* @__PURE__ */ jsx(AccountUser$1, {}),
     /* @__PURE__ */ jsx("div", { className: `px-[10px] my-1`, children: /* @__PURE__ */ jsx("hr", {}) }),
     /* @__PURE__ */ jsxs("div", { children: [
-      /* @__PURE__ */ jsx(AccountSettings, {}),
-      /* @__PURE__ */ jsx(AccountSignout, {})
+      /* @__PURE__ */ jsx(AccountSettings$1, {}),
+      /* @__PURE__ */ jsx(AccountSignout$1, {})
     ] })
   ] }) }) }) }) });
 };
-const AccountUserImage = ({ userProfileImgData }) => {
+const AccountUserImage$1 = ({ userProfileImgData }) => {
   const auth = useAuth();
   if (!auth) {
     return null;
@@ -4124,10 +4226,10 @@ const UserMenu = ({ theme, userProfileImgData }) => {
         className: `w-[30px] h-[30px] bg-gray-400 hover:bg-gray-300 rounded-full text-white
                 flex place-items-center place-content-center text-[13px]
                 relative cursor-pointer`,
-        children: userProfileImgData !== null ? /* @__PURE__ */ jsx(AccountUserImage, { userProfileImgData }) : /* @__PURE__ */ jsx(BiUser, { className: `object-cover w-[80%] h-[80%]` })
+        children: userProfileImgData !== null ? /* @__PURE__ */ jsx(AccountUserImage$1, { userProfileImgData }) : /* @__PURE__ */ jsx(BiUser, { className: `object-cover w-[80%] h-[80%]` })
       }
     ) : /* @__PURE__ */ jsx(Link, { to: `/web/signin`, children: /* @__PURE__ */ jsx("button", { className: `text-black border-white/50 border rounded-full border-gray-600 bg-blue-200  hover:text-white text-[12px] px-3 py-[5px] tracking-tigher font-bold hover:bg-blue-200/20`, children: "Sign In" }) }),
-    /* @__PURE__ */ jsx(DropDown, { open })
+    /* @__PURE__ */ jsx(DropDown$1, { open })
   ] });
 };
 const HeaderNav$1 = () => {
@@ -4165,7 +4267,7 @@ const HeaderNav$1 = () => {
                      lg:flex  w-full`, children: /* @__PURE__ */ jsx(Link, { to: `/web/search`, children: "Search" }) }),
       /* @__PURE__ */ jsx("div", { className: `flex place-items-center `, children: /* @__PURE__ */ jsxs("div", { className: `flex place-items-center gap-4`, children: [
         /* @__PURE__ */ jsx(UserMenu, { theme: "dark" }),
-        /* @__PURE__ */ jsx(Hamburger, { theme: "dark", openNav, navBg })
+        /* @__PURE__ */ jsx(Hamburger$1, { theme: "dark", openNav, navBg })
       ] }) })
     ] }) }),
     /* @__PURE__ */ jsx(
@@ -4380,7 +4482,7 @@ const Recents = ({
   const [ti, setTi] = useState("");
   const [st, setSt] = useState("");
   const [listings, setListings] = useState([]);
-  const IMG_BASE_URL2 = "https://pics.gasimg.com";
+  const IMG_BASE_URL2 = "https://tpics.gasimg.com";
   useEffect(() => {
     if (title && subtitle) {
       setTi(title);
@@ -4503,12 +4605,6 @@ const Footer = () => {
     ] }) })
   ] });
 };
-const adInfo = {
-  adslot: "1234567890"
-};
-const testAdInfo = {
-  adslot: "1234567890"
-};
 const lnks = [
   { title: "Browse", lnk: "/web/browse", icon: /* @__PURE__ */ jsx(BsSearchHeart, {}) },
   { title: "Terms", lnk: "/web/terms", icon: /* @__PURE__ */ jsx(BiBriefcase, {}) },
@@ -4521,24 +4617,11 @@ function TopAd() {
   const [adsLoaded, setAdsLoaded] = useState(false);
   useEffect(() => {
   }, []);
-  if (!adsLoaded) {
+  {
     return null;
   }
-  return /* @__PURE__ */ jsxs(
-    "div",
-    {
-      className: `max-w-[1000px] min-h-[90px] bg-blue-50
-                mx-auto w-full mt-4 flex place-items-center 
-                place-content-center font-light text-[14px]
-                `,
-      children: [
-        "Ads by google",
-        adInfo.adslot !== testAdInfo.adslot
-      ]
-    }
-  );
 }
-const meta$5 = () => {
+const meta$8 = () => {
   return [
     { title: "Garssete | Business Directory, Travel, Real Estate, Hotels & Restaurants!" },
     { name: "Garssete", content: "Welcome to Garssete!" }
@@ -4564,10 +4647,10 @@ const _index$2 = () => {
     /* @__PURE__ */ jsx(Footer, {})
   ] });
 };
-const route1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: _index$2,
-  meta: meta$5
+  meta: meta$8
 }, Symbol.toStringTag, { value: "Module" }));
 const HamburgerSecondary = ({ theme, openNav, navBg }) => {
   return /* @__PURE__ */ jsx(Fragment, { children: /* @__PURE__ */ jsx(
@@ -5136,7 +5219,7 @@ const FooterSection = () => {
     /* @__PURE__ */ jsx("div", { className: `mt-8 text-center text-sm text-gray-500 flex md:justify-center space-x-4 flex-col md:flex-row`, children: /* @__PURE__ */ jsx("span", { children: "@Garssete. All rights reserved." }) })
   ] }) });
 };
-const meta$4 = () => {
+const meta$7 = () => {
   return [
     { title: "Garssete | Business Directory, Travel, Real Estate, Hotels & Restaurants!" },
     { name: "Garssete", content: "Welcome to Garssete!" }
@@ -5151,18 +5234,113 @@ const _index$1 = () => {
     /* @__PURE__ */ jsx(FooterSection, {})
   ] });
 };
-const route2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route4 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: _index$1,
-  meta: meta$4
+  meta: meta$7
 }, Symbol.toStringTag, { value: "Module" }));
-const meta$3 = () => {
+const siteUrls = [
+  {
+    title: "Home",
+    url: "/",
+    changeFrequency: "daily",
+    priority: 1
+  },
+  {
+    title: "Search",
+    url: "/web/search",
+    changeFrequency: "daily",
+    priority: 0.9
+  },
+  {
+    title: "Contact",
+    url: "/web/contact",
+    changeFrequency: "monthly",
+    priority: 0.6
+  },
+  {
+    title: "Terms of Service",
+    url: "/web/terms",
+    changeFrequency: "yearly",
+    priority: 0.4
+  },
+  {
+    title: "Privacy",
+    url: "/web/privacy",
+    changeFrequency: "yearly",
+    priority: 0.4
+  },
+  {
+    title: "Responsible Disclosure",
+    url: "/web/responsible-disclosure",
+    changeFrequency: "yearly",
+    priority: 0.4
+  },
+  {
+    title: "Copyright",
+    url: "/web/copyright",
+    changeFrequency: "yearly",
+    priority: 0.3
+  },
+  {
+    title: "Signup",
+    url: "/web/signup",
+    changeFrequency: "monthly",
+    priority: 0.7
+  },
+  {
+    title: "Signin",
+    url: "/web/signin",
+    changeFrequency: "yearly",
+    priority: 0.7
+  },
+  {
+    title: "Reset Password",
+    url: "/web/reset-password",
+    changeFrequency: "yearly",
+    priority: 0.6
+  }
+];
+const loader$14 = async ({ params }) => {
+  const baseUrl = config.BASE_URL;
+  `<url>
+    <loc>${baseUrl}</loc>
+    <lastmod>${(/* @__PURE__ */ new Date()).toISOString()}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>`;
+  const urls = siteUrls == null ? void 0 : siteUrls.map(
+    (item, index2) => `<url>
+            <loc>${baseUrl}${item.url}</loc>
+            <lastmod>${(/* @__PURE__ */ new Date()).toISOString()}</lastmod>
+            <changefreq>${item.changeFrequency}</changefreq>
+            <priority>${item.priority}</priority>
+          </url>`
+  ).join("");
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    
+    ${urls}
+  </urlset>`;
+  return new Response(sitemap, {
+    headers: {
+      "Content-Type": "application/xml",
+      "Cache-Control": "public, max-age=3600"
+    }
+  });
+};
+const route5 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  loader: loader$14,
+  siteUrls
+}, Symbol.toStringTag, { value: "Module" }));
+const meta$6 = () => {
   return [
     { title: "New Remix App" },
     { name: "description", content: "Welcome to Remix!" }
   ];
 };
-function Index$4() {
+function Index$5() {
   return /* @__PURE__ */ jsxs("div", { children: [
     /* @__PURE__ */ jsx(HeaderNav, {}),
     /* @__PURE__ */ jsx(HomepageHero, {}),
@@ -5213,7 +5391,7 @@ const HeaderNav = () => {
           w-full lg:flex`, children: /* @__PURE__ */ jsx(Link, { to: `/web/search`, children: "Search" }) }),
       /* @__PURE__ */ jsx("div", { className: `flex place-items-center`, children: /* @__PURE__ */ jsxs("div", { className: `flex place-items-center gap-4`, children: [
         /* @__PURE__ */ jsx(UserMenu, { theme: "dark" }),
-        /* @__PURE__ */ jsx(Hamburger, { theme: "dark", openNav, navBg })
+        /* @__PURE__ */ jsx(Hamburger$1, { theme: "dark", openNav, navBg })
       ] }) })
     ] }) }),
     /* @__PURE__ */ jsx(
@@ -5399,95 +5577,59 @@ const FrontPageCategories = () => {
     }) })
   ] }) });
 };
-const route3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route6 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   FrontPageCategories,
   HeaderNav,
   HomepageHero,
-  default: Index$4,
-  meta: meta$3
+  default: Index$5,
+  meta: meta$6
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$_ = async ({ params }) => {
+const loader$13 = async () => {
   const baseUrl = config.BASE_URL;
-  const items = await getBusinessCategoryAndCity();
-  const homeUrl = `<url>
-    <loc>${baseUrl}</loc>
-    <lastmod>${(/* @__PURE__ */ new Date()).toISOString()}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>`;
-  const urls = items == null ? void 0 : items.map(
-    (item, index2) => `<url>
-        <loc>${baseUrl}/web/${sanitizeWord(item.category)}/${sanitizeWord(item.city)}</loc>
-        <lastmod>${(/* @__PURE__ */ new Date()).toISOString()}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-      </url>`
-  ).join("");
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    ${homeUrl}  
-    ${urls}
-  </urlset>`;
-  return new Response(sitemap, {
+  const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
+  <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+    <sitemap>
+      <loc>${baseUrl}/sitemap-main.xml</loc>
+      <lastmod>${(/* @__PURE__ */ new Date()).toISOString().split("T")[0]}</lastmod>
+    </sitemap>  
+
+    <sitemap>
+      <loc>${baseUrl}/sitemap-categories.xml</loc>
+      <lastmod>${(/* @__PURE__ */ new Date()).toISOString().split("T")[0]}</lastmod>
+    </sitemap>
+
+    <sitemap>
+      <loc>${baseUrl}/sitemap-categories-cities.xml</loc>
+      <lastmod>${(/* @__PURE__ */ new Date()).toISOString().split("T")[0]}</lastmod>
+    </sitemap>
+  </sitemapindex>`;
+  return new Response(sitemapContent, {
     headers: {
       "Content-Type": "application/xml",
       "Cache-Control": "public, max-age=3600"
     }
   });
 };
-const route4 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route7 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  loader: loader$_
+  loader: loader$13
 }, Symbol.toStringTag, { value: "Module" }));
-const MainLogo = () => {
-  return /* @__PURE__ */ jsx(Fragment, { children: /* @__PURE__ */ jsx(Link, { to: "/", children: /* @__PURE__ */ jsxs("div", { className: `flex place-items-center w-fit text-[21px] tracking-tight gap-[2px] font-extrabold font-sans place-content-between`, children: [
-    /* @__PURE__ */ jsxs("div", { className: `text-blue-800 first-letter:`, children: [
-      /* @__PURE__ */ jsx("i", { children: "b" }),
-      "ycet."
-    ] }),
-    /* @__PURE__ */ jsxs("div", { className: ``, children: [
-      /* @__PURE__ */ jsx("span", { className: "italic font-serif", children: "i" }),
-      "ndex"
-    ] })
-  ] }) }) });
-};
-const SigninButton = () => {
-  const [open, setOpen] = useState(false);
-  const auth = useAuth();
-  if (!auth) {
-    return null;
-  }
-  const { user } = auth;
-  const showMenu = () => setOpen(true);
-  const closeMenu = async () => {
-    await new Promise((resolve) => setTimeout(resolve, 300));
-    setOpen(false);
-  };
-  const [userProfileImgData, setUserProfileImgData] = useState(null);
-  useEffect(() => {
-    const getUserImageData = async (guid) => {
-      const userProfile = await getUserProfileImageData(guid);
-      setUserProfileImgData(userProfile);
-    };
-    if ((user == null ? void 0 : user.guid) !== null && (user == null ? void 0 : user.guid) !== void 0) {
-      getUserImageData(user == null ? void 0 : user.guid);
-    }
-  }, [user]);
-  return /* @__PURE__ */ jsxs("div", { className: ``, children: [
-    auth.user ? /* @__PURE__ */ jsx(
-      "button",
-      {
-        onClick: (e) => showMenu(),
-        onBlur: (e) => closeMenu(),
-        className: `w-[30px] h-[30px] bg-gray-400 hover:bg-gray-300 rounded-full text-white flex place-items-center place-content-center text-[13px] relative cursor-pointer`,
-        children: userProfileImgData !== null ? /* @__PURE__ */ jsx(AccountUserImage, { userProfileImgData }) : /* @__PURE__ */ jsx(BiUser, { className: `object-cover w-[80%] h-[80%]` })
-      }
-    ) : /* @__PURE__ */ jsx(Link, { to: `/web/signin`, children: /* @__PURE__ */ jsx("button", { className: ` w-[70px] h-[35px] border rounded-full`, children: "Sign in" }) }),
-    /* @__PURE__ */ jsx(DropDown, { open })
-  ] });
+const HeaderLogo = () => {
+  return /* @__PURE__ */ jsx("div", { className: `text-3xl font-extrabold font-sans tracking-tight text-[#6001D2]`, children: /* @__PURE__ */ jsxs(Link, { to: `/`, children: [
+    /* @__PURE__ */ jsx("i", { children: "b" }),
+    "ycet"
+  ] }) });
 };
 const MainNavContext = createContext(null);
+const useMainNav = () => {
+  const mainnav = useContext(MainNavContext);
+  if (mainnav) {
+    return mainnav;
+  }
+  return null;
+};
 const MainNavProvider = ({ children }) => {
   const [clickSearch, setClickSearch] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -5502,24 +5644,14 @@ const MainNavProvider = ({ children }) => {
 };
 const moremenu = [
   {
-    title: `Bycet`,
-    url: "http://Bycet.com",
-    icon: /* @__PURE__ */ jsx(BiWorld, {})
-  },
-  {
-    title: " Index",
+    title: `Home`,
     url: "/",
-    icon: /* @__PURE__ */ jsx(BiHome, {})
+    icon: /* @__PURE__ */ jsx(FaHome, {})
   },
   {
     title: "Search",
     url: `${appConfig.searchBaseUrl}`,
     icon: /* @__PURE__ */ jsx(BiSearch, {})
-  },
-  {
-    title: "About",
-    url: "/web/about",
-    icon: /* @__PURE__ */ jsx(BsFillBriefcaseFill, {})
   },
   {
     title: "Contact",
@@ -5574,9 +5706,9 @@ const MobileMenu = ({ openMenu, closeNav }) => {
         className: `transform fixed transition-all duration-500 inset-0 z-4000 bg-black opacity-20 w-full ${bgOverlay}`
       }
     ),
-    /* @__PURE__ */ jsx("div", { className: `transform transition-all duration-500 delay-0 fixed justify-start h-full w-full md:w-[300px] bg-white z-4001 overflow-y-auto top-0 left-0 text-black ${navOpen} ${openMenu ? "shadow-lg shadow-black/50" : ""} bg-[url(https://unbound.radiantthemes.com/wp-content/uploads/2022/03/Banner-Image.png?id=8229)]`, children: /* @__PURE__ */ jsxs("div", { className: `bg-transparent `, children: [
+    /* @__PURE__ */ jsx("div", { className: `transform transition-all duration-500 delay-0 fixed justify-start h-full w-full md:w-[320px] bg-white z-[4001] overflow-y-auto top-0 left-0 text-black ${navOpen} ${openMenu ? "shadow-lg shadow-black/50" : ""} bg-[url(https://unbound.radiantthemes.com/wp-content/uploads/2022/03/Banner-Image.png?id=8229)]`, children: /* @__PURE__ */ jsxs("div", { className: `bg-transparent `, children: [
       /* @__PURE__ */ jsxs("div", { className: ` px-4 md:pl-12 flex place-content-between h-[60px] place-items-center`, children: [
-        /* @__PURE__ */ jsx("div", { className: "h-full flex justify-center items-center", children: /* @__PURE__ */ jsx(MainLogo, {}) }),
+        /* @__PURE__ */ jsx("div", { className: "h-full flex justify-center items-center", children: /* @__PURE__ */ jsx(HeaderLogo, {}) }),
         /* @__PURE__ */ jsx("div", { className: "h-full flex justify-center items-center cursor-pointer", children: /* @__PURE__ */ jsx(
           "div",
           {
@@ -5622,113 +5754,506 @@ const VerticalMenu = ({ menuData, closeNav }) => {
     ) }) }, index2);
   }) });
 };
-const HamburgerMenu = () => {
-  const mainMenuContext = useContext(MainNavContext);
-  if (!mainMenuContext) {
-    return null;
-  }
-  const menuCtx = mainMenuContext;
-  return /* @__PURE__ */ jsxs("div", { children: [
-    /* @__PURE__ */ jsx("div", { className: `z-[1000]`, children: /* @__PURE__ */ jsx(MobileMenu, { openMenu: menuCtx.isOpen, closeNav: menuCtx.closeMenu }) }),
+const Hamburger = () => {
+  const menuCtx = useMainNav();
+  return /* @__PURE__ */ jsxs("div", { className: `text-2xl`, children: [
+    /* @__PURE__ */ jsx("div", { className: `z-[10000]`, children: /* @__PURE__ */ jsx(MobileMenu, { openMenu: menuCtx == null ? void 0 : menuCtx.isOpen, closeNav: menuCtx == null ? void 0 : menuCtx.closeMenu }) }),
     /* @__PURE__ */ jsx(
       "div",
       {
-        className: `text-2xl w-[32px] h-[32px] flex place-items-center place-content-center rounded-full hover:cursor-pointer bg-gray-100 hover:bg-gray-200`,
-        onClick: () => menuCtx.showMenu(),
+        className: `cursor-pointer`,
+        onClick: () => menuCtx == null ? void 0 : menuCtx.showMenu(),
         children: /* @__PURE__ */ jsx(CgMenu, {})
       }
     )
   ] });
 };
-const MainSearch = () => {
-  const location = useLocation();
-  const params = new URLSearchParams(location.search);
-  const query2 = params.get("q") || "";
-  return /* @__PURE__ */ jsx(Fragment, { children: /* @__PURE__ */ jsxs("form", { action: appConfig.searchBaseUrl, className: `bg-gray-100 rounded-full h-[40px] flex place-items-center pl-[20px] gap-2 max-w-[50%] grow group hover:shadow hover:bg-white`, children: [
-    /* @__PURE__ */ jsx(
-      "input",
+const AccountUser = () => {
+  const auth = useAuth();
+  if (!auth) {
+    return null;
+  }
+  const { user } = auth;
+  const [name, setName] = useState("");
+  const [userProfileImgData, setUserProfileImgData] = useState(null);
+  useEffect(() => {
+    setName((user == null ? void 0 : user.first_name) + " " + (user == null ? void 0 : user.last_name));
+  }, [user]);
+  useEffect(() => {
+    const getUserImageData = async (guid) => {
+      const userProfile = await getUserProfileImageData(guid);
+      setUserProfileImgData(userProfile);
+    };
+    if ((user == null ? void 0 : user.guid) !== null) {
+      getUserImageData(user == null ? void 0 : user.guid);
+    }
+  }, [user]);
+  return /* @__PURE__ */ jsx(Link, { to: `/web/account/profile`, children: /* @__PURE__ */ jsxs("div", { className: `flex hover:bg-gray-100 px-[10px] py-[5px] 
+        hover:cursor-pointer gap-2 place-items-center`, children: [
+    /* @__PURE__ */ jsx("div", { className: ` relative h-[30px] w-[30px] rounded-full
+                    overflow-hidden flex place-content-center place-items-center
+                    bg-white`, children: (userProfileImgData == null ? void 0 : userProfileImgData.image_url) ? /* @__PURE__ */ jsx(
+      "img",
       {
-        type: "text",
-        name: "q",
-        defaultValue: query2,
-        className: `w-full bg-transparent outline-none`,
-        placeholder: "Search businesses..."
+        className: `object-cover w-full h-full`,
+        src: config.IMG_BASE_URL + (userProfileImgData == null ? void 0 : userProfileImgData.image_url),
+        alt: ""
+      }
+    ) : /* @__PURE__ */ jsx(BiUser, { className: `object-cover w-[70%] h-[70%]` }) }),
+    /* @__PURE__ */ jsx("div", { className: `truncate text-[13px] inline-block
+                    text-gray-500`, children: name })
+  ] }) });
+};
+const AccountSettings = () => {
+  return /* @__PURE__ */ jsx(Link, { to: `/web/account/profile`, children: /* @__PURE__ */ jsxs("div", { className: `flex hover:bg-gray-100 px-[10px] py-[5px] 
+        hover:cursor-pointer gap-2 place-items-center`, children: [
+    /* @__PURE__ */ jsx("div", { className: `bg-gray-200 h-[30px] w-[30px] rounded-full
+                flex place-items-center place-content-center border`, children: /* @__PURE__ */ jsx(FcSettings, { className: `text-[20px]` }) }),
+    /* @__PURE__ */ jsx("div", { className: `truncate text-[13px] text-gray-500`, children: "Account & Settings" })
+  ] }) });
+};
+const AccountSignout = () => {
+  const auth = useAuth();
+  if (!auth) {
+    return null;
+  }
+  const { signoutReload } = auth;
+  return /* @__PURE__ */ jsxs(
+    "div",
+    {
+      onClick: () => signoutReload(),
+      className: `flex hover:bg-gray-100 px-[10px] py-[5px] 
+        hover:cursor-pointer gap-2 place-items-center`,
+      children: [
+        /* @__PURE__ */ jsx("div", { className: `bg-gray-200 h-[30px] w-[30px] rounded-full
+                flex place-items-center place-content-center border`, children: /* @__PURE__ */ jsx(FaSignOutAlt, { className: `text-[20px]` }) }),
+        /* @__PURE__ */ jsx("div", { className: `truncate text-[13px] text-gray-500`, children: "Signout" })
+      ]
+    }
+  );
+};
+const DropDown = ({ open }) => {
+  return /* @__PURE__ */ jsx("div", { children: open && /* @__PURE__ */ jsx("div", { className: `absolute z-[1000]`, children: /* @__PURE__ */ jsx("div", { className: `relative`, children: /* @__PURE__ */ jsx("div", { className: `absolute right-[-25px] top-[5px]`, children: /* @__PURE__ */ jsxs("div", { className: `w-[250px] bg-white rounded-xl p-[5px] 
+                            shadow-lg
+                                shadow-black/30`, children: [
+    /* @__PURE__ */ jsx(AccountUser, {}),
+    /* @__PURE__ */ jsx("div", { className: `px-[10px] my-1`, children: /* @__PURE__ */ jsx("hr", {}) }),
+    /* @__PURE__ */ jsxs("div", { children: [
+      /* @__PURE__ */ jsx(AccountSettings, {}),
+      /* @__PURE__ */ jsx(AccountSignout, {})
+    ] })
+  ] }) }) }) }) });
+};
+const AccountUserImage = ({ userProfileImgData }) => {
+  const auth = useAuth();
+  if (!auth) {
+    return null;
+  }
+  const { user } = auth;
+  const [name, setName] = useState("");
+  useEffect(() => {
+    setName((user == null ? void 0 : user.first_name) + " " + (user == null ? void 0 : user.last_name));
+  }, [user]);
+  return /* @__PURE__ */ jsx("div", { className: ` relative h-full w-full rounded-full
+                    overflow-hidden flex place-content-center place-items-center
+                    bg-white z-0`, children: (userProfileImgData == null ? void 0 : userProfileImgData.image_url) ? /* @__PURE__ */ jsx(
+    "img",
+    {
+      className: `object-cover w-full h-full z-0`,
+      src: config.IMG_BASE_URL + (userProfileImgData == null ? void 0 : userProfileImgData.image_url),
+      alt: ""
+    }
+  ) : /* @__PURE__ */ jsx(BiUser, { className: `object-cover w-[70%] h-[70%] z-0` }) });
+};
+const Signin = () => {
+  const [open, setOpen] = useState(false);
+  const auth = useAuth();
+  const user = auth == null ? void 0 : auth.user;
+  const showMenu = () => setOpen(true);
+  const closeMenu = async () => {
+    await new Promise((resolve) => setTimeout(resolve, 300));
+    setOpen(false);
+  };
+  const [userProfileImgData, setUserProfileImgData] = useState(null);
+  useEffect(() => {
+    const getUserImageData = async (guid) => {
+      const userProfile = await getUserProfileImageData(guid);
+      setUserProfileImgData(userProfile);
+    };
+    if ((user == null ? void 0 : user.guid) !== null && (user == null ? void 0 : user.guid) !== void 0) {
+      getUserImageData(user == null ? void 0 : user.guid);
+    }
+  }, [user]);
+  return /* @__PURE__ */ jsxs("div", { children: [
+    !user ? /* @__PURE__ */ jsx(Link, { to: `/web/signin`, children: /* @__PURE__ */ jsx("button", { className: `text-lg border rounded-full w-[80px] py-[4px] hover:border border-[#6001D2] shadow-md hover:bg-[#6001D2] hover:text-white`, children: "Sign in" }) }) : /* @__PURE__ */ jsx(
+      "button",
+      {
+        onClick: (e) => showMenu(),
+        onBlur: (e) => closeMenu(),
+        className: `w-[40px] h-[40px] bg-gray-400 hover:bg-gray-300 rounded-full text-white flex place-items-center place-content-center text-[13px] relative cursor-pointer`,
+        children: userProfileImgData !== null ? /* @__PURE__ */ jsx(AccountUserImage, { userProfileImgData }) : /* @__PURE__ */ jsx(BiUser, { className: `object-cover w-[80%] h-[80%]` })
       }
     ),
-    /* @__PURE__ */ jsx("button", { className: `h-full bg-gray-500 min-w-[70px] w-[70px] rounded-full text-white flex place-items-center place-content-center text-xl group-hover:bg-gray-700 group-hover:cursor-pointer`, children: /* @__PURE__ */ jsx(LuSearch, {}) })
-  ] }) });
+    /* @__PURE__ */ jsx(DropDown, { open })
+  ] });
 };
-const menudata = [
+const ShortMenuJson = [
   {
-    title: "Search",
-    url: "/web/search"
+    title: "Hotels",
+    url: "/web/category/hotels"
   },
   {
-    title: "New York",
-    url: "/web/search?q=new york"
+    title: "Real Estate",
+    url: "/web/category/real-estate"
   },
   {
-    title: "London",
-    url: "/web/search?q=london"
-  },
-  {
-    title: "Dubai",
-    url: "/web/search?q=dubai"
+    title: "Restaurants",
+    url: "/web/category/restaurants"
   }
 ];
-const SmallMenu = () => {
+const ShortMenu = () => {
   const location = useLocation();
-  return /* @__PURE__ */ jsx("div", { className: `hidden lg:block`, children: /* @__PURE__ */ jsxs("div", { className: `flex gap-8 place-items-center`, children: [
-    menudata == null ? void 0 : menudata.map((item, index2) => {
-      return /* @__PURE__ */ jsx("div", { className: `font-semibold ${location.pathname === item.url ? "text-black" : "text-gray-500"} `, children: /* @__PURE__ */ jsx(Link, { to: item.url, children: /* @__PURE__ */ jsx("div", { className: `capitalize`, children: item.title }) }) }, index2);
-    }),
-    /* @__PURE__ */ jsx(MoreItem, {})
-  ] }) });
+  return /* @__PURE__ */ jsxs("div", { className: `lg:flex gap-8 hidden px-4`, children: [
+    /* @__PURE__ */ jsx("div", { className: `${location.pathname.includes("/web/search") && "underline"}`, children: /* @__PURE__ */ jsx(Link, { to: "/web/search", children: /* @__PURE__ */ jsx("div", { className: `flex place-items-center group hover:underline`, children: /* @__PURE__ */ jsx("div", { className: `text-[14px] font-extrabold pr-2`, children: "Search" }) }) }) }),
+    ShortMenuJson.map((item, index2) => {
+      return /* @__PURE__ */ jsx("div", { className: `hover:text-[#6001D2] ${location.pathname === item.url && "underline"}`, children: /* @__PURE__ */ jsx(Link, { to: item.url, children: /* @__PURE__ */ jsxs("div", { className: `flex place-items-center group hover:underline`, children: [
+        /* @__PURE__ */ jsx("div", { className: `text-[14px]`, children: item.title }),
+        /* @__PURE__ */ jsx(
+          CgChevronRight,
+          {
+            className: `text-[15px] relative group-hover:rotate-90 transition-all ease-in-out duration-500 font-bold `
+          }
+        )
+      ] }) }) }, index2);
+    })
+  ] });
 };
-const MoreItem = () => {
-  return /* @__PURE__ */ jsx("div", { className: `h-[35px] w-[35px] rounded-full flex place-items-center place-content-center bg-gray-100 cursor-pointer`, children: /* @__PURE__ */ jsx(BsThreeDotsVertical, {}) });
-};
-function useScrollThreshold(options = {}) {
-  const { threshold = 0, delay = 150 } = options;
-  const [isOverThreshold, setIsOverThreshold] = useState(false);
-  const scrollTimeout = useRef(null);
+const QueryBuilder = ({
+  queryInput,
+  onQueryChange,
+  loading = false,
+  initialFilters = {
+    q: "",
+    category: "",
+    country: "",
+    state: "",
+    city: ""
+  }
+}) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [filters, setFilters] = useState(initialFilters);
+  const [categories2, setCategories] = useState([]);
+  const [countries, setCountries] = useState([]);
+  const [states, setStates] = useState([]);
+  const [cities, setCities] = useState([]);
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const crossedThreshold = currentScrollY > threshold;
-      setIsOverThreshold(crossedThreshold);
-      if (scrollTimeout.current) {
-        clearTimeout(scrollTimeout.current);
+    const searchParams = new URLSearchParams(location.search);
+    setFilters({
+      q: searchParams.get("q") || "",
+      category: searchParams.get("category") || "",
+      country: searchParams.get("country") || "",
+      state: searchParams.get("state") || "",
+      city: searchParams.get("city") || ""
+    });
+  }, [location.search]);
+  useEffect(() => {
+    fetchCategories();
+    fetchCountries();
+  }, []);
+  useEffect(() => {
+    if (filters.country) {
+      fetchStates(filters.country);
+    } else {
+      setStates([]);
+    }
+  }, [filters.country]);
+  useEffect(() => {
+    if (filters.country && filters.state) {
+      fetchCities(filters.country, filters.state);
+    } else {
+      setCities([]);
+    }
+  }, [filters.country, filters.state]);
+  const fetchCategories = async () => {
+    const sortedCategories = categories$2.sort(
+      (a, b) => a.name.localeCompare(b.name)
+    );
+    setCategories(sortedCategories);
+  };
+  const fetchCountries = async () => {
+    try {
+      const countries2 = await getCountries();
+      setCountries(countries2 || []);
+    } catch (error) {
+      console.error("Failed to fetch countries:", error);
+    }
+  };
+  const fetchStates = async (countryCode) => {
+    try {
+      const states2 = await getStatesAlt(countryCode);
+      setStates(states2 || []);
+    } catch (error) {
+      console.error("Failed to fetch countries:", error);
+    }
+  };
+  const fetchCities = async (countryCode, stateCode) => {
+    try {
+      const cities2 = await getCities(countryCode, stateCode);
+      setCities(cities2 || []);
+    } catch (error) {
+      console.error("Failed to fetch countries:", error);
+    }
+  };
+  const handleInputChange = (field, value) => {
+    if (field === "q") {
+      setFilters((prev) => ({ ...prev, q: value }));
+      if (onQueryChange) {
+        onQueryChange(value);
       }
-      scrollTimeout.current = setTimeout(() => {
-      }, delay);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (scrollTimeout.current) {
-        clearTimeout(scrollTimeout.current);
+    } else {
+      setFilters((prev) => ({ ...prev, [field]: value }));
+    }
+  };
+  const handleCountryChange = (countryCode) => {
+    handleInputChange("country", countryCode);
+    fetchStates(countryCode);
+  };
+  const handleStateChange = (stateCode) => {
+    handleInputChange("state", stateCode);
+    fetchCities(filters.country, stateCode);
+  };
+  const handleSearch = () => {
+    const searchParams = new URLSearchParams();
+    if (filters.q) searchParams.set("q", filters.q);
+    if (filters.category) searchParams.set("category", filters.category);
+    if (filters.country) searchParams.set("country", filters.country);
+    if (filters.state) searchParams.set("state", filters.state);
+    if (filters.city) searchParams.set("city", filters.city);
+    searchParams.set("page", "1");
+    const baseSearchPath = "/web/search";
+    navigate(`${baseSearchPath}?${searchParams.toString()}`);
+  };
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
+  };
+  const clearFilters = () => {
+    navigate(location.pathname);
+  };
+  useEffect(() => {
+    if (queryInput !== void 0 && queryInput !== filters.q) {
+      setFilters((prev) => ({ ...prev, q: queryInput }));
+    }
+  }, [queryInput]);
+  return /* @__PURE__ */ jsxs("div", { className: "w-full space-y-3 p-4 bg-gray-50 rounded-lg border", children: [
+    /* @__PURE__ */ jsxs("div", { className: "w-full grid grid-cols-1 md:grid-cols-2 gap-3", children: [
+      /* @__PURE__ */ jsx("div", { className: "w-full", children: /* @__PURE__ */ jsx(
+        "input",
+        {
+          id: "query",
+          type: "text",
+          value: filters.q,
+          onChange: (e) => handleInputChange("q", e.target.value),
+          onKeyPress: handleKeyPress,
+          placeholder: "Hotel, Restaurant or ABC Inc.",
+          className: "w-full px-3 border border-gray-300 rounded outline-none h-[35px] focus:border-blue-500 focus:ring-1 focus:ring-blue-500",
+          disabled: loading
+        }
+      ) }),
+      /* @__PURE__ */ jsx("div", { className: "w-full", children: /* @__PURE__ */ jsxs(
+        "select",
+        {
+          id: "category",
+          value: filters.category,
+          onChange: (e) => handleInputChange("category", e.target.value),
+          className: "w-full h-[35px] border border-gray-300 rounded px-2 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500",
+          disabled: loading,
+          children: [
+            /* @__PURE__ */ jsx("option", { value: "", children: "All Categories" }),
+            categories2.map((category, index2) => /* @__PURE__ */ jsx("option", { value: category == null ? void 0 : category.id, children: category == null ? void 0 : category.name }, category == null ? void 0 : category.id))
+          ]
+        }
+      ) })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { className: "w-full grid grid-cols-1 md:grid-cols-2 gap-3", children: [
+      /* @__PURE__ */ jsx("div", { className: "w-full", children: /* @__PURE__ */ jsxs(
+        "select",
+        {
+          id: "country",
+          value: filters.country,
+          onChange: (e) => handleCountryChange(e.target.value),
+          className: "w-full h-[35px] border border-gray-300 rounded px-2 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500",
+          disabled: loading,
+          children: [
+            /* @__PURE__ */ jsx("option", { value: "", children: "All Countries" }),
+            countries.map((country) => /* @__PURE__ */ jsx("option", { value: country.id, children: country.name }, country.id))
+          ]
+        }
+      ) }),
+      /* @__PURE__ */ jsx("div", { className: "w-full", children: /* @__PURE__ */ jsxs(
+        "select",
+        {
+          id: "state",
+          value: filters.state,
+          onChange: (e) => handleStateChange(e.target.value),
+          className: "w-full h-[35px] border border-gray-300 rounded px-2 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500",
+          disabled: loading || !filters.country,
+          children: [
+            /* @__PURE__ */ jsx("option", { value: "", children: "All States" }),
+            states.map((state) => /* @__PURE__ */ jsx("option", { value: state.id, children: state.name }, state.id))
+          ]
+        }
+      ) })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { className: "w-full grid grid-cols-1 md:grid-cols-2 gap-3", children: [
+      /* @__PURE__ */ jsx("div", { className: "w-full", children: /* @__PURE__ */ jsxs(
+        "select",
+        {
+          id: "city",
+          value: filters.city,
+          onChange: (e) => handleInputChange("city", e.target.value),
+          className: "w-full h-[35px] border border-gray-300 rounded px-2 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500",
+          disabled: loading || !filters.state,
+          children: [
+            /* @__PURE__ */ jsx("option", { value: "", children: "All Cities" }),
+            cities == null ? void 0 : cities.map((city) => /* @__PURE__ */ jsx("option", { value: city.name, children: city.name }, city.id))
+          ]
+        }
+      ) }),
+      /* @__PURE__ */ jsxs("div", { className: "w-full flex gap-2", children: [
+        /* @__PURE__ */ jsx(
+          "button",
+          {
+            onClick: handleSearch,
+            disabled: loading,
+            className: "flex-1 bg-blue-600 text-white h-[35px] px-4 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed",
+            children: loading ? "Searching..." : "Search"
+          }
+        ),
+        /* @__PURE__ */ jsx(
+          "button",
+          {
+            onClick: clearFilters,
+            disabled: loading,
+            className: "px-4 h-[35px] border border-gray-300 rounded text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed",
+            children: "Clear"
+          }
+        )
+      ] })
+    ] }),
+    loading && /* @__PURE__ */ jsx("div", { className: "text-center text-blue-600 text-sm", children: "Loading results..." })
+  ] });
+};
+const MainSearch = () => {
+  var _a, _b;
+  const navigate = useNavigate$1();
+  const res = useLoaderData();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [frmVals, setFrmVals] = useState([]);
+  const [formData, setFormData] = useState({ "q": "" });
+  const navigation = useNavigation();
+  const isLoading = navigation.state === "loading";
+  ((_a = res == null ? void 0 : res.data) == null ? void 0 : _a.items) || [];
+  (_b = res == null ? void 0 : res.data) == null ? void 0 : _b.pagination;
+  res == null ? void 0 : res.query;
+  res == null ? void 0 : res.countries;
+  const [showQueryBuilder, setShowQueryBuilder] = useState(false);
+  const [queryInput, setQueryInput] = useState("");
+  const initialFilters = {
+    q: searchParams.get("q") || "",
+    category: searchParams.get("category") || "",
+    country: searchParams.get("country") || "",
+    state: searchParams.get("state") || "",
+    city: searchParams.get("city") || ""
+  };
+  const [qryi, setQryi] = useState("");
+  const handleQueryBuilderChange = (value) => {
+    setQueryInput(value);
+    setQname(value);
+  };
+  const location = useLocation$1();
+  const params = new URLSearchParams(location.search);
+  const qry = params.get("q") || "";
+  const [qname, setQname] = useState("");
+  const handleQChange = (e) => {
+    const val = e.target.value;
+    setQueryInput(val);
+    setQname(val);
+  };
+  useEffect(() => {
+    if (qry !== "") {
+      setQueryInput(qry);
+      setQname(qry);
+    }
+  }, [qry]);
+  return /* @__PURE__ */ jsxs("div", { className: `w-full flex flex-col group z-10`, children: [
+    /* @__PURE__ */ jsxs(
+      "div",
+      {
+        className: `bg-blue-50 w-full h-[34px] rounded-full flex place-items-center pl-4  group-hover:bg-white hover:shadow-lg z-0`,
+        onClick: () => setShowQueryBuilder(true),
+        children: [
+          /* @__PURE__ */ jsx(
+            "input",
+            {
+              type: "text",
+              name: "q",
+              value: qname,
+              placeholder: "Search directory...",
+              className: `bg-transparent w-full outline-none text-lg`,
+              onChange: handleQChange,
+              onKeyUp: (e) => {
+                if (e.key === "Enter") {
+                  const params2 = new URLSearchParams(location.search);
+                  params2.set("q", queryInput);
+                  params2.set("page", "1");
+                  navigate(`/web/search?${params2.toString()}`);
+                }
+              }
+            }
+          ),
+          /* @__PURE__ */ jsx("button", { className: `bg-[#6001D2] h-full w-[60px] rounded-full flex place-items-center place-content-center text-white`, children: /* @__PURE__ */ jsx(FaSearch, {}) })
+        ]
       }
-    };
-  }, [threshold, delay]);
-  return isOverThreshold;
-}
+    ),
+    /* @__PURE__ */ jsx(
+      "div",
+      {
+        className: `w-full h-auto absolute z-30 top-[60px] left-0 bg-white shadow-lg shadow-black/20  ${showQueryBuilder ? "block" : "hidden"}`,
+        onMouseLeave: () => setShowQueryBuilder(false),
+        children: /* @__PURE__ */ jsx("div", { className: `md:w-[85%] mx-auto w-full pb-5`, children: /* @__PURE__ */ jsx(
+          QueryBuilder,
+          {
+            queryInput,
+            onQueryChange: handleQueryBuilderChange,
+            loading: isLoading,
+            initialFilters
+          }
+        ) })
+      }
+    )
+  ] });
+};
 const MainNav = () => {
-  const isOverThreshold = useScrollThreshold({ delay: 100 });
-  return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx(MainNavProvider, { children: /* @__PURE__ */ jsxs(AuthProvider, { children: [
-    /* @__PURE__ */ jsx("div", { className: `w-full h-[60px] border-b border-b-gray-200 fixed left-0 top-0 right-0 z-[100] bg-white ${isOverThreshold && " shadow-lg"} transition-all duration-1000 ease-in-out`, children: /* @__PURE__ */ jsxs("div", { className: `max-w-[98%] h-full mx-auto w-full flex place-items-center place-content-between gap-2 relative `, children: [
-      /* @__PURE__ */ jsx(HamburgerMenu, {}),
-      /* @__PURE__ */ jsx(MainLogo, {}),
-      /* @__PURE__ */ jsx(MainSearch, {}),
-      /* @__PURE__ */ jsx(SmallMenu, {}),
-      /* @__PURE__ */ jsx(SigninButton, {})
+  return /* @__PURE__ */ jsx(MainNavProvider, { children: /* @__PURE__ */ jsx(AuthProvider, { children: /* @__PURE__ */ jsxs("div", { children: [
+    /* @__PURE__ */ jsx("div", { className: `h-[60px] fixed z-10 w-full left-0 top-0 right-0 shadow-sm bg-white`, children: /* @__PURE__ */ jsxs("div", { className: `flex place-content-between place-items-center h-full max-w-[96%] mx-auto w-full gap-6`, children: [
+      /* @__PURE__ */ jsxs("div", { className: `flex place-items-center place-content-start gap-4  grow h-full`, children: [
+        /* @__PURE__ */ jsx(Hamburger, {}),
+        /* @__PURE__ */ jsx(HeaderLogo, {}),
+        /* @__PURE__ */ jsx(MainSearch, {})
+      ] }),
+      /* @__PURE__ */ jsxs("div", { className: `flex place-items-center gap-6`, children: [
+        /* @__PURE__ */ jsx(ShortMenu, {}),
+        /* @__PURE__ */ jsx(Signin, {})
+      ] })
     ] }) }),
-    /* @__PURE__ */ jsx("div", { className: `h-[60px]` })
+    /* @__PURE__ */ jsx("div", { className: `h-[60px] z-0` })
   ] }) }) });
 };
 const HomeLayout = ({ children }) => {
-  return /* @__PURE__ */ jsxs("div", { className: `h-full w-full bg-gray-100`, children: [
+  return /* @__PURE__ */ jsxs("div", { className: `h-full w-full bg-white`, children: [
     /* @__PURE__ */ jsx(MainNav, {}),
     /* @__PURE__ */ jsx(
       "main",
@@ -5769,7 +6294,7 @@ const catlnks = [
   },
   {
     title: "Real Estate",
-    category: "real estate",
+    category: "real-estate",
     icon: /* @__PURE__ */ jsx(BsHouse, { size: 17 }),
     color: "text-orange-600"
   },
@@ -5781,7 +6306,7 @@ const catlnks = [
   },
   {
     title: "Business",
-    category: "business services",
+    category: "business-services",
     icon: /* @__PURE__ */ jsx(FcBusiness, { size: 17 })
   },
   {
@@ -5792,7 +6317,7 @@ const catlnks = [
   // Added more categories to demonstrate overflow
 ];
 const CategoryLinks = () => {
-  return /* @__PURE__ */ jsx("div", { className: "flex space-x-6 md:space-x-8 lg:justify-evenly lg:space-x-0", children: catlnks == null ? void 0 : catlnks.map((link, index2) => /* @__PURE__ */ jsx("a", { href: `/web/browse?q=&category=${link.category}`, children: /* @__PURE__ */ jsxs(
+  return /* @__PURE__ */ jsx("div", { className: "flex space-x-6 md:space-x-8 lg:justify-evenly lg:space-x-0", children: catlnks == null ? void 0 : catlnks.map((link, index2) => /* @__PURE__ */ jsx("a", { href: `/web/search?q=&category=${link.category}`, children: /* @__PURE__ */ jsxs(
     "div",
     {
       className: "flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-200 hover:bg-gray-100 min-w-max cursor-pointer",
@@ -6138,7 +6663,7 @@ const Hotel = () => {
       /* @__PURE__ */ jsx(
         "div",
         {
-          className: `absolute text-white top-1/2 -translate-y-1/2 left-2 w-[50px] min-w-[50px] h-[50px] bg-black/50 hover:bg-white/70 hover:text-black flex place-content-center place-items-center hover:cursor-pointer border-[1px] border-gray-400 rounded-full z-[50]`,
+          className: `absolute text-white top-1/2 -translate-y-1/2 left-2 w-[50px] min-w-[50px] h-[50px] bg-black/50 hover:bg-white/70 hover:text-black flex place-content-center place-items-center hover:cursor-pointer border-[1px] border-gray-400 rounded-full z-[0]`,
           onClick: () => {
             scrollLeft();
           },
@@ -6148,7 +6673,7 @@ const Hotel = () => {
       /* @__PURE__ */ jsx(
         "div",
         {
-          className: `absolute text-white top-1/2 -translate-y-1/2 right-2 w-[50px] min-w-[50px] h-[50px] bg-black/70 hover:bg-white/70 hover:text-black flex place-content-center place-items-center hover:cursor-pointer border-[1px] border-gray-400 rounded-full z-[50]`,
+          className: `absolute text-white top-1/2 -translate-y-1/2 right-2 w-[50px] min-w-[50px] h-[50px] bg-black/70 hover:bg-white/70 hover:text-black flex place-content-center place-items-center hover:cursor-pointer border-[1px] border-gray-400 rounded-full z-[0]`,
           onClick: () => {
             scrollRight();
           },
@@ -6255,6 +6780,12 @@ const YourGuide = () => {
     ) })
   ] }) }) });
 };
+const MainLogo = () => {
+  return /* @__PURE__ */ jsx(Fragment, { children: /* @__PURE__ */ jsx(Link, { to: "/", children: /* @__PURE__ */ jsx("div", { className: `flex place-items-center w-fit text-[21px] tracking-tight gap-[2px] font-extrabold font-sans place-content-start`, children: /* @__PURE__ */ jsxs("div", { className: `text-blue-800 first-letter:`, children: [
+    /* @__PURE__ */ jsx("i", { children: "b" }),
+    "ycet."
+  ] }) }) }) });
+};
 const aboutLinks = [
   {
     title: "Terms",
@@ -6269,16 +6800,8 @@ const aboutLinks = [
     link: "/web/contact"
   },
   {
-    title: "Account",
-    link: "/web/account/profile"
-  },
-  {
-    title: "Portfolio",
-    link: "/web/account/"
-  },
-  {
     title: "Forgot Password",
-    link: "/web/reset_password"
+    link: "/web/reset-password"
   },
   {
     title: "Signup",
@@ -6288,33 +6811,33 @@ const aboutLinks = [
 const explorLinks = [
   {
     title: "London",
-    link: "/web/browse?q=&city=london"
+    query: "q=&city=london"
   },
   {
     title: "New York",
-    link: "/web/browse?q=&city=new york city"
+    query: "q=&city=new york city"
   },
   {
     title: "Paris",
-    link: "/web/browse?q=&city=paris"
+    query: "q=&city=paris"
   },
   {
     title: "Berlin",
-    link: "/web/browse?q=&city=berlin"
+    query: "q=&city=berlin"
   },
   {
     title: "Dubai",
-    link: "/web/browse?q=&city=dubai"
+    query: "q=&city=dubai"
   },
   {
     title: "Beijing",
-    link: "/web/browse?q=&city=beijing"
+    query: "q=&city=beijing"
   }
 ];
 const doBusinessLinks = [
   {
     title: "Hotels",
-    id: "hotel"
+    id: "hotels"
   },
   {
     title: "Restaurants",
@@ -6322,7 +6845,7 @@ const doBusinessLinks = [
   },
   {
     title: "Travel",
-    id: "travel, hospitality and rentals"
+    id: "travel-hospitality-rentals"
   },
   {
     title: "Business Services",
@@ -6344,15 +6867,15 @@ const doBusinessLinks = [
 const garsseteSocialLinks = [
   {
     icon: /* @__PURE__ */ jsx(FaFacebook, {}),
-    link: "http://facebook.com/garssete"
+    link: "http://facebook.com/bycetinc"
   },
   {
     icon: /* @__PURE__ */ jsx(FaXTwitter, {}),
-    link: "http://x.com/garssete"
+    link: "http://x.com/bycetinc"
   },
   {
     icon: /* @__PURE__ */ jsx(FaInstagram, {}),
-    link: "http://instagram.com/garssete"
+    link: "http://instagram.com/bycetinc"
   }
 ];
 const garsseteSites = [
@@ -6369,7 +6892,7 @@ const FooterAlt = () => {
   return /* @__PURE__ */ jsx("div", { className: `px-[15px] bg-gray-100 pt-[50px] pb-[70px]`, children: /* @__PURE__ */ jsxs("div", { className: `max-w-[1100px] mx-auto w-full`, children: [
     /* @__PURE__ */ jsxs("div", { className: `w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-y-8 lg:gap-x-4`, children: [
       /* @__PURE__ */ jsxs("div", { className: `lg:col-span-2 flex flex-col place-items-center text-center md:place-items-start md:text-left`, children: [
-        /* @__PURE__ */ jsx("div", { className: `font-poppins font-[300] text-xl`, children: "About Garssete" }),
+        /* @__PURE__ */ jsx("div", { className: `font-poppins font-[300] text-xl`, children: "About Bycet" }),
         /* @__PURE__ */ jsx("div", { className: `flex flex-col space-y-2 mt-2 font-poppins font-[300]`, children: aboutLinks.map((link, index2) => {
           return /* @__PURE__ */ jsx(
             Link,
@@ -6385,10 +6908,12 @@ const FooterAlt = () => {
       /* @__PURE__ */ jsxs("div", { className: `lg:col-span-2 flex flex-col place-items-center text-center md:place-items-start md:text-left`, children: [
         /* @__PURE__ */ jsx("div", { className: `font-poppins font-[300] text-xl`, children: "Discover" }),
         /* @__PURE__ */ jsx("div", { className: `flex flex-col space-y-2 mt-2 font-poppins font-[300]`, children: explorLinks.map((link, index2) => {
+          const baseUrl = `/web/search?`;
+          const url = baseUrl + (link == null ? void 0 : link.query);
           return /* @__PURE__ */ jsx(
             Link,
             {
-              to: link == null ? void 0 : link.link,
+              to: url,
               className: `hover:underline`,
               children: /* @__PURE__ */ jsx("div", { children: link == null ? void 0 : link.title })
             },
@@ -6399,7 +6924,7 @@ const FooterAlt = () => {
       /* @__PURE__ */ jsxs("div", { className: `lg:col-span-5 flex flex-col place-items-center text-center md:place-items-start md:text-left`, children: [
         /* @__PURE__ */ jsx("div", { className: `font-poppins font-[300] text-xl`, children: "Top Categories" }),
         /* @__PURE__ */ jsx("div", { className: `flex flex-col space-y-2 mt-2 font-poppins font-[300]`, children: doBusinessLinks == null ? void 0 : doBusinessLinks.map((link, index2) => {
-          const lnk = `/web/browse?q=&category=${link == null ? void 0 : link.id}`;
+          const lnk = `/web/search?q=&category=${link == null ? void 0 : link.id}`;
           return /* @__PURE__ */ jsx(
             Link,
             {
@@ -6438,10 +6963,10 @@ const FooterAlt = () => {
         ) }),
         /* @__PURE__ */ jsx("div", { className: `font-poppins text-[22px] font-[600]`, children: /* @__PURE__ */ jsx(MainLogo, {}) })
       ] }),
-      /* @__PURE__ */ jsx("div", { className: `font-poppins text-[13px] mt-[-2px]`, children: "© 2025 Index by Veycet. All rights reserved." })
+      /* @__PURE__ */ jsx("div", { className: `font-poppins text-[13px] mt-[-2px]`, children: "© 2025 Bycet. All rights reserved." })
     ] }),
     /* @__PURE__ */ jsxs("div", { className: `mt-3 font-poppins font-[300] grid-cols-1 md:grid-cols-12 flex flex-col place-items-center text-center md:place-items-start md:text-left`, children: [
-      /* @__PURE__ */ jsx("div", { className: `md:col-span-8`, children: "Veycet connects you to trusted local businesses. Discover services, read reviews, and support your community. Find everything from restaurants to contractors in one comprehensive directory. Your journey to better local experiences starts here." }),
+      /* @__PURE__ */ jsx("div", { className: `md:col-span-8`, children: "Bycet connects you to trusted local businesses. Discover services, read reviews, and support your community. Find everything from restaurants to contractors in one comprehensive directory. Your journey to better local experiences starts here." }),
       /* @__PURE__ */ jsx("div", { className: `md:col-span-4` })
     ] }),
     /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx("div", { className: `flex gap-2 place-items-center place-content-center md:place-content-start mt-4`, children: garsseteSocialLinks.map((media, index2) => {
@@ -6453,11 +6978,15 @@ const FooterAlt = () => {
         }
       ) }) }, index2);
     }) }) }),
-    /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("p", { className: "text-[10px] text-gray-400 text-center mt-2", children: [
-      "Icon by ",
-      /* @__PURE__ */ jsx("a", { href: "https://www.flaticon.com/", target: "_blank", className: "underline", children: "Flaticon" }),
-      " (CC BY 3.0)"
-    ] }) }) })
+    /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx("p", { className: "text-[10px] text-gray-400 text-center mt-2", children: /* @__PURE__ */ jsx(
+      "a",
+      {
+        href: "https://bycet.com/",
+        target: "_blank",
+        className: `hover:underline`,
+        children: "Bycet Business Directory"
+      }
+    ) }) }) })
   ] }) });
 };
 const topdestinations = [
@@ -6573,7 +7102,7 @@ const TopDestinations = () => {
     ] })
   ] }) });
 };
-const loader$Z = async ({ request, params }) => {
+const loader$12 = async ({ request, params }) => {
   try {
     const id = params.id || null;
     let hotels2 = [];
@@ -6610,15 +7139,15 @@ const homepage = () => {
     /* @__PURE__ */ jsx(FooterAlt, {})
   ] });
 };
-const route5 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route8 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: homepage,
-  loader: loader$Z
+  loader: loader$12
 }, Symbol.toStringTag, { value: "Module" }));
 const index$s = () => {
   return /* @__PURE__ */ jsx("div", {});
 };
-const route12 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route15 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: index$s
 }, Symbol.toStringTag, { value: "Module" }));
@@ -6632,7 +7161,7 @@ const GalleryProvider = ({ children }) => {
   const [gallery, setGallery] = useState(null);
   const slider = useSliderContext();
   const [listing, setListing] = useState(null);
-  const IMG_BASE_URL2 = "https://pics.gasimg.com";
+  const IMG_BASE_URL2 = "https://tpics.gasimg.com";
   const handleClose = () => setShow(false);
   let vals = {
     setShow,
@@ -6792,7 +7321,7 @@ function RatingProvider({ children }) {
     const businessGuid = listing.gid;
     data["user_guid"] = userGuid;
     data["business_guid"] = businessGuid;
-    const BASE_URL = "https://index.bycet.com";
+    const BASE_URL = "https://testindex.bycet.com";
     const endpoint = `/api/rating`;
     const url = BASE_URL + endpoint;
     try {
@@ -6966,12 +7495,6 @@ const FormattedAddress$1 = ({ listing }) => {
     (listing == null ? void 0 : listing.country_code) ? listing == null ? void 0 : listing.country_code : ""
   ] });
 };
-const Placeholder = () => {
-  return /* @__PURE__ */ jsxs("div", { className: `bg-gray-100 min-w-full min-h-full flex place-items-center place-content-center  flex-col gap-y-[2px]`, children: [
-    /* @__PURE__ */ jsx(FaStore, { className: `text-gray-300 text-5xl relative top-1` }),
-    /* @__PURE__ */ jsx("div", { className: `text-sm text-gray-300 tracking-wide`, children: "BYCET" })
-  ] });
-};
 const Header = ({ listing, profileImageData, operatingHoursStatus, ratingsData }) => {
   const [profileImg, setProfileImg] = useState("");
   const [placeholder, setPlaceholder] = useState("/images/bycetplaceholder.png");
@@ -6982,15 +7505,23 @@ const Header = ({ listing, profileImageData, operatingHoursStatus, ratingsData }
       setProfileImg(placeholder);
     }
   }, [profileImageData]);
+  const fallbackImg = `/images/fallbackBusinessImg.png`;
   return /* @__PURE__ */ jsx("div", { className: ` mt-4`, children: /* @__PURE__ */ jsxs("div", { className: `flex gap-3  w-full   md:rounded-xl`, children: [
-    /* @__PURE__ */ jsx("div", { className: `bg-white w-[60px] min-w-[60px] md:w-[95px] md:min-w-[95px] h-[60px] md:h-[95px] relative overflow-hidden border-[1px]  border-gray-200`, children: (profileImageData == null ? void 0 : profileImageData.image_url) ? /* @__PURE__ */ jsx(
+    /* @__PURE__ */ jsx("div", { className: `bg-white w-[60px] min-w-[60px] md:w-[95px] md:min-w-[95px] h-[60px] md:h-[95px] relative border-[1px]  border-gray-100`, children: (profileImageData == null ? void 0 : profileImageData.image_url) ? /* @__PURE__ */ jsx(
       "img",
       {
         src: config.IMG_BASE_URL + (profileImageData == null ? void 0 : profileImageData.image_url),
         alt: "85x90",
-        className: ` object-scale-down w-full h-full `
+        className: ` object-scale-down w-full h-full shadow-xl shadow-gray-300 `
       }
-    ) : /* @__PURE__ */ jsx(Placeholder, {}) }),
+    ) : /* @__PURE__ */ jsx("div", { className: `h-full w-full p-2 md:p-4 shadow-xl shadow-gray-300`, children: /* @__PURE__ */ jsx(
+      "img",
+      {
+        src: fallbackImg,
+        alt: "",
+        className: `object-scale-down w-full h-full`
+      }
+    ) }) }),
     /* @__PURE__ */ jsxs("div", { className: `w-full block`, children: [
       /* @__PURE__ */ jsx("div", { className: `text-[19px] md:text-[22px]
                 font-normal  leading-[1.1em] font-sans text-blue-800 tracking-tight`, children: listing == null ? void 0 : listing.title }),
@@ -7013,7 +7544,7 @@ const ComponentTitle = ({ title }) => {
 const Description = ({ listing }) => {
   var _a;
   const [img, setImg] = useState("");
-  const [placeholder, setPlaceholder] = useState("/images/placeholder22.png");
+  const [placeholder, setPlaceholder] = useState("/images/fallbackBusinessImg.png");
   useEffect(() => {
     if (listing.gid) {
       let imgdata = getBusinessProfileImageData(listing.gid);
@@ -7031,7 +7562,7 @@ const Description = ({ listing }) => {
     /* @__PURE__ */ jsxs("div", { className: `flex place-items-start place-content-start
                 gap-2 mt-4 mb-3`, children: [
       /* @__PURE__ */ jsx("div", { className: `rounded-full bg-white w-[30px] h-[30px]
-                    overflow-hidden relative border`, children: /* @__PURE__ */ jsx(
+                    overflow-hidden relative border border-black`, children: /* @__PURE__ */ jsx(
         "img",
         {
           className: `object-cover w-full h-full`,
@@ -7280,7 +7811,7 @@ function ComposeImages({ imgs, index: index2, showCarousel, showGallery }) {
       )
     ] }),
     imageTotal >= 4 && /* @__PURE__ */ jsxs("div", { className: `space-y-[5px]`, children: [
-      /* @__PURE__ */ jsxs("div", { className: `h-[350px]
+      /* @__PURE__ */ jsxs("div", { className: `h-[300px]
                 grid grid-cols-12 gap-[5px] rounded-t-xl overflow-hidden`, children: [
         /* @__PURE__ */ jsx(
           "div",
@@ -7453,11 +7984,11 @@ const ListingCarousel = ({ images, listing }) => {
       );
     }) }),
     /* @__PURE__ */ jsxs("div", { className: `z-[50]`, children: [
-      /* @__PURE__ */ jsx("button", { onMouseDown: handlePrev, className: `block absolute top-0 bottom-0 z-[50] p-[1rem] cursor-pointer left-0 group h-full transition duration-1000 ease-in-out`, children: /* @__PURE__ */ jsx("div", { className: `w-[50px] h-[50px] bg-white/60 rounded-full 
+      /* @__PURE__ */ jsx("button", { onMouseDown: handlePrev, className: `block absolute top-0 bottom-0 z-[5] p-[1rem] cursor-pointer left-0 group h-full transition duration-1000 ease-in-out`, children: /* @__PURE__ */ jsx("div", { className: `w-[50px] h-[50px] bg-white/60 rounded-full 
            flex place-content-center place-items-center group-hover:bg-white/30
             z-[300] transition duration-500 ease-in-out`, children: /* @__PURE__ */ jsx(BiChevronLeft, { className: " stroke-white fill-black w-[2rem] h-[2rem]" }) }) }),
       /* @__PURE__ */ jsx("button", { onMouseDown: handleNext, className: `block absolute top-0 bottom-0 
-                                                        z-[50]    p-[1rem] cursor-pointer right-0 group 
+                                                        z-[5]    p-[1rem] cursor-pointer right-0 group 
                                                              transition duration-1000 ease-in-out`, children: /* @__PURE__ */ jsx("div", { className: `w-[50px] h-[50px] bg-white/60 rounded-full 
             flex place-content-center place-items-center group-hover:bg-white/30
             z-[300]   transition duration-500 ease-in-out
@@ -7978,23 +8509,23 @@ const VideoScrollerAlt = ({ outVideo, handleOpen, showCarousel, listing }) => {
         "div",
         {
           ref: scrollRef,
-          className: `w-full px-0 py-0 mt-3 relative flex flex-1 overflow-x-auto bottom-scrollbar-hidden rounded-none overflow-hidden`,
+          className: `w-full px-0 py-0 mt-3 relative flex flex-1 overflow-x-auto bottom-scrollbar-hidden rounded-xl overflow-hidden`,
           children: /* @__PURE__ */ jsxs("div", { className: `flex gap-x-3`, id: "videobar", children: [
             Array.isArray(video20) && Array.from({ length: maxSlides }, (_, i) => {
               var _a, _b, _c, _d;
               return /* @__PURE__ */ jsx("div", { children: i < maxSlides && i < (video20 == null ? void 0 : video20.length) ? /* @__PURE__ */ jsx(
                 "div",
                 {
-                  className: ` w-[${slideWidth}px] min-w-[${slideWidth}px] relative z-[30] hover:cursor-pointer border  rounded-xl overflow-hidden hover:bg-white/50`,
+                  className: ` w-[${slideWidth}px] min-w-[${slideWidth}px] relative z-[3] hover:cursor-pointer border  rounded-xl overflow-hidden hover:bg-white/50`,
                   onClick: () => showCarousel(i),
                   children: /* @__PURE__ */ jsxs(
                     "div",
                     {
-                      className: `relative w-full h-[${slideHeight}px]   z-[20]`,
+                      className: `relative w-full h-[${slideHeight}px]   z-[2]`,
                       children: [
-                        /* @__PURE__ */ jsx("div", { className: `absolute top-0 left-0 w-full h-full bg-transparent  z-[300000] hover:bg-white/40`, children: /* @__PURE__ */ jsx(RiYoutubeFill, { size: 20, className: `text-white absolute top-0.5 right-1 ` }) }),
+                        /* @__PURE__ */ jsx("div", { className: `absolute top-0 left-0 w-full h-full bg-transparent  z-[3] hover:bg-white/40`, children: /* @__PURE__ */ jsx(RiYoutubeFill, { size: 20, className: `text-white absolute top-0.5 right-1 ` }) }),
                         /* @__PURE__ */ jsx("img", { src: (_a = video20[i]) == null ? void 0 : _a.videoThumbnail, alt: (_b = video20[i]) == null ? void 0 : _b.videoTitle, className: `object-cover w-full h-full` }),
-                        /* @__PURE__ */ jsx("div", { className: ` block w-full absolute z-[30] text-white bottom-0 px-2 py-[5px] bg-black/80 `, children: /* @__PURE__ */ jsx("div", { className: `w-full text-white bottom-0  `, children: /* @__PURE__ */ jsx("div", { className: ` text-[12px] leading-[1.2em] line-clamp-1`, children: (_c = video20[i]) == null ? void 0 : _c.videoTitle }) }) })
+                        /* @__PURE__ */ jsx("div", { className: ` block w-full absolute z-[3] text-white bottom-0 px-2 py-[5px] bg-black/80 `, children: /* @__PURE__ */ jsx("div", { className: `w-full text-white bottom-0  `, children: /* @__PURE__ */ jsx("div", { className: ` text-[12px] leading-[1.2em] line-clamp-1`, children: (_c = video20[i]) == null ? void 0 : _c.videoTitle }) }) })
                       ]
                     }
                   )
@@ -8014,7 +8545,7 @@ const VideoScrollerAlt = ({ outVideo, handleOpen, showCarousel, listing }) => {
             /* @__PURE__ */ jsx(
               "div",
               {
-                className: `w-[${slideWidth}px] h-full border border-gray-200 rounded-none flex place-items-center place-content-center hover:cursor-pointer hover:bg-gray-300 bg-gray-200`,
+                className: `w-[${slideWidth}px] h-full border border-gray-200 rounded-xl flex place-items-center place-content-center hover:cursor-pointer hover:bg-gray-300 bg-gray-200`,
                 onClick: () => {
                   setOpenGallery(true);
                 },
@@ -8027,7 +8558,7 @@ const VideoScrollerAlt = ({ outVideo, handleOpen, showCarousel, listing }) => {
       /* @__PURE__ */ jsx(
         "div",
         {
-          className: `absolute text-white top-1/2 -translate-y-1/2 left-2 w-[40px] min-w-[40px] h-[40px] bg-black/50 hover:bg-white/70 hover:text-black flex place-content-center place-items-center hover:cursor-pointer border-[1px] border-gray-400 rounded z-[50]`,
+          className: `absolute text-white top-1/2 -translate-y-1/2 left-2 w-[40px] min-w-[40px] h-[40px] bg-black/50 hover:bg-white/70 hover:text-black flex place-content-center place-items-center hover:cursor-pointer border-[1px] border-gray-400 rounded z-[5]`,
           onClick: () => {
             scrollLeft();
           },
@@ -8037,7 +8568,7 @@ const VideoScrollerAlt = ({ outVideo, handleOpen, showCarousel, listing }) => {
       /* @__PURE__ */ jsx(
         "div",
         {
-          className: `absolute text-white top-1/2 -translate-y-1/2 right-2 w-[40px] min-w-[40px] h-[40px] bg-black/50 hover:bg-white/70 hover:text-black flex place-content-center place-items-center hover:cursor-pointer border-[1px] border-gray-400 rounded z-[50]`,
+          className: `absolute text-white top-1/2 -translate-y-1/2 right-2 w-[40px] min-w-[40px] h-[40px] bg-black/50 hover:bg-white/70 hover:text-black flex place-content-center place-items-center hover:cursor-pointer border-[1px] border-gray-400 rounded z-[5]`,
           onClick: () => {
             scrollRight();
           },
@@ -8132,7 +8663,7 @@ function useProductSliderContext() {
   const context = useContext(ProductSliderContext);
   return context;
 }
-const IMG_BASE_URL = "https://pics.gasimg.com";
+const IMG_BASE_URL = "https://tpics.gasimg.com";
 const ProductSliderProvider = ({ children }) => {
   const [dialog, setDialog] = useState(false);
   const [selectedSlide, setSelectedSlide] = useState(null);
@@ -8553,7 +9084,7 @@ const BusinessLayout = ({
     }
   }, [listing, reportTime]);
   return /* @__PURE__ */ jsxs("div", { className: `mt-0 `, children: [
-    /* @__PURE__ */ jsx("div", { className: `px-[12px] w-full`, children: /* @__PURE__ */ jsxs("div", { className: `max-w-[1100px] w-full mx-auto bg-white`, children: [
+    /* @__PURE__ */ jsx("div", { className: `px-[12px] w-full`, children: /* @__PURE__ */ jsxs("div", { className: `max-w-[1200px] w-full mx-auto bg-white`, children: [
       /* @__PURE__ */ jsx("div", { className: "", children: ratingsData && /* @__PURE__ */ jsxs("div", { className: `mt-12 flex gap-2 place-items-center`, children: [
         /* @__PURE__ */ jsx(RatingBoxSquare, { rating: Number(ratingsData == null ? void 0 : ratingsData.rating_average) }),
         /* @__PURE__ */ jsxs("div", { className: `flex place-items-center place-content-center
@@ -8587,7 +9118,7 @@ const BusinessLayout = ({
         listing
       }
     ) }),
-    /* @__PURE__ */ jsx("div", { className: ` md:pt-12 md:px-[12px]`, children: /* @__PURE__ */ jsx("div", { className: `max-w-[1100px] w-full mx-auto bg-white`, children: /* @__PURE__ */ jsxs("div", { className: `grid grid-cols-12 gap-0 md:gap-6 relative
+    /* @__PURE__ */ jsx("div", { className: ` md:pt-12 md:px-[12px]`, children: /* @__PURE__ */ jsx("div", { className: `max-w-[1200px] w-full mx-auto bg-white`, children: /* @__PURE__ */ jsxs("div", { className: `grid grid-cols-12 gap-0 md:gap-6 relative
                     `, children: [
       /* @__PURE__ */ jsxs("div", { className: ` col-span-12 lg:col-span-8`, children: [
         /* @__PURE__ */ jsx("div", { className: `hidden md:block mt-0`, children: Array.isArray(images) && (images == null ? void 0 : images.length) > 0 && listing && /* @__PURE__ */ jsx(
@@ -8665,8 +9196,9 @@ const Related = ({
   const [st, setSt] = useState("");
   const [listings, setListings] = useState([]);
   const [userId, setUserId] = useState("");
-  const IMG_BASE_URL2 = "https://pics.gasimg.com";
+  const IMG_BASE_URL2 = "https://tpics.gasimg.com";
   const [placeholder, setPlaceholder] = useState("/images/placeholder22.png");
+  const fallbackImg = `/images/fallbackBusinessImg.png`;
   useEffect(() => {
     if (title && subtitle) {
       setTi(title);
@@ -8684,7 +9216,7 @@ const Related = ({
       getListings(category, limit);
     }
   }, [limit, category]);
-  return /* @__PURE__ */ jsx("div", { className: `px-[15px]`, children: /* @__PURE__ */ jsx("div", { className: `max-w-[1100px] mx-auto w-full`, children: /* @__PURE__ */ jsxs("div", { className: `mt-10 border-t pt-5`, children: [
+  return /* @__PURE__ */ jsx("div", { className: `px-[15px]`, children: /* @__PURE__ */ jsx("div", { className: `max-w-[1200px] mx-auto w-full`, children: /* @__PURE__ */ jsxs("div", { className: `mt-10 border-t pt-5`, children: [
     /* @__PURE__ */ jsx("div", { className: ` mb-[20px] `, children: /* @__PURE__ */ jsx(
       SectionTitle,
       {
@@ -8700,14 +9232,20 @@ const Related = ({
         userId2 = data == null ? void 0 : data.gid;
       }
       return /* @__PURE__ */ jsxs("div", { children: [
-        /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx(NavLink$1, { to: `/${userId2}`, children: /* @__PURE__ */ jsx("div", { className: `relative rounded-lg h-[180px] overflow-hidden `, children: (data == null ? void 0 : data.image_url) !== null ? /* @__PURE__ */ jsx(
+        /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx(NavLink$1, { to: `/${userId2}`, children: /* @__PURE__ */ jsx("div", { className: `relative rounded-lg h-[180px] overflow-hidden border ${data.image_url === null && "p-12 md:p-8"} flex place-items-center place-content-center`, children: (data == null ? void 0 : data.image_url) !== null ? /* @__PURE__ */ jsx(
           "img",
           {
-            className: `object-scale-down  w-full h-full text-sm border rounded-lg`,
-            src: (data == null ? void 0 : data.image_url) && IMG_BASE_URL2 + (data == null ? void 0 : data.image_url),
+            className: `object-scale-down  w-full h-full text-sm  `,
+            src: IMG_BASE_URL2 + (data == null ? void 0 : data.image_url),
             alt: data.title
           }
-        ) : /* @__PURE__ */ jsx(Placeholder, {}) }) }) }),
+        ) : /* @__PURE__ */ jsx(
+          "img",
+          {
+            src: fallbackImg,
+            alt: data.title
+          }
+        ) }) }) }),
         /* @__PURE__ */ jsx("div", { className: `mt-1 text-[15px] tracking-tight 
                                      truncate`, children: data.title }),
         /* @__PURE__ */ jsx("div", { className: `mt-1`, children: /* @__PURE__ */ jsx(RatingBoxSquare, { rating: data.avg_rating }) }),
@@ -8894,7 +9432,7 @@ const ReportTime = async (listing) => {
   const locationDetails = getLocationAndBusinessStatus(listing);
   return locationDetails;
 };
-const loader$Y = async ({ request, params }) => {
+const loader$11 = async ({ request, params }) => {
   try {
     const id = params.id || null;
     let listing;
@@ -8931,7 +9469,7 @@ const loader$Y = async ({ request, params }) => {
     logError(err);
   }
 };
-const meta$2 = ({ data }) => {
+const meta$5 = ({ data }) => {
   try {
     const listing = data == null ? void 0 : data.listing;
     const profileImageData = data == null ? void 0 : data.profileImageData;
@@ -9024,13 +9562,13 @@ const index$r = () => {
     /* @__PURE__ */ jsx(FooterAlt, {})
   ] }) }) });
 };
-const route11 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route14 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: index$r,
-  loader: loader$Y,
-  meta: meta$2
+  loader: loader$11,
+  meta: meta$5
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$X = async ({ request, params }) => {
+const loader$10 = async ({ request, params }) => {
   function generateRandom10DigitNumber() {
     const min = 1e9;
     const max = 9999999999;
@@ -9059,7 +9597,7 @@ const loader$X = async ({ request, params }) => {
     logError(err);
   }
 };
-const meta$1 = ({ data }) => {
+const meta$4 = ({ data }) => {
   let randomNo = data == null ? void 0 : data.randomNumber;
   try {
     return [
@@ -9098,13 +9636,13 @@ const _index = () => {
     /* @__PURE__ */ jsx(FooterAlt, {})
   ] }) });
 };
-const route8 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route11 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: _index,
-  loader: loader$X,
-  meta: meta$1
+  loader: loader$10,
+  meta: meta$4
 }, Symbol.toStringTag, { value: "Module" }));
-function loader$W() {
+function loader$$() {
   return null;
 }
 function NotFound() {
@@ -9133,19 +9671,19 @@ function NotFound() {
     ] }) })
   ] });
 }
-const route9 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route12 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: NotFound,
-  loader: loader$W
+  loader: loader$$
 }, Symbol.toStringTag, { value: "Module" }));
 const index$q = () => {
   return /* @__PURE__ */ jsx("div", {});
 };
-const route10 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route13 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: index$q
 }, Symbol.toStringTag, { value: "Module" }));
-const Address = ({ listing }) => {
+const Address$1 = ({ listing }) => {
   return /* @__PURE__ */ jsxs("div", { children: [
     listing == null ? void 0 : listing.address_one,
     (listing == null ? void 0 : listing.address_two) ? `, ${listing == null ? void 0 : listing.address_two}` : "",
@@ -9154,7 +9692,7 @@ const Address = ({ listing }) => {
     (listing == null ? void 0 : listing.country_name) ? `, ${listing == null ? void 0 : listing.country_name}` : ""
   ] });
 };
-const RatingCount$1 = ({ averageRating }) => {
+const RatingCount$2 = ({ averageRating }) => {
   const [avgRating, setAvgRating] = useState(0);
   useEffect(() => {
     if (averageRating !== null && averageRating !== void 0) {
@@ -9167,7 +9705,7 @@ const RatingCount$1 = ({ averageRating }) => {
     ")"
   ] });
 };
-function RatingBoxRounded({ rating }) {
+function RatingBoxRounded$1({ rating }) {
   return /* @__PURE__ */ jsx("div", { className: "flex gap-x-[2px]", children: Array.from({ length: 5 }).map((_, i) => {
     const fillPercent = Math.max(0, Math.min(1, rating - i)) * 100;
     return /* @__PURE__ */ jsx(
@@ -9188,7 +9726,7 @@ function RatingBoxRounded({ rating }) {
     );
   }) });
 }
-const Tooltip = ({ tooltip, children }) => {
+const Tooltip$1 = ({ tooltip, children }) => {
   return /* @__PURE__ */ jsx("div", { className: `block`, children: /* @__PURE__ */ jsxs("a", { href: "#", className: `tooltip z-[20000] relative  `, "data-tooltip": tooltip, children: [
     children,
     /* @__PURE__ */ jsx("style", { children: `
@@ -9227,8 +9765,9 @@ const Tooltip = ({ tooltip, children }) => {
                     ` })
   ] }) });
 };
-const Card = ({ listing }) => {
+const Card$1 = ({ listing }) => {
   var _a;
+  const fallbackImg = `/images/fallbackBusinessImg.png`;
   const [placeholder, setPlaceholder] = useState("/images/bycetplaceholder.png");
   const [imgscr, setImgsrc] = useState("");
   const [userId, setUserId] = useState("");
@@ -9285,6 +9824,7 @@ const Card = ({ listing }) => {
             mediaHandle: mediaInfo[1],
             baseUrl: mediaInfo[2]
           };
+          console.log(mediaObj);
           socialMedia2.push(mediaObj);
         });
       }
@@ -9334,16 +9874,22 @@ const Card = ({ listing }) => {
           /* @__PURE__ */ jsx(
             "div",
             {
-              className: `max-w-[85px] h-[90px] min-w-[85px]   bg-gray-50 bg-cover bg-center overflow-hidden relative border flex place-items-center place-content-center rounded`,
+              className: `max-w-[85px] h-[90px] min-w-[85px]   bg-gray-50  relative border flex place-items-center place-content-center  overflow-hidden shadow-xl shadow-gray-400/30`,
               children: (listing == null ? void 0 : listing.image_url) !== null ? /* @__PURE__ */ jsx(
                 "img",
                 {
                   src: imgscr,
                   alt: "",
                   className: ` w-full h-auto text-sm
-                             z-0 bg-gray-100`
+                             z-0 bg-gray-100 `
                 }
-              ) : /* @__PURE__ */ jsx(Placeholder, {})
+              ) : /* @__PURE__ */ jsx("div", { className: `h-full w-full  md:p-3`, children: /* @__PURE__ */ jsx(
+                "img",
+                {
+                  src: fallbackImg,
+                  alt: ""
+                }
+              ) })
             }
           ),
           /* @__PURE__ */ jsxs("div", { className: ` w-full`, children: [
@@ -9351,13 +9897,16 @@ const Card = ({ listing }) => {
             (listing == null ? void 0 : listing.category) && /* @__PURE__ */ jsx("div", { className: `text-[12px] text-gray-500  capitalize mt-[0px]`, children: (_a = searchCategories(listing == null ? void 0 : listing.category)) == null ? void 0 : _a.name }),
             /* @__PURE__ */ jsxs("div", { className: `flex place-items-center gap-x-1 mt-[5px] `, children: [
               /* @__PURE__ */ jsx("div", { children: (baseListing == null ? void 0 : baseListing.average_rating) !== null && (baseListing == null ? void 0 : baseListing.average_rating) !== "" && (baseListing == null ? void 0 : baseListing.average_rating) !== void 0 ? /* @__PURE__ */ jsxs("div", { className: ` flex gap-2 place-items-center`, children: [
-                /* @__PURE__ */ jsx(RatingBoxRounded, { rating: Number(baseListing == null ? void 0 : baseListing.average_rating) }),
-                /* @__PURE__ */ jsx(RatingCount$1, { averageRating: baseListing == null ? void 0 : baseListing.average_rating })
+                /* @__PURE__ */ jsx(RatingBoxRounded$1, { rating: Number(baseListing == null ? void 0 : baseListing.average_rating) }),
+                /* @__PURE__ */ jsx(RatingCount$2, { averageRating: baseListing == null ? void 0 : baseListing.average_rating })
               ] }) : /* @__PURE__ */ jsxs("div", { className: ` flex gap-2 place-items-center`, children: [
-                /* @__PURE__ */ jsx(RatingBoxRounded, { rating: Number(1) }),
-                /* @__PURE__ */ jsx(RatingCount$1, { averageRating: 0 })
+                /* @__PURE__ */ jsx(RatingBoxRounded$1, { rating: Number(0) }),
+                /* @__PURE__ */ jsx(RatingCount$2, { averageRating: 0 })
               ] }) }),
-              /* @__PURE__ */ jsx("div", { className: ` `, children: Number(baseListing == null ? void 0 : baseListing.total_reviews) > 0 ? baseListing == null ? void 0 : baseListing.total_reviews : 0 })
+              /* @__PURE__ */ jsxs("div", { className: ` `, children: [
+                Number(baseListing == null ? void 0 : baseListing.total_reviews) > 0 ? baseListing == null ? void 0 : baseListing.total_reviews : 0,
+                " Reviews"
+              ] })
             ] })
           ] })
         ] }),
@@ -9378,7 +9927,7 @@ const Card = ({ listing }) => {
           /* @__PURE__ */ jsx("span", { className: `text-[13px]`, children: "Facilities: " }),
           /* @__PURE__ */ jsx("div", { className: `flex place-items-baseline gap-3 flex-wrap leading-[0.9em] `, children: facilityFeatures2 == null ? void 0 : facilityFeatures2.map((feature, index2) => {
             return /* @__PURE__ */ jsx(
-              Tooltip,
+              Tooltip$1,
               {
                 tooltip: `${feature == null ? void 0 : feature.name}: ${(feature == null ? void 0 : feature.userDescription) || ""}`,
                 children: /* @__PURE__ */ jsx("div", { className: `text-[15px]`, children: feature == null ? void 0 : feature.icon })
@@ -9390,7 +9939,7 @@ const Card = ({ listing }) => {
       ] }),
       /* @__PURE__ */ jsxs("div", { className: `flex place-items-end flex-col w-[40%] text-end pr-4 pt-2 pb-4`, children: [
         /* @__PURE__ */ jsx("div", { className: `font-[600]`, children: listing == null ? void 0 : listing.phone }),
-        /* @__PURE__ */ jsx("div", { className: `text-[12px] leading-[1.2em] mt-1`, children: /* @__PURE__ */ jsx(Address, { listing }) })
+        /* @__PURE__ */ jsx("div", { className: `text-[12px] leading-[1.2em] mt-1`, children: /* @__PURE__ */ jsx(Address$1, { listing }) })
       ] })
     ] }) }),
     /* @__PURE__ */ jsx("div", { className: `border-none`, children: /* @__PURE__ */ jsxs("div", { className: `flex place-content-between mx-4 my-1`, children: [
@@ -9443,7 +9992,7 @@ const Feature = ({ feature }) => {
                 text-black`, children: feature.short_description.substring(0, 80) }),
     /* @__PURE__ */ jsx("div", { className: `text-[12px] font-normal 
                 tracking-tight mt-[5px] leading-[1.4em]
-                text-brown-700`, children: /* @__PURE__ */ jsx(Address, { listing: feature }) }),
+                text-brown-700`, children: /* @__PURE__ */ jsx(Address$1, { listing: feature }) }),
     /* @__PURE__ */ jsx("div", { className: ` font-semibold  
                 tracking-tight mt-[8px] text-blue-800`, children: /* @__PURE__ */ jsx(Link, { to: feature.website ? feature.website : `#${feature.gid}`, children: "Website" }) })
   ] });
@@ -9523,7 +10072,7 @@ const Categories = () => {
       }
     ) }),
     /* @__PURE__ */ jsxs("div", { className: "max-h-[150px] overflow-y-auto scrollbar-hidden", children: [
-      filteredCategories == null ? void 0 : filteredCategories.map((nav, index2) => /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx("a", { href: `${appConfig.searchBaseUrl}?q=${nav == null ? void 0 : nav.id}`, children: /* @__PURE__ */ jsxs(
+      filteredCategories == null ? void 0 : filteredCategories.map((nav, index2) => /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx("a", { href: `/web/category/${nav == null ? void 0 : nav.id}`, children: /* @__PURE__ */ jsxs(
         "div",
         {
           className: "flex place-content-start place-items-center gap-2 w-full hover:bg-blue-100 pl-5 py-1.5 hover:cursor-pointer",
@@ -9632,210 +10181,7 @@ function Pagination({ pagination }) {
     ] })
   ] });
 }
-const QueryBuilder = ({
-  loading = false,
-  initialFilters = {
-    q: "",
-    category: "",
-    country: "",
-    state: "",
-    city: ""
-  }
-}) => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const [filters, setFilters] = useState(initialFilters);
-  const [categories2, setCategories] = useState([]);
-  const [countries, setCountries] = useState([]);
-  const [states, setStates] = useState([]);
-  const [cities, setCities] = useState([]);
-  useEffect(() => {
-    const searchParams = new URLSearchParams(location.search);
-    setFilters({
-      q: searchParams.get("q") || "",
-      category: searchParams.get("category") || "",
-      country: searchParams.get("country") || "",
-      state: searchParams.get("state") || "",
-      city: searchParams.get("city") || ""
-    });
-  }, [location.search]);
-  useEffect(() => {
-    fetchCategories();
-    fetchCountries();
-  }, []);
-  useEffect(() => {
-    if (filters.country) {
-      fetchStates(filters.country);
-    } else {
-      setStates([]);
-    }
-  }, [filters.country]);
-  useEffect(() => {
-    if (filters.country && filters.state) {
-      fetchCities(filters.country, filters.state);
-    } else {
-      setCities([]);
-    }
-  }, [filters.country, filters.state]);
-  const fetchCategories = async () => {
-    const sortedCategories = categories$2.sort(
-      (a, b) => a.name.localeCompare(b.name)
-    );
-    setCategories(sortedCategories);
-  };
-  const fetchCountries = async () => {
-    try {
-      const countries2 = await getCountries();
-      setCountries(countries2 || []);
-    } catch (error) {
-      console.error("Failed to fetch countries:", error);
-    }
-  };
-  const fetchStates = async (countryCode) => {
-    try {
-      const states2 = await getStatesAlt(countryCode);
-      setStates(states2 || []);
-    } catch (error) {
-      console.error("Failed to fetch countries:", error);
-    }
-  };
-  const fetchCities = async (countryCode, stateCode) => {
-    try {
-      const cities2 = await getCities(countryCode, stateCode);
-      setCities(cities2 || []);
-    } catch (error) {
-      console.error("Failed to fetch countries:", error);
-    }
-  };
-  const handleInputChange = (field, value) => {
-    setFilters((prev) => ({ ...prev, [field]: value }));
-  };
-  const handleCountryChange = (countryCode) => {
-    handleInputChange("country", countryCode);
-    fetchStates(countryCode);
-  };
-  const handleStateChange = (stateCode) => {
-    handleInputChange("state", stateCode);
-    fetchCities(filters.country, stateCode);
-  };
-  const handleSearch = () => {
-    const searchParams = new URLSearchParams();
-    if (filters.q) searchParams.set("q", filters.q);
-    if (filters.category) searchParams.set("category", filters.category);
-    if (filters.country) searchParams.set("country", filters.country);
-    if (filters.state) searchParams.set("state", filters.state);
-    if (filters.city) searchParams.set("city", filters.city);
-    searchParams.set("page", "1");
-    navigate(`${location.pathname}?${searchParams.toString()}`);
-  };
-  const handleKeyPress = (event) => {
-    if (event.key === "Enter") {
-      handleSearch();
-    }
-  };
-  const clearFilters = () => {
-    navigate(location.pathname);
-  };
-  return /* @__PURE__ */ jsxs("div", { className: "w-full space-y-3 p-4 bg-gray-50 rounded-lg border", children: [
-    /* @__PURE__ */ jsxs("div", { className: "w-full grid grid-cols-1 md:grid-cols-2 gap-3", children: [
-      /* @__PURE__ */ jsx("div", { className: "w-full", children: /* @__PURE__ */ jsx(
-        "input",
-        {
-          id: "query",
-          type: "text",
-          value: filters.q,
-          onChange: (e) => handleInputChange("q", e.target.value),
-          onKeyPress: handleKeyPress,
-          placeholder: "Hotel, Restaurant or ABC Inc.",
-          className: "w-full px-3 border border-gray-300 rounded outline-none h-[35px] focus:border-blue-500 focus:ring-1 focus:ring-blue-500",
-          disabled: loading
-        }
-      ) }),
-      /* @__PURE__ */ jsx("div", { className: "w-full", children: /* @__PURE__ */ jsxs(
-        "select",
-        {
-          id: "category",
-          value: filters.category,
-          onChange: (e) => handleInputChange("category", e.target.value),
-          className: "w-full h-[35px] border border-gray-300 rounded px-2 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500",
-          disabled: loading,
-          children: [
-            /* @__PURE__ */ jsx("option", { value: "", children: "All Categories" }),
-            categories2.map((category, index2) => /* @__PURE__ */ jsx("option", { value: category == null ? void 0 : category.id, children: category == null ? void 0 : category.name }, category == null ? void 0 : category.id))
-          ]
-        }
-      ) })
-    ] }),
-    /* @__PURE__ */ jsxs("div", { className: "w-full grid grid-cols-1 md:grid-cols-2 gap-3", children: [
-      /* @__PURE__ */ jsx("div", { className: "w-full", children: /* @__PURE__ */ jsxs(
-        "select",
-        {
-          id: "country",
-          value: filters.country,
-          onChange: (e) => handleCountryChange(e.target.value),
-          className: "w-full h-[35px] border border-gray-300 rounded px-2 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500",
-          disabled: loading,
-          children: [
-            /* @__PURE__ */ jsx("option", { value: "", children: "All Countries" }),
-            countries.map((country) => /* @__PURE__ */ jsx("option", { value: country.id, children: country.name }, country.id))
-          ]
-        }
-      ) }),
-      /* @__PURE__ */ jsx("div", { className: "w-full", children: /* @__PURE__ */ jsxs(
-        "select",
-        {
-          id: "state",
-          value: filters.state,
-          onChange: (e) => handleStateChange(e.target.value),
-          className: "w-full h-[35px] border border-gray-300 rounded px-2 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500",
-          disabled: loading || !filters.country,
-          children: [
-            /* @__PURE__ */ jsx("option", { value: "", children: "All States" }),
-            states.map((state) => /* @__PURE__ */ jsx("option", { value: state.id, children: state.name }, state.id))
-          ]
-        }
-      ) })
-    ] }),
-    /* @__PURE__ */ jsxs("div", { className: "w-full grid grid-cols-1 md:grid-cols-2 gap-3", children: [
-      /* @__PURE__ */ jsx("div", { className: "w-full", children: /* @__PURE__ */ jsxs(
-        "select",
-        {
-          id: "city",
-          value: filters.city,
-          onChange: (e) => handleInputChange("city", e.target.value),
-          className: "w-full h-[35px] border border-gray-300 rounded px-2 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500",
-          disabled: loading || !filters.state,
-          children: [
-            /* @__PURE__ */ jsx("option", { value: "", children: "All Cities" }),
-            cities == null ? void 0 : cities.map((city) => /* @__PURE__ */ jsx("option", { value: city.name, children: city.name }, city.id))
-          ]
-        }
-      ) }),
-      /* @__PURE__ */ jsxs("div", { className: "w-full flex gap-2", children: [
-        /* @__PURE__ */ jsx(
-          "button",
-          {
-            onClick: handleSearch,
-            disabled: loading,
-            className: "flex-1 bg-blue-600 text-white h-[35px] px-4 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed",
-            children: loading ? "Searching..." : "Search"
-          }
-        ),
-        /* @__PURE__ */ jsx(
-          "button",
-          {
-            onClick: clearFilters,
-            disabled: loading,
-            className: "px-4 h-[35px] border border-gray-300 rounded text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed",
-            children: "Clear"
-          }
-        )
-      ] })
-    ] }),
-    loading && /* @__PURE__ */ jsx("div", { className: "text-center text-blue-600 text-sm", children: "Loading results..." })
-  ] });
-};
-const loader$V = async ({ request, params }) => {
+const loader$_ = async ({ request, params }) => {
   const url = new URL(request.url);
   const query2 = (url == null ? void 0 : url.searchParams.get("q")) || "";
   const state = (url == null ? void 0 : url.searchParams.get("state")) || "";
@@ -9859,7 +10205,7 @@ const loader$V = async ({ request, params }) => {
   };
   return res;
 };
-const Index$3 = () => {
+const Index$4 = () => {
   const res = useLoaderData();
   const [loading, setLoading] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -9870,33 +10216,23 @@ const Index$3 = () => {
   const countries = res.countries;
   const [queryParam, setQueryParam] = useState(null);
   parseInt(searchParams.get("page") || "1");
-  const isLoading = navigation.state === "loading";
+  navigation.state === "loading";
   useEffect(() => {
     if (query2) {
       setQueryParam(query2);
     }
   }, [query2]);
-  const initialFilters = {
+  ({
     q: searchParams.get("q") || "",
     category: searchParams.get("category") || "",
     country: searchParams.get("country") || "",
     state: searchParams.get("state") || "",
     city: searchParams.get("city") || ""
-  };
+  });
   return /* @__PURE__ */ jsxs("div", { className: " bg-gray-50", children: [
     /* @__PURE__ */ jsx(MainNav, {}),
     /* @__PURE__ */ jsx("div", { className: `h-screen flex flex-col relative `, children: /* @__PURE__ */ jsxs("div", { className: `grid grid-cols-12 h-full overflow-hidden  gap-5 `, children: [
       /* @__PURE__ */ jsxs("aside", { className: `col-span-3 h-full overflow-y-auto scrollbar-hidden pt-2 hidden xl:block`, children: [
-        /* @__PURE__ */ jsxs("div", { className: ``, children: [
-          /* @__PURE__ */ jsx("div", { className: `mt-3 text-[17px] mb-4 font-bold ml-6`, children: "Search Filter" }),
-          /* @__PURE__ */ jsx(
-            QueryBuilder,
-            {
-              loading: isLoading,
-              initialFilters
-            }
-          )
-        ] }),
         /* @__PURE__ */ jsxs("div", { className: ``, children: [
           /* @__PURE__ */ jsx("div", { className: `mt-3 text-[17px] mb-4 font-bold ml-6`, children: "Categories" }),
           /* @__PURE__ */ jsx(Categories, {})
@@ -9908,51 +10244,640 @@ const Index$3 = () => {
         /* @__PURE__ */ jsx("div", { className: ` py-4 px-4 border-t`, children: "Garssete - Business Directory Listing" })
       ] }),
       /* @__PURE__ */ jsx("div", { className: `col-span-12 xl:col-span-9  overflow-y-auto w-full md:px-[15px]`, children: /* @__PURE__ */ jsxs("div", { className: `grid grid-cols-12 gap-5`, children: [
-        /* @__PURE__ */ jsxs("div", { className: `col-span-12 md:col-span-8  pt-3`, children: [
-          /* @__PURE__ */ jsxs("div", { className: `mb-12 block xl:hidden`, children: [
-            /* @__PURE__ */ jsx("div", { className: `mt-3 text-[17px] mb-4 font-bold ml-6`, children: "Search Filter" }),
-            /* @__PURE__ */ jsx(
-              QueryBuilder,
+        /* @__PURE__ */ jsx("div", { className: `col-span-12 md:col-span-8  pt-3`, children: /* @__PURE__ */ jsxs("div", { className: `space-y-8`, children: [
+          /* @__PURE__ */ jsx(
+            Pagination,
+            {
+              pagination
+            }
+          ),
+          data == null ? void 0 : data.map((data2, index2) => {
+            return /* @__PURE__ */ jsx(
+              Card$1,
               {
-                loading: isLoading,
-                initialFilters
-              }
-            )
-          ] }),
-          /* @__PURE__ */ jsxs("div", { className: `space-y-8`, children: [
-            /* @__PURE__ */ jsx(
-              Pagination,
-              {
-                pagination
-              }
-            ),
-            data == null ? void 0 : data.map((data2, index2) => {
-              return /* @__PURE__ */ jsx(
-                Card,
-                {
-                  listing: data2
-                },
-                index2
-              );
-            }),
-            /* @__PURE__ */ jsx(
-              Pagination,
-              {
-                pagination
-              }
-            ),
-            /* @__PURE__ */ jsx(FooterCard, {})
-          ] })
-        ] }),
+                listing: data2
+              },
+              index2
+            );
+          }),
+          /* @__PURE__ */ jsx(
+            Pagination,
+            {
+              pagination
+            }
+          ),
+          /* @__PURE__ */ jsx(FooterCard, {})
+        ] }) }),
         /* @__PURE__ */ jsx("div", { className: `hidden md:block md:col-span-4 pt-3    `, children: /* @__PURE__ */ jsx("div", { className: `w-full xl:w-[90%] sticky top-3 ml-auto`, children: /* @__PURE__ */ jsx(Featured, {}) }) })
       ] }) })
     ] }) })
   ] });
 };
-const route13 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route16 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: Index$3,
-  loader: loader$V
+  default: Index$4,
+  loader: loader$_
+}, Symbol.toStringTag, { value: "Module" }));
+const Card = ({ listing }) => {
+  var _a;
+  const fallbackImg = `/images/fallbackBusinessImg.png`;
+  const [placeholder, setPlaceholder] = useState("/images/bycetplaceholder.png");
+  const [imgscr, setImgsrc] = useState("");
+  const [userId, setUserId] = useState("");
+  const [socialMedia, setSocialMedia] = useState(null);
+  const [listingWebsite, setListingWebsite] = useState("");
+  const [baseListing, setBaseListing] = useState(null);
+  const [facilityFeatures2, setFacilityFeatures] = useState(null);
+  const [addressLink, setAddressLink] = useState("");
+  useEffect(() => {
+    if (listing) {
+      const baseListing2 = listing;
+      setBaseListing(baseListing2);
+      if (baseListing2 == null ? void 0 : baseListing2.image_url) {
+        setImgsrc(config.IMG_BASE_URL + (baseListing2 == null ? void 0 : baseListing2.image_url));
+      } else {
+        setImgsrc(placeholder);
+      }
+    }
+  }, [listing]);
+  useEffect(() => {
+    if (listing == null ? void 0 : listing.website) {
+      setListingWebsite(listing == null ? void 0 : listing.website);
+    } else {
+      if ((listing == null ? void 0 : listing.username) === "" || (listing == null ? void 0 : listing.username) === null) {
+        setListingWebsite("/" + (listing == null ? void 0 : listing.gid));
+      } else {
+        setListingWebsite("/" + (listing == null ? void 0 : listing.username));
+      }
+    }
+  }, [listing]);
+  useEffect(() => {
+    if (listing) {
+      if ((listing == null ? void 0 : listing.image_url) !== "" && (listing == null ? void 0 : listing.image_url) !== null && (listing == null ? void 0 : listing.image_url) !== void 0) {
+        setImgsrc(config.IMG_BASE_URL + (listing == null ? void 0 : listing.image_url));
+      } else {
+        setImgsrc(placeholder);
+      }
+      if ((listing == null ? void 0 : listing.username) !== "" && (listing == null ? void 0 : listing.username) !== null && (listing == null ? void 0 : listing.username) !== void 0) {
+        setUserId(listing == null ? void 0 : listing.username);
+      } else {
+        setUserId(listing == null ? void 0 : listing.gid);
+      }
+    }
+  }, [listing]);
+  useEffect(() => {
+    if (listing == null ? void 0 : listing.social_media) {
+      let socialMedia2 = [];
+      const separatedMedia = strToList(listing == null ? void 0 : listing.social_media, ",");
+      if (separatedMedia !== null) {
+        separatedMedia == null ? void 0 : separatedMedia.map((mediaString, index2) => {
+          const mediaInfo = strToList(mediaString, "$");
+          const mediaObj = {
+            mediaName: mediaInfo[0],
+            mediaHandle: mediaInfo[1],
+            baseUrl: mediaInfo[2]
+          };
+          console.log(mediaObj);
+          socialMedia2.push(mediaObj);
+        });
+      }
+      setSocialMedia(socialMedia2);
+    }
+  }, [listing]);
+  useEffect(() => {
+  }, [socialMedia]);
+  useEffect(() => {
+    if (baseListing == null ? void 0 : baseListing.facility_features) {
+      let facilityFeatures22 = [];
+      const separatedFeatures = strToList(baseListing == null ? void 0 : baseListing.facility_features, "&");
+      if (separatedFeatures !== null) {
+        separatedFeatures == null ? void 0 : separatedFeatures.map((featureString, index2) => {
+          const featureInfo = strToList(featureString, "$");
+          const featureObject = {
+            featureId: featureInfo[0],
+            userDescription: featureInfo[1]
+          };
+          facilityFeatures22.push(featureObject);
+        });
+      }
+      const mappedFacilityFeatures = searchFacilities(facilityFeatures22);
+      setFacilityFeatures(mappedFacilityFeatures);
+    }
+  }, [baseListing]);
+  useEffect(() => {
+    let getListingAddress = async (listing2) => {
+      let address = listing2 == null ? void 0 : listing2.title;
+      address += (listing2 == null ? void 0 : listing2.address_one) ? ", " + (listing2 == null ? void 0 : listing2.address_one) : "";
+      address += (listing2 == null ? void 0 : listing2.address_two) ? ", " + (listing2 == null ? void 0 : listing2.address_two) : "";
+      address += (listing2 == null ? void 0 : listing2.city_name) ? ", " + (listing2 == null ? void 0 : listing2.city_name) : "";
+      address += (listing2 == null ? void 0 : listing2.state_name) ? ", " + (listing2 == null ? void 0 : listing2.state_name) : "";
+      address += (listing2 == null ? void 0 : listing2.zipcode) ? ", " + (listing2 == null ? void 0 : listing2.zipcode) : "";
+      address += (listing2 == null ? void 0 : listing2.country_name) ? ", " + (listing2 == null ? void 0 : listing2.country_name) : "";
+      let addLink = `https://www.google.com/maps/search/?api=1&query=${address}`;
+      setAddressLink(addLink);
+    };
+    if (listing !== null) {
+      getListingAddress(listing);
+    }
+  }, [listing]);
+  return /* @__PURE__ */ jsxs("div", { className: `bg-white w-full h-auto  overflow-hidden border   hover:shadow-md hover:shadow-gray-200 md:rounded-xl`, children: [
+    /* @__PURE__ */ jsx("div", { className: `bg-gray-50/30 py-3 px-4 border-b-0`, children: /* @__PURE__ */ jsxs("a", { href: `/${userId}`, children: [
+      /* @__PURE__ */ jsxs("div", { className: `flex place-content-between gap-2`, children: [
+        /* @__PURE__ */ jsxs("div", { className: `flex place-items-start gap-2 w-full`, children: [
+          /* @__PURE__ */ jsx(
+            "div",
+            {
+              className: `max-w-[85px] h-[90px] min-w-[85px]   bg-gray-50  relative border flex place-items-center place-content-center  overflow-hidden shadow-xl shadow-gray-400/30`,
+              children: (listing == null ? void 0 : listing.image_url) !== null ? /* @__PURE__ */ jsx(
+                "img",
+                {
+                  src: imgscr,
+                  alt: "",
+                  className: ` w-full h-auto text-sm
+                             z-0 bg-gray-100 `
+                }
+              ) : /* @__PURE__ */ jsx("div", { className: `h-full w-full  md:p-3`, children: /* @__PURE__ */ jsx(
+                "img",
+                {
+                  src: fallbackImg,
+                  alt: ""
+                }
+              ) })
+            }
+          ),
+          /* @__PURE__ */ jsxs("div", { className: ` w-full`, children: [
+            /* @__PURE__ */ jsx("div", { className: `text-[18px] font-normal text-blue-800 line-clamp-1 w-full`, children: listing == null ? void 0 : listing.title }),
+            (listing == null ? void 0 : listing.category) && /* @__PURE__ */ jsx("div", { className: `text-[12px] text-gray-500  capitalize mt-[0px]`, children: (_a = searchCategories(listing == null ? void 0 : listing.category)) == null ? void 0 : _a.name }),
+            /* @__PURE__ */ jsxs("div", { className: `flex place-items-center gap-x-1 mt-[5px] `, children: [
+              /* @__PURE__ */ jsx("div", { children: (baseListing == null ? void 0 : baseListing.rating_average) !== null && (baseListing == null ? void 0 : baseListing.rating_average) !== "" && (baseListing == null ? void 0 : baseListing.rating_average) !== void 0 ? /* @__PURE__ */ jsxs("div", { className: ` flex gap-2 place-items-center`, children: [
+                /* @__PURE__ */ jsx(RatingBoxRounded, { rating: Number(baseListing == null ? void 0 : baseListing.rating_average) }),
+                /* @__PURE__ */ jsx(RatingCount$1, { averageRating: baseListing == null ? void 0 : baseListing.rating_average })
+              ] }) : /* @__PURE__ */ jsxs("div", { className: ` flex gap-2 place-items-center`, children: [
+                /* @__PURE__ */ jsx(RatingBoxRounded, { rating: Number(0) }),
+                /* @__PURE__ */ jsx(RatingCount$1, { averageRating: 0 })
+              ] }) }),
+              /* @__PURE__ */ jsxs("div", { className: ` `, children: [
+                Number(baseListing == null ? void 0 : baseListing.rating_count) > 0 ? baseListing == null ? void 0 : baseListing.rating_count : 0,
+                " Reviews"
+              ] })
+            ] })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsx("div", { className: `flex place-items-start`, children: /* @__PURE__ */ jsx("div", { className: `font-bold rounded-sm border px-3 py-[2px]`, children: "View" }) })
+      ] }),
+      /* @__PURE__ */ jsx("div", { className: `mt-[8px] text-[14px] md:text-[13px] text-gray-800 leading-[1.3em] line-clamp-3`, children: listing == null ? void 0 : listing.short_description })
+    ] }) }),
+    /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("div", { className: ` h-auto flex place-content-between gap-2 `, children: [
+      /* @__PURE__ */ jsxs("div", { className: `flex place-items-start w-[60%] flex-col  pl-4  pt-2 pb-4 `, children: [
+        /* @__PURE__ */ jsxs("div", { className: `flex place-items-center gap-x-1`, children: [
+          /* @__PURE__ */ jsx(BsBank, {}),
+          /* @__PURE__ */ jsxs("span", { className: `mt-[1px] text-gray-500 space-x-2`, children: [
+            /* @__PURE__ */ jsx("span", { className: `font-bold`, children: "Founded:" }),
+            /* @__PURE__ */ jsx("span", { children: listing == null ? void 0 : listing.established })
+          ] })
+        ] }),
+        facilityFeatures2 !== null && /* @__PURE__ */ jsxs("div", { className: `mt-2 flex place-items-start gap-2 w-full relative`, children: [
+          /* @__PURE__ */ jsx("span", { className: `text-[13px]`, children: "Facilities: " }),
+          /* @__PURE__ */ jsx("div", { className: `flex place-items-baseline gap-3 flex-wrap leading-[0.9em] `, children: facilityFeatures2 == null ? void 0 : facilityFeatures2.map((feature, index2) => {
+            return /* @__PURE__ */ jsx(
+              Tooltip,
+              {
+                tooltip: `${feature == null ? void 0 : feature.name}: ${(feature == null ? void 0 : feature.userDescription) || ""}`,
+                children: /* @__PURE__ */ jsx("div", { className: `text-[15px]`, children: feature == null ? void 0 : feature.icon })
+              },
+              index2
+            );
+          }) })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxs("div", { className: `flex place-items-end flex-col w-[40%] text-end pr-4 pt-2 pb-4`, children: [
+        /* @__PURE__ */ jsx("div", { className: `font-[600]`, children: listing == null ? void 0 : listing.phone }),
+        /* @__PURE__ */ jsx("div", { className: `text-[12px] leading-[1.2em] mt-1`, children: /* @__PURE__ */ jsx(Address, { listing }) })
+      ] })
+    ] }) }),
+    /* @__PURE__ */ jsx("div", { className: `border-none`, children: /* @__PURE__ */ jsxs("div", { className: `flex place-content-between mx-4 my-1`, children: [
+      /* @__PURE__ */ jsxs("div", { className: `flex place-items-center gap-4`, children: [
+        /* @__PURE__ */ jsx("a", { href: `mailto:${listing == null ? void 0 : listing.email_address}`, children: /* @__PURE__ */ jsx(MdEmail, { size: 20 }) }, 34),
+        (listing == null ? void 0 : listing.phone) && /* @__PURE__ */ jsx("a", { href: `tel:${listing == null ? void 0 : listing.phone}`, children: /* @__PURE__ */ jsx(BiPhone, { size: 20 }) }, 30),
+        socialMedia !== null && (socialMedia == null ? void 0 : socialMedia.map((media, index2) => {
+          return /* @__PURE__ */ jsx("a", { href: `${media == null ? void 0 : media.baseUrl}${media == null ? void 0 : media.mediaHandle}`, children: getCardIcon(media == null ? void 0 : media.mediaName) }, index2);
+        }))
+      ] }),
+      /* @__PURE__ */ jsx("div", { className: `px-1.5 py-0.5 bg-red-500 rounded hover:shadow-lg text-white`, children: /* @__PURE__ */ jsx("a", { href: `${listingWebsite}`, children: "Website" }) })
+    ] }) }),
+    /* @__PURE__ */ jsx("div", { className: `px-4 mb-4 mt-8`, children: /* @__PURE__ */ jsxs("div", { className: ` grid grid-cols-2 gap-2 w-full md:w-[50%]`, children: [
+      /* @__PURE__ */ jsx(
+        "a",
+        {
+          target: "_blank",
+          href: `${addressLink}`,
+          className: `border border-blue-400 py-[5px] rounded px-2 font-semibold w-full text-center`,
+          children: "Go to map"
+        }
+      ),
+      /* @__PURE__ */ jsx("div", { children: (baseListing == null ? void 0 : baseListing.phone) && /* @__PURE__ */ jsx("a", { href: `tel:${baseListing == null ? void 0 : baseListing.phone}`, children: /* @__PURE__ */ jsxs("button", { className: `bg-gray-500 rounded w-full text-white flex place-items-center place-content-center text-[15px] gap-2 py-[5px]`, children: [
+        /* @__PURE__ */ jsx(BiPhone, { size: 20, className: `mt-[2px]` }),
+        /* @__PURE__ */ jsx("span", { children: "Call" })
+      ] }) }) })
+    ] }) })
+  ] });
+};
+function RatingBoxRounded({ rating }) {
+  return /* @__PURE__ */ jsx("div", { className: "flex gap-x-[2px]", children: Array.from({ length: 5 }).map((_, i) => {
+    const fillPercent = Math.max(0, Math.min(1, rating - i)) * 100;
+    return /* @__PURE__ */ jsx(
+      "div",
+      {
+        className: `relative w-[17px] h-[17px] bg-white rounded-full 
+                            overflow-hidden flex place-items-center border-[1px]
+                            place-content-center border-gray-500`,
+        children: /* @__PURE__ */ jsx(
+          "div",
+          {
+            className: `absolute inset-0 bg-green-600 z-[0]`,
+            style: { width: `${fillPercent}%` }
+          }
+        )
+      },
+      i
+    );
+  }) });
+}
+const RatingCount$1 = ({ averageRating }) => {
+  const [avgRating, setAvgRating] = useState(0);
+  useEffect(() => {
+    if (averageRating !== null && averageRating !== void 0) {
+      setAvgRating(averageRating);
+    }
+  }, [averageRating]);
+  return /* @__PURE__ */ jsxs("div", { className: `text-blue-700`, children: [
+    "(",
+    formatNumber(Number(avgRating)),
+    ")"
+  ] });
+};
+const Address = ({ listing }) => {
+  return /* @__PURE__ */ jsxs("div", { children: [
+    listing == null ? void 0 : listing.address_one,
+    (listing == null ? void 0 : listing.address_two) ? `, ${listing == null ? void 0 : listing.address_two}` : "",
+    (listing == null ? void 0 : listing.city_name) ? `, ${listing == null ? void 0 : listing.city_name}` : "",
+    (listing == null ? void 0 : listing.state_name) ? `, ${listing == null ? void 0 : listing.state_name}` : "",
+    (listing == null ? void 0 : listing.country_name) ? `, ${listing == null ? void 0 : listing.country_name}` : ""
+  ] });
+};
+const Tooltip = ({ tooltip, children }) => {
+  return /* @__PURE__ */ jsx("div", { className: `block`, children: /* @__PURE__ */ jsxs("a", { href: "#", className: `tooltip z-[20000] relative  `, "data-tooltip": tooltip, children: [
+    children,
+    /* @__PURE__ */ jsx("style", { children: `
+                    .tooltip{
+                        position:relative;
+                        display: inline-block;
+                        cursor: pointer;
+                        text-decoration: underline;
+                    }
+
+                    .tooltip::after{
+                        content:attr(data-tooltip);
+                        position: absolute;
+                        bottom: 125%;
+                        left: 50%;
+                        transform: translateX(-20px);
+                        background-color: blue;
+                        color: #fff;
+                        padding: 6px 8px;
+                        border-radius: 4px;
+                        white-space: normal;
+                        max-width: 250px; 
+                        min-width: 200px; 
+                        word-wrap: break-word;
+                        opacity: 0;
+                        pointer-events: none;
+                        transition: opacity 0.2s ease-in-out;
+                        font-size: 11px;
+                        z-index: 999;
+                        line-height:1.4em;
+                    }
+
+                    .tooltip:hover::after{
+                        opacity: 1;
+                    }
+                    ` })
+  ] }) });
+};
+const schemaMap$1 = {
+  "business-services": "LocalBusiness",
+  "fashion-accessories": "Store",
+  "accounting": "AccountingService",
+  "advertising-marketing": "MarketingAgency",
+  "financial-services": "FinancialService",
+  "legal-services": "LegalService",
+  "human-resource-recruiting": "EmploymentAgency",
+  "printing-publishing": "PrintingService",
+  "translation-and-interpretation": "ProfessionalService",
+  "cleaning-services": "CleaningService",
+  "plumbing": "Plumber",
+  "hotels": "Hotel",
+  "construction-roofing": "ConstructionService",
+  "electrical-services": "Electrician",
+  "landscaping-gardening": "Landscaping",
+  "interior-design": "InteriorDesign",
+  "logistics-moving-storage": "MovingCompany",
+  "health-fitness": "HealthClub",
+  "restaurants": "Restaurant",
+  "supermarkets": "Supermarket",
+  "food-delivery": "FoodDeliveryService",
+  "shopping-retail": "Store",
+  "travel-hospitality-rentals": "TravelAgency",
+  "automotive": "AutoRepair",
+  "entertainment": "EntertainmentBusiness",
+  "education": "School",
+  "technology-it": "ITService",
+  "real-estate": "RealEstateAgent",
+  "community-government": "GovernmentOffice",
+  "general-trading": "LocalBusiness"
+};
+function getSchemaType$1(categoryId) {
+  return schemaMap$1[categoryId] || "LocalBusiness";
+}
+const loader$Z = async ({ params, request }) => {
+  const category = params.category;
+  const city = params.city;
+  const url = new URL(request.url);
+  let page = Math.max(1, parseInt((url == null ? void 0 : url.searchParams.get("page")) || "1"));
+  let businesses = "";
+  try {
+    businesses = await getBusinessByCategoryAndCity(category, city, page);
+    console.log(businesses);
+    console.log("======");
+  } catch (error) {
+    logError(error);
+  }
+  return {
+    category,
+    city,
+    businesses: businesses || { items: [], pagination: null },
+    currentPage: page
+  };
+};
+function toTitleCase$1(text) {
+  return text.toLowerCase().split(" ").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+}
+const meta$3 = ({ data }) => {
+  const category = data == null ? void 0 : data.category;
+  const city = data == null ? void 0 : data.city;
+  data == null ? void 0 : data.businesses;
+  const formattedCategory = toTitleCase$1(convertDashToSpace(category));
+  const formattedCity = toTitleCase$1(convertDashToSpace(city));
+  const title = `${formattedCategory} in ${formattedCity} | Bycet Index Directory`;
+  const description = `Find the best ${formattedCategory} businesses in ${formattedCity}. Contact details, operating hours, ratings, and more.`;
+  return [
+    { title },
+    { name: "description", content: description },
+    { name: "keywords", content: `${category}, ${city}, business directory, ${category} in ${city}` },
+    { property: "og:title", content: title },
+    { property: "og:description", content: description },
+    { property: "og:type", content: "website" },
+    { property: "og:url", content: `https://index.bycet.com/web/${category}/${city}` },
+    { property: "og:image", content: "https://index.bycet.com/og-default.jpg" }
+  ];
+};
+const sanitizePhone$1 = (phone) => {
+  return phone == null ? void 0 : phone.replace(/[^+\d]/g, "");
+};
+const getOperatingDays$1 = (object) => {
+  let days = [];
+  if (object.monday_from && object.monday_to) {
+    days.push({
+      day: "Monday",
+      time: `${object.monday_from} - ${object.monday_to}`
+    });
+  }
+  if (object.tuesday_from && object.tuesday_to) {
+    days.push({
+      day: "Tuesday",
+      time: `${object.tuesday_from} - ${object.tuesday_to}`
+    });
+  }
+  if (object.wednesday_from && object.wednesday_to) {
+    days.push({
+      day: "Wednesday",
+      time: `${object.wednesday_from} - ${object.wednesday_to}`
+    });
+  }
+  if (object.thursday_from && object.thursday_to) {
+    days.push({
+      day: "Thursday",
+      time: `${object.thursday_from} - ${object.thursday_to}`
+    });
+  }
+  if (object.friday_from && object.friday_to) {
+    days.push({
+      day: "Friday",
+      time: `${object.friday_from} - ${object.friday_to}`
+    });
+  }
+  if (object.saturday_from && object.saturday_to) {
+    days.push({
+      day: "Saturday",
+      time: `${object.saturday_from} - ${object.saturday_to}`
+    });
+  }
+  if (object.sunday_from && object.sunday_to) {
+    days.push({
+      day: "Sunday",
+      time: `${object.sunday_from} - ${object.sunday_to}`
+    });
+  }
+  return days;
+};
+const getOperatingDays2$1 = (object) => {
+  const daysMap = [
+    { day: "Mo", from: "monday_from", to: "monday_to" },
+    { day: "Tu", from: "tuesday_from", to: "tuesday_to" },
+    { day: "We", from: "wednesday_from", to: "wednesday_to" },
+    { day: "Th", from: "thursday_from", to: "thursday_to" },
+    { day: "Fr", from: "friday_from", to: "friday_to" },
+    { day: "Sa", from: "saturday_from", to: "saturday_to" },
+    { day: "Su", from: "sunday_from", to: "sunday_to" }
+  ];
+  return daysMap.map((d) => {
+    const from = object[d.from];
+    const to = object[d.to];
+    if (from !== "Closed" && to !== "Closed") {
+      return `${d.day} ${from}-${to}`;
+    } else {
+      return `${d.day} Closed`;
+    }
+  });
+};
+const schemaData$1 = (object, fallbackImg) => {
+  return {
+    "@context": "https://schema.org",
+    "@type": getSchemaType$1(object.category),
+    "name": object.title,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": `${object.address_one} ${object.address_two || ""}`,
+      "addressLocality": object.city_name,
+      "addressRegion": object.state_name,
+      "addressCountry": object.country_code,
+      "postalCode": object.zipcode || "00000"
+    },
+    "telephone": sanitizePhone$1(object.phone) || "",
+    "openingHours": getOperatingDays2$1(object),
+    "url": `${config.BASE_URL}/web/${object.category}/${object.city_name}`,
+    "image": `${object.image_url !== null ? config.IMG_BASE_URL + object.image_url : config.BASE_URL + fallbackImg}`,
+    "starRating": {
+      "@type": "Rating",
+      "ratingValue": object.rating_average,
+      "totalReviews": object.rating_count,
+      "bestRating": "5"
+    }
+  };
+};
+const index$p = () => {
+  const { category, city, businesses, currentPage } = useLoaderData();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const fallbackImg = `/images/fallbackBusinessImg.png`;
+  const data = (businesses == null ? void 0 : businesses.data) || [];
+  const pagination = (businesses == null ? void 0 : businesses.pagination) || null;
+  const goToPage = (pageNumber) => {
+    const params = new URLSearchParams(location.search);
+    params.set("page", pageNumber.toString());
+    navigate(`${location.pathname}?${params.toString()}`);
+  };
+  const generatePageNumbers = (current, total) => {
+    const pages = [];
+    if (total <= 7) {
+      for (let i = 1; i <= total; i++) pages.push(i);
+    } else {
+      if (current <= 4) {
+        for (let i = 1; i <= 5; i++) pages.push(i);
+        pages.push("...");
+        pages.push(total);
+      } else if (current >= total - 3) {
+        pages.push(1);
+        pages.push("...");
+        for (let i = total - 4; i <= total; i++) pages.push(i);
+      } else {
+        pages.push(1);
+        pages.push("...");
+        pages.push(current - 1);
+        pages.push(current);
+        pages.push(current + 1);
+        pages.push("...");
+        pages.push(total);
+      }
+    }
+    return pages;
+  };
+  const renderPagination = () => {
+    if (!pagination || pagination.total_pages <= 1) return null;
+    return /* @__PURE__ */ jsxs("div", { className: "mt-8 flex flex-col md:flex-row items-center justify-between gap-4", children: [
+      /* @__PURE__ */ jsxs("div", { className: "text-sm text-gray-600", children: [
+        "Showing ",
+        (pagination.current_page - 1) * pagination.items_per_page + 1,
+        "-",
+        Math.min(pagination.current_page * pagination.items_per_page, pagination.total_items),
+        "of ",
+        pagination.total_items,
+        " businesses"
+      ] }),
+      /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2", children: [
+        /* @__PURE__ */ jsx(
+          "button",
+          {
+            onClick: () => goToPage(pagination.prev_page),
+            disabled: !pagination.has_prev_page,
+            className: `px-4 py-2 rounded border ${pagination.has_prev_page ? "bg-white hover:bg-gray-50 text-gray-700 border-gray-300" : "bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed"}`,
+            children: "← Previous"
+          }
+        ),
+        /* @__PURE__ */ jsx("div", { className: "flex items-center gap-1", children: generatePageNumbers(pagination.current_page, pagination.total_pages).map((pageNum, idx) => /* @__PURE__ */ jsx(React.Fragment, { children: pageNum === "..." ? /* @__PURE__ */ jsx("span", { className: "px-2 text-gray-400", children: "..." }) : /* @__PURE__ */ jsx(
+          "button",
+          {
+            onClick: () => goToPage(pageNum),
+            className: `w-10 h-10 rounded border flex items-center justify-center ${pageNum === pagination.current_page ? "bg-blue-600 text-white border-blue-600" : "bg-white hover:bg-gray-50 text-gray-700 border-gray-300"}`,
+            children: pageNum
+          }
+        ) }, idx)) }),
+        /* @__PURE__ */ jsx(
+          "button",
+          {
+            onClick: () => goToPage(pagination.next_page),
+            disabled: !pagination.has_next_page,
+            className: `px-4 py-2 rounded border ${pagination.has_next_page ? "bg-white hover:bg-gray-50 text-gray-700 border-gray-300" : "bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed"}`,
+            children: "Next →"
+          }
+        )
+      ] })
+    ] });
+  };
+  return /* @__PURE__ */ jsxs("div", { className: "p-6 bg-gray-50", children: [
+    /* @__PURE__ */ jsx(MainNav, {}),
+    /* @__PURE__ */ jsx("div", { className: `w-full `, children: /* @__PURE__ */ jsxs("div", { className: `max-w-[1100px] mx-auto w-full`, children: [
+      /* @__PURE__ */ jsxs("div", { children: [
+        /* @__PURE__ */ jsxs("h1", { className: "text-3xl font-bold", children: [
+          "Best ",
+          /* @__PURE__ */ jsx("span", { className: `font-light font-serif italic capitalize`, children: convertDashToSpace(category) }),
+          " in ",
+          /* @__PURE__ */ jsx("span", { className: `font-light font-serif italic capitalize`, children: convertDashToSpace(city) })
+        ] }),
+        /* @__PURE__ */ jsxs("p", { className: "mt-2 text-gray-600", children: [
+          "Explore verified ",
+          category,
+          " services in ",
+          city,
+          ". View contact info, working hours, and reviews."
+        ] }),
+        pagination && /* @__PURE__ */ jsxs("div", { className: "mt-2 text-sm text-gray-500", children: [
+          "Found ",
+          pagination.total_items,
+          " businesses"
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxs("div", { className: `grid grid-cols-1 lg:grid-cols-12 gap-6`, children: [
+        /* @__PURE__ */ jsxs("div", { className: `md:col-span-8`, children: [
+          /* @__PURE__ */ jsx("div", { className: "mt-6 grid grid-cols-1 gap-4", children: (data == null ? void 0 : data.length) > 0 ? data == null ? void 0 : data.map((b, index2) => /* @__PURE__ */ jsx("div", { className: `group`, children: /* @__PURE__ */ jsx(Link, { to: `/${b.username !== null && b.username !== "" && b.username !== void 0 ? b.username : b.gid}`, children: /* @__PURE__ */ jsxs("div", { className: " border-blue-200 py-4", children: [
+            /* @__PURE__ */ jsx(
+              Card,
+              {
+                listing: b
+              },
+              index2
+            ),
+            /* @__PURE__ */ jsx(
+              "script",
+              {
+                type: "application/ld+json",
+                dangerouslySetInnerHTML: {
+                  __html: JSON.stringify(schemaData$1(b, fallbackImg))
+                }
+              },
+              `schema-${b.id}`
+            )
+          ] }, b.id) }) }, index2)) : /* @__PURE__ */ jsx("div", { className: `text-xl text-[#1a0dab]`, children: "No businesses found in this category and city." }) }),
+          renderPagination()
+        ] }),
+        /* @__PURE__ */ jsx("div", { className: `md:col-span-4` })
+      ] })
+    ] }) }),
+    /* @__PURE__ */ jsx("div", { className: `h-[54px]` }),
+    /* @__PURE__ */ jsx(FooterAlt, {})
+  ] });
+};
+const route17 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: index$p,
+  getOperatingDays: getOperatingDays$1,
+  getOperatingDays2: getOperatingDays2$1,
+  getSchemaType: getSchemaType$1,
+  loader: loader$Z,
+  meta: meta$3,
+  sanitizePhone: sanitizePhone$1,
+  schemaData: schemaData$1,
+  schemaMap: schemaMap$1
 }, Symbol.toStringTag, { value: "Module" }));
 const schemaMap = {
   "business-services": "LocalBusiness",
@@ -9989,27 +10914,32 @@ const schemaMap = {
 function getSchemaType(categoryId) {
   return schemaMap[categoryId] || "LocalBusiness";
 }
-const loader$U = async ({ params }) => {
+const loader$Y = async ({ params, request }) => {
   const category = params.category;
-  const city = params.city;
-  const businesses = await getBusinessByCategoryAndCity(category, city);
+  const url = new URL(request.url);
+  const page = Math.max(1, parseInt((url == null ? void 0 : url.searchParams.get("page")) || "1"));
+  let businesses = null;
+  try {
+    businesses = await getBusinessByCategory(category, page);
+  } catch (error) {
+    console.error("Error loading businesses:", error);
+  }
   return {
     category,
-    city,
-    businesses
+    businesses: businesses || { data: [], pagination: null },
+    currentPage: page
   };
 };
 function toTitleCase(text) {
   return text.toLowerCase().split(" ").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
 }
-const meta = ({ data }) => {
+const meta$2 = ({ data }) => {
   const category = data == null ? void 0 : data.category;
   const city = data == null ? void 0 : data.city;
   data == null ? void 0 : data.businesses;
   const formattedCategory = toTitleCase(convertDashToSpace(category));
-  const formattedCity = toTitleCase(convertDashToSpace(city));
-  const title = `${formattedCategory} in ${formattedCity} | Bycet Index Directory`;
-  const description = `Find the best ${formattedCategory} businesses in ${formattedCity}. Contact details, operating hours, ratings, and more.`;
+  const title = `${formattedCategory} | Bycet Index Directory`;
+  const description = `Find the best ${formattedCategory} businesses. Contact details, operating hours, ratings, and more.`;
   return [
     { title },
     { name: "description", content: description },
@@ -10115,65 +11045,127 @@ const schemaData = (object, fallbackImg) => {
     }
   };
 };
-const index$p = () => {
-  const { category, city, businesses } = useLoaderData();
+const index$o = () => {
+  const { category, businesses } = useLoaderData();
   const fallbackImg = `/images/fallbackBusinessImg.png`;
+  const location = useLocation();
+  const navigate = useNavigate();
+  const data = (businesses == null ? void 0 : businesses.data) || [];
+  const pagination = (businesses == null ? void 0 : businesses.pagination) || null;
+  const goToPage = (pageNumber) => {
+    const params = new URLSearchParams(location.search);
+    params.set("page", pageNumber.toString());
+    navigate(`${location.pathname}?${params.toString()}`);
+  };
+  const generatePageNumbers = (current, total) => {
+    const pages = [];
+    if (total <= 7) {
+      for (let i = 1; i <= total; i++) pages.push(i);
+    } else {
+      if (current <= 4) {
+        for (let i = 1; i <= 5; i++) pages.push(i);
+        pages.push("...");
+        pages.push(total);
+      } else if (current >= total - 3) {
+        pages.push(1);
+        pages.push("...");
+        for (let i = total - 4; i <= total; i++) pages.push(i);
+      } else {
+        pages.push(1);
+        pages.push("...");
+        pages.push(current - 1);
+        pages.push(current);
+        pages.push(current + 1);
+        pages.push("...");
+        pages.push(total);
+      }
+    }
+    return pages;
+  };
+  const renderPagination = () => {
+    if (!pagination || pagination.total_pages <= 1) return null;
+    return /* @__PURE__ */ jsxs("div", { className: "mt-8 flex flex-col md:flex-row items-center justify-between gap-4", children: [
+      /* @__PURE__ */ jsxs("div", { className: "text-sm text-gray-600", children: [
+        "Showing ",
+        (pagination.current_page - 1) * pagination.items_per_page + 1,
+        "-",
+        Math.min(pagination.current_page * pagination.items_per_page, pagination.total_items),
+        "of ",
+        pagination.total_items,
+        " businesses"
+      ] }),
+      /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2", children: [
+        /* @__PURE__ */ jsx(
+          "button",
+          {
+            onClick: () => goToPage(pagination.prev_page),
+            disabled: !pagination.has_prev_page,
+            className: `px-4 py-2 rounded border ${pagination.has_prev_page ? "bg-white hover:bg-gray-50 text-gray-700 border-gray-300" : "bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed"}`,
+            children: "← Previous"
+          }
+        ),
+        /* @__PURE__ */ jsx("div", { className: "flex items-center gap-1", children: generatePageNumbers(pagination.current_page, pagination.total_pages).map((pageNum, idx) => /* @__PURE__ */ jsx(React.Fragment, { children: pageNum === "..." ? /* @__PURE__ */ jsx("span", { className: "px-2 text-gray-400", children: "..." }) : /* @__PURE__ */ jsx(
+          "button",
+          {
+            onClick: () => goToPage(pageNum),
+            className: `w-10 h-10 rounded border flex items-center justify-center ${pageNum === pagination.current_page ? "bg-blue-600 text-white border-blue-600" : "bg-white hover:bg-gray-50 text-gray-700 border-gray-300"}`,
+            children: pageNum
+          }
+        ) }, idx)) }),
+        /* @__PURE__ */ jsx(
+          "button",
+          {
+            onClick: () => goToPage(pagination.next_page),
+            disabled: !pagination.has_next_page,
+            className: `px-4 py-2 rounded border ${pagination.has_next_page ? "bg-white hover:bg-gray-50 text-gray-700 border-gray-300" : "bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed"}`,
+            children: "Next →"
+          }
+        )
+      ] })
+    ] });
+  };
   return /* @__PURE__ */ jsxs("div", { className: "p-6 bg-gray-50", children: [
     /* @__PURE__ */ jsx(MainNav, {}),
     /* @__PURE__ */ jsx("div", { className: `w-full `, children: /* @__PURE__ */ jsxs("div", { className: `max-w-[1100px] mx-auto w-full`, children: [
       /* @__PURE__ */ jsxs("div", { children: [
         /* @__PURE__ */ jsxs("h1", { className: "text-3xl font-bold", children: [
-          "Best ",
-          /* @__PURE__ */ jsx("span", { className: `font-light font-serif italic capitalize`, children: convertDashToSpace(category) }),
-          " in ",
-          /* @__PURE__ */ jsx("span", { className: `font-light font-serif italic capitalize`, children: convertDashToSpace(city) })
+          "Category: ",
+          /* @__PURE__ */ jsx("span", { className: `font-light font-serif italic capitalize`, children: convertDashToSpace(category) })
         ] }),
         /* @__PURE__ */ jsxs("p", { className: "mt-2 text-gray-600", children: [
           "Explore verified ",
           category,
-          " services in ",
-          city,
-          ". View contact info, working hours, and reviews."
+          " services in. View contact info, working hours, and reviews."
+        ] }),
+        pagination && /* @__PURE__ */ jsxs("div", { className: "mt-2 text-sm text-gray-500", children: [
+          "Found ",
+          pagination.total_items,
+          " businesses"
         ] })
       ] }),
       /* @__PURE__ */ jsxs("div", { className: `grid grid-cols-1 lg:grid-cols-12 gap-6`, children: [
-        /* @__PURE__ */ jsx("div", { className: `md:col-span-8`, children: /* @__PURE__ */ jsx("div", { className: "mt-6 grid grid-cols-1 gap-4", children: (businesses == null ? void 0 : businesses.length) > 0 ? businesses == null ? void 0 : businesses.map((b, index2) => /* @__PURE__ */ jsx("div", { className: `group`, children: /* @__PURE__ */ jsx(Link, { to: `/${b.username !== null && b.username !== "" && b.username !== void 0 ? b.username : b.gid}`, children: /* @__PURE__ */ jsxs("div", { className: "border-b border-blue-200 py-4", children: [
-          /* @__PURE__ */ jsx("h2", { className: `text-2xl font-normal text-[#1a0dab] group-hover:underline`, children: b.title }),
-          /* @__PURE__ */ jsxs("p", { children: [
-            b.address_one,
-            " ",
-            b.address_two && `, ${b.address_two}`
-          ] }),
-          /* @__PURE__ */ jsxs("div", { className: `flex gap-2 place-items-start place-content-start`, children: [
-            /* @__PURE__ */ jsx("div", { className: `relative min-w-[40px] w-[40px] h-[40px] bg-blue-300 mt-[5px]`, children: /* @__PURE__ */ jsx(
-              "img",
+        /* @__PURE__ */ jsxs("div", { className: `md:col-span-8`, children: [
+          /* @__PURE__ */ jsx("div", { className: "mt-6 grid grid-cols-1 gap-4", children: (data == null ? void 0 : data.length) > 0 ? data == null ? void 0 : data.map((b, index2) => /* @__PURE__ */ jsx("div", { className: `group`, children: /* @__PURE__ */ jsx(Link, { to: `/${b.username !== null && b.username !== "" && b.username !== void 0 ? b.username : b.gid}`, children: /* @__PURE__ */ jsxs("div", { className: " border-blue-200 py-4", children: [
+            /* @__PURE__ */ jsx(
+              Card,
               {
-                src: b.image_url ? config.IMG_BASE_URL + b.image_url : fallbackImg,
-                alt: "",
-                className: `object-cover w-full h-full border`
-              }
-            ) }),
-            /* @__PURE__ */ jsx("div", { className: ` h-full`, children: b.short_description })
-          ] }),
-          (b == null ? void 0 : b.phone) && /* @__PURE__ */ jsx("div", { className: "text-sm mt-2 hover:underline", children: /* @__PURE__ */ jsxs("a", { href: `tel:${b.phone}`, children: [
-            "📞 ",
-            b.phone
-          ] }) }),
-          /* @__PURE__ */ jsx("div", { className: "text-sm mt-2 hover:underline", children: /* @__PURE__ */ jsxs("a", { href: `mailto:${b == null ? void 0 : b.email_address}`, children: [
-            "📨 Contact via email: ",
-            b == null ? void 0 : b.email_address
-          ] }) }),
-          /* @__PURE__ */ jsx(
-            "script",
-            {
-              type: "application/ld+json",
-              dangerouslySetInnerHTML: {
-                __html: JSON.stringify(schemaData(b, fallbackImg))
-              }
-            },
-            `schema-${b.id}`
-          )
-        ] }, b.id) }) }, index2)) : /* @__PURE__ */ jsx("div", { className: `text-xl text-[#1a0dab]`, children: "We didn't find any!" }) }) }),
+                listing: b
+              },
+              index2
+            ),
+            /* @__PURE__ */ jsx(
+              "script",
+              {
+                type: "application/ld+json",
+                dangerouslySetInnerHTML: {
+                  __html: JSON.stringify(schemaData(b, fallbackImg))
+                }
+              },
+              `schema-${b.id}`
+            )
+          ] }, b.id) }) }, index2)) : /* @__PURE__ */ jsx("div", { className: `text-xl text-[#1a0dab]`, children: "We didn't find any!" }) }),
+          renderPagination()
+        ] }),
         /* @__PURE__ */ jsx("div", { className: `md:col-span-4` })
       ] })
     ] }) }),
@@ -10181,14 +11173,14 @@ const index$p = () => {
     /* @__PURE__ */ jsx(FooterAlt, {})
   ] });
 };
-const route14 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route18 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: index$p,
+  default: index$o,
   getOperatingDays,
   getOperatingDays2,
   getSchemaType,
-  loader: loader$U,
-  meta,
+  loader: loader$Y,
+  meta: meta$2,
   sanitizePhone,
   schemaData,
   schemaMap
@@ -10203,7 +11195,7 @@ const Browse = () => {
     ] })
   ] });
 };
-const route15 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route19 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Browse
 }, Symbol.toStringTag, { value: "Module" }));
@@ -10344,7 +11336,7 @@ function SigninFormAlt() {
             ),
             /* @__PURE__ */ jsx("label", { htmlFor: "remember-me", className: "ml-2 block text-sm text-gray-700", children: "Remember me" })
           ] }),
-          /* @__PURE__ */ jsx(Link, { to: "/web/reset_password", className: "text-sm text-indigo-600 hover:text-indigo-500 transition-colors duration-300", children: "Forgot password?" })
+          /* @__PURE__ */ jsx(Link, { to: "/web/reset-password", className: "text-sm text-indigo-600 hover:text-indigo-500 transition-colors duration-300", children: "Forgot password?" })
         ] }),
         /* @__PURE__ */ jsx(
           "button",
@@ -10374,12 +11366,12 @@ const SigninBody = () => {
     /* @__PURE__ */ jsx(SigninFormAlt, {})
   ] });
 };
-const index$o = () => {
+const index$n = () => {
   return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx(OperationProvider, { children: /* @__PURE__ */ jsx(SigninBody, {}) }) });
 };
-const route16 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route20 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: index$o
+  default: index$n
 }, Symbol.toStringTag, { value: "Module" }));
 const password_regex$1 = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\W_]).{8,}$/;
 const SignupSchema = z.object({
@@ -10418,7 +11410,7 @@ function SignupFormAlt() {
     setWorking(true);
     showOperation("processing");
     await new Promise((resolve) => setTimeout(resolve, 1e3));
-    const BASE_URL = "https://index.bycet.com";
+    const BASE_URL = "https://testindex.bycet.com";
     const endpoint = "/api/user";
     const url = BASE_URL + endpoint;
     try {
@@ -10600,12 +11592,12 @@ const SignupBody = () => {
     /* @__PURE__ */ jsx(SignupFormAlt, {})
   ] });
 };
-const index$n = () => {
+const index$m = () => {
   return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx(SignupBody, {}) });
 };
-const route17 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route21 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: index$n
+  default: index$m
 }, Symbol.toStringTag, { value: "Module" }));
 const ResetPwSchema = z.object({
   username: z.string({ message: "Please enter an email" }).min(1, { message: "Please enter an email" }).email({ message: "Please enter a valid email" })
@@ -10734,12 +11726,12 @@ const ResetPasswordBody$2 = () => {
     /* @__PURE__ */ jsx(ResetPasswordForm$1, {})
   ] });
 };
-const index$m = () => {
+const index$l = () => {
   return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx(ResetPasswordBody$2, {}) });
 };
-const route18 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route22 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: index$m
+  default: index$l
 }, Symbol.toStringTag, { value: "Module" }));
 const AccountLayout = ({ children }) => {
   const [show, setShow] = useState(true);
@@ -10800,7 +11792,7 @@ const AccountLayout = ({ children }) => {
         className: `text-xl text-white bg-gray-700 p-2 
                 rounded-full hover:bg-gray-700 shadow-lg top-[72px]
                 ${show ? "left-[295px]" : "left-[15px]"}
-                focus:outline-none fixed z-50 top-[60px] 
+                focus:outline-none fixed z-[1] top-[60px] 
                 transition-all duration-1000 ease-in-out
                 hidden lg:block`,
         children: /* @__PURE__ */ jsx(CgMenu, { className: `${show ? "rotate-0 transition-all duration-1000 ease-in-out" : "rotate-90 transition-all duration-1000 ease-in-out"}` })
@@ -10812,7 +11804,7 @@ const AccountLayout = ({ children }) => {
         "aside",
         {
           className: `bg-gray-50 text-gray-900 
-                        h-full overflow-y-auto transition-all z-30
+                        h-full overflow-y-auto transition-all z-0
                         duration-1000 ease-in-out border-r shadow-md
                         hidden lg:block 
                         ${show ? "w-[350px] min-w-[350px]" : "w-0 min-w-0 overflow-hidden"}`,
@@ -10905,7 +11897,7 @@ const BusinessDrawer = ({ isOpen, userGuid, businessGuid }) => {
   const reassignpath = `/web/account/portfolio/${businessGuid}/${userGuid}/reassign`;
   useEffect(() => {
   }, [userGuid, businessGuid]);
-  return /* @__PURE__ */ jsx("div", { className: `relative`, children: /* @__PURE__ */ jsxs("div", { className: ` fixed ${navOpen}   w-[250px] h-screen bg-white shadow-lg transform transition-transform ease-in-out duration-500 z-[10] `, children: [
+  return /* @__PURE__ */ jsx("div", { className: `relative`, children: /* @__PURE__ */ jsxs("div", { className: ` fixed ${navOpen}   w-[250px] h-screen bg-white shadow-lg transform transition-transform ease-in-out duration-500 z-[10] absolute top-0 left-0`, children: [
     /* @__PURE__ */ jsx("div", { className: `p-5 border-b font-bold text-lg`, children: "Settings" }),
     /* @__PURE__ */ jsxs("div", { className: ``, children: [
       /* @__PURE__ */ jsx("div", { className: "group", children: /* @__PURE__ */ jsx("a", { href: `/web/account/portfolio/${businessGuid}`, children: /* @__PURE__ */ jsx("div", { className: `py-4 hover:bg-gray-100 ${location.pathname === businesspath && "bg-gray-300/30"}`, children: /* @__PURE__ */ jsx("div", { className: `mx-5 group-hover:underline`, children: "Page Home" }) }) }) }),
@@ -10964,12 +11956,12 @@ const ContentLayout = ({ children, businessGuid, data, businessProfile, title })
     ] })
   ] });
 };
-const index$l = () => {
+const index$k = () => {
   return /* @__PURE__ */ jsx(AccountLayout, { children: /* @__PURE__ */ jsx(ContentLayout, { title: "Account Profile", children: "Account Profile" }) });
 };
-const route19 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route23 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: index$l
+  default: index$k
 }, Symbol.toStringTag, { value: "Module" }));
 const ImgComponentAlt$1 = ({ user, userProfileImageData }) => {
   useNotification();
@@ -11382,7 +12374,7 @@ const Profile = ({ loaderData, user, userProfileData, userProfileBgData }) => {
     setWorking(true);
     showOperation("processing");
     await new Promise((resolve) => setTimeout(resolve, 1e3));
-    const BASE_URL = "https://index.bycet.com";
+    const BASE_URL = "https://testindex.bycet.com";
     const endpoint = "/api/user/" + user.guid;
     const url = BASE_URL + endpoint;
     try {
@@ -11635,7 +12627,7 @@ const ProfileLayout = ({ children }) => {
         className: `text-xl text-white bg-gray-700 p-2 
                 rounded-full hover:bg-gray-700 shadow-lg top-[72px]
                 ${show ? "left-[295px]" : "left-[15px]"}
-                focus:outline-none fixed z-50 top-[60px] 
+                focus:outline-none fixed z-[6] top-[60px] 
                 transition-all duration-1000 ease-in-out
                 hidden lg:block`,
         children: /* @__PURE__ */ jsx(CgMenu, { className: `${show ? "rotate-0 transition-all duration-1000 ease-in-out" : "rotate-90 transition-all duration-1000 ease-in-out"}` })
@@ -11647,7 +12639,7 @@ const ProfileLayout = ({ children }) => {
         "aside",
         {
           className: `bg-gray-50 text-gray-900 
-                        h-full overflow-y-auto transition-all z-30
+                        h-full overflow-y-auto transition-all z-0
                         duration-1000 ease-in-out border-r shadow-md
                         hidden lg:block 
                         ${show ? "w-[350px] min-w-[350px]" : "w-0 min-w-0 overflow-hidden"}`,
@@ -11665,7 +12657,7 @@ const ProfileLayout = ({ children }) => {
     ] })
   ] });
 };
-const index$k = () => {
+const index$j = () => {
   const auth = useAuth();
   if (!auth) {
     return null;
@@ -11745,9 +12737,9 @@ const index$k = () => {
     }
   ) });
 };
-const route20 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route24 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: index$k
+  default: index$j
 }, Symbol.toStringTag, { value: "Module" }));
 const EmailSchema = z.object({
   email: z.string({ message: "Please enter an email." }).min(1, { message: "Email must not be empty" }).email({ message: "Please enter a valid email" })
@@ -11870,7 +12862,7 @@ const ProfileContentLayout = ({ children, businessGuid, data, businessProfile, t
     ] })
   ] }) });
 };
-const index$j = () => {
+const index$i = () => {
   useEffect(() => {
     IsAuthenticated(localStorage);
   }, []);
@@ -11919,9 +12911,9 @@ const index$j = () => {
     data && /* @__PURE__ */ jsx(EmailForm, { loaderData: data, user })
   ] }) });
 };
-const route21 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route25 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: index$j
+  default: index$i
 }, Symbol.toStringTag, { value: "Module" }));
 const passwordValidation$1 = new RegExp(
   /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!()£@$%^&*-]).{8,}$/
@@ -12061,7 +13053,7 @@ const ChangePasswordForm = ({ loaderData, user }) => {
     /* @__PURE__ */ jsx(Button, { working })
   ] }) }) });
 };
-const index$i = () => {
+const index$h = () => {
   useEffect(() => {
     IsAuthenticated(localStorage);
   }, []);
@@ -12118,9 +13110,9 @@ const index$i = () => {
     }
   ) });
 };
-const route22 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route26 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: index$i
+  default: index$h
 }, Symbol.toStringTag, { value: "Module" }));
 const ResetPasswordSchema$1 = z.object({
   email: z.string({ message: "Please enter an email." }).min(1, { message: "Email must not be empty" }).email({ message: "Please enter a valid email" })
@@ -12207,7 +13199,7 @@ const ResetPasswordForm = ({ loaderData, user }) => {
     /* @__PURE__ */ jsx(Button, { working, value: "Send Reset Email" })
   ] }) }) });
 };
-const index$h = () => {
+const index$g = () => {
   useEffect(() => {
     IsAuthenticated(localStorage);
   }, []);
@@ -12255,9 +13247,9 @@ const index$h = () => {
     data && /* @__PURE__ */ jsx(ResetPasswordForm, { loaderData: data, user })
   ] }) });
 };
-const route23 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route27 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: index$h
+  default: index$g
 }, Symbol.toStringTag, { value: "Module" }));
 const DeactivateProfilechema = z.object({
   email: z.string({ message: "Please enter an email." }).min(1, { message: "Email must not be empty" }).email({ message: "Please enter a valid email" })
@@ -12356,7 +13348,7 @@ const DeactivateProfileForm = ({ loaderData, user }) => {
     /* @__PURE__ */ jsx(Button, { working, value: `${((_c = loaderData.userProfile) == null ? void 0 : _c.active) ? "Deactivate" : "Activate"} Profile` })
   ] }) }) });
 };
-const index$g = () => {
+const index$f = () => {
   useEffect(() => {
     IsAuthenticated(localStorage);
   }, []);
@@ -12404,11 +13396,11 @@ const index$g = () => {
     data && /* @__PURE__ */ jsx(DeactivateProfileForm, { loaderData: data, user })
   ] }) });
 };
-const route24 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route28 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: index$g
+  default: index$f
 }, Symbol.toStringTag, { value: "Module" }));
-const index$f = () => {
+const index$e = () => {
   return /* @__PURE__ */ jsxs(SearchLayout, { children: [
     /* @__PURE__ */ jsx("div", { className: `max-w-[1100px] mx-auto w-full mt-[30px]`, children: /* @__PURE__ */ jsxs("div", { className: `grid md:grid-cols-12 gap-4 `, children: [
       /* @__PURE__ */ jsx("div", { className: ` md:col-span-7  px-[15px]`, children: /* @__PURE__ */ jsx(InfoTerms, {}) }),
@@ -12493,12 +13485,12 @@ const InfoTerms = () => {
     /* @__PURE__ */ jsx("hr", { "data-start": "3320", "data-end": "3323" })
   ] });
 };
-const route25 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route29 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   InfoTerms,
-  default: index$f
+  default: index$e
 }, Symbol.toStringTag, { value: "Module" }));
-const index$e = () => {
+const index$d = () => {
   return /* @__PURE__ */ jsxs(SearchLayout, { children: [
     /* @__PURE__ */ jsx("div", { className: `max-w-[1100px] mx-auto w-full mt-[30px]`, children: /* @__PURE__ */ jsxs("div", { className: `grid md:grid-cols-12 gap-4 `, children: [
       /* @__PURE__ */ jsx("div", { className: ` md:col-span-7  px-[15px]`, children: /* @__PURE__ */ jsx(InfoPrivacy, {}) }),
@@ -12525,7 +13517,7 @@ const InfoPrivacy = () => {
     ] }),
     /* @__PURE__ */ jsxs("p", { "data-start": "251", "data-end": "429", children: [
       "Thank you for trusting ",
-      /* @__PURE__ */ jsx("strong", { "data-start": "274", "data-end": "293", children: "Garssete" }),
+      /* @__PURE__ */ jsx("strong", { "data-start": "274", "data-end": "293", children: "Bycet" }),
       " with your information. Your privacy is important to us, and we’re committed to handling your data with care, respect, and transparency."
     ] }),
     /* @__PURE__ */ jsx("hr", { "data-start": "431", "data-end": "434" }),
@@ -12598,7 +13590,7 @@ const InfoPrivacy = () => {
     ] }),
     /* @__PURE__ */ jsxs("p", { "data-start": "2328", "data-end": "2401", children: [
       "To make a request, please reach out to us at ",
-      /* @__PURE__ */ jsx("strong", { "data-start": "2373", "data-end": "2400", children: "support@garssete.com" }),
+      /* @__PURE__ */ jsx("strong", { "data-start": "2373", "data-end": "2400", children: "info@bycet.com" }),
       "."
     ] }),
     /* @__PURE__ */ jsx("hr", { "data-start": "2403", "data-end": "2406" }),
@@ -12616,12 +13608,12 @@ const InfoPrivacy = () => {
     /* @__PURE__ */ jsxs("p", { "data-start": "3296", "data-end": "3371", children: [
       /* @__PURE__ */ jsx("strong", { "data-start": "3299", "data-end": "3309", children: "Email:" }),
       " ",
-      /* @__PURE__ */ jsx("a", { href: "mailto:support@garssete.com", children: "support@garssete.com" }),
+      /* @__PURE__ */ jsx("a", { href: "mailto:info@bycet.com", children: "info@bycet.com" }),
       /* @__PURE__ */ jsx("br", { "data-start": "3331", "data-end": "3334" }),
       "🌐 ",
       /* @__PURE__ */ jsx("strong", { "data-start": "3337", "data-end": "3349", children: "Website:" }),
       " ",
-      /* @__PURE__ */ jsx("a", { href: "garssete.com/contact", children: "garssete.com/contact" })
+      /* @__PURE__ */ jsx("a", { href: "bycet.com/contact", children: "bycet.com/contact" })
     ] }),
     /* @__PURE__ */ jsx("hr", { "data-start": "3373", "data-end": "3376" }),
     /* @__PURE__ */ jsxs("p", { "data-start": "3378", "data-end": "3557", "data-is-last-node": "", "data-is-only-node": "", children: [
@@ -12633,12 +13625,12 @@ const InfoPrivacy = () => {
     ] })
   ] });
 };
-const route26 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route30 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   InfoPrivacy,
-  default: index$e
+  default: index$d
 }, Symbol.toStringTag, { value: "Module" }));
-const index$d = () => {
+const index$c = () => {
   return /* @__PURE__ */ jsxs(SearchLayout, { children: [
     /* @__PURE__ */ jsx("div", { className: `max-w-[1100px] mx-auto w-full mt-[30px]`, children: /* @__PURE__ */ jsxs("div", { className: `grid md:grid-cols-12 gap-4 `, children: [
       /* @__PURE__ */ jsx("div", { className: ` md:col-span-7  px-[15px]`, children: /* @__PURE__ */ jsx(InfoContact, {}) }),
@@ -12662,14 +13654,14 @@ const InfoContact = () => {
       }
     ) }),
     /* @__PURE__ */ jsxs("p", { "data-start": "272", "data-end": "485", children: [
-      /* @__PURE__ */ jsx("strong", { "data-start": "283", "data-end": "302", children: "Garssete.com" }),
+      /* @__PURE__ */ jsx("strong", { "data-start": "283", "data-end": "302", children: "Bycet.com" }),
       " Support and Technical team are  available Monday to Sunday, 09:00 to 18:00 Central European Time."
     ] }),
     /* @__PURE__ */ jsx("hr", { "data-start": "487", "data-end": "490" }),
-    /* @__PURE__ */ jsx("p", { className: `text-lg underline`, children: "Garssete Support" }),
+    /* @__PURE__ */ jsx("p", { className: `text-lg underline`, children: "Bycet Support" }),
     /* @__PURE__ */ jsx("ul", { children: /* @__PURE__ */ jsxs("li", { className: `flex gap-4`, children: [
       /* @__PURE__ */ jsx("span", { className: `font-bold`, children: "Email:" }),
-      /* @__PURE__ */ jsx("span", { children: "support@garssete.com" })
+      /* @__PURE__ */ jsx("span", { children: "info@bycet.com" })
     ] }) }),
     /* @__PURE__ */ jsx("hr", {}),
     /* @__PURE__ */ jsx("h3", { children: /* @__PURE__ */ jsx(
@@ -12681,15 +13673,15 @@ const InfoContact = () => {
     ) }),
     /* @__PURE__ */ jsxs("p", { className: ``, children: [
       "To claim your business, please sign up and then send an email to ",
-      /* @__PURE__ */ jsx("span", { children: "support@garssete.com" }),
+      /* @__PURE__ */ jsx("span", { children: "info@bycet.com" }),
       "."
     ] })
   ] });
 };
-const route27 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route31 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   InfoContact,
-  default: index$d
+  default: index$c
 }, Symbol.toStringTag, { value: "Module" }));
 const SearchAd = () => {
   const [adsLoaded, setAdsLoaded] = useState(false);
@@ -12788,10 +13780,10 @@ const CardexCopy = ({ listing, index: index2 }) => {
           /* @__PURE__ */ jsx("div", { className: `mt-2 md:hidden`, children: /* @__PURE__ */ jsx(FormattedAddress, { listing: baseListing }) }),
           (baseListing == null ? void 0 : baseListing.category) !== null && (baseListing == null ? void 0 : baseListing.category) !== "" && /* @__PURE__ */ jsx("div", { className: `text-[14px] mt-2`, children: (_a = searchCategories((baseListing == null ? void 0 : baseListing.category) || "")) == null ? void 0 : _a.name }),
           (baseListing == null ? void 0 : baseListing.average_rating) !== null && (baseListing == null ? void 0 : baseListing.average_rating) !== "" ? /* @__PURE__ */ jsxs("div", { className: `mt-2 flex gap-2 place-items-center`, children: [
-            /* @__PURE__ */ jsx(RatingBoxRounded, { rating: Number(baseListing == null ? void 0 : baseListing.average_rating) }),
+            /* @__PURE__ */ jsx(RatingBoxRounded$1, { rating: Number(baseListing == null ? void 0 : baseListing.average_rating) }),
             /* @__PURE__ */ jsx(RatingCount, { averageRating: baseListing == null ? void 0 : baseListing.average_rating })
           ] }) : /* @__PURE__ */ jsxs("div", { className: `mt-2 flex gap-2 place-items-center`, children: [
-            /* @__PURE__ */ jsx(RatingBoxRounded, { rating: Number(3) }),
+            /* @__PURE__ */ jsx(RatingBoxRounded$1, { rating: Number(3) }),
             /* @__PURE__ */ jsx(RatingCount, { averageRating: 3 })
           ] }),
           (baseListing == null ? void 0 : baseListing.website) && /* @__PURE__ */ jsx("div", { className: `mt-2`, children: /* @__PURE__ */ jsx(
@@ -12821,7 +13813,7 @@ const CardexCopy = ({ listing, index: index2 }) => {
             href: "",
             className: `text-[17px] block`,
             children: /* @__PURE__ */ jsx(
-              Tooltip,
+              Tooltip$1,
               {
                 href: "#",
                 tooltip: `${feature == null ? void 0 : feature.name}: ${(feature == null ? void 0 : feature.userDescription) || ""}`,
@@ -12921,7 +13913,7 @@ const SearchPaginationCopy = ({
     ] })
   ] });
 };
-const loader$T = async ({ request, params }) => {
+const loader$X = async ({ request, params }) => {
   const url = new URL(request.url);
   const query2 = (url == null ? void 0 : url.searchParams.get("q")) || "";
   let data = await getSearch(query2);
@@ -12980,10 +13972,226 @@ const db = () => {
     ] })
   ] });
 };
-const route28 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route32 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: db,
-  loader: loader$T
+  loader: loader$X
+}, Symbol.toStringTag, { value: "Module" }));
+const CopyrightPolicy = () => {
+  return /* @__PURE__ */ jsx("div", { className: "w-full  max-w-[1200px] mx-auto px-4 py-8", children: /* @__PURE__ */ jsxs("div", { className: `max-w-[700px]`, children: [
+    /* @__PURE__ */ jsx("h1", { className: "text-3xl tracking-tighter font-black text-gray-900 mb-6 first-letter:italic", children: "Copyright Policy" }),
+    /* @__PURE__ */ jsxs("p", { className: "text-gray-600 mb-8", children: [
+      "Last Updated: ",
+      (/* @__PURE__ */ new Date()).toLocaleDateString()
+    ] }),
+    /* @__PURE__ */ jsxs("div", { className: "space-y-8", children: [
+      /* @__PURE__ */ jsxs("section", { children: [
+        /* @__PURE__ */ jsx("h2", { className: "text-xl font-semibold text-gray-800 mb-3", children: "1. Intellectual Property Rights" }),
+        /* @__PURE__ */ jsx("p", { className: "text-gray-600", children: "All content, materials, and software available on Voysce.com, including but not limited to text, graphics, logos, button icons, images, audio clips, digital downloads, data compilations, and software, is the property of Voysce Ltd. or its content suppliers and is protected by international copyright, trademark, and other intellectual property laws." })
+      ] }),
+      /* @__PURE__ */ jsx("hr", {}),
+      /* @__PURE__ */ jsxs("section", { children: [
+        /* @__PURE__ */ jsx("h2", { className: "text-xl font-semibold text-gray-800 mb-3", children: "2. Copyright Ownership" }),
+        /* @__PURE__ */ jsx("p", { className: "text-gray-600 mb-3", children: "Unless otherwise stated, Voysce Ltd. owns the intellectual property rights for all material on Voysce.com. All intellectual property rights are reserved. You may access this from Voysce.com for your personal use subject to the restrictions set forth in these terms and conditions." }),
+        /* @__PURE__ */ jsx("p", { className: "text-gray-600", children: "The Voysce name, logo, and all related product and service names, design marks, and slogans are the trademarks or service marks of Voysce Ltd. All other product and service marks contained on the website are the trademarks of their respective owners." })
+      ] }),
+      /* @__PURE__ */ jsx("hr", {}),
+      /* @__PURE__ */ jsxs("section", { children: [
+        /* @__PURE__ */ jsx("h2", { className: "text-xl font-semibold text-gray-800 mb-3", children: "3. Permitted Use" }),
+        /* @__PURE__ */ jsx("p", { className: "text-gray-600 mb-3", children: "You are granted a limited license only, subject to the restrictions provided in these terms, for purposes of viewing the material contained on this website. You may:" }),
+        /* @__PURE__ */ jsxs("ul", { className: "list-disc list-inside text-gray-600 space-y-2 ml-4", children: [
+          /* @__PURE__ */ jsx("li", { children: "View and display content from our website on your computer or other device" }),
+          /* @__PURE__ */ jsx("li", { children: "Print copies of the content for your personal, non-commercial use" }),
+          /* @__PURE__ */ jsx("li", { children: "Store files from our website for your personal, non-commercial use" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsx("hr", {}),
+      /* @__PURE__ */ jsxs("section", { children: [
+        /* @__PURE__ */ jsx("h2", { className: "text-xl font-semibold text-gray-800 mb-3", children: "4. Restrictions" }),
+        /* @__PURE__ */ jsx("p", { className: "text-gray-600 mb-3", children: "You must not:" }),
+        /* @__PURE__ */ jsxs("ul", { className: "list-disc list-inside text-gray-600 space-y-2 ml-4", children: [
+          /* @__PURE__ */ jsx("li", { children: "Republish material from this website without our express written consent" }),
+          /* @__PURE__ */ jsx("li", { children: "Sell, rent, or sub-license material from the website" }),
+          /* @__PURE__ */ jsx("li", { children: "Reproduce, duplicate, or copy material from this website for commercial purposes" }),
+          /* @__PURE__ */ jsx("li", { children: "Redistribute content from Voysce.com without our express written permission" }),
+          /* @__PURE__ */ jsx("li", { children: "Modify or create derivative works from our content" }),
+          /* @__PURE__ */ jsx("li", { children: "Use our intellectual property in any way that suggests endorsement or association" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsx("hr", {}),
+      /* @__PURE__ */ jsxs("section", { children: [
+        /* @__PURE__ */ jsx("h2", { className: "text-xl font-semibold text-gray-800 mb-3", children: "5. Copyright Infringement Reports" }),
+        /* @__PURE__ */ jsx("p", { className: "text-gray-600 mb-3", children: "Voysce Ltd. respects the intellectual property rights of others. If you believe that any content on our website infringes your copyright, please notify us by providing the following information in writing:" }),
+        /* @__PURE__ */ jsxs("ul", { className: "list-disc list-inside text-gray-600 space-y-2 ml-4", children: [
+          /* @__PURE__ */ jsx("li", { children: "A physical or electronic signature of the copyright owner or authorized representative" }),
+          /* @__PURE__ */ jsx("li", { children: "Identification of the copyrighted work claimed to have been infringed" }),
+          /* @__PURE__ */ jsx("li", { children: "Identification of the material that is claimed to be infringing and information reasonably sufficient to permit us to locate the material" }),
+          /* @__PURE__ */ jsx("li", { children: "Your contact information, including address, telephone number, and email" }),
+          /* @__PURE__ */ jsx("li", { children: "A statement that you have a good faith belief that use of the material in the manner complained of is not authorized by the copyright owner, its agent, or the law" }),
+          /* @__PURE__ */ jsx("li", { children: "A statement that the information in the notification is accurate, and under penalty of perjury, that you are authorized to act on behalf of the copyright owner" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsx("hr", {}),
+      /* @__PURE__ */ jsxs("section", { children: [
+        /* @__PURE__ */ jsx("h2", { className: "text-xl font-semibold text-gray-800 mb-3", children: "6. Counter-Notification" }),
+        /* @__PURE__ */ jsx("p", { className: "text-gray-600", children: "If you believe that your content was removed in error, you may submit a counter-notification containing your contact information, identification of the removed content, a statement under penalty of perjury that the removal was erroneous, and your consent to the jurisdiction of federal court in your jurisdiction." })
+      ] }),
+      /* @__PURE__ */ jsx("hr", {}),
+      /* @__PURE__ */ jsxs("section", { children: [
+        /* @__PURE__ */ jsx("h2", { className: "text-xl font-semibold text-gray-800 mb-3", children: "7. Repeat Infringer Policy" }),
+        /* @__PURE__ */ jsx("p", { className: "text-gray-600", children: "In accordance with applicable law, Voysce Ltd. has adopted a policy of terminating, in appropriate circumstances, users who are deemed to be repeat infringers. We may also at our sole discretion limit access to the website and/or terminate the accounts of any users who infringe any intellectual property rights of others." })
+      ] }),
+      /* @__PURE__ */ jsx("hr", {}),
+      /* @__PURE__ */ jsxs("section", { children: [
+        /* @__PURE__ */ jsx("h2", { className: "text-xl font-semibold text-gray-800 mb-3", children: "8. Third-Party Content" }),
+        /* @__PURE__ */ jsx("p", { className: "text-gray-600", children: "Our website may include content provided by third parties. We are not responsible for and do not necessarily endorse such third-party content. All third-party content is the responsibility of the respective third parties." })
+      ] }),
+      /* @__PURE__ */ jsx("hr", {}),
+      /* @__PURE__ */ jsxs("section", { children: [
+        /* @__PURE__ */ jsx("h2", { className: "text-xl font-semibold text-gray-800 mb-3", children: "9. Changes to This Policy" }),
+        /* @__PURE__ */ jsx("p", { className: "text-gray-600", children: 'We may update this Copyright Policy from time to time. We will notify you of any changes by posting the new Copyright Policy on this page and updating the "Last Updated" date.' })
+      ] }),
+      /* @__PURE__ */ jsx("hr", {}),
+      /* @__PURE__ */ jsxs("section", { className: "bg-gray-50 p-6 rounded-lg text-[12]px", children: [
+        /* @__PURE__ */ jsx("h2", { className: "text-lg font-semibold text-gray-800 mb-3", children: "Contact Information" }),
+        /* @__PURE__ */ jsx("p", { className: "text-gray-600 mb-3", children: "For copyright-related inquiries, infringement reports, or permission requests, please contact us at:" }),
+        /* @__PURE__ */ jsxs("div", { className: "mt-3", children: [
+          /* @__PURE__ */ jsx("p", { className: "text-gray-800 font-bold", children: "Bycet Worldwide Ltd." }),
+          /* @__PURE__ */ jsx("p", { className: "text-gray-800 font-medium", children: "Email: info@bycet.com" }),
+          /* @__PURE__ */ jsx("p", { className: "text-gray-600 text-sm mt-2", children: "Please allow 3-5 business days for a response to copyright infringement notices." })
+        ] })
+      ] })
+    ] })
+  ] }) });
+};
+const meta$1 = ({ data }) => {
+  return [
+    { title: "New React Router App" },
+    { name: "description", content: "Welcome to React Router!" }
+  ];
+};
+const loader$W = async ({ params, context }) => {
+  return { message: context.VALUE_FROM_EXPRESS };
+};
+function Copyright() {
+  return /* @__PURE__ */ jsxs("div", { children: [
+    /* @__PURE__ */ jsx(MainNav, {}),
+    /* @__PURE__ */ jsx(CopyrightPolicy, {}),
+    /* @__PURE__ */ jsx(FooterAlt, {})
+  ] });
+}
+const route33 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: Copyright,
+  loader: loader$W,
+  meta: meta$1
+}, Symbol.toStringTag, { value: "Module" }));
+const ResponsibleDisclosurePolicy = () => {
+  return /* @__PURE__ */ jsx("div", { className: "w-full  max-w-[1100px] mx-auto px-4 py-8", children: /* @__PURE__ */ jsxs("div", { className: `max-w-[700px]`, children: [
+    /* @__PURE__ */ jsx("h1", { className: "text-3xl tracking-tighter font-black text-gray-900 mb-6 first-letter:italic", children: "Responsible Disclosure Policy" }),
+    /* @__PURE__ */ jsxs("p", { className: "text-gray-600 mb-8", children: [
+      "Last Updated: ",
+      (/* @__PURE__ */ new Date()).toLocaleDateString()
+    ] }),
+    /* @__PURE__ */ jsxs("div", { className: "space-y-8", children: [
+      /* @__PURE__ */ jsxs("section", { children: [
+        /* @__PURE__ */ jsx("h2", { className: "text-xl font-semibold text-gray-800 mb-3", children: "Our Commitment to Security" }),
+        /* @__PURE__ */ jsx("p", { className: "text-gray-600", children: "At veycet, we consider the security of our systems and our clients' data a top priority. Despite our best efforts, vulnerabilities may still exist. We value the role that security researchers and the wider community play in helping to keep our systems secure." })
+      ] }),
+      /* @__PURE__ */ jsx("hr", {}),
+      /* @__PURE__ */ jsxs("section", { children: [
+        /* @__PURE__ */ jsx("h2", { className: "text-xl font-semibold text-gray-800 mb-3", children: "Reporting Vulnerabilities" }),
+        /* @__PURE__ */ jsx("p", { className: "text-gray-600 mb-4", children: "If you discover a vulnerability, we would appreciate your help in disclosing it to us in a responsible manner. Please act in good faith and follow these guidelines:" }),
+        /* @__PURE__ */ jsxs("ul", { className: "list-disc list-inside text-gray-600 space-y-2 ml-4", children: [
+          /* @__PURE__ */ jsxs("li", { children: [
+            "Submit your findings to ",
+            /* @__PURE__ */ jsx("strong", { children: "info@bycet.com" })
+          ] }),
+          /* @__PURE__ */ jsx("li", { children: "Provide sufficient information to reproduce the vulnerability" }),
+          /* @__PURE__ */ jsx("li", { children: "Do not exploit the vulnerability beyond what is necessary to demonstrate it" }),
+          /* @__PURE__ */ jsx("li", { children: "Do not access, modify, or destroy data that does not belong to you" }),
+          /* @__PURE__ */ jsx("li", { children: "Give us a reasonable time to address the vulnerability before public disclosure" }),
+          /* @__PURE__ */ jsx("li", { children: "Do not use attacks on physical security, social engineering, or DDoS attacks" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsx("hr", {}),
+      /* @__PURE__ */ jsxs("section", { children: [
+        /* @__PURE__ */ jsx("h2", { className: "text-xl font-semibold text-gray-800 mb-3", children: "What We Promise" }),
+        /* @__PURE__ */ jsx("p", { className: "text-gray-600 mb-3", children: "In return for your responsible disclosure, we commit to:" }),
+        /* @__PURE__ */ jsxs("ul", { className: "list-disc list-inside text-gray-600 space-y-2 ml-4", children: [
+          /* @__PURE__ */ jsx("li", { children: "Respond to your report within 3 business days with our assessment" }),
+          /* @__PURE__ */ jsx("li", { children: "Work diligently to resolve confirmed vulnerabilities in a timely manner" }),
+          /* @__PURE__ */ jsx("li", { children: "Keep you informed of our progress throughout the remediation process" }),
+          /* @__PURE__ */ jsx("li", { children: "Credit you as the discoverer (unless you prefer to remain anonymous)" }),
+          /* @__PURE__ */ jsx("li", { children: "Not take legal action against you provided you follow this policy" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsx("hr", {}),
+      /* @__PURE__ */ jsxs("section", { children: [
+        /* @__PURE__ */ jsx("h2", { className: "text-xl font-semibold text-gray-800 mb-3", children: "Out of Scope Vulnerabilities" }),
+        /* @__PURE__ */ jsx("p", { className: "text-gray-600 mb-3", children: "The following issues are generally considered out of scope:" }),
+        /* @__PURE__ */ jsxs("ul", { className: "list-disc list-inside text-gray-600 space-y-2 ml-4", children: [
+          /* @__PURE__ */ jsx("li", { children: "Clickjacking on pages with no sensitive actions" }),
+          /* @__PURE__ */ jsx("li", { children: "Missing security headers that don't lead directly to a vulnerability" }),
+          /* @__PURE__ */ jsx("li", { children: "Theoretical vulnerabilities without practical exploitability" }),
+          /* @__PURE__ */ jsx("li", { children: "Denial of service attacks" }),
+          /* @__PURE__ */ jsx("li", { children: "Social engineering or physical security attacks" }),
+          /* @__PURE__ */ jsx("li", { children: "Vulnerabilities in third-party applications that we use" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsx("hr", {}),
+      /* @__PURE__ */ jsxs("section", { children: [
+        /* @__PURE__ */ jsx("h2", { className: "text-xl font-semibold text-gray-800 mb-3", children: "Safe Harbor" }),
+        /* @__PURE__ */ jsx("p", { className: "text-gray-600", children: "We will not initiate legal action against security researchers who discover and report vulnerabilities through this responsible disclosure process, provided they:" }),
+        /* @__PURE__ */ jsxs("ul", { className: "list-disc list-inside text-gray-600 space-y-2 ml-4 mt-3", children: [
+          /* @__PURE__ */ jsx("li", { children: "Follow the guidelines outlined in this policy" }),
+          /* @__PURE__ */ jsx("li", { children: "Do not violate any laws or compromise data privacy" }),
+          /* @__PURE__ */ jsx("li", { children: "Act in good faith to avoid privacy violations and service disruption" }),
+          /* @__PURE__ */ jsx("li", { children: "Do not use the vulnerability for personal gain beyond potential recognition" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsx("hr", {}),
+      /* @__PURE__ */ jsxs("section", { children: [
+        /* @__PURE__ */ jsx("h2", { className: "text-xl font-semibold text-gray-800 mb-3", children: "Recognition" }),
+        /* @__PURE__ */ jsx("p", { className: "text-gray-600", children: "With your permission, we would like to credit your responsible disclosure in our Security Hall of Fame. Please let us know if you prefer to remain anonymous." })
+      ] }),
+      /* @__PURE__ */ jsx("hr", {}),
+      /* @__PURE__ */ jsxs("section", { children: [
+        /* @__PURE__ */ jsx("h2", { className: "text-xl font-semibold text-gray-800 mb-3", children: "Contact Information" }),
+        /* @__PURE__ */ jsx("p", { className: "text-gray-600 mb-3", children: "Please send all vulnerability reports to:" }),
+        /* @__PURE__ */ jsxs("div", { className: "bg-gray-50 p-4 rounded-lg", children: [
+          /* @__PURE__ */ jsx("p", { className: "text-gray-800 font-medium", children: "Email: info@bycet.com" }),
+          /* @__PURE__ */ jsx("p", { className: "text-gray-600 text-sm mt-1", children: "We prefer encrypted communications. Please use our PGP key if possible." })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsx("hr", {}),
+      /* @__PURE__ */ jsxs("section", { className: "bg-blue-50 p-6 rounded-lg", children: [
+        /* @__PURE__ */ jsx("h2", { className: "text-lg font-semibold text-red-800 mb-3", children: "Thank You" }),
+        /* @__PURE__ */ jsx("p", { className: "text-gray-500", children: "We appreciate your efforts to make Veycet and the internet a safer place. Your expertise and ethical approach help us maintain the highest security standards for our clients and their users." })
+      ] })
+    ] })
+  ] }) });
+};
+const meta = ({ data }) => {
+  return [
+    { title: "New React Router App" },
+    { name: "description", content: "Welcome to React Router!" }
+  ];
+};
+const loader$V = async ({ params, context }) => {
+  return { message: context.VALUE_FROM_EXPRESS };
+};
+function ResponsbileDisclosure() {
+  return /* @__PURE__ */ jsxs("div", { children: [
+    /* @__PURE__ */ jsx(MainNav, {}),
+    /* @__PURE__ */ jsx(ResponsibleDisclosurePolicy, {})
+  ] });
+}
+const route34 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: ResponsbileDisclosure,
+  loader: loader$V,
+  meta
 }, Symbol.toStringTag, { value: "Module" }));
 const SmallPlaceholder = () => {
   return /* @__PURE__ */ jsxs("div", { className: `bg-gray-100 min-w-full min-h-full flex place-items-center place-content-center  flex-col gap-y-[2px]`, children: [
@@ -13227,7 +14435,7 @@ const PortfolioLayout = ({ children, businessGuid, data, businessProfile, title 
     ] })
   ] }) });
 };
-const Index$2 = () => {
+const Index$3 = () => {
   useEffect(() => {
     IsAuthenticated(localStorage);
   }, []);
@@ -13293,9 +14501,9 @@ const Index$2 = () => {
     data !== null && /* @__PURE__ */ jsx(Portfolio, { user: data.userProfile, portfolio: data.portfolio })
   ] }) });
 };
-const route29 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route35 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: Index$2
+  default: Index$3
 }, Symbol.toStringTag, { value: "Module" }));
 const BusinessProfileSchema = z.object({
   username: z.any(),
@@ -14125,18 +15333,17 @@ const BusinessProfile = ({ data }) => {
     ] })
   ] });
 };
-const loader$S = async ({ request, params }) => {
+const loader$U = async ({ request, params }) => {
   const business_guid = params.business_guid;
   const data = {
     business_guid
   };
   return data;
 };
-const index$c = () => {
+const Index$2 = () => {
   var _a;
-  useEffect(() => {
-    IsAuthenticated(localStorage);
-  }, []);
+  const tokens = localStorage == null ? void 0 : localStorage.getItem("authTokens");
+  IsAuthenticated(tokens);
   const loaderData = useLoaderData();
   const auth = useAuth();
   if (!auth) {
@@ -14227,10 +15434,10 @@ const index$c = () => {
     }
   ) }) });
 };
-const route30 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route36 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: index$c,
-  loader: loader$S
+  default: Index$2,
+  loader: loader$U
 }, Symbol.toStringTag, { value: "Module" }));
 const CreatePageSchema = z.object({
   title: z.string().min(1, { message: "Enter a business name" }).min(3, { message: "Busines Name must not be less than 3 characters" }).max(100, { message: "Business name must not be more than 100 characters." }),
@@ -14546,9 +15753,8 @@ const CreatePageForm = ({ data, user }) => {
   ] }) });
 };
 const index$b = () => {
-  useEffect(() => {
-    IsAuthenticated(localStorage);
-  }, []);
+  const tokens = localStorage == null ? void 0 : localStorage.getItem("authTokens");
+  IsAuthenticated(tokens);
   const auth = useAuth();
   if (!auth) {
     return null;
@@ -14601,7 +15807,7 @@ const index$b = () => {
   }
   return /* @__PURE__ */ jsx(AccountLayout, { children: /* @__PURE__ */ jsx(ProfileContentLayout, { title: "Create Page", children: /* @__PURE__ */ jsx(OperationProvider, { children: data && /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx(CreatePageForm, { data, user }) }) }) }) });
 };
-const route31 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route37 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: index$b
 }, Symbol.toStringTag, { value: "Module" }));
@@ -14920,7 +16126,7 @@ const index$a = () => {
     }
   ) });
 };
-const route32 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route38 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: index$a
 }, Symbol.toStringTag, { value: "Module" }));
@@ -14990,7 +16196,7 @@ const GalleryItemMenu$2 = ({
   const [imgSrc, setImgSrc] = useState(null);
   const editPhoto = useEditPhotoDialogContext();
   useNotification();
-  const IMG_BASE_URL2 = "https://pics.gasimg.com";
+  const IMG_BASE_URL2 = "https://tpics.gasimg.com";
   const handleOpenDialog = () => {
     editPhoto.setDialog(true);
     editPhoto.setImgSrc(IMG_BASE_URL2 + item.image_url);
@@ -15036,7 +16242,7 @@ const GalleryItem$2 = ({
   businessGuid
 }) => {
   const [menu, setMenu] = useState(false);
-  const IMG_BASE_URL2 = "https://pics.gasimg.com";
+  const IMG_BASE_URL2 = "https://tpics.gasimg.com";
   let imgconst = "";
   if (item.image_url) {
     imgconst = IMG_BASE_URL2 + item.image_url;
@@ -15300,7 +16506,7 @@ const index$9 = () => {
     }
   ) });
 };
-const route33 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route39 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: index$9
 }, Symbol.toStringTag, { value: "Module" }));
@@ -15391,7 +16597,7 @@ function AddProductDialogProvider({ children }) {
     }
   };
   const deleteProduct = async (userGuid2, businessGuid2, imageGuid) => {
-    const IMG_BASE_URL2 = "https://pics.gasimg.com";
+    const IMG_BASE_URL2 = "https://tpics.gasimg.com";
     const endpoint = `/delete_business_gallery_pic`;
     const url = IMG_BASE_URL2 + endpoint;
     const data = {
@@ -15636,7 +16842,7 @@ function EditProductDialogProvider({ children }) {
     formData2.append("product_description", productDescription2.value);
     formData2.append("product_link", productLink2.value);
     formData2.append("product_guid", productGuid);
-    const IMG_BASE_URL2 = "https://pics.gasimg.com";
+    const IMG_BASE_URL2 = "https://tpics.gasimg.com";
     const endpoint = "/business_gallery_product_update";
     const url = IMG_BASE_URL2 + endpoint;
     console.log(Object.fromEntries(formData2.entries()));
@@ -15666,7 +16872,7 @@ function EditProductDialogProvider({ children }) {
     }
   };
   const deleteProduct = async (userGuid2, businessGuid2, productGuid2) => {
-    const IMG_BASE_URL2 = "https://pics.gasimg.com";
+    const IMG_BASE_URL2 = "https://tpics.gasimg.com";
     const endpoint = `/delete_business_product`;
     const url = IMG_BASE_URL2 + endpoint;
     const data = {
@@ -15895,7 +17101,7 @@ const GalleryItem$1 = ({
 }) => {
   const [menu, setMenu] = useState(false);
   const [videoId, setVideoId] = useState(null);
-  const IMG_BASE_URL2 = "https://pics.gasimg.com";
+  const IMG_BASE_URL2 = "https://tpics.gasimg.com";
   let imgconst = "";
   if (product.product_image_url) {
     imgconst = IMG_BASE_URL2 + product.product_image_url;
@@ -16165,7 +17371,7 @@ const index$8 = () => {
     }
   ) }) }) }) });
 };
-const route34 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route40 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: index$8
 }, Symbol.toStringTag, { value: "Module" }));
@@ -16227,7 +17433,7 @@ const GalleryItem = ({
 }) => {
   const [menu, setMenu] = useState(false);
   const [videoId, setVideoId] = useState(null);
-  const IMG_BASE_URL2 = "https://pics.gasimg.com";
+  const IMG_BASE_URL2 = "https://tpics.gasimg.com";
   let imgconst = "";
   if (item.video_url) {
     imgconst = IMG_BASE_URL2 + item.video_url;
@@ -16554,7 +17760,7 @@ const index$7 = () => {
     }
   ) });
 };
-const route35 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route41 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: index$7
 }, Symbol.toStringTag, { value: "Module" }));
@@ -16610,7 +17816,7 @@ const FacilityFeatures = ({
     );
   };
   const handleSave = async () => {
-    const BASE_URL = "https://index.bycet.com";
+    const BASE_URL = "https://testindex.bycet.com";
     const endpoint = `/api/listing/selected_facility_features`;
     const url = BASE_URL + endpoint;
     setWorking(true);
@@ -16780,7 +17986,7 @@ const index$6 = () => {
     }
   ) });
 };
-const route36 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route42 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: index$6
 }, Symbol.toStringTag, { value: "Module" }));
@@ -16928,7 +18134,7 @@ const index$5 = () => {
     }
   ) });
 };
-const route37 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route43 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: index$5
 }, Symbol.toStringTag, { value: "Module" }));
@@ -16983,7 +18189,7 @@ const SocialMedia = ({
     );
   };
   const handleSave = async () => {
-    const BASE_URL = "https://index.bycet.com";
+    const BASE_URL = "https://testindex.bycet.com";
     const endpoint = `/api/listing/selected_social_media`;
     const url = BASE_URL + endpoint;
     setWorking(true);
@@ -17152,7 +18358,7 @@ const index$4 = () => {
     }
   ) });
 };
-const route38 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route44 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: index$4
 }, Symbol.toStringTag, { value: "Module" }));
@@ -17345,7 +18551,7 @@ const Index$1 = () => {
     }
   ) });
 };
-const route39 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route45 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Index$1
 }, Symbol.toStringTag, { value: "Module" }));
@@ -17543,7 +18749,7 @@ const Index = () => {
     }
   ) });
 };
-const route40 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route46 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Index
 }, Symbol.toStringTag, { value: "Module" }));
@@ -17779,7 +18985,7 @@ const EventForm = () => {
 const index$3 = () => {
   return /* @__PURE__ */ jsx(AccountLayout, { children: /* @__PURE__ */ jsx(ProfileContentLayout, { title: "Create Event", children: /* @__PURE__ */ jsx(EventForm, {}) }) });
 };
-const route41 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route47 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: index$3
 }, Symbol.toStringTag, { value: "Module" }));
@@ -17848,7 +19054,7 @@ const ChangeEmailBody = ({ userGuid, email, response }) => {
     }
   ) });
 };
-const loader$R = async ({ request, params }) => {
+const loader$T = async ({ request, params }) => {
   const url = new URL(request.url);
   let userGuid = url.searchParams.get("guid");
   let email = url.searchParams.get("email");
@@ -17881,10 +19087,10 @@ const index$2 = () => {
     }
   ) }) });
 };
-const route42 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route48 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: index$2,
-  loader: loader$R
+  loader: loader$T
 }, Symbol.toStringTag, { value: "Module" }));
 const passwordValidation = new RegExp(
   /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!()£@$%^&*-]).{8,}$/
@@ -17926,7 +19132,7 @@ function ResetPasswordFormAlt({ guid }) {
     showOperation("processing");
     await new Promise((resolve) => setTimeout(resolve, 1e3));
     data.password;
-    const BASE_URL = "https://index.bycet.com";
+    const BASE_URL = "https://testindex.bycet.com";
     const endpoint = `/api/user/reset_password/${guid}`;
     const url = BASE_URL + endpoint;
     try {
@@ -18082,7 +19288,7 @@ const ResetPasswordBody$1 = ({ userGuid }) => {
         md:bg-[url('https://images.pexels.com/photos/290386/pexels-photo-290386.jpeg?auto=compress&cs=tinysrgb&w=1200')]
         bg-cover bg-center min-h-screen flex place-content-center`, children: /* @__PURE__ */ jsx(ResetPasswordFormAlt, { guid: userGuid }) });
 };
-const loader$Q = async ({ request, params }) => {
+const loader$S = async ({ request, params }) => {
   new URL(request.url);
   let userGuid = params.guid;
   const data = {
@@ -18095,10 +19301,10 @@ const index$1 = () => {
   const userGuid = loaderData.guid;
   return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx(ResetPasswordBody$1, { userGuid }) });
 };
-const route43 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route49 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: index$1,
-  loader: loader$Q
+  loader: loader$S
 }, Symbol.toStringTag, { value: "Module" }));
 function CompleteSignup({ guid }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -18165,7 +19371,7 @@ const ResetPasswordBody = ({ userGuid }) => {
         md:bg-[url('https://images.pexels.com/photos/290386/pexels-photo-290386.jpeg?auto=compress&cs=tinysrgb&w=1200')]
         bg-cover bg-center min-h-screen flex place-content-center`, children: /* @__PURE__ */ jsx(CompleteSignup, { guid: userGuid }) });
 };
-const loader$P = async ({ request, params }) => {
+const loader$R = async ({ request, params }) => {
   new URL(request.url);
   let userGuid = params.guid;
   const data = {
@@ -18178,17 +19384,17 @@ const index = () => {
   const userGuid = loaderData.guid;
   return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx(ResetPasswordBody, { userGuid }) });
 };
-const route44 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route50 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: index,
-  loader: loader$P
+  loader: loader$R
 }, Symbol.toStringTag, { value: "Module" }));
 let cachedPool = global.mysqlPool || null;
 const DATABASE_HOST = "localhost";
 const DATABASE_PORT = "3306";
-const DATABASE_NAME = "garssete";
+const DATABASE_NAME = "garssete_test";
 const DATABASE_PASS = "Querty123$$$$";
-const DATABASE_USER = "garssete_user";
+const DATABASE_USER = "garssete_test_user";
 if (!cachedPool) {
   cachedPool = global.mysqlPool = mysql.createPool({
     host: DATABASE_HOST,
@@ -18295,7 +19501,7 @@ const getResetPasswordEmailCompleted = (first_name) => {
 
         ${formattedSitename} Support`;
 };
-async function loader$O() {
+async function loader$Q() {
   let users = null;
   try {
     users = await query(`SELECT * FROM tbl_user ORDER BY date_created DESC`);
@@ -18372,10 +19578,10 @@ async function action$n({ request }) {
   }
   return DoResponse({ message: "method not allowed" }, 200);
 }
-const route45 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route51 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   action: action$n,
-  loader: loader$O
+  loader: loader$Q
 }, Symbol.toStringTag, { value: "Module" }));
 const VerifiedStatus = {
   OK: true,
@@ -18391,7 +19597,7 @@ const RequestStatus = {
   CLOSED: "closed"
 };
 const JWT_SECRET$1 = "2454522643636363463643565346346";
-const loader$N = async ({ request, params }) => {
+const loader$P = async ({ request, params }) => {
   return DoResponse({
     success: false,
     message: "method not allowed"
@@ -18464,10 +19670,10 @@ const action$m = async ({ request }) => {
     return DoResponse({ message: error.message }, 500);
   }
 };
-const route46 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route52 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   action: action$m,
-  loader: loader$N
+  loader: loader$P
 }, Symbol.toStringTag, { value: "Module" }));
 const JWT_SECRET = "2454522643636363463643565346346";
 async function action$l({ request, params }) {
@@ -18487,11 +19693,11 @@ async function action$l({ request, params }) {
   }
   return DoResponse({ success: false, message: "method not allowed" }, 405);
 }
-const route47 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route53 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   action: action$l
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$M = async ({ request, params }) => {
+const loader$O = async ({ request, params }) => {
   const contentType = request.headers.get("Content-Type");
   if (contentType !== "application/json") {
     return DoResponse(
@@ -18617,12 +19823,12 @@ const action$k = async ({ request, params }) => {
     message: "method not allowed"
   }, 405);
 };
-const route48 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route54 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   action: action$k,
-  loader: loader$M
+  loader: loader$O
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$L = async ({ request, params }) => {
+const loader$N = async ({ request, params }) => {
   const contentType = request.headers.get("Content-Type");
   if (contentType !== "application/json") {
     return DoResponse(
@@ -18687,10 +19893,10 @@ async function action$j({ request, params }) {
   }
   return DoResponse({ error: "method not allowed" }, 200);
 }
-const route49 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route55 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   action: action$j,
-  loader: loader$L
+  loader: loader$N
 }, Symbol.toStringTag, { value: "Module" }));
 async function action$i({ request }) {
   const contentType = request.headers.get("Content-Type");
@@ -18795,11 +20001,11 @@ async function action$i({ request }) {
   }
   return DoResponse({ message: "method not allowed" }, 200);
 }
-const route50 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route56 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   action: action$i
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$K = async ({ request, params }) => {
+const loader$M = async ({ request, params }) => {
   const contentType = request.headers.get("Content-Type");
   if (contentType !== "application/json") {
     return DoResponse(
@@ -18900,12 +20106,12 @@ async function action$h({ request, params }) {
   }
   return DoResponse({ error: "method not allowed" }, 200);
 }
-const route51 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route57 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   action: action$h,
-  loader: loader$K
+  loader: loader$M
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$J = async ({ request, params }) => {
+const loader$L = async ({ request, params }) => {
   const contentType = request.headers.get("Content-Type");
   if (contentType !== "application/json") {
     return DoResponse(
@@ -18992,12 +20198,12 @@ const action$g = async ({ request, params }) => {
     message: "method not allowed"
   }, 405);
 };
-const route52 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route58 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   action: action$g,
-  loader: loader$J
+  loader: loader$L
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$I = async ({ request, params }) => {
+const loader$K = async ({ request, params }) => {
   const contentType = request.headers.get("Content-Type");
   if (contentType !== "application/json") {
     return DoResponse(
@@ -19013,11 +20219,11 @@ const loader$I = async ({ request, params }) => {
     return DoResponse(rows[0], 200);
   }
 };
-const route53 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route59 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  loader: loader$I
+  loader: loader$K
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$H = async ({ request, params }) => {
+const loader$J = async ({ request, params }) => {
   const contentType = request.headers.get("Content-Type");
   if (contentType !== "application/json") {
     return DoResponse(
@@ -19033,9 +20239,9 @@ const loader$H = async ({ request, params }) => {
     return DoResponse(rows[0], 200);
   }
 };
-const route54 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route60 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  loader: loader$H
+  loader: loader$J
 }, Symbol.toStringTag, { value: "Module" }));
 async function action$f({ request }) {
   const contentType = request.headers.get("Content-Type");
@@ -19138,11 +20344,11 @@ async function action$f({ request }) {
   }
   return DoResponse({ error: "method not allowed" }, 200);
 }
-const route55 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route61 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   action: action$f
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$G = async ({ request, params }) => {
+const loader$I = async ({ request, params }) => {
   const contentType = request.headers.get("Content-Type");
   if (contentType !== "application/json") {
     return DoResponse(
@@ -19227,10 +20433,10 @@ async function action$e({ request, params }) {
   }
   return DoResponse({ error: "method not allowed" }, 200);
 }
-const route56 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route62 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   action: action$e,
-  loader: loader$G
+  loader: loader$I
 }, Symbol.toStringTag, { value: "Module" }));
 async function action$d({ request, params }) {
   const contentType = request.headers.get("Content-Type");
@@ -19295,11 +20501,11 @@ async function action$d({ request, params }) {
   }
   return DoResponse({ message: "method not allowed" }, 500);
 }
-const route57 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route63 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   action: action$d
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$F = async ({ request, params }) => {
+const loader$H = async ({ request, params }) => {
   const contentType = request.headers.get("Content-Type");
   if (contentType !== "application/json") {
     return new Response(JSON.stringify({ error: "Invalid content type. Expected JSON." }));
@@ -19440,12 +20646,12 @@ async function action$c({ request, params }) {
     }
   }
 }
-const route58 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route64 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   action: action$c,
-  loader: loader$F
+  loader: loader$H
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$E = async ({ request, params }) => {
+const loader$G = async ({ request, params }) => {
   try {
     const id = params.guid_or_username;
     const rows = await query(`SELECT 
@@ -19690,12 +20896,12 @@ const action$b = async ({ request, params }) => {
     message: "method not allowed"
   }, 405);
 };
-const route59 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route65 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   action: action$b,
-  loader: loader$E
+  loader: loader$G
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$D = async ({ request, params }) => {
+const loader$F = async ({ request, params }) => {
   try {
     const url = new URL(request.url);
     let criteria = url.searchParams.get("q");
@@ -19899,11 +21105,11 @@ const loader$D = async ({ request, params }) => {
     return DoResponse({ "error": error.message }, 500);
   }
 };
-const route60 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route66 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  loader: loader$D
+  loader: loader$F
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$C = async ({ request, params }) => {
+const loader$E = async ({ request, params }) => {
   var _a;
   const ITEMS_PER_PAGE = 20;
   try {
@@ -20011,11 +21217,11 @@ function buildSearchQuery(params) {
     `;
   return { baseQuery, countQuery, params: queryParams };
 }
-const route61 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route67 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  loader: loader$C
+  loader: loader$E
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$B = async ({ request, params }) => {
+const loader$D = async ({ request, params }) => {
   try {
     const id = params.guid_or_username;
     const isFeatured = true;
@@ -20073,11 +21279,11 @@ const loader$B = async ({ request, params }) => {
     return DoResponse({ "error": error.message }, 500);
   }
 };
-const route62 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route68 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  loader: loader$B
+  loader: loader$D
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$A = async ({ request, params }) => {
+const loader$C = async ({ request, params }) => {
   request.headers.get("Content-Type");
   const businessGuid = params.business_guid;
   const selectedFeatureQuery = `SELECT
@@ -20099,11 +21305,11 @@ const loader$A = async ({ request, params }) => {
     return DoResponse({ "error": error.message }, 500);
   }
 };
-const route63 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route69 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  loader: loader$A
+  loader: loader$C
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$z = async ({ params }) => {
+const loader$B = async ({ params }) => {
   try {
     const category = params.category;
     const limitRaw = params.limit;
@@ -20133,11 +21339,11 @@ const loader$z = async ({ params }) => {
     return DoResponse({ error: error.message }, 500);
   }
 };
-const route64 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route70 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  loader: loader$z
+  loader: loader$B
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$y = async ({ params }) => {
+const loader$A = async ({ params }) => {
   try {
     const category = params.category;
     const limitRaw = params.limit;
@@ -20231,11 +21437,11 @@ const loader$y = async ({ params }) => {
     return DoResponse({ error: error.message }, 500);
   }
 };
-const route65 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route71 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  loader: loader$y
+  loader: loader$A
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$x = async ({ params }) => {
+const loader$z = async ({ params }) => {
   try {
     const category = params.category;
     const limitRaw = params.limit;
@@ -20327,11 +21533,11 @@ const loader$x = async ({ params }) => {
     return DoResponse({ error: error.message }, 500);
   }
 };
-const route66 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route72 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  loader: loader$x
+  loader: loader$z
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$w = async ({ request, params }) => {
+const loader$y = async ({ request, params }) => {
   const businessGuid = params.business_guid;
   try {
     const rawdata = await query(`SELECT * FROM tbl_business_gallery_image 
@@ -20343,11 +21549,11 @@ const loader$w = async ({ request, params }) => {
     return DoResponse({ "error": error.message }, 500);
   }
 };
-const route67 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route73 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  loader: loader$w
+  loader: loader$y
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$v = async ({ request, params }) => {
+const loader$x = async ({ request, params }) => {
   if (request.method === "GET") {
     const guid = params.guid;
     const rows = await query(
@@ -20362,11 +21568,11 @@ const loader$v = async ({ request, params }) => {
     return DoResponse(rows[0], 200);
   }
 };
-const route68 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route74 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  loader: loader$v
+  loader: loader$x
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$u = async ({ request, params }) => {
+const loader$w = async ({ request, params }) => {
   if (request.method === "GET") {
     const guid = params.guid;
     const rows = await query(
@@ -20381,11 +21587,11 @@ const loader$u = async ({ request, params }) => {
     return DoResponse(rows[0], 200);
   }
 };
-const route69 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route75 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  loader: loader$u
+  loader: loader$w
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$t = async ({ request, params }) => {
+const loader$v = async ({ request, params }) => {
   try {
     const url = new URL(request.url);
     let criteria = url.searchParams.get("q");
@@ -20508,11 +21714,11 @@ const loader$t = async ({ request, params }) => {
     return DoResponse({ "error": error.message }, 500);
   }
 };
-const route70 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route76 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  loader: loader$t
+  loader: loader$v
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$s = async ({ request, params }) => {
+const loader$u = async ({ request, params }) => {
   return DoResponse({
     success: false,
     message: "method not allowed"
@@ -20573,10 +21779,10 @@ const action$a = async ({ request, params }) => {
     }
   }
 };
-const route71 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route77 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   action: action$a,
-  loader: loader$s
+  loader: loader$u
 }, Symbol.toStringTag, { value: "Module" }));
 async function action$9({ request, params }) {
   if (request.method === "POST") {
@@ -20620,11 +21826,11 @@ async function action$9({ request, params }) {
     }
   }
 }
-const route72 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route78 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   action: action$9
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$r = async ({ request, params }) => {
+const loader$t = async ({ request, params }) => {
   try {
     const url = new URL(request.url);
     let criteria = url.searchParams.get("q");
@@ -20647,11 +21853,11 @@ const loader$r = async ({ request, params }) => {
     return DoResponse({ "error": error.message }, 500);
   }
 };
-const route73 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route79 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  loader: loader$r
+  loader: loader$t
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$q = async ({ request, params }) => {
+const loader$s = async ({ request, params }) => {
   try {
     const url = new URL(request.url);
     let criteria = url.searchParams.get("q");
@@ -20673,11 +21879,11 @@ const loader$q = async ({ request, params }) => {
     return DoResponse({ "error": error.message }, 500);
   }
 };
-const route74 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route80 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  loader: loader$q
+  loader: loader$s
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$p = async ({ request, params }) => {
+const loader$r = async ({ request, params }) => {
   const contentType = request.headers.get("Content-Type");
   if (contentType !== "application/json") {
     return new Response(JSON.stringify({ error: "Invalid content type. Expected JSON." }));
@@ -20860,12 +22066,12 @@ const action$8 = async ({ request, params }) => {
     message: "method not allowed"
   }, 405);
 };
-const route75 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route81 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   action: action$8,
-  loader: loader$p
+  loader: loader$r
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$o = async ({ request, params }) => {
+const loader$q = async ({ request, params }) => {
   request.headers.get("Content-Type");
   const buid = params.business_guid;
   const user_guid = params.user_guid;
@@ -20883,11 +22089,11 @@ const loader$o = async ({ request, params }) => {
     return DoResponse({ "error": error.message }, 500);
   }
 };
-const route76 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route82 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  loader: loader$o
+  loader: loader$q
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$n = async ({ request, params }) => {
+const loader$p = async ({ request, params }) => {
   request.headers.get("Content-Type");
   params.buid;
   params.user_guid;
@@ -20899,11 +22105,11 @@ const loader$n = async ({ request, params }) => {
     return DoResponse({ "error": error.message }, 500);
   }
 };
-const route77 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route83 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  loader: loader$n
+  loader: loader$p
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$m = async ({ request, params }) => {
+const loader$o = async ({ request, params }) => {
   request.headers.get("Content-Type");
   const businessGuid = params.business_guid;
   const userGuid = params.user_guid;
@@ -20924,11 +22130,11 @@ const loader$m = async ({ request, params }) => {
     return DoResponse({ "error": error.message }, 500);
   }
 };
-const route78 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route84 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  loader: loader$m
+  loader: loader$o
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$l = async ({ request, params }) => {
+const loader$n = async ({ request, params }) => {
   request.headers.get("Content-Type");
   params.buid;
   params.user_guid;
@@ -20985,12 +22191,12 @@ async function action$7({ request, params }) {
     }
   }
 }
-const route79 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route85 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   action: action$7,
-  loader: loader$l
+  loader: loader$n
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$k = async ({ request, params }) => {
+const loader$m = async ({ request, params }) => {
   request.headers.get("Content-Type");
   params.buid;
   params.user_guid;
@@ -21002,11 +22208,11 @@ const loader$k = async ({ request, params }) => {
     return DoResponse({ "error": error.message }, 500);
   }
 };
-const route80 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route86 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  loader: loader$k
+  loader: loader$m
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$j = async ({ request, params }) => {
+const loader$l = async ({ request, params }) => {
   request.headers.get("Content-Type");
   const businessGuid = params.business_guid;
   const userGuid = params.user_guid;
@@ -21027,11 +22233,11 @@ const loader$j = async ({ request, params }) => {
     return DoResponse({ "error": error.message }, 500);
   }
 };
-const route81 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route87 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  loader: loader$j
+  loader: loader$l
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$i = async ({ request, params }) => {
+const loader$k = async ({ request, params }) => {
   request.headers.get("Content-Type");
   params.buid;
   params.user_guid;
@@ -21088,12 +22294,12 @@ async function action$6({ request, params }) {
     }
   }
 }
-const route82 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route88 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   action: action$6,
-  loader: loader$i
+  loader: loader$k
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$h = async ({ request, params }) => {
+const loader$j = async ({ request, params }) => {
   request.headers.get("Content-Type");
   const businessGuid = params.business_guid;
   try {
@@ -21115,11 +22321,11 @@ const loader$h = async ({ request, params }) => {
     return DoResponse({ "error": error.message }, 500);
   }
 };
-const route83 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route89 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  loader: loader$h
+  loader: loader$j
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$g = async ({ request, params }) => {
+const loader$i = async ({ request, params }) => {
   request.headers.get("Content-Type");
   const businessGuid = params.business_guid;
   const userGuid = params.user_guid;
@@ -21190,12 +22396,12 @@ const action$5 = async ({ request, params }) => {
     message: "method not allowed"
   }, 405);
 };
-const route84 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route90 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   action: action$5,
-  loader: loader$g
+  loader: loader$i
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$f = async ({ request, params }) => {
+const loader$h = async ({ request, params }) => {
   try {
     const rows = await query(`SELECT 
             d.*, 
@@ -21230,12 +22436,12 @@ const action$4 = async ({ request, params }) => {
     message: "method not allowed"
   }, 405);
 };
-const route85 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route91 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   action: action$4,
-  loader: loader$f
+  loader: loader$h
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$e = async ({ request, params }) => {
+const loader$g = async ({ request, params }) => {
   const businessGuid = params.business_guid;
   const userGuid = params.user_guid;
   try {
@@ -21396,12 +22602,12 @@ async function action$3({ request }) {
   }
   return DoResponse({ message: "method not allowed" }, 200);
 }
-const route86 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route92 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   action: action$3,
-  loader: loader$e
+  loader: loader$g
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$d = async ({ request, params }) => {
+const loader$f = async ({ request, params }) => {
   const businessGuid = params.business_guid;
   const userGuid = params.user_guid;
   try {
@@ -21464,12 +22670,12 @@ async function action$2({ request }) {
   }
   return DoResponse({ message: "method not allowed" }, 200);
 }
-const route87 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route93 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   action: action$2,
-  loader: loader$d
+  loader: loader$f
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$c = async ({ request, params }) => {
+const loader$e = async ({ request, params }) => {
   const businessGuid = params.business_guid;
   try {
     const rawdata = await query(`SELECT * FROM tbl_business_gallery_video 
@@ -21485,11 +22691,11 @@ const loader$c = async ({ request, params }) => {
     return DoResponse({ "error": error.message }, 500);
   }
 };
-const route88 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route94 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  loader: loader$c
+  loader: loader$e
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$b = async ({ request, params }) => {
+const loader$d = async ({ request, params }) => {
   const userGuid = params.user_guid;
   const businessGuid = params.business_guid;
   try {
@@ -21507,21 +22713,185 @@ const loader$b = async ({ request, params }) => {
 async function action$1({ request }) {
   return DoResponse({ message: "method not allowed" }, 200);
 }
-const route89 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route95 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   action: action$1,
-  loader: loader$b
+  loader: loader$d
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$a = async ({ request, params }) => {
-  request.headers.get("Content-Type");
-  const category = params.category;
-  const city_param = params.city || "";
-  const city = convertDashToSpace(city_param);
-  console.log(category);
-  console.log(city);
+const loader$c = async ({ request, params }) => {
+  var _a;
+  const ITEMS_PER_PAGE = 20;
   try {
-    const rawdata = await query(
-      `SELECT DISTINCT
+    const category = params.category;
+    const url = new URL(request.url);
+    const searchParams = {
+      criteria: url.searchParams.get("q") || "",
+      page: Math.max(1, Number(url.searchParams.get("page")) || 1),
+      sort: url.searchParams.get("sort") || "date_created",
+      order: url.searchParams.get("order") || "desc"
+    };
+    const offset = (searchParams.page - 1) * ITEMS_PER_PAGE;
+    const validSortColumns = ["date_created", "title", "rating_average", "rating_count"];
+    const sortColumn = validSortColumns.includes(searchParams.sort) ? searchParams.sort : "date_created";
+    const sortOrder = searchParams.order.toLowerCase() === "asc" ? "ASC" : "DESC";
+    const countResult = await query(`
+            SELECT COUNT(DISTINCT d.id) as total_count
+            FROM tbl_dir d
+            WHERE d.category = ?
+            ${searchParams.criteria ? `AND (d.title LIKE ? OR d.short_description LIKE ?)` : ""}
+        `, [
+      category,
+      ...searchParams.criteria ? [`%${searchParams.criteria}%`, `%${searchParams.criteria}%`] : []
+    ]);
+    const totalCount = ((_a = countResult[0]) == null ? void 0 : _a.total_count) || 0;
+    const totalPages = Math.ceil(totalCount / ITEMS_PER_PAGE);
+    const rawdata = await query(`
+            SELECT DISTINCT
+                d.id,
+                d.rating_total,
+                d.established,
+                d.rating_count,
+                d.rating_average,
+                d.username,
+                d.gid,
+                d.title,
+                d.address_one,
+                d.address_two,
+                c.latitude,
+                c.longitude,
+                d.phone,
+                d.email_address AS email_address,
+                d.website,
+                d.short_description AS short_description,
+                d.category,
+                d.country_code,
+                d.state_code,
+                d.city_id,
+                d.date_created AS created_at,
+                d.last_updated AS updated_at,
+                ci.name AS city_name,
+                s.name AS state_name,
+                c.name AS country_name,
+                (
+                    SELECT bpi2.image_url 
+                    FROM tbl_business_profile_image bpi2
+                    WHERE bpi2.business_guid = d.gid 
+                    ORDER BY bpi2.date_created DESC 
+                    LIMIT 1
+                ) AS image_url,
+                (
+                    SELECT GROUP_CONCAT(
+                    CONCAT(sm.media_id, '$', sm.user_description, '$', sysm.base_url) 
+                    SEPARATOR ', '
+                    )
+                    FROM tbl_selected_social_media sm
+                    JOIN tbl_sys_social_media sysm ON sm.media_id = sysm.media_id
+                    WHERE d.gid = sm.business_guid
+                ) AS social_media   
+                
+            FROM tbl_dir d
+            LEFT JOIN tbl_country c ON d.country_code = c.iso2
+            LEFT JOIN tbl_state s ON d.state_code = s.iso2 AND d.country_code = s.country_code
+            LEFT JOIN tbl_city ci ON d.city_id = ci.id
+            WHERE d.category = ?
+            ${searchParams.criteria ? `AND (d.title LIKE ? OR d.short_description LIKE ?)` : ""}
+            AND 
+            d.active_status = true
+            ORDER BY ${sortColumn} ${sortOrder}
+            LIMIT ? OFFSET ?
+        `, [
+      category,
+      ...searchParams.criteria ? [`%${searchParams.criteria}%`, `%${searchParams.criteria}%`] : [],
+      ITEMS_PER_PAGE,
+      offset
+    ]);
+    console.log(rawdata);
+    const businessIds = rawdata.map((b) => b.gid);
+    let operatingHours = {};
+    if (businessIds.length > 0) {
+      const ohResult = await query(`
+                SELECT business_guid, open_status, no_hours_available, always_open,
+                       permanently_closed, temporarily_closed, open_selected_hours,
+                       monday_from, monday_to, tuesday_from, tuesday_to,
+                       wednesday_from, wednesday_to, thursday_from, thursday_to,
+                       friday_from, friday_to, saturday_from, saturday_to,
+                       sunday_from, sunday_to
+                FROM tbl_operating_hours
+                WHERE business_guid IN (?)
+                GROUP BY business_guid
+            `, [businessIds]);
+      operatingHours = ohResult.reduce((acc, oh) => {
+        acc[oh.business_guid] = oh;
+        return acc;
+      }, {});
+    }
+    const combinedData = rawdata.map((business) => ({
+      ...business,
+      ...operatingHours[business.gid] || {}
+    }));
+    return DoResponse({
+      success: true,
+      data: combinedData,
+      pagination: {
+        current_page: searchParams.page,
+        items_per_page: ITEMS_PER_PAGE,
+        total_items: totalCount,
+        total_pages: totalPages,
+        has_next_page: searchParams.page < totalPages,
+        has_prev_page: searchParams.page > 1,
+        next_page: searchParams.page < totalPages ? searchParams.page + 1 : null,
+        prev_page: searchParams.page > 1 ? searchParams.page - 1 : null
+      },
+      filters: {
+        category,
+        search_criteria: searchParams.criteria || null,
+        sort_by: sortColumn,
+        sort_order: searchParams.order
+      }
+    }, 200);
+  } catch (error) {
+    console.error("Category search error:", error.message);
+    return DoResponse({
+      success: false,
+      error: "Internal server error",
+      message: process.env.NODE_ENV === "development" ? error.message : void 0
+    }, 500);
+  }
+};
+const route96 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  loader: loader$c
+}, Symbol.toStringTag, { value: "Module" }));
+const loader$b = async ({ request, params }) => {
+  var _a;
+  const ITEMS_PER_PAGE = 1;
+  request.headers.get("Content-Type");
+  try {
+    const url = new URL(request.url);
+    const searchParams = {
+      criteria: url.searchParams.get("q") || "",
+      page: Math.max(1, Number(url.searchParams.get("page")) || 1)
+    };
+    const offset = (searchParams.page - 1) * ITEMS_PER_PAGE;
+    const category = params.category;
+    const city_param = params.city || "";
+    const city = convertDashToSpace(city_param);
+    const countResult = await query(`
+            SELECT COUNT(DISTINCT d.id) as total_count
+            FROM tbl_dir d
+            LEFT JOIN tbl_city ci ON d.city_id = ci.id
+            WHERE d.category = ?  
+            AND ci.name = ?
+            ${searchParams.criteria ? `AND (d.title LIKE ? OR d.short_description LIKE ?)` : ""}
+        `, [
+      category,
+      city,
+      ...searchParams.criteria ? [`%${searchParams.criteria}%`, `%${searchParams.criteria}%`] : []
+    ]);
+    const totalCount = ((_a = countResult[0]) == null ? void 0 : _a.total_count) || 0;
+    const totalPages = Math.ceil(totalCount / ITEMS_PER_PAGE);
+    const rawdata = await query(`
+                SELECT 
                     d.id,
                     d.rating_total,
                     d.rating_count,
@@ -21553,42 +22923,84 @@ const loader$a = async ({ request, params }) => {
                         ORDER BY bpi2.date_created DESC 
                         LIMIT 1
                     ) AS image_url,
-                    oh.open_status,
-                    oh.no_hours_available,
-                    oh.always_open,
-                    oh.permanently_closed,
-                    oh.temporarily_closed,
-                    oh.open_selected_hours,
-                    oh.monday_from, oh.monday_to,
-                    oh.tuesday_from, oh.tuesday_to,
-                    oh.wednesday_from, oh.wednesday_to,
-                    oh.thursday_from, oh.thursday_to,
-                    oh.friday_from, oh.friday_to,
-                    oh.saturday_from, oh.saturday_to,
-                    oh.sunday_from, oh.sunday_to
+                    (
+                        SELECT GROUP_CONCAT(
+                        CONCAT(sm.media_id, '$', sm.user_description, '$', sysm.base_url) 
+                        SEPARATOR ', '
+                        )
+                        FROM tbl_selected_social_media sm
+                        JOIN tbl_sys_social_media sysm ON sm.media_id = sysm.media_id
+                        WHERE d.gid = sm.business_guid
+                    ) AS social_media,
+                    MAX(oh.open_status) as open_status,
+                    MAX(oh.no_hours_available) as no_hours_available,
+                    MAX(oh.always_open) as always_open,
+                    MAX(oh.permanently_closed) as permanently_closed,
+                    MAX(oh.temporarily_closed) as temporarily_closed,
+                    MAX(oh.open_selected_hours) as open_selected_hours,
+                    MAX(oh.monday_from) as monday_from,
+                    MAX(oh.monday_to) as monday_to,
+                    MAX(oh.tuesday_from) as tuesday_from,
+                    MAX(oh.tuesday_to) as tuesday_to,
+                    MAX(oh.wednesday_from) as wednesday_from,
+                    MAX(oh.wednesday_to) as wednesday_to,
+                    MAX(oh.thursday_from) as thursday_from,
+                    MAX(oh.thursday_to) as thursday_to,
+                    MAX(oh.friday_from) as friday_from,
+                    MAX(oh.friday_to) as friday_to,
+                    MAX(oh.saturday_from) as saturday_from,
+                    MAX(oh.saturday_to) as saturday_to,
+                    MAX(oh.sunday_from) as sunday_from,
+                    MAX(oh.sunday_to) as sunday_to
                 FROM tbl_dir d
                 LEFT JOIN tbl_country c ON d.country_code = c.iso2
                 LEFT JOIN tbl_state s ON d.state_code = s.iso2 AND d.country_code = s.country_code
                 LEFT JOIN tbl_city ci ON d.city_id = ci.id
                 LEFT JOIN tbl_operating_hours oh ON oh.business_guid = d.gid
                 WHERE d.category = ?  
-                AND ci.name = ?;
-            `,
-      [
+                AND ci.name = ?
+                ${searchParams.criteria ? `AND (d.title LIKE ? OR d.short_description LIKE ?)` : ""}
+                AND 
+                d.active_status = true
+                GROUP BY d.id  -- Group by business ID to remove duplicates
+                ORDER BY d.date_created DESC
+                LIMIT ? OFFSET ?
+            `, [
+      category,
+      city,
+      ...searchParams.criteria ? [`%${searchParams.criteria}%`, `%${searchParams.criteria}%`] : [],
+      ITEMS_PER_PAGE,
+      offset
+    ]);
+    return DoResponse({
+      success: true,
+      data: rawdata,
+      pagination: {
+        current_page: searchParams.page,
+        items_per_page: ITEMS_PER_PAGE,
+        total_items: totalCount,
+        total_pages: totalPages,
+        has_next_page: searchParams.page < totalPages,
+        has_prev_page: searchParams.page > 1,
+        next_page: searchParams.page < totalPages ? searchParams.page + 1 : null,
+        prev_page: searchParams.page > 1 ? searchParams.page - 1 : null
+      },
+      filters: {
         category,
-        city
-      ]
-    );
-    return DoResponse(rawdata, 200);
+        city,
+        search_criteria: searchParams.criteria || null
+      }
+    }, 200);
   } catch (error) {
-    return DoResponse({ "error": error.message }, 500);
+    console.error("Search error:", error.message);
+    return DoResponse({ error: "Internal server error" }, 500);
   }
 };
-const route90 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route97 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  loader: loader$a
+  loader: loader$b
 }, Symbol.toStringTag, { value: "Module" }));
-const loader$9 = async ({}) => {
+const loader$a = async ({}) => {
   try {
     const rawdata = await query(`SELECT DISTINCT 
             d.category,
@@ -21601,7 +23013,21 @@ const loader$9 = async ({}) => {
     return DoResponse({ "error": error.message }, 500);
   }
 };
-const route91 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route98 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  loader: loader$a
+}, Symbol.toStringTag, { value: "Module" }));
+const loader$9 = async ({}) => {
+  try {
+    const rawdata = await query(`SELECT DISTINCT 
+            d.category
+            FROM tbl_dir d`);
+    return DoResponse(rawdata, 200);
+  } catch (error) {
+    return DoResponse({ "error": error.message }, 500);
+  }
+};
+const route99 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   loader: loader$9
 }, Symbol.toStringTag, { value: "Module" }));
@@ -21793,7 +23219,7 @@ async function action({ request }) {
   }
   return DoResponse({ error: "method not allowed" }, 200);
 }
-const route92 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route100 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   action,
   loader: loader$8
@@ -21820,7 +23246,7 @@ const loader$7 = async ({ request, params }) => {
     return DoResponse({ "error": error.message }, 500);
   }
 };
-const route93 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route101 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   loader: loader$7
 }, Symbol.toStringTag, { value: "Module" }));
@@ -21856,7 +23282,7 @@ const loader$6 = async ({ request, params }) => {
     return DoResponse({ "error": error.message }, 500);
   }
 };
-const route94 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route102 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   loader: loader$6
 }, Symbol.toStringTag, { value: "Module" }));
@@ -21879,7 +23305,7 @@ const loader$5 = async ({ request, params }) => {
     return DoResponse({ "error": error.message }, 500);
   }
 };
-const route95 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route103 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   loader: loader$5
 }, Symbol.toStringTag, { value: "Module" }));
@@ -21903,7 +23329,7 @@ const loader$4 = async ({ request, params }) => {
     return DoResponse(states, 200);
   }
 };
-const route96 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route104 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   loader: loader$4
 }, Symbol.toStringTag, { value: "Module" }));
@@ -21922,7 +23348,7 @@ const loader$3 = async ({ request, params }) => {
     return DoResponse(countries, 200);
   }
 };
-const route97 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route105 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   loader: loader$3
 }, Symbol.toStringTag, { value: "Module" }));
@@ -21957,7 +23383,7 @@ const loader$2 = async ({ request, params }) => {
     return DoResponse(countries, 200);
   }
 };
-const route98 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route106 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   loader: loader$2
 }, Symbol.toStringTag, { value: "Module" }));
@@ -21995,7 +23421,7 @@ const loader$1 = async ({ request, params }) => {
     return DoResponse(cities, 200);
   }
 };
-const route99 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route107 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   loader: loader$1
 }, Symbol.toStringTag, { value: "Module" }));
@@ -22014,11 +23440,11 @@ const loader = async ({ request, params }) => {
     return GetResponse(rows, true, 200);
   }
 };
-const route100 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route108 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   loader
 }, Symbol.toStringTag, { value: "Module" }));
-const serverManifest = { "entry": { "module": "/assets/entry.client-C5CjjBrB.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-QUucBwvO.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-CXxl-pt-.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-QUucBwvO.js", "/assets/NotificationContext-CMYiNDOq.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/SliderContext-zdHG7sRB.js", "/assets/EditPhotoDialogContext-7DWfBe-H.js", "/assets/EditVideoDialogContext-CfmUjwca.js", "/assets/VideoSliderContext-BodGXUfr.js", "/assets/OperationContext-C6xAhjBF.js", "/assets/lib-CWKz2Rp4.js", "/assets/LoadingMessage-BIfhbO4x.js", "/assets/index-Dc7kwL7j.js", "/assets/types-DBTFAyTi.js"], "css": ["/assets/root-BS0SFSGh.css"] }, "routes/_index_second_backup": { "id": "routes/_index_second_backup", "parentId": "root", "path": void 0, "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/_index_second_backup-1lHv68US.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/HomeNav-Bl3ONTu6.js", "/assets/components-QUucBwvO.js", "/assets/lib-CWKz2Rp4.js", "/assets/Footer-Cmbhw4RX.js", "/assets/UserMenu-CRWTqlUo.js", "/assets/TopAd-D_i4FxZ2.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/css-CVxtJxAn.js", "/assets/index-Dc7kwL7j.js", "/assets/json-CkIhsVvA.js"], "css": [] }, "routes/_index_third_backup": { "id": "routes/_index_third_backup", "parentId": "root", "path": void 0, "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/_index_third_backup-xUjwIjFp.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/SrchNavbar-D5ZEJvLt.js", "/assets/lib-CWKz2Rp4.js", "/assets/components-QUucBwvO.js", "/assets/CallToActionSection-nqiJW55f.js", "/assets/FooterSection-DgeSffCB.js", "/assets/UserMenu-CRWTqlUo.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/css-CVxtJxAn.js", "/assets/index-Dc7kwL7j.js", "/assets/json-CkIhsVvA.js"], "css": [] }, "routes/_index_backup": { "id": "routes/_index_backup", "parentId": "root", "path": void 0, "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/_index_backup-CgkXAsj3.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/Footer-Cmbhw4RX.js", "/assets/lib-CWKz2Rp4.js", "/assets/components-QUucBwvO.js", "/assets/UserMenu-CRWTqlUo.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/css-CVxtJxAn.js", "/assets/index-Dc7kwL7j.js"], "css": [] }, "routes/sitemap.xml": { "id": "routes/sitemap.xml", "parentId": "root", "path": "/web/sitemap.xml", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/sitemap.xml-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/homepage": { "id": "routes/homepage", "parentId": "root", "path": "homepage", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/homepage-chXn70Sn.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/YourGuide-BajEj8KD.js", "/assets/components-QUucBwvO.js", "/assets/lib-CWKz2Rp4.js", "/assets/FooterAlt-CHdFUzXq.js", "/assets/MainNav-BDRJ2Bvs.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/index-Dc7kwL7j.js"], "css": [] }, "routes/landing": { "id": "routes/landing", "parentId": "root", "path": "landing", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-BspaleB3.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js"], "css": [] }, "routes/listing": { "id": "routes/listing", "parentId": "root", "path": "listing", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-CRf7-TeH.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-QUucBwvO.js", "/assets/index-Dc7kwL7j.js", "/assets/SliderContext-zdHG7sRB.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/zod-BgOlUoe_.js", "/assets/NotificationContext-CMYiNDOq.js", "/assets/OperationContext-C6xAhjBF.js", "/assets/types-DBTFAyTi.js", "/assets/lib-CWKz2Rp4.js", "/assets/Placeholder-DbMrszTB.js", "/assets/VideoSliderContext-BodGXUfr.js", "/assets/ProductSliderContext-BElebEIe.js", "/assets/TopAd-D_i4FxZ2.js", "/assets/SearchLayout-kHWF9gq_.js", "/assets/CallToActionSection-nqiJW55f.js", "/assets/VerticalHeight-CjKseacd.js", "/assets/FooterAlt-CHdFUzXq.js", "/assets/json-CkIhsVvA.js", "/assets/MainNav-BDRJ2Bvs.js", "/assets/AccountUserImage-CD1O30HZ.js"], "css": [] }, "routes/_index": { "id": "routes/_index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/_index-B8Oon27V.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/YourGuide-BajEj8KD.js", "/assets/FooterAlt-CHdFUzXq.js", "/assets/lib-CWKz2Rp4.js", "/assets/OperationContext-C6xAhjBF.js", "/assets/components-QUucBwvO.js", "/assets/MainNav-BDRJ2Bvs.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/index-Dc7kwL7j.js"], "css": [] }, "routes/_404": { "id": "routes/_404", "parentId": "root", "path": "*", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/_404-VhJ-614R.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/MainNav-BDRJ2Bvs.js", "/assets/components-QUucBwvO.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/lib-CWKz2Rp4.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/index-Dc7kwL7j.js"], "css": [] }, "routes/web": { "id": "routes/web", "parentId": "root", "path": "web", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-Cmlstfnz.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js"], "css": [] }, "routes/listing/index": { "id": "routes/listing/index", "parentId": "root", "path": "/:id", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-CRf7-TeH.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-QUucBwvO.js", "/assets/index-Dc7kwL7j.js", "/assets/SliderContext-zdHG7sRB.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/zod-BgOlUoe_.js", "/assets/NotificationContext-CMYiNDOq.js", "/assets/OperationContext-C6xAhjBF.js", "/assets/types-DBTFAyTi.js", "/assets/lib-CWKz2Rp4.js", "/assets/Placeholder-DbMrszTB.js", "/assets/VideoSliderContext-BodGXUfr.js", "/assets/ProductSliderContext-BElebEIe.js", "/assets/TopAd-D_i4FxZ2.js", "/assets/SearchLayout-kHWF9gq_.js", "/assets/CallToActionSection-nqiJW55f.js", "/assets/VerticalHeight-CjKseacd.js", "/assets/FooterAlt-CHdFUzXq.js", "/assets/json-CkIhsVvA.js", "/assets/MainNav-BDRJ2Bvs.js", "/assets/AccountUserImage-CD1O30HZ.js"], "css": [] }, "routes/landing/index": { "id": "routes/landing/index", "parentId": "root", "path": "/landing", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-BspaleB3.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js"], "css": [] }, "routes/web/browse/index": { "id": "routes/web/browse/index", "parentId": "root", "path": "/web/search", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-BVACIWmR.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-QUucBwvO.js", "/assets/lib-CWKz2Rp4.js", "/assets/Categories-2T81lR8E.js", "/assets/Placeholder-DbMrszTB.js", "/assets/MainNav-BDRJ2Bvs.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/index-Dc7kwL7j.js"], "css": [] }, "routes/web/categorycity/index": { "id": "routes/web/categorycity/index", "parentId": "root", "path": "/web/:category/:city", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-BSaaOoKz.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/FooterAlt-CHdFUzXq.js", "/assets/MainNav-BDRJ2Bvs.js", "/assets/lib-CWKz2Rp4.js", "/assets/components-QUucBwvO.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/index-Dc7kwL7j.js"], "css": [] }, "routes/web/browse/browse": { "id": "routes/web/browse/browse", "parentId": "root", "path": "/web/browser", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/browse-6KBGxUg1.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/SrchNavbar-D5ZEJvLt.js", "/assets/components-QUucBwvO.js", "/assets/lib-CWKz2Rp4.js", "/assets/UserMenu-CRWTqlUo.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/css-CVxtJxAn.js", "/assets/index-Dc7kwL7j.js", "/assets/json-CkIhsVvA.js"], "css": [] }, "routes/web/signin/index": { "id": "routes/web/signin/index", "parentId": "root", "path": "/web/signin", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-BWjRUfdH.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/zod-BgOlUoe_.js", "/assets/components-QUucBwvO.js", "/assets/types-DBTFAyTi.js", "/assets/NotificationContext-CMYiNDOq.js", "/assets/OperationContext-C6xAhjBF.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/AuthHeader-BHHSunR4.js", "/assets/lib-CWKz2Rp4.js"], "css": [] }, "routes/web/signup/index": { "id": "routes/web/signup/index", "parentId": "root", "path": "/web/signup", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-BTe_Tn0J.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/zod-BgOlUoe_.js", "/assets/components-QUucBwvO.js", "/assets/OperationContext-C6xAhjBF.js", "/assets/NotificationContext-CMYiNDOq.js", "/assets/lib-CWKz2Rp4.js", "/assets/types-DBTFAyTi.js", "/assets/AuthHeader-BHHSunR4.js"], "css": [] }, "routes/web/reset_password/index": { "id": "routes/web/reset_password/index", "parentId": "root", "path": "/web/reset_password", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-B_R-aW1p.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/zod-BgOlUoe_.js", "/assets/components-QUucBwvO.js", "/assets/OperationContext-C6xAhjBF.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/types-DBTFAyTi.js", "/assets/lib-CWKz2Rp4.js", "/assets/NotificationContext-CMYiNDOq.js", "/assets/AuthHeader-BHHSunR4.js"], "css": [] }, "routes/web/account/index": { "id": "routes/web/account/index", "parentId": "root", "path": "/web/account", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-Biq7gHnJ.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/AccountLayout-MQvB5K0v.js", "/assets/ContentLayout-CayXVzYa.js", "/assets/components-QUucBwvO.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/lib-CWKz2Rp4.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/HomeNav-Bl3ONTu6.js", "/assets/MainNav-BDRJ2Bvs.js", "/assets/index-Dc7kwL7j.js", "/assets/BusinessMenu-DxQuaaa1.js", "/assets/BusinessDrawer-DIMEkLF1.js"], "css": [] }, "routes/web/account/profile/index": { "id": "routes/web/account/profile/index", "parentId": "root", "path": "/web/account/profile", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-DKQzGr6X.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-QUucBwvO.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/lib-CWKz2Rp4.js", "/assets/NotificationContext-CMYiNDOq.js", "/assets/OperationContext-C6xAhjBF.js", "/assets/zod-BgOlUoe_.js", "/assets/types-DBTFAyTi.js", "/assets/Button-7Woa2p3a.js", "/assets/Input-BJdIn08C.js", "/assets/Select-GpNhjevn.js", "/assets/css-CVxtJxAn.js", "/assets/ProfileLayout-DxIkjgGg.js", "/assets/LoadingMessage-BIfhbO4x.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/HomeNav-Bl3ONTu6.js", "/assets/MainNav-BDRJ2Bvs.js", "/assets/index-Dc7kwL7j.js"], "css": [] }, "routes/web/account/email_address/index": { "id": "routes/web/account/email_address/index", "parentId": "root", "path": "/web/account/email_address", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-BthkPDKh.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-QUucBwvO.js", "/assets/AccountLayout-MQvB5K0v.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/lib-CWKz2Rp4.js", "/assets/zod-BgOlUoe_.js", "/assets/Button-7Woa2p3a.js", "/assets/Input-BJdIn08C.js", "/assets/types-DBTFAyTi.js", "/assets/css-CVxtJxAn.js", "/assets/NotificationContext-CMYiNDOq.js", "/assets/OperationContext-C6xAhjBF.js", "/assets/ProfileContentLayout-CCutz_Ps.js", "/assets/LoadingMessage-BIfhbO4x.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/HomeNav-Bl3ONTu6.js", "/assets/MainNav-BDRJ2Bvs.js", "/assets/index-Dc7kwL7j.js", "/assets/BusinessMenu-DxQuaaa1.js"], "css": [] }, "routes/web/account/change_password/index": { "id": "routes/web/account/change_password/index", "parentId": "root", "path": "/web/account/change_password", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-DDsXSdLS.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-QUucBwvO.js", "/assets/AccountLayout-MQvB5K0v.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/lib-CWKz2Rp4.js", "/assets/zod-BgOlUoe_.js", "/assets/Button-7Woa2p3a.js", "/assets/Input-BJdIn08C.js", "/assets/types-DBTFAyTi.js", "/assets/css-CVxtJxAn.js", "/assets/NotificationContext-CMYiNDOq.js", "/assets/OperationContext-C6xAhjBF.js", "/assets/ProfileContentLayout-CCutz_Ps.js", "/assets/LoadingMessage-BIfhbO4x.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/HomeNav-Bl3ONTu6.js", "/assets/MainNav-BDRJ2Bvs.js", "/assets/index-Dc7kwL7j.js", "/assets/BusinessMenu-DxQuaaa1.js"], "css": [] }, "routes/web/account/reset_password/index": { "id": "routes/web/account/reset_password/index", "parentId": "root", "path": "/web/account/reset_password", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-BMu_WpXb.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-QUucBwvO.js", "/assets/AccountLayout-MQvB5K0v.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/lib-CWKz2Rp4.js", "/assets/zod-BgOlUoe_.js", "/assets/Button-7Woa2p3a.js", "/assets/Input-BJdIn08C.js", "/assets/types-DBTFAyTi.js", "/assets/css-CVxtJxAn.js", "/assets/NotificationContext-CMYiNDOq.js", "/assets/OperationContext-C6xAhjBF.js", "/assets/ProfileContentLayout-CCutz_Ps.js", "/assets/LoadingMessage-BIfhbO4x.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/HomeNav-Bl3ONTu6.js", "/assets/MainNav-BDRJ2Bvs.js", "/assets/index-Dc7kwL7j.js", "/assets/BusinessMenu-DxQuaaa1.js"], "css": [] }, "routes/web/account/deactivate_profile/index": { "id": "routes/web/account/deactivate_profile/index", "parentId": "root", "path": "/web/account/deactivate_profile", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-BCKGm_V5.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-QUucBwvO.js", "/assets/AccountLayout-MQvB5K0v.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/lib-CWKz2Rp4.js", "/assets/zod-BgOlUoe_.js", "/assets/Button-7Woa2p3a.js", "/assets/Input-BJdIn08C.js", "/assets/types-DBTFAyTi.js", "/assets/css-CVxtJxAn.js", "/assets/NotificationContext-CMYiNDOq.js", "/assets/OperationContext-C6xAhjBF.js", "/assets/ProfileContentLayout-CCutz_Ps.js", "/assets/LoadingMessage-BIfhbO4x.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/HomeNav-Bl3ONTu6.js", "/assets/MainNav-BDRJ2Bvs.js", "/assets/index-Dc7kwL7j.js", "/assets/BusinessMenu-DxQuaaa1.js"], "css": [] }, "routes/web/terms/index": { "id": "routes/web/terms/index", "parentId": "root", "path": "/web/terms", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-D5IJXoEl.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/VerticalHeight-CjKseacd.js", "/assets/FooterAlt-CHdFUzXq.js", "/assets/SearchLayout-kHWF9gq_.js", "/assets/lib-CWKz2Rp4.js", "/assets/components-QUucBwvO.js", "/assets/MainNav-BDRJ2Bvs.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/index-Dc7kwL7j.js"], "css": [] }, "routes/web/privacy/index": { "id": "routes/web/privacy/index", "parentId": "root", "path": "/web/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-DTZJq0kx.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/VerticalHeight-CjKseacd.js", "/assets/FooterAlt-CHdFUzXq.js", "/assets/SearchLayout-kHWF9gq_.js", "/assets/lib-CWKz2Rp4.js", "/assets/components-QUucBwvO.js", "/assets/MainNav-BDRJ2Bvs.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/index-Dc7kwL7j.js"], "css": [] }, "routes/web/contact/index": { "id": "routes/web/contact/index", "parentId": "root", "path": "/web/contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-DjRYHDFP.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/VerticalHeight-CjKseacd.js", "/assets/FooterAlt-CHdFUzXq.js", "/assets/SearchLayout-kHWF9gq_.js", "/assets/lib-CWKz2Rp4.js", "/assets/components-QUucBwvO.js", "/assets/MainNav-BDRJ2Bvs.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/index-Dc7kwL7j.js"], "css": [] }, "routes/web/browse/db": { "id": "routes/web/browse/db", "parentId": "root", "path": "/web/db", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/db-D2Y8ZTAK.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-QUucBwvO.js", "/assets/SrchNavbar-D5ZEJvLt.js", "/assets/Categories-2T81lR8E.js", "/assets/FooterSection-DgeSffCB.js", "/assets/VerticalHeight-CjKseacd.js", "/assets/CallToActionSection-nqiJW55f.js", "/assets/lib-CWKz2Rp4.js", "/assets/UserMenu-CRWTqlUo.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/css-CVxtJxAn.js", "/assets/index-Dc7kwL7j.js", "/assets/json-CkIhsVvA.js"], "css": [] }, "routes/web/account/portfolio/index": { "id": "routes/web/account/portfolio/index", "parentId": "root", "path": "/web/account/portfolio", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-Ce0R7Bih.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-QUucBwvO.js", "/assets/AccountLayout-MQvB5K0v.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/lib-CWKz2Rp4.js", "/assets/LoadingMessage-BIfhbO4x.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/HomeNav-Bl3ONTu6.js", "/assets/MainNav-BDRJ2Bvs.js", "/assets/index-Dc7kwL7j.js"], "css": [] }, "routes/web/account/portfolio/business/index": { "id": "routes/web/account/portfolio/business/index", "parentId": "root", "path": "/web/account/portfolio/:business_guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-HyoGOjTF.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-QUucBwvO.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/lib-CWKz2Rp4.js", "/assets/ProfileLayout-DxIkjgGg.js", "/assets/zod-BgOlUoe_.js", "/assets/types-DBTFAyTi.js", "/assets/TextareaWithWordLimit-WiHZM2T2.js", "/assets/NotificationContext-CMYiNDOq.js", "/assets/OperationContext-C6xAhjBF.js", "/assets/Button-7Woa2p3a.js", "/assets/Input-BJdIn08C.js", "/assets/css-CVxtJxAn.js", "/assets/Select-GpNhjevn.js", "/assets/BusinessMenu-DxQuaaa1.js", "/assets/BusinessDrawer-DIMEkLF1.js", "/assets/LoadingMessage-BIfhbO4x.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/HomeNav-Bl3ONTu6.js", "/assets/MainNav-BDRJ2Bvs.js", "/assets/index-Dc7kwL7j.js"], "css": [] }, "routes/web/account/create_business/index": { "id": "routes/web/account/create_business/index", "parentId": "root", "path": "/web/account/create_business", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-CHRbmVUb.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-QUucBwvO.js", "/assets/AccountLayout-MQvB5K0v.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/zod-BgOlUoe_.js", "/assets/lib-CWKz2Rp4.js", "/assets/Input-BJdIn08C.js", "/assets/Select-GpNhjevn.js", "/assets/Button-7Woa2p3a.js", "/assets/css-CVxtJxAn.js", "/assets/TextareaWithWordLimit-WiHZM2T2.js", "/assets/CreatePageSchema-5wPOr2lU.js", "/assets/NotificationContext-CMYiNDOq.js", "/assets/OperationContext-C6xAhjBF.js", "/assets/ProfileContentLayout-CCutz_Ps.js", "/assets/LoadingMessage-BIfhbO4x.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/HomeNav-Bl3ONTu6.js", "/assets/MainNav-BDRJ2Bvs.js", "/assets/index-Dc7kwL7j.js", "/assets/types-DBTFAyTi.js", "/assets/BusinessMenu-DxQuaaa1.js"], "css": [] }, "routes/web/account/portfolio/business/settings/index": { "id": "routes/web/account/portfolio/business/settings/index", "parentId": "root", "path": "/web/account/portfolio/:business_guid/:user_guid/settings", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-DbXJ8jUg.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/zod-BgOlUoe_.js", "/assets/components-QUucBwvO.js", "/assets/lib-CWKz2Rp4.js", "/assets/types-DBTFAyTi.js", "/assets/AccountLayout-MQvB5K0v.js", "/assets/ContentLayout-CayXVzYa.js", "/assets/NotificationContext-CMYiNDOq.js", "/assets/OperationContext-C6xAhjBF.js", "/assets/css-CVxtJxAn.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/LoadingMessage-BIfhbO4x.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/HomeNav-Bl3ONTu6.js", "/assets/MainNav-BDRJ2Bvs.js", "/assets/index-Dc7kwL7j.js", "/assets/BusinessMenu-DxQuaaa1.js", "/assets/BusinessDrawer-DIMEkLF1.js"], "css": [] }, "routes/web/account/portfolio/business/gallery/index": { "id": "routes/web/account/portfolio/business/gallery/index", "parentId": "root", "path": "/web/account/portfolio/:business_guid/:user_guid/gallery", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-BGS-QEBD.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-QUucBwvO.js", "/assets/AccountLayout-MQvB5K0v.js", "/assets/ContentLayout-CayXVzYa.js", "/assets/lib-CWKz2Rp4.js", "/assets/EditPhotoDialogContext-7DWfBe-H.js", "/assets/NotificationContext-CMYiNDOq.js", "/assets/index-Dc7kwL7j.js", "/assets/SliderContext-zdHG7sRB.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/OperationContext-C6xAhjBF.js", "/assets/LoadingMessage-BIfhbO4x.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/HomeNav-Bl3ONTu6.js", "/assets/MainNav-BDRJ2Bvs.js", "/assets/BusinessMenu-DxQuaaa1.js", "/assets/BusinessDrawer-DIMEkLF1.js"], "css": [] }, "routes/web/account/portfolio/business/products/index": { "id": "routes/web/account/portfolio/business/products/index", "parentId": "root", "path": "/web/account/portfolio/:business_guid/:user_guid/products", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-OA_PYY9w.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-QUucBwvO.js", "/assets/AccountLayout-MQvB5K0v.js", "/assets/ContentLayout-CayXVzYa.js", "/assets/lib-CWKz2Rp4.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/NotificationContext-CMYiNDOq.js", "/assets/OperationContext-C6xAhjBF.js", "/assets/index-Dc7kwL7j.js", "/assets/ProductSliderContext-BElebEIe.js", "/assets/LoadingMessage-BIfhbO4x.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/HomeNav-Bl3ONTu6.js", "/assets/MainNav-BDRJ2Bvs.js", "/assets/BusinessMenu-DxQuaaa1.js", "/assets/BusinessDrawer-DIMEkLF1.js"], "css": [] }, "routes/web/account/portfolio/business/videos/index": { "id": "routes/web/account/portfolio/business/videos/index", "parentId": "root", "path": "/web/account/portfolio/:business_guid/:user_guid/videos", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-nA4iTDbI.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-QUucBwvO.js", "/assets/AccountLayout-MQvB5K0v.js", "/assets/ContentLayout-CayXVzYa.js", "/assets/lib-CWKz2Rp4.js", "/assets/EditVideoDialogContext-CfmUjwca.js", "/assets/NotificationContext-CMYiNDOq.js", "/assets/index-Dc7kwL7j.js", "/assets/VideoSliderContext-BodGXUfr.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/LoadingMessage-BIfhbO4x.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/HomeNav-Bl3ONTu6.js", "/assets/MainNav-BDRJ2Bvs.js", "/assets/BusinessMenu-DxQuaaa1.js", "/assets/BusinessDrawer-DIMEkLF1.js", "/assets/OperationContext-C6xAhjBF.js", "/assets/types-DBTFAyTi.js"], "css": [] }, "routes/web/account/portfolio/business/facilities/index": { "id": "routes/web/account/portfolio/business/facilities/index", "parentId": "root", "path": "/web/account/portfolio/:business_guid/:user_guid/facilities", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-DMuB3551.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-QUucBwvO.js", "/assets/lib-CWKz2Rp4.js", "/assets/AccountLayout-MQvB5K0v.js", "/assets/ContentLayout-CayXVzYa.js", "/assets/NotificationContext-CMYiNDOq.js", "/assets/OperationContext-C6xAhjBF.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/LoadingMessage-BIfhbO4x.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/HomeNav-Bl3ONTu6.js", "/assets/MainNav-BDRJ2Bvs.js", "/assets/index-Dc7kwL7j.js", "/assets/BusinessMenu-DxQuaaa1.js", "/assets/BusinessDrawer-DIMEkLF1.js"], "css": [] }, "routes/web/account/portfolio/business/activate/index": { "id": "routes/web/account/portfolio/business/activate/index", "parentId": "root", "path": "/web/account/portfolio/:business_guid/:user_guid/activate", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-UNI5bZuN.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-QUucBwvO.js", "/assets/NotificationContext-CMYiNDOq.js", "/assets/OperationContext-C6xAhjBF.js", "/assets/lib-CWKz2Rp4.js", "/assets/AccountLayout-MQvB5K0v.js", "/assets/ContentLayout-CayXVzYa.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/LoadingMessage-BIfhbO4x.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/HomeNav-Bl3ONTu6.js", "/assets/MainNav-BDRJ2Bvs.js", "/assets/index-Dc7kwL7j.js", "/assets/BusinessMenu-DxQuaaa1.js", "/assets/BusinessDrawer-DIMEkLF1.js"], "css": [] }, "routes/web/account/portfolio/business/social_media/index": { "id": "routes/web/account/portfolio/business/social_media/index", "parentId": "root", "path": "/web/account/portfolio/:business_guid/:user_guid/social_media", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-7jfoyQwi.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-QUucBwvO.js", "/assets/lib-CWKz2Rp4.js", "/assets/AccountLayout-MQvB5K0v.js", "/assets/ContentLayout-CayXVzYa.js", "/assets/OperationContext-C6xAhjBF.js", "/assets/LoadingMessage-BIfhbO4x.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/HomeNav-Bl3ONTu6.js", "/assets/MainNav-BDRJ2Bvs.js", "/assets/index-Dc7kwL7j.js", "/assets/BusinessMenu-DxQuaaa1.js", "/assets/BusinessDrawer-DIMEkLF1.js"], "css": [] }, "routes/web/account/portfolio/business/delete/index": { "id": "routes/web/account/portfolio/business/delete/index", "parentId": "root", "path": "/web/account/portfolio/:business_guid/:user_guid/delete", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-B82-hBQD.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-QUucBwvO.js", "/assets/lib-CWKz2Rp4.js", "/assets/AccountLayout-MQvB5K0v.js", "/assets/ContentLayout-CayXVzYa.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/zod-BgOlUoe_.js", "/assets/Button-7Woa2p3a.js", "/assets/Input-BJdIn08C.js", "/assets/NotificationContext-CMYiNDOq.js", "/assets/types-DBTFAyTi.js", "/assets/OperationContext-C6xAhjBF.js", "/assets/LoadingMessage-BIfhbO4x.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/HomeNav-Bl3ONTu6.js", "/assets/MainNav-BDRJ2Bvs.js", "/assets/index-Dc7kwL7j.js", "/assets/BusinessMenu-DxQuaaa1.js", "/assets/BusinessDrawer-DIMEkLF1.js", "/assets/css-CVxtJxAn.js"], "css": [] }, "routes/web/account/portfolio/business/reassign/index": { "id": "routes/web/account/portfolio/business/reassign/index", "parentId": "root", "path": "/web/account/portfolio/:business_guid/:user_guid/reassign", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-D4sp5-ul.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-QUucBwvO.js", "/assets/lib-CWKz2Rp4.js", "/assets/AccountLayout-MQvB5K0v.js", "/assets/ContentLayout-CayXVzYa.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/OperationContext-C6xAhjBF.js", "/assets/LoadingMessage-BIfhbO4x.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/HomeNav-Bl3ONTu6.js", "/assets/MainNav-BDRJ2Bvs.js", "/assets/index-Dc7kwL7j.js", "/assets/BusinessMenu-DxQuaaa1.js", "/assets/BusinessDrawer-DIMEkLF1.js"], "css": [] }, "routes/web/account/events/index": { "id": "routes/web/account/events/index", "parentId": "root", "path": "/web/account/events", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-Bjx69Azf.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/AccountLayout-MQvB5K0v.js", "/assets/ProfileContentLayout-CCutz_Ps.js", "/assets/zod-BgOlUoe_.js", "/assets/components-QUucBwvO.js", "/assets/OperationContext-C6xAhjBF.js", "/assets/CreatePageSchema-5wPOr2lU.js", "/assets/Input-BJdIn08C.js", "/assets/css-CVxtJxAn.js", "/assets/AccountUserImage-CD1O30HZ.js", "/assets/lib-CWKz2Rp4.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/HomeNav-Bl3ONTu6.js", "/assets/MainNav-BDRJ2Bvs.js", "/assets/index-Dc7kwL7j.js", "/assets/BusinessMenu-DxQuaaa1.js", "/assets/types-DBTFAyTi.js"], "css": ["/assets/index-BrXrnQXM.css"] }, "routes/web/landing/change_email/index": { "id": "routes/web/landing/change_email/index", "parentId": "root", "path": "/web/landing/change_email", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-DGoL1VBZ.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-QUucBwvO.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/lib-CWKz2Rp4.js"], "css": [] }, "routes/web/landing/reset_password/index": { "id": "routes/web/landing/reset_password/index", "parentId": "root", "path": "/web/landing/reset_password/:guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-DuvPB1tv.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/zod-BgOlUoe_.js", "/assets/components-QUucBwvO.js", "/assets/OperationContext-C6xAhjBF.js", "/assets/AuthContext-Cl3U3KD_.js", "/assets/NotificationContext-CMYiNDOq.js", "/assets/lib-CWKz2Rp4.js", "/assets/types-DBTFAyTi.js"], "css": [] }, "routes/web/landing/complete_signup/index": { "id": "routes/web/landing/complete_signup/index", "parentId": "root", "path": "/web/landing/complete_signup/:guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-odhmZKG7.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-QUucBwvO.js", "/assets/lib-CWKz2Rp4.js"], "css": [] }, "routes/api/user/index": { "id": "routes/api/user/index", "parentId": "root", "path": "api/user", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/user/signin": { "id": "routes/api/user/signin", "parentId": "root", "path": "api/user/signin", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/signin-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/user/verifytoken": { "id": "routes/api/user/verifytoken", "parentId": "root", "path": "api/user/verifytoken", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/verifytoken-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/user/user": { "id": "routes/api/user/user", "parentId": "root", "path": "api/user/:guid", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/user-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/user/change_password": { "id": "routes/api/user/change_password", "parentId": "root", "path": "api/user/change_password/:guid", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/change_password-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/user/reset_password_request": { "id": "routes/api/user/reset_password_request", "parentId": "root", "path": "api/user/reset_password_request", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/reset_password_request-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/user/reset_password": { "id": "routes/api/user/reset_password", "parentId": "root", "path": "api/user/reset_password/:guid", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/reset_password-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/user/activate_deactivate": { "id": "routes/api/user/activate_deactivate", "parentId": "root", "path": "api/user/activate_deactivate/:guid", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/activate_deactivate-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/user/user_profile_image": { "id": "routes/api/user/user_profile_image", "parentId": "root", "path": "api/user/user_profile_image/:guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/user_profile_image-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/user/user_profile_bg": { "id": "routes/api/user/user_profile_bg", "parentId": "root", "path": "api/user/user_profile_bg/:guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/user_profile_bg-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/user/change_email_request": { "id": "routes/api/user/change_email_request", "parentId": "root", "path": "api/user/change_email_request", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/change_email_request-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/user/change_email": { "id": "routes/api/user/change_email", "parentId": "root", "path": "api/user/change_email", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/change_email-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/user/verify_signup": { "id": "routes/api/user/verify_signup", "parentId": "root", "path": "api/user/verify_signup/:user_hash", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/verify_signup-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/index": { "id": "routes/api/listing/index", "parentId": "root", "path": "api/listing", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-DP2rzg_V.js", "imports": [], "css": [] }, "routes/api/listing/listing": { "id": "routes/api/listing/listing", "parentId": "root", "path": "api/listing/:guid_or_username", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/listing-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/search": { "id": "routes/api/listing/search", "parentId": "root", "path": "api/listing/search", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/search-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/searchlisting": { "id": "routes/api/listing/searchlisting", "parentId": "root", "path": "api/listing/searchlisting", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/searchlisting-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/featured_listing": { "id": "routes/api/listing/featured_listing", "parentId": "root", "path": "api/listing/featured_listing", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/featured_listing-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/business_facility_features": { "id": "routes/api/listing/business_facility_features", "parentId": "root", "path": "api/listing/business_facility_features/:business_guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/business_facility_features-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/listing_by_category": { "id": "routes/api/listing/listing_by_category", "parentId": "root", "path": "api/listing/listing_by_category/:category/:limit", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/listing_by_category-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/home_listing_by_category": { "id": "routes/api/listing/home_listing_by_category", "parentId": "root", "path": "api/listing/home_listing_by_category/:category/:limit", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/home_listing_by_category-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/home_latest_businesses": { "id": "routes/api/listing/home_latest_businesses", "parentId": "root", "path": "api/listing/home_latest_businesses/:limit", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/home_latest_businesses-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/business_gallery": { "id": "routes/api/listing/business_gallery", "parentId": "root", "path": "api/listing/business_gallery/:business_guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/business_gallery-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/business_profile_image": { "id": "routes/api/listing/business_profile_image", "parentId": "root", "path": "api/listing/business_profile_image/:guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/business_profile_image-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/business_profile_bg": { "id": "routes/api/listing/business_profile_bg", "parentId": "root", "path": "api/listing/business_profile_bg/:guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/business_profile_bg-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/owner/index": { "id": "routes/api/listing/owner/index", "parentId": "root", "path": "api/listing/owner", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-K6Dvbx-E.js", "imports": [], "css": [] }, "routes/api/listing/delete_business": { "id": "routes/api/listing/delete_business", "parentId": "root", "path": "api/listing/delete_business/:business_guid", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/delete_business-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/reassign_business": { "id": "routes/api/listing/reassign_business", "parentId": "root", "path": "api/listing/reassign_business", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/reassign_business-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/business_single_search": { "id": "routes/api/listing/business_single_search", "parentId": "root", "path": "api/listing/business_single_search", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/business_single_search-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/user_single_search": { "id": "routes/api/listing/user_single_search", "parentId": "root", "path": "api/listing/user_single_search", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/user_single_search-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/operating_hours": { "id": "routes/api/listing/operating_hours", "parentId": "root", "path": "api/listing/operating_hours", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/operating_hours-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/gallery": { "id": "routes/api/listing/gallery", "parentId": "root", "path": "api/listing/gallery/:business_guid/:user_guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/gallery-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/sys_facility_features/index": { "id": "routes/api/listing/sys_facility_features/index", "parentId": "root", "path": "api/listing/sys_facility_features", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-C6Kfwj0f.js", "imports": [], "css": [] }, "routes/api/listing/selected_facility_features/selected_facility_features": { "id": "routes/api/listing/selected_facility_features/selected_facility_features", "parentId": "root", "path": "api/listing/selected_facility_features/:user_guid/:business_guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/selected_facility_features-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/selected_facility_features/index": { "id": "routes/api/listing/selected_facility_features/index", "parentId": "root", "path": "api/listing/selected_facility_features", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-RnTpOC5-.js", "imports": [], "css": [] }, "routes/api/listing/sys_social_media/index": { "id": "routes/api/listing/sys_social_media/index", "parentId": "root", "path": "api/listing/sys_social_media", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-DVN7Oi2P.js", "imports": [], "css": [] }, "routes/api/listing/selected_social_media/selected_social_media": { "id": "routes/api/listing/selected_social_media/selected_social_media", "parentId": "root", "path": "api/listing/selected_social_media/:user_guid/:business_guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/selected_social_media-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/selected_social_media/index": { "id": "routes/api/listing/selected_social_media/index", "parentId": "root", "path": "api/listing/selected_social_media", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-DdXTRxfG.js", "imports": [], "css": [] }, "routes/api/listing/business_social_media": { "id": "routes/api/listing/business_social_media", "parentId": "root", "path": "api/listing/business_social_media/:business_guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/business_social_media-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/activate/activate": { "id": "routes/api/listing/activate/activate", "parentId": "root", "path": "api/listing/activate/:user_guid/:business_guid", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/activate-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/recents": { "id": "routes/api/listing/recents", "parentId": "root", "path": "api/listing/recents", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/recents-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/video_link": { "id": "routes/api/listing/video_link", "parentId": "root", "path": "api/listing/save_video_link", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/video_link-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/video_links": { "id": "routes/api/listing/video_links", "parentId": "root", "path": "api/listing/video_links/:business_guid/:user_guid", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/video_links-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/video_links_listing": { "id": "routes/api/listing/video_links_listing", "parentId": "root", "path": "api/listing/video_links/:business_guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/video_links_listing-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/products/index": { "id": "routes/api/listing/products/index", "parentId": "root", "path": "api/listing/products/:business_guid/:user_guid", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-BIjMHF-b.js", "imports": [], "css": [] }, "routes/api/listing/category_city": { "id": "routes/api/listing/category_city", "parentId": "root", "path": "api/listing/category_city/:category/:city", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/category_city-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/category_city_sitexml": { "id": "routes/api/listing/category_city_sitexml", "parentId": "root", "path": "api/listing/cat_city_sitexml", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/category_city_sitexml-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/rating/index": { "id": "routes/api/rating/index", "parentId": "root", "path": "api/rating", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-BQEWTaK-.js", "imports": [], "css": [] }, "routes/api/rating/rating": { "id": "routes/api/rating/rating", "parentId": "root", "path": "api/rating/:user_guid/:business_guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/rating-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/rating/business_ratings": { "id": "routes/api/rating/business_ratings", "parentId": "root", "path": "api/rating/business_ratings/:business_guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/business_ratings-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/rating/ratings_reviews": { "id": "routes/api/rating/ratings_reviews", "parentId": "root", "path": "api/rating/ratings_reviews/:business_guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/ratings_reviews-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/util/state": { "id": "routes/api/util/state", "parentId": "root", "path": "api/util/state", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/state-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/util/country": { "id": "routes/api/util/country", "parentId": "root", "path": "api/util/country", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/country-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/util/country_locale": { "id": "routes/api/util/country_locale", "parentId": "root", "path": "api/util/country_locale", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/country_locale-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/util/city": { "id": "routes/api/util/city", "parentId": "root", "path": "api/util/city", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/city-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/util/category": { "id": "routes/api/util/category", "parentId": "root", "path": "api/util/category", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/category-l0sNRNKZ.js", "imports": [], "css": [] } }, "url": "/assets/manifest-c5d59a29.js", "version": "c5d59a29" };
+const serverManifest = { "entry": { "module": "/assets/entry.client-BeD-h73r.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-DGrJwBOK.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-BiwXyQNW.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-DGrJwBOK.js", "/assets/NotificationContext-Dy3gM1OM.js", "/assets/AuthContext-DZptWQbs.js", "/assets/SliderContext-Bgmr4okt.js", "/assets/EditPhotoDialogContext-TqF-cvv3.js", "/assets/EditVideoDialogContext-4rj_BWYd.js", "/assets/VideoSliderContext-CjftPHos.js", "/assets/OperationContext-Cntcaxvx.js", "/assets/lib-3IqbhpCG.js", "/assets/LoadingMessage-uYfV-qmv.js", "/assets/index-Cq0w__O5.js", "/assets/types-DBTFAyTi.js"], "css": ["/assets/root-DpsTmXwU.css"] }, "routes/sitemap-categories-cities.xml": { "id": "routes/sitemap-categories-cities.xml", "parentId": "root", "path": "/sitemap-categories-cities.xml", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/sitemap-categories-cities.xml-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/sitemap-categories.xml": { "id": "routes/sitemap-categories.xml", "parentId": "root", "path": "/sitemap-categories.xml", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/sitemap-categories.xml-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/_index_second_backup": { "id": "routes/_index_second_backup", "parentId": "root", "path": void 0, "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/_index_second_backup-T-3_NpqS.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/HomeNav-DGXW2tbp.js", "/assets/components-DGrJwBOK.js", "/assets/lib-3IqbhpCG.js", "/assets/Footer-DPBb2aNv.js", "/assets/UserMenu-6dX3aPu0.js", "/assets/TopAd-BcqHXSpK.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/AuthContext-DZptWQbs.js", "/assets/css-CVxtJxAn.js", "/assets/index-Cq0w__O5.js"], "css": [] }, "routes/_index_third_backup": { "id": "routes/_index_third_backup", "parentId": "root", "path": void 0, "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/_index_third_backup-kDlk6dbv.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/SrchNavbar-Bderx7xg.js", "/assets/lib-3IqbhpCG.js", "/assets/components-DGrJwBOK.js", "/assets/CallToActionSection-BCcprJOI.js", "/assets/FooterSection-D3ZHMCXD.js", "/assets/UserMenu-6dX3aPu0.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/AuthContext-DZptWQbs.js", "/assets/css-CVxtJxAn.js", "/assets/index-Cq0w__O5.js"], "css": [] }, "routes/sitemap-main.xml": { "id": "routes/sitemap-main.xml", "parentId": "root", "path": "/sitemap-main.xml", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/sitemap-main.xml-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/_index_backup": { "id": "routes/_index_backup", "parentId": "root", "path": void 0, "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/_index_backup-D7BzYg8i.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/Footer-DPBb2aNv.js", "/assets/lib-3IqbhpCG.js", "/assets/components-DGrJwBOK.js", "/assets/UserMenu-6dX3aPu0.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/AuthContext-DZptWQbs.js", "/assets/css-CVxtJxAn.js", "/assets/index-Cq0w__O5.js"], "css": [] }, "routes/sitemap.xml": { "id": "routes/sitemap.xml", "parentId": "root", "path": "/sitemap.xml", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/sitemap.xml-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/homepage": { "id": "routes/homepage", "parentId": "root", "path": "homepage", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/homepage-CQ9wI0yA.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/YourGuide-B3-cnj0Q.js", "/assets/components-DGrJwBOK.js", "/assets/lib-3IqbhpCG.js", "/assets/FooterAlt-Jee6N3Fk.js", "/assets/MainNav-Dj8SswNX.js", "/assets/index-Cq0w__O5.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/AuthContext-DZptWQbs.js"], "css": [] }, "routes/landing": { "id": "routes/landing", "parentId": "root", "path": "landing", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-BspaleB3.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js"], "css": [] }, "routes/listing": { "id": "routes/listing", "parentId": "root", "path": "listing", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-79gwe7dV.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-DGrJwBOK.js", "/assets/index-Cq0w__O5.js", "/assets/SliderContext-Bgmr4okt.js", "/assets/AuthContext-DZptWQbs.js", "/assets/zod-MdMXX0Ui.js", "/assets/NotificationContext-Dy3gM1OM.js", "/assets/OperationContext-Cntcaxvx.js", "/assets/types-DBTFAyTi.js", "/assets/lib-3IqbhpCG.js", "/assets/VideoSliderContext-CjftPHos.js", "/assets/ProductSliderContext-BZDC7E-4.js", "/assets/TopAd-BcqHXSpK.js", "/assets/SearchLayout-BhIPah_F.js", "/assets/CallToActionSection-BCcprJOI.js", "/assets/VerticalHeight-CjKseacd.js", "/assets/FooterAlt-Jee6N3Fk.js", "/assets/MainNav-Dj8SswNX.js", "/assets/LeftNav-B7Pfw34Q.js"], "css": [] }, "routes/_index": { "id": "routes/_index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/_index-CIp09Xi2.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/YourGuide-B3-cnj0Q.js", "/assets/FooterAlt-Jee6N3Fk.js", "/assets/lib-3IqbhpCG.js", "/assets/OperationContext-Cntcaxvx.js", "/assets/components-DGrJwBOK.js", "/assets/MainNav-Dj8SswNX.js", "/assets/index-Cq0w__O5.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/AuthContext-DZptWQbs.js"], "css": [] }, "routes/_404": { "id": "routes/_404", "parentId": "root", "path": "*", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/_404-eY0pAvES.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/MainNav-Dj8SswNX.js", "/assets/components-DGrJwBOK.js", "/assets/lib-3IqbhpCG.js", "/assets/index-Cq0w__O5.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/AuthContext-DZptWQbs.js"], "css": [] }, "routes/web": { "id": "routes/web", "parentId": "root", "path": "web", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-Cmlstfnz.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js"], "css": [] }, "routes/listing/index": { "id": "routes/listing/index", "parentId": "root", "path": "/:id", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-79gwe7dV.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-DGrJwBOK.js", "/assets/index-Cq0w__O5.js", "/assets/SliderContext-Bgmr4okt.js", "/assets/AuthContext-DZptWQbs.js", "/assets/zod-MdMXX0Ui.js", "/assets/NotificationContext-Dy3gM1OM.js", "/assets/OperationContext-Cntcaxvx.js", "/assets/types-DBTFAyTi.js", "/assets/lib-3IqbhpCG.js", "/assets/VideoSliderContext-CjftPHos.js", "/assets/ProductSliderContext-BZDC7E-4.js", "/assets/TopAd-BcqHXSpK.js", "/assets/SearchLayout-BhIPah_F.js", "/assets/CallToActionSection-BCcprJOI.js", "/assets/VerticalHeight-CjKseacd.js", "/assets/FooterAlt-Jee6N3Fk.js", "/assets/MainNav-Dj8SswNX.js", "/assets/LeftNav-B7Pfw34Q.js"], "css": [] }, "routes/landing/index": { "id": "routes/landing/index", "parentId": "root", "path": "/landing", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-BspaleB3.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js"], "css": [] }, "routes/web/browse/index": { "id": "routes/web/browse/index", "parentId": "root", "path": "/web/search", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-DEU30rgP.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-DGrJwBOK.js", "/assets/lib-3IqbhpCG.js", "/assets/Categories-CE1oqIhf.js", "/assets/MainNav-Dj8SswNX.js", "/assets/index-Cq0w__O5.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/AuthContext-DZptWQbs.js"], "css": [] }, "routes/web/categorycity/index": { "id": "routes/web/categorycity/index", "parentId": "root", "path": "/web/category/:category/city/:city", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-BCs4XNLh.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-DGrJwBOK.js", "/assets/FooterAlt-Jee6N3Fk.js", "/assets/MainNav-Dj8SswNX.js", "/assets/lib-3IqbhpCG.js", "/assets/Card-B-osDG-t.js", "/assets/index-Cq0w__O5.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/AuthContext-DZptWQbs.js"], "css": [] }, "routes/web/categorycity/category": { "id": "routes/web/categorycity/category", "parentId": "root", "path": "/web/category/:category", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/category-CJL01k-S.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-DGrJwBOK.js", "/assets/FooterAlt-Jee6N3Fk.js", "/assets/MainNav-Dj8SswNX.js", "/assets/lib-3IqbhpCG.js", "/assets/Card-B-osDG-t.js", "/assets/index-Cq0w__O5.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/AuthContext-DZptWQbs.js"], "css": [] }, "routes/web/browse/browse": { "id": "routes/web/browse/browse", "parentId": "root", "path": "/web/browser", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/browse-D-o5GYxS.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/SrchNavbar-Bderx7xg.js", "/assets/components-DGrJwBOK.js", "/assets/lib-3IqbhpCG.js", "/assets/UserMenu-6dX3aPu0.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/AuthContext-DZptWQbs.js", "/assets/css-CVxtJxAn.js", "/assets/index-Cq0w__O5.js"], "css": [] }, "routes/web/signin/index": { "id": "routes/web/signin/index", "parentId": "root", "path": "/web/signin", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-DiJyFPax.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/zod-MdMXX0Ui.js", "/assets/components-DGrJwBOK.js", "/assets/types-DBTFAyTi.js", "/assets/NotificationContext-Dy3gM1OM.js", "/assets/OperationContext-Cntcaxvx.js", "/assets/AuthContext-DZptWQbs.js", "/assets/AuthHeader-BHHSunR4.js", "/assets/lib-3IqbhpCG.js"], "css": [] }, "routes/web/signup/index": { "id": "routes/web/signup/index", "parentId": "root", "path": "/web/signup", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-BHP4tvsW.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/zod-MdMXX0Ui.js", "/assets/components-DGrJwBOK.js", "/assets/OperationContext-Cntcaxvx.js", "/assets/NotificationContext-Dy3gM1OM.js", "/assets/lib-3IqbhpCG.js", "/assets/types-DBTFAyTi.js", "/assets/AuthHeader-BHHSunR4.js"], "css": [] }, "routes/web/reset_password/index": { "id": "routes/web/reset_password/index", "parentId": "root", "path": "/web/reset-password", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-DncWyvkG.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/zod-MdMXX0Ui.js", "/assets/components-DGrJwBOK.js", "/assets/OperationContext-Cntcaxvx.js", "/assets/AuthContext-DZptWQbs.js", "/assets/types-DBTFAyTi.js", "/assets/lib-3IqbhpCG.js", "/assets/NotificationContext-Dy3gM1OM.js", "/assets/AuthHeader-BHHSunR4.js"], "css": [] }, "routes/web/account/index": { "id": "routes/web/account/index", "parentId": "root", "path": "/web/account", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-vXypoIq7.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/AccountLayout-CUzdDj8B.js", "/assets/ContentLayout-DFVbNTBN.js", "/assets/components-DGrJwBOK.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/lib-3IqbhpCG.js", "/assets/AuthContext-DZptWQbs.js", "/assets/HomeNav-DGXW2tbp.js", "/assets/MainNav-Dj8SswNX.js", "/assets/index-Cq0w__O5.js", "/assets/BusinessMenu-Do2GA5mn.js", "/assets/BusinessDrawer-BYPsm-G0.js"], "css": [] }, "routes/web/account/profile/index": { "id": "routes/web/account/profile/index", "parentId": "root", "path": "/web/account/profile", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-rYfq1aeC.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-DGrJwBOK.js", "/assets/AuthContext-DZptWQbs.js", "/assets/lib-3IqbhpCG.js", "/assets/NotificationContext-Dy3gM1OM.js", "/assets/OperationContext-Cntcaxvx.js", "/assets/zod-MdMXX0Ui.js", "/assets/types-DBTFAyTi.js", "/assets/Button-7Woa2p3a.js", "/assets/Input-CnCBtXJo.js", "/assets/Select-MB-lK-pM.js", "/assets/css-CVxtJxAn.js", "/assets/ProfileLayout-DWhBtCIq.js", "/assets/LoadingMessage-uYfV-qmv.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/HomeNav-DGXW2tbp.js", "/assets/MainNav-Dj8SswNX.js", "/assets/index-Cq0w__O5.js"], "css": [] }, "routes/web/account/email_address/index": { "id": "routes/web/account/email_address/index", "parentId": "root", "path": "/web/account/email_address", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-B6nSZMb8.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-DGrJwBOK.js", "/assets/AccountLayout-CUzdDj8B.js", "/assets/AuthContext-DZptWQbs.js", "/assets/lib-3IqbhpCG.js", "/assets/zod-MdMXX0Ui.js", "/assets/Button-7Woa2p3a.js", "/assets/Input-CnCBtXJo.js", "/assets/types-DBTFAyTi.js", "/assets/css-CVxtJxAn.js", "/assets/NotificationContext-Dy3gM1OM.js", "/assets/OperationContext-Cntcaxvx.js", "/assets/ProfileContentLayout-da5mAhJ0.js", "/assets/LoadingMessage-uYfV-qmv.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/HomeNav-DGXW2tbp.js", "/assets/MainNav-Dj8SswNX.js", "/assets/index-Cq0w__O5.js", "/assets/BusinessMenu-Do2GA5mn.js"], "css": [] }, "routes/web/account/change_password/index": { "id": "routes/web/account/change_password/index", "parentId": "root", "path": "/web/account/change_password", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-c7VcUKTw.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-DGrJwBOK.js", "/assets/AccountLayout-CUzdDj8B.js", "/assets/AuthContext-DZptWQbs.js", "/assets/lib-3IqbhpCG.js", "/assets/zod-MdMXX0Ui.js", "/assets/Button-7Woa2p3a.js", "/assets/Input-CnCBtXJo.js", "/assets/types-DBTFAyTi.js", "/assets/css-CVxtJxAn.js", "/assets/NotificationContext-Dy3gM1OM.js", "/assets/OperationContext-Cntcaxvx.js", "/assets/ProfileContentLayout-da5mAhJ0.js", "/assets/LoadingMessage-uYfV-qmv.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/HomeNav-DGXW2tbp.js", "/assets/MainNav-Dj8SswNX.js", "/assets/index-Cq0w__O5.js", "/assets/BusinessMenu-Do2GA5mn.js"], "css": [] }, "routes/web/account/reset_password/index": { "id": "routes/web/account/reset_password/index", "parentId": "root", "path": "/web/account/reset_password", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-D07CSlJE.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-DGrJwBOK.js", "/assets/AccountLayout-CUzdDj8B.js", "/assets/AuthContext-DZptWQbs.js", "/assets/lib-3IqbhpCG.js", "/assets/zod-MdMXX0Ui.js", "/assets/Button-7Woa2p3a.js", "/assets/Input-CnCBtXJo.js", "/assets/types-DBTFAyTi.js", "/assets/css-CVxtJxAn.js", "/assets/NotificationContext-Dy3gM1OM.js", "/assets/OperationContext-Cntcaxvx.js", "/assets/ProfileContentLayout-da5mAhJ0.js", "/assets/LoadingMessage-uYfV-qmv.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/HomeNav-DGXW2tbp.js", "/assets/MainNav-Dj8SswNX.js", "/assets/index-Cq0w__O5.js", "/assets/BusinessMenu-Do2GA5mn.js"], "css": [] }, "routes/web/account/deactivate_profile/index": { "id": "routes/web/account/deactivate_profile/index", "parentId": "root", "path": "/web/account/deactivate_profile", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-xjIWZ3Ny.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-DGrJwBOK.js", "/assets/AccountLayout-CUzdDj8B.js", "/assets/AuthContext-DZptWQbs.js", "/assets/lib-3IqbhpCG.js", "/assets/zod-MdMXX0Ui.js", "/assets/Button-7Woa2p3a.js", "/assets/Input-CnCBtXJo.js", "/assets/types-DBTFAyTi.js", "/assets/css-CVxtJxAn.js", "/assets/NotificationContext-Dy3gM1OM.js", "/assets/OperationContext-Cntcaxvx.js", "/assets/ProfileContentLayout-da5mAhJ0.js", "/assets/LoadingMessage-uYfV-qmv.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/HomeNav-DGXW2tbp.js", "/assets/MainNav-Dj8SswNX.js", "/assets/index-Cq0w__O5.js", "/assets/BusinessMenu-Do2GA5mn.js"], "css": [] }, "routes/web/terms/index": { "id": "routes/web/terms/index", "parentId": "root", "path": "/web/terms", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-CJTWDdru.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/VerticalHeight-CjKseacd.js", "/assets/FooterAlt-Jee6N3Fk.js", "/assets/SearchLayout-BhIPah_F.js", "/assets/lib-3IqbhpCG.js", "/assets/components-DGrJwBOK.js", "/assets/MainNav-Dj8SswNX.js", "/assets/index-Cq0w__O5.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/AuthContext-DZptWQbs.js"], "css": [] }, "routes/web/privacy/index": { "id": "routes/web/privacy/index", "parentId": "root", "path": "/web/privacy", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-C2Wlwj6L.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/VerticalHeight-CjKseacd.js", "/assets/FooterAlt-Jee6N3Fk.js", "/assets/SearchLayout-BhIPah_F.js", "/assets/lib-3IqbhpCG.js", "/assets/components-DGrJwBOK.js", "/assets/MainNav-Dj8SswNX.js", "/assets/index-Cq0w__O5.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/AuthContext-DZptWQbs.js"], "css": [] }, "routes/web/contact/index": { "id": "routes/web/contact/index", "parentId": "root", "path": "/web/contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-D-grP6zu.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/VerticalHeight-CjKseacd.js", "/assets/FooterAlt-Jee6N3Fk.js", "/assets/SearchLayout-BhIPah_F.js", "/assets/lib-3IqbhpCG.js", "/assets/components-DGrJwBOK.js", "/assets/MainNav-Dj8SswNX.js", "/assets/index-Cq0w__O5.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/AuthContext-DZptWQbs.js"], "css": [] }, "routes/web/browse/db": { "id": "routes/web/browse/db", "parentId": "root", "path": "/web/db", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/db-CXR0YRLB.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-DGrJwBOK.js", "/assets/SrchNavbar-Bderx7xg.js", "/assets/Categories-CE1oqIhf.js", "/assets/FooterSection-D3ZHMCXD.js", "/assets/VerticalHeight-CjKseacd.js", "/assets/CallToActionSection-BCcprJOI.js", "/assets/lib-3IqbhpCG.js", "/assets/UserMenu-6dX3aPu0.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/AuthContext-DZptWQbs.js", "/assets/css-CVxtJxAn.js", "/assets/index-Cq0w__O5.js"], "css": [] }, "routes/web/copyright/Copyright": { "id": "routes/web/copyright/Copyright", "parentId": "root", "path": "/web/copyright", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/Copyright-DHqW4mg3.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/MainNav-Dj8SswNX.js", "/assets/FooterAlt-Jee6N3Fk.js", "/assets/components-DGrJwBOK.js", "/assets/lib-3IqbhpCG.js", "/assets/index-Cq0w__O5.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/AuthContext-DZptWQbs.js"], "css": [] }, "routes/web/responsible_disclosure/ResponsibleDisclosure": { "id": "routes/web/responsible_disclosure/ResponsibleDisclosure", "parentId": "root", "path": "/web/responsible-disclosure", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/ResponsibleDisclosure-CP_-GJVd.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/MainNav-Dj8SswNX.js", "/assets/components-DGrJwBOK.js", "/assets/lib-3IqbhpCG.js", "/assets/index-Cq0w__O5.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/AuthContext-DZptWQbs.js"], "css": [] }, "routes/web/account/portfolio/index": { "id": "routes/web/account/portfolio/index", "parentId": "root", "path": "/web/account/portfolio", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-B2ngsTSu.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-DGrJwBOK.js", "/assets/AccountLayout-CUzdDj8B.js", "/assets/AuthContext-DZptWQbs.js", "/assets/lib-3IqbhpCG.js", "/assets/LoadingMessage-uYfV-qmv.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/HomeNav-DGXW2tbp.js", "/assets/MainNav-Dj8SswNX.js", "/assets/index-Cq0w__O5.js"], "css": [] }, "routes/web/account/portfolio/business/index": { "id": "routes/web/account/portfolio/business/index", "parentId": "root", "path": "/web/account/portfolio/:business_guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-BjvcQTv-.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-DGrJwBOK.js", "/assets/AuthContext-DZptWQbs.js", "/assets/lib-3IqbhpCG.js", "/assets/ProfileLayout-DWhBtCIq.js", "/assets/zod-MdMXX0Ui.js", "/assets/types-DBTFAyTi.js", "/assets/TextareaWithWordLimit-ib-gCUYq.js", "/assets/NotificationContext-Dy3gM1OM.js", "/assets/OperationContext-Cntcaxvx.js", "/assets/Button-7Woa2p3a.js", "/assets/Input-CnCBtXJo.js", "/assets/css-CVxtJxAn.js", "/assets/Select-MB-lK-pM.js", "/assets/BusinessMenu-Do2GA5mn.js", "/assets/BusinessDrawer-BYPsm-G0.js", "/assets/LoadingMessage-uYfV-qmv.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/HomeNav-DGXW2tbp.js", "/assets/MainNav-Dj8SswNX.js", "/assets/index-Cq0w__O5.js"], "css": [] }, "routes/web/account/create_business/index": { "id": "routes/web/account/create_business/index", "parentId": "root", "path": "/web/account/create_business", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-G7ocnm5k.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-DGrJwBOK.js", "/assets/AccountLayout-CUzdDj8B.js", "/assets/AuthContext-DZptWQbs.js", "/assets/zod-MdMXX0Ui.js", "/assets/lib-3IqbhpCG.js", "/assets/Input-CnCBtXJo.js", "/assets/Select-MB-lK-pM.js", "/assets/Button-7Woa2p3a.js", "/assets/css-CVxtJxAn.js", "/assets/TextareaWithWordLimit-ib-gCUYq.js", "/assets/CreatePageSchema-5wPOr2lU.js", "/assets/NotificationContext-Dy3gM1OM.js", "/assets/OperationContext-Cntcaxvx.js", "/assets/ProfileContentLayout-da5mAhJ0.js", "/assets/LoadingMessage-uYfV-qmv.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/HomeNav-DGXW2tbp.js", "/assets/MainNav-Dj8SswNX.js", "/assets/index-Cq0w__O5.js", "/assets/types-DBTFAyTi.js", "/assets/BusinessMenu-Do2GA5mn.js"], "css": [] }, "routes/web/account/portfolio/business/settings/index": { "id": "routes/web/account/portfolio/business/settings/index", "parentId": "root", "path": "/web/account/portfolio/:business_guid/:user_guid/settings", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-ngelYYO4.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/zod-MdMXX0Ui.js", "/assets/components-DGrJwBOK.js", "/assets/lib-3IqbhpCG.js", "/assets/types-DBTFAyTi.js", "/assets/AccountLayout-CUzdDj8B.js", "/assets/ContentLayout-DFVbNTBN.js", "/assets/NotificationContext-Dy3gM1OM.js", "/assets/OperationContext-Cntcaxvx.js", "/assets/css-CVxtJxAn.js", "/assets/AuthContext-DZptWQbs.js", "/assets/LoadingMessage-uYfV-qmv.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/HomeNav-DGXW2tbp.js", "/assets/MainNav-Dj8SswNX.js", "/assets/index-Cq0w__O5.js", "/assets/BusinessMenu-Do2GA5mn.js", "/assets/BusinessDrawer-BYPsm-G0.js"], "css": [] }, "routes/web/account/portfolio/business/gallery/index": { "id": "routes/web/account/portfolio/business/gallery/index", "parentId": "root", "path": "/web/account/portfolio/:business_guid/:user_guid/gallery", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-Bh7-fb6h.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-DGrJwBOK.js", "/assets/AccountLayout-CUzdDj8B.js", "/assets/ContentLayout-DFVbNTBN.js", "/assets/lib-3IqbhpCG.js", "/assets/EditPhotoDialogContext-TqF-cvv3.js", "/assets/NotificationContext-Dy3gM1OM.js", "/assets/index-Cq0w__O5.js", "/assets/SliderContext-Bgmr4okt.js", "/assets/AuthContext-DZptWQbs.js", "/assets/OperationContext-Cntcaxvx.js", "/assets/LoadingMessage-uYfV-qmv.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/HomeNav-DGXW2tbp.js", "/assets/MainNav-Dj8SswNX.js", "/assets/BusinessMenu-Do2GA5mn.js", "/assets/BusinessDrawer-BYPsm-G0.js"], "css": [] }, "routes/web/account/portfolio/business/products/index": { "id": "routes/web/account/portfolio/business/products/index", "parentId": "root", "path": "/web/account/portfolio/:business_guid/:user_guid/products", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-Bzl5AsWK.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-DGrJwBOK.js", "/assets/AccountLayout-CUzdDj8B.js", "/assets/ContentLayout-DFVbNTBN.js", "/assets/lib-3IqbhpCG.js", "/assets/AuthContext-DZptWQbs.js", "/assets/NotificationContext-Dy3gM1OM.js", "/assets/OperationContext-Cntcaxvx.js", "/assets/index-Cq0w__O5.js", "/assets/ProductSliderContext-BZDC7E-4.js", "/assets/LoadingMessage-uYfV-qmv.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/HomeNav-DGXW2tbp.js", "/assets/MainNav-Dj8SswNX.js", "/assets/BusinessMenu-Do2GA5mn.js", "/assets/BusinessDrawer-BYPsm-G0.js"], "css": [] }, "routes/web/account/portfolio/business/videos/index": { "id": "routes/web/account/portfolio/business/videos/index", "parentId": "root", "path": "/web/account/portfolio/:business_guid/:user_guid/videos", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-hxPqtYYl.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-DGrJwBOK.js", "/assets/AccountLayout-CUzdDj8B.js", "/assets/ContentLayout-DFVbNTBN.js", "/assets/lib-3IqbhpCG.js", "/assets/EditVideoDialogContext-4rj_BWYd.js", "/assets/NotificationContext-Dy3gM1OM.js", "/assets/index-Cq0w__O5.js", "/assets/VideoSliderContext-CjftPHos.js", "/assets/AuthContext-DZptWQbs.js", "/assets/LoadingMessage-uYfV-qmv.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/HomeNav-DGXW2tbp.js", "/assets/MainNav-Dj8SswNX.js", "/assets/BusinessMenu-Do2GA5mn.js", "/assets/BusinessDrawer-BYPsm-G0.js", "/assets/OperationContext-Cntcaxvx.js", "/assets/types-DBTFAyTi.js"], "css": [] }, "routes/web/account/portfolio/business/facilities/index": { "id": "routes/web/account/portfolio/business/facilities/index", "parentId": "root", "path": "/web/account/portfolio/:business_guid/:user_guid/facilities", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-B8Tyjcpc.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-DGrJwBOK.js", "/assets/lib-3IqbhpCG.js", "/assets/AccountLayout-CUzdDj8B.js", "/assets/ContentLayout-DFVbNTBN.js", "/assets/NotificationContext-Dy3gM1OM.js", "/assets/OperationContext-Cntcaxvx.js", "/assets/AuthContext-DZptWQbs.js", "/assets/LoadingMessage-uYfV-qmv.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/HomeNav-DGXW2tbp.js", "/assets/MainNav-Dj8SswNX.js", "/assets/index-Cq0w__O5.js", "/assets/BusinessMenu-Do2GA5mn.js", "/assets/BusinessDrawer-BYPsm-G0.js"], "css": [] }, "routes/web/account/portfolio/business/activate/index": { "id": "routes/web/account/portfolio/business/activate/index", "parentId": "root", "path": "/web/account/portfolio/:business_guid/:user_guid/activate", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-C4rTcAYC.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-DGrJwBOK.js", "/assets/NotificationContext-Dy3gM1OM.js", "/assets/OperationContext-Cntcaxvx.js", "/assets/lib-3IqbhpCG.js", "/assets/AccountLayout-CUzdDj8B.js", "/assets/ContentLayout-DFVbNTBN.js", "/assets/AuthContext-DZptWQbs.js", "/assets/LoadingMessage-uYfV-qmv.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/HomeNav-DGXW2tbp.js", "/assets/MainNav-Dj8SswNX.js", "/assets/index-Cq0w__O5.js", "/assets/BusinessMenu-Do2GA5mn.js", "/assets/BusinessDrawer-BYPsm-G0.js"], "css": [] }, "routes/web/account/portfolio/business/social_media/index": { "id": "routes/web/account/portfolio/business/social_media/index", "parentId": "root", "path": "/web/account/portfolio/:business_guid/:user_guid/social_media", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-BPOQAr-b.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-DGrJwBOK.js", "/assets/lib-3IqbhpCG.js", "/assets/AccountLayout-CUzdDj8B.js", "/assets/ContentLayout-DFVbNTBN.js", "/assets/OperationContext-Cntcaxvx.js", "/assets/LoadingMessage-uYfV-qmv.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/AuthContext-DZptWQbs.js", "/assets/HomeNav-DGXW2tbp.js", "/assets/MainNav-Dj8SswNX.js", "/assets/index-Cq0w__O5.js", "/assets/BusinessMenu-Do2GA5mn.js", "/assets/BusinessDrawer-BYPsm-G0.js"], "css": [] }, "routes/web/account/portfolio/business/delete/index": { "id": "routes/web/account/portfolio/business/delete/index", "parentId": "root", "path": "/web/account/portfolio/:business_guid/:user_guid/delete", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-Dx2U-l_z.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-DGrJwBOK.js", "/assets/lib-3IqbhpCG.js", "/assets/AccountLayout-CUzdDj8B.js", "/assets/ContentLayout-DFVbNTBN.js", "/assets/AuthContext-DZptWQbs.js", "/assets/zod-MdMXX0Ui.js", "/assets/Button-7Woa2p3a.js", "/assets/Input-CnCBtXJo.js", "/assets/NotificationContext-Dy3gM1OM.js", "/assets/types-DBTFAyTi.js", "/assets/OperationContext-Cntcaxvx.js", "/assets/LoadingMessage-uYfV-qmv.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/HomeNav-DGXW2tbp.js", "/assets/MainNav-Dj8SswNX.js", "/assets/index-Cq0w__O5.js", "/assets/BusinessMenu-Do2GA5mn.js", "/assets/BusinessDrawer-BYPsm-G0.js", "/assets/css-CVxtJxAn.js"], "css": [] }, "routes/web/account/portfolio/business/reassign/index": { "id": "routes/web/account/portfolio/business/reassign/index", "parentId": "root", "path": "/web/account/portfolio/:business_guid/:user_guid/reassign", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-9T-ayytO.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-DGrJwBOK.js", "/assets/lib-3IqbhpCG.js", "/assets/AccountLayout-CUzdDj8B.js", "/assets/ContentLayout-DFVbNTBN.js", "/assets/AuthContext-DZptWQbs.js", "/assets/OperationContext-Cntcaxvx.js", "/assets/LoadingMessage-uYfV-qmv.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/HomeNav-DGXW2tbp.js", "/assets/MainNav-Dj8SswNX.js", "/assets/index-Cq0w__O5.js", "/assets/BusinessMenu-Do2GA5mn.js", "/assets/BusinessDrawer-BYPsm-G0.js"], "css": [] }, "routes/web/account/events/index": { "id": "routes/web/account/events/index", "parentId": "root", "path": "/web/account/events", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-BYw2aD65.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/AccountLayout-CUzdDj8B.js", "/assets/ProfileContentLayout-da5mAhJ0.js", "/assets/zod-MdMXX0Ui.js", "/assets/components-DGrJwBOK.js", "/assets/OperationContext-Cntcaxvx.js", "/assets/CreatePageSchema-5wPOr2lU.js", "/assets/Input-CnCBtXJo.js", "/assets/css-CVxtJxAn.js", "/assets/LeftNav-B7Pfw34Q.js", "/assets/lib-3IqbhpCG.js", "/assets/AuthContext-DZptWQbs.js", "/assets/HomeNav-DGXW2tbp.js", "/assets/MainNav-Dj8SswNX.js", "/assets/index-Cq0w__O5.js", "/assets/BusinessMenu-Do2GA5mn.js", "/assets/types-DBTFAyTi.js"], "css": ["/assets/index-C09ifYB9.css"] }, "routes/web/landing/change_email/index": { "id": "routes/web/landing/change_email/index", "parentId": "root", "path": "/web/landing/change_email", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-70a4LxKc.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-DGrJwBOK.js", "/assets/AuthContext-DZptWQbs.js", "/assets/lib-3IqbhpCG.js"], "css": [] }, "routes/web/landing/reset_password/index": { "id": "routes/web/landing/reset_password/index", "parentId": "root", "path": "/web/landing/reset_password/:guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-J5V_4ZfO.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/zod-MdMXX0Ui.js", "/assets/components-DGrJwBOK.js", "/assets/OperationContext-Cntcaxvx.js", "/assets/AuthContext-DZptWQbs.js", "/assets/NotificationContext-Dy3gM1OM.js", "/assets/lib-3IqbhpCG.js", "/assets/types-DBTFAyTi.js"], "css": [] }, "routes/web/landing/complete_signup/index": { "id": "routes/web/landing/complete_signup/index", "parentId": "root", "path": "/web/landing/complete_signup/:guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-Bwi5kp48.js", "imports": ["/assets/jsx-runtime-0DLF9kdB.js", "/assets/components-DGrJwBOK.js", "/assets/lib-3IqbhpCG.js"], "css": [] }, "routes/api/user/index": { "id": "routes/api/user/index", "parentId": "root", "path": "api/user", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/user/signin": { "id": "routes/api/user/signin", "parentId": "root", "path": "api/user/signin", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/signin-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/user/verifytoken": { "id": "routes/api/user/verifytoken", "parentId": "root", "path": "api/user/verifytoken", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/verifytoken-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/user/user": { "id": "routes/api/user/user", "parentId": "root", "path": "api/user/:guid", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/user-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/user/change_password": { "id": "routes/api/user/change_password", "parentId": "root", "path": "api/user/change_password/:guid", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/change_password-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/user/reset_password_request": { "id": "routes/api/user/reset_password_request", "parentId": "root", "path": "api/user/reset_password_request", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/reset_password_request-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/user/reset_password": { "id": "routes/api/user/reset_password", "parentId": "root", "path": "api/user/reset_password/:guid", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/reset_password-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/user/activate_deactivate": { "id": "routes/api/user/activate_deactivate", "parentId": "root", "path": "api/user/activate_deactivate/:guid", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/activate_deactivate-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/user/user_profile_image": { "id": "routes/api/user/user_profile_image", "parentId": "root", "path": "api/user/user_profile_image/:guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/user_profile_image-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/user/user_profile_bg": { "id": "routes/api/user/user_profile_bg", "parentId": "root", "path": "api/user/user_profile_bg/:guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/user_profile_bg-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/user/change_email_request": { "id": "routes/api/user/change_email_request", "parentId": "root", "path": "api/user/change_email_request", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/change_email_request-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/user/change_email": { "id": "routes/api/user/change_email", "parentId": "root", "path": "api/user/change_email", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/change_email-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/user/verify_signup": { "id": "routes/api/user/verify_signup", "parentId": "root", "path": "api/user/verify_signup/:user_hash", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/verify_signup-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/index": { "id": "routes/api/listing/index", "parentId": "root", "path": "api/listing", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-DP2rzg_V.js", "imports": [], "css": [] }, "routes/api/listing/listing": { "id": "routes/api/listing/listing", "parentId": "root", "path": "api/listing/:guid_or_username", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/listing-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/search": { "id": "routes/api/listing/search", "parentId": "root", "path": "api/listing/search", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/search-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/searchlisting": { "id": "routes/api/listing/searchlisting", "parentId": "root", "path": "api/listing/searchlisting", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/searchlisting-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/featured_listing": { "id": "routes/api/listing/featured_listing", "parentId": "root", "path": "api/listing/featured_listing", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/featured_listing-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/business_facility_features": { "id": "routes/api/listing/business_facility_features", "parentId": "root", "path": "api/listing/business_facility_features/:business_guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/business_facility_features-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/listing_by_category": { "id": "routes/api/listing/listing_by_category", "parentId": "root", "path": "api/listing/listing_by_category/:category/:limit", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/listing_by_category-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/home_listing_by_category": { "id": "routes/api/listing/home_listing_by_category", "parentId": "root", "path": "api/listing/home_listing_by_category/:category/:limit", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/home_listing_by_category-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/home_latest_businesses": { "id": "routes/api/listing/home_latest_businesses", "parentId": "root", "path": "api/listing/home_latest_businesses/:limit", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/home_latest_businesses-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/business_gallery": { "id": "routes/api/listing/business_gallery", "parentId": "root", "path": "api/listing/business_gallery/:business_guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/business_gallery-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/business_profile_image": { "id": "routes/api/listing/business_profile_image", "parentId": "root", "path": "api/listing/business_profile_image/:guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/business_profile_image-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/business_profile_bg": { "id": "routes/api/listing/business_profile_bg", "parentId": "root", "path": "api/listing/business_profile_bg/:guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/business_profile_bg-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/owner/index": { "id": "routes/api/listing/owner/index", "parentId": "root", "path": "api/listing/owner", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-K6Dvbx-E.js", "imports": [], "css": [] }, "routes/api/listing/delete_business": { "id": "routes/api/listing/delete_business", "parentId": "root", "path": "api/listing/delete_business/:business_guid", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/delete_business-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/reassign_business": { "id": "routes/api/listing/reassign_business", "parentId": "root", "path": "api/listing/reassign_business", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/reassign_business-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/business_single_search": { "id": "routes/api/listing/business_single_search", "parentId": "root", "path": "api/listing/business_single_search", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/business_single_search-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/user_single_search": { "id": "routes/api/listing/user_single_search", "parentId": "root", "path": "api/listing/user_single_search", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/user_single_search-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/operating_hours": { "id": "routes/api/listing/operating_hours", "parentId": "root", "path": "api/listing/operating_hours", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/operating_hours-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/gallery": { "id": "routes/api/listing/gallery", "parentId": "root", "path": "api/listing/gallery/:business_guid/:user_guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/gallery-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/sys_facility_features/index": { "id": "routes/api/listing/sys_facility_features/index", "parentId": "root", "path": "api/listing/sys_facility_features", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-C6Kfwj0f.js", "imports": [], "css": [] }, "routes/api/listing/selected_facility_features/selected_facility_features": { "id": "routes/api/listing/selected_facility_features/selected_facility_features", "parentId": "root", "path": "api/listing/selected_facility_features/:user_guid/:business_guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/selected_facility_features-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/selected_facility_features/index": { "id": "routes/api/listing/selected_facility_features/index", "parentId": "root", "path": "api/listing/selected_facility_features", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-RnTpOC5-.js", "imports": [], "css": [] }, "routes/api/listing/sys_social_media/index": { "id": "routes/api/listing/sys_social_media/index", "parentId": "root", "path": "api/listing/sys_social_media", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-DVN7Oi2P.js", "imports": [], "css": [] }, "routes/api/listing/selected_social_media/selected_social_media": { "id": "routes/api/listing/selected_social_media/selected_social_media", "parentId": "root", "path": "api/listing/selected_social_media/:user_guid/:business_guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/selected_social_media-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/selected_social_media/index": { "id": "routes/api/listing/selected_social_media/index", "parentId": "root", "path": "api/listing/selected_social_media", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-DdXTRxfG.js", "imports": [], "css": [] }, "routes/api/listing/business_social_media": { "id": "routes/api/listing/business_social_media", "parentId": "root", "path": "api/listing/business_social_media/:business_guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/business_social_media-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/activate/activate": { "id": "routes/api/listing/activate/activate", "parentId": "root", "path": "api/listing/activate/:user_guid/:business_guid", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/activate-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/recents": { "id": "routes/api/listing/recents", "parentId": "root", "path": "api/listing/recents", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/recents-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/video_link": { "id": "routes/api/listing/video_link", "parentId": "root", "path": "api/listing/save_video_link", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/video_link-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/video_links": { "id": "routes/api/listing/video_links", "parentId": "root", "path": "api/listing/video_links/:business_guid/:user_guid", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/video_links-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/video_links_listing": { "id": "routes/api/listing/video_links_listing", "parentId": "root", "path": "api/listing/video_links/:business_guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/video_links_listing-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/products/index": { "id": "routes/api/listing/products/index", "parentId": "root", "path": "api/listing/products/:business_guid/:user_guid", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-BIjMHF-b.js", "imports": [], "css": [] }, "routes/api/listing/category": { "id": "routes/api/listing/category", "parentId": "root", "path": "api/listing/category/:category", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/category-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/category_city": { "id": "routes/api/listing/category_city", "parentId": "root", "path": "api/listing/category_city/:category/:city", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/category_city-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/category_city_sitexml": { "id": "routes/api/listing/category_city_sitexml", "parentId": "root", "path": "api/listing/cat_city_sitexml", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/category_city_sitexml-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/listing/category_sitexml": { "id": "routes/api/listing/category_sitexml", "parentId": "root", "path": "api/listing/cat_sitexml", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/category_sitexml-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/rating/index": { "id": "routes/api/rating/index", "parentId": "root", "path": "api/rating", "index": void 0, "caseSensitive": void 0, "hasAction": true, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/index-BQEWTaK-.js", "imports": [], "css": [] }, "routes/api/rating/rating": { "id": "routes/api/rating/rating", "parentId": "root", "path": "api/rating/:user_guid/:business_guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/rating-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/rating/business_ratings": { "id": "routes/api/rating/business_ratings", "parentId": "root", "path": "api/rating/business_ratings/:business_guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/business_ratings-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/rating/ratings_reviews": { "id": "routes/api/rating/ratings_reviews", "parentId": "root", "path": "api/rating/ratings_reviews/:business_guid", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/ratings_reviews-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/util/state": { "id": "routes/api/util/state", "parentId": "root", "path": "api/util/state", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/state-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/util/country": { "id": "routes/api/util/country", "parentId": "root", "path": "api/util/country", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/country-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/util/country_locale": { "id": "routes/api/util/country_locale", "parentId": "root", "path": "api/util/country_locale", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/country_locale-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/util/city": { "id": "routes/api/util/city", "parentId": "root", "path": "api/util/city", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/city-l0sNRNKZ.js", "imports": [], "css": [] }, "routes/api/util/category": { "id": "routes/api/util/category", "parentId": "root", "path": "api/util/category", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": true, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/category-DP2rzg_V.js", "imports": [], "css": [] } }, "url": "/assets/manifest-6a9c8a1e.js", "version": "6a9c8a1e" };
 const mode = "production";
 const assetsBuildDirectory = "build/client";
 const basename = "/";
@@ -22035,13 +23461,29 @@ const routes = {
     caseSensitive: void 0,
     module: route0
   },
+  "routes/sitemap-categories-cities.xml": {
+    id: "routes/sitemap-categories-cities.xml",
+    parentId: "root",
+    path: "/sitemap-categories-cities.xml",
+    index: void 0,
+    caseSensitive: void 0,
+    module: route1
+  },
+  "routes/sitemap-categories.xml": {
+    id: "routes/sitemap-categories.xml",
+    parentId: "root",
+    path: "/sitemap-categories.xml",
+    index: void 0,
+    caseSensitive: void 0,
+    module: route2
+  },
   "routes/_index_second_backup": {
     id: "routes/_index_second_backup",
     parentId: "root",
     path: void 0,
     index: void 0,
     caseSensitive: void 0,
-    module: route1
+    module: route3
   },
   "routes/_index_third_backup": {
     id: "routes/_index_third_backup",
@@ -22049,7 +23491,15 @@ const routes = {
     path: void 0,
     index: void 0,
     caseSensitive: void 0,
-    module: route2
+    module: route4
+  },
+  "routes/sitemap-main.xml": {
+    id: "routes/sitemap-main.xml",
+    parentId: "root",
+    path: "/sitemap-main.xml",
+    index: void 0,
+    caseSensitive: void 0,
+    module: route5
   },
   "routes/_index_backup": {
     id: "routes/_index_backup",
@@ -22057,15 +23507,15 @@ const routes = {
     path: void 0,
     index: void 0,
     caseSensitive: void 0,
-    module: route3
+    module: route6
   },
   "routes/sitemap.xml": {
     id: "routes/sitemap.xml",
     parentId: "root",
-    path: "/web/sitemap.xml",
+    path: "/sitemap.xml",
     index: void 0,
     caseSensitive: void 0,
-    module: route4
+    module: route7
   },
   "routes/homepage": {
     id: "routes/homepage",
@@ -22073,7 +23523,7 @@ const routes = {
     path: "homepage",
     index: void 0,
     caseSensitive: void 0,
-    module: route5
+    module: route8
   },
   "routes/landing": {
     id: "routes/landing",
@@ -22081,7 +23531,7 @@ const routes = {
     path: "landing",
     index: void 0,
     caseSensitive: void 0,
-    module: route12
+    module: route15
   },
   "routes/listing": {
     id: "routes/listing",
@@ -22089,7 +23539,7 @@ const routes = {
     path: "listing",
     index: void 0,
     caseSensitive: void 0,
-    module: route11
+    module: route14
   },
   "routes/_index": {
     id: "routes/_index",
@@ -22097,7 +23547,7 @@ const routes = {
     path: void 0,
     index: true,
     caseSensitive: void 0,
-    module: route8
+    module: route11
   },
   "routes/_404": {
     id: "routes/_404",
@@ -22105,7 +23555,7 @@ const routes = {
     path: "*",
     index: void 0,
     caseSensitive: void 0,
-    module: route9
+    module: route12
   },
   "routes/web": {
     id: "routes/web",
@@ -22113,7 +23563,7 @@ const routes = {
     path: "web",
     index: void 0,
     caseSensitive: void 0,
-    module: route10
+    module: route13
   },
   "routes/listing/index": {
     id: "routes/listing/index",
@@ -22121,7 +23571,7 @@ const routes = {
     path: "/:id",
     index: void 0,
     caseSensitive: void 0,
-    module: route11
+    module: route14
   },
   "routes/landing/index": {
     id: "routes/landing/index",
@@ -22129,7 +23579,7 @@ const routes = {
     path: "/landing",
     index: void 0,
     caseSensitive: void 0,
-    module: route12
+    module: route15
   },
   "routes/web/browse/index": {
     id: "routes/web/browse/index",
@@ -22137,15 +23587,23 @@ const routes = {
     path: "/web/search",
     index: void 0,
     caseSensitive: void 0,
-    module: route13
+    module: route16
   },
   "routes/web/categorycity/index": {
     id: "routes/web/categorycity/index",
     parentId: "root",
-    path: "/web/:category/:city",
+    path: "/web/category/:category/city/:city",
     index: void 0,
     caseSensitive: void 0,
-    module: route14
+    module: route17
+  },
+  "routes/web/categorycity/category": {
+    id: "routes/web/categorycity/category",
+    parentId: "root",
+    path: "/web/category/:category",
+    index: void 0,
+    caseSensitive: void 0,
+    module: route18
   },
   "routes/web/browse/browse": {
     id: "routes/web/browse/browse",
@@ -22153,7 +23611,7 @@ const routes = {
     path: "/web/browser",
     index: void 0,
     caseSensitive: void 0,
-    module: route15
+    module: route19
   },
   "routes/web/signin/index": {
     id: "routes/web/signin/index",
@@ -22161,7 +23619,7 @@ const routes = {
     path: "/web/signin",
     index: void 0,
     caseSensitive: void 0,
-    module: route16
+    module: route20
   },
   "routes/web/signup/index": {
     id: "routes/web/signup/index",
@@ -22169,15 +23627,15 @@ const routes = {
     path: "/web/signup",
     index: void 0,
     caseSensitive: void 0,
-    module: route17
+    module: route21
   },
   "routes/web/reset_password/index": {
     id: "routes/web/reset_password/index",
     parentId: "root",
-    path: "/web/reset_password",
+    path: "/web/reset-password",
     index: void 0,
     caseSensitive: void 0,
-    module: route18
+    module: route22
   },
   "routes/web/account/index": {
     id: "routes/web/account/index",
@@ -22185,7 +23643,7 @@ const routes = {
     path: "/web/account",
     index: void 0,
     caseSensitive: void 0,
-    module: route19
+    module: route23
   },
   "routes/web/account/profile/index": {
     id: "routes/web/account/profile/index",
@@ -22193,7 +23651,7 @@ const routes = {
     path: "/web/account/profile",
     index: void 0,
     caseSensitive: void 0,
-    module: route20
+    module: route24
   },
   "routes/web/account/email_address/index": {
     id: "routes/web/account/email_address/index",
@@ -22201,7 +23659,7 @@ const routes = {
     path: "/web/account/email_address",
     index: void 0,
     caseSensitive: void 0,
-    module: route21
+    module: route25
   },
   "routes/web/account/change_password/index": {
     id: "routes/web/account/change_password/index",
@@ -22209,7 +23667,7 @@ const routes = {
     path: "/web/account/change_password",
     index: void 0,
     caseSensitive: void 0,
-    module: route22
+    module: route26
   },
   "routes/web/account/reset_password/index": {
     id: "routes/web/account/reset_password/index",
@@ -22217,7 +23675,7 @@ const routes = {
     path: "/web/account/reset_password",
     index: void 0,
     caseSensitive: void 0,
-    module: route23
+    module: route27
   },
   "routes/web/account/deactivate_profile/index": {
     id: "routes/web/account/deactivate_profile/index",
@@ -22225,7 +23683,7 @@ const routes = {
     path: "/web/account/deactivate_profile",
     index: void 0,
     caseSensitive: void 0,
-    module: route24
+    module: route28
   },
   "routes/web/terms/index": {
     id: "routes/web/terms/index",
@@ -22233,7 +23691,7 @@ const routes = {
     path: "/web/terms",
     index: void 0,
     caseSensitive: void 0,
-    module: route25
+    module: route29
   },
   "routes/web/privacy/index": {
     id: "routes/web/privacy/index",
@@ -22241,7 +23699,7 @@ const routes = {
     path: "/web/privacy",
     index: void 0,
     caseSensitive: void 0,
-    module: route26
+    module: route30
   },
   "routes/web/contact/index": {
     id: "routes/web/contact/index",
@@ -22249,7 +23707,7 @@ const routes = {
     path: "/web/contact",
     index: void 0,
     caseSensitive: void 0,
-    module: route27
+    module: route31
   },
   "routes/web/browse/db": {
     id: "routes/web/browse/db",
@@ -22257,7 +23715,23 @@ const routes = {
     path: "/web/db",
     index: void 0,
     caseSensitive: void 0,
-    module: route28
+    module: route32
+  },
+  "routes/web/copyright/Copyright": {
+    id: "routes/web/copyright/Copyright",
+    parentId: "root",
+    path: "/web/copyright",
+    index: void 0,
+    caseSensitive: void 0,
+    module: route33
+  },
+  "routes/web/responsible_disclosure/ResponsibleDisclosure": {
+    id: "routes/web/responsible_disclosure/ResponsibleDisclosure",
+    parentId: "root",
+    path: "/web/responsible-disclosure",
+    index: void 0,
+    caseSensitive: void 0,
+    module: route34
   },
   "routes/web/account/portfolio/index": {
     id: "routes/web/account/portfolio/index",
@@ -22265,7 +23739,7 @@ const routes = {
     path: "/web/account/portfolio",
     index: void 0,
     caseSensitive: void 0,
-    module: route29
+    module: route35
   },
   "routes/web/account/portfolio/business/index": {
     id: "routes/web/account/portfolio/business/index",
@@ -22273,7 +23747,7 @@ const routes = {
     path: "/web/account/portfolio/:business_guid",
     index: void 0,
     caseSensitive: void 0,
-    module: route30
+    module: route36
   },
   "routes/web/account/create_business/index": {
     id: "routes/web/account/create_business/index",
@@ -22281,7 +23755,7 @@ const routes = {
     path: "/web/account/create_business",
     index: void 0,
     caseSensitive: void 0,
-    module: route31
+    module: route37
   },
   "routes/web/account/portfolio/business/settings/index": {
     id: "routes/web/account/portfolio/business/settings/index",
@@ -22289,7 +23763,7 @@ const routes = {
     path: "/web/account/portfolio/:business_guid/:user_guid/settings",
     index: void 0,
     caseSensitive: void 0,
-    module: route32
+    module: route38
   },
   "routes/web/account/portfolio/business/gallery/index": {
     id: "routes/web/account/portfolio/business/gallery/index",
@@ -22297,7 +23771,7 @@ const routes = {
     path: "/web/account/portfolio/:business_guid/:user_guid/gallery",
     index: void 0,
     caseSensitive: void 0,
-    module: route33
+    module: route39
   },
   "routes/web/account/portfolio/business/products/index": {
     id: "routes/web/account/portfolio/business/products/index",
@@ -22305,7 +23779,7 @@ const routes = {
     path: "/web/account/portfolio/:business_guid/:user_guid/products",
     index: void 0,
     caseSensitive: void 0,
-    module: route34
+    module: route40
   },
   "routes/web/account/portfolio/business/videos/index": {
     id: "routes/web/account/portfolio/business/videos/index",
@@ -22313,7 +23787,7 @@ const routes = {
     path: "/web/account/portfolio/:business_guid/:user_guid/videos",
     index: void 0,
     caseSensitive: void 0,
-    module: route35
+    module: route41
   },
   "routes/web/account/portfolio/business/facilities/index": {
     id: "routes/web/account/portfolio/business/facilities/index",
@@ -22321,7 +23795,7 @@ const routes = {
     path: "/web/account/portfolio/:business_guid/:user_guid/facilities",
     index: void 0,
     caseSensitive: void 0,
-    module: route36
+    module: route42
   },
   "routes/web/account/portfolio/business/activate/index": {
     id: "routes/web/account/portfolio/business/activate/index",
@@ -22329,7 +23803,7 @@ const routes = {
     path: "/web/account/portfolio/:business_guid/:user_guid/activate",
     index: void 0,
     caseSensitive: void 0,
-    module: route37
+    module: route43
   },
   "routes/web/account/portfolio/business/social_media/index": {
     id: "routes/web/account/portfolio/business/social_media/index",
@@ -22337,7 +23811,7 @@ const routes = {
     path: "/web/account/portfolio/:business_guid/:user_guid/social_media",
     index: void 0,
     caseSensitive: void 0,
-    module: route38
+    module: route44
   },
   "routes/web/account/portfolio/business/delete/index": {
     id: "routes/web/account/portfolio/business/delete/index",
@@ -22345,7 +23819,7 @@ const routes = {
     path: "/web/account/portfolio/:business_guid/:user_guid/delete",
     index: void 0,
     caseSensitive: void 0,
-    module: route39
+    module: route45
   },
   "routes/web/account/portfolio/business/reassign/index": {
     id: "routes/web/account/portfolio/business/reassign/index",
@@ -22353,7 +23827,7 @@ const routes = {
     path: "/web/account/portfolio/:business_guid/:user_guid/reassign",
     index: void 0,
     caseSensitive: void 0,
-    module: route40
+    module: route46
   },
   "routes/web/account/events/index": {
     id: "routes/web/account/events/index",
@@ -22361,7 +23835,7 @@ const routes = {
     path: "/web/account/events",
     index: void 0,
     caseSensitive: void 0,
-    module: route41
+    module: route47
   },
   "routes/web/landing/change_email/index": {
     id: "routes/web/landing/change_email/index",
@@ -22369,7 +23843,7 @@ const routes = {
     path: "/web/landing/change_email",
     index: void 0,
     caseSensitive: void 0,
-    module: route42
+    module: route48
   },
   "routes/web/landing/reset_password/index": {
     id: "routes/web/landing/reset_password/index",
@@ -22377,7 +23851,7 @@ const routes = {
     path: "/web/landing/reset_password/:guid",
     index: void 0,
     caseSensitive: void 0,
-    module: route43
+    module: route49
   },
   "routes/web/landing/complete_signup/index": {
     id: "routes/web/landing/complete_signup/index",
@@ -22385,7 +23859,7 @@ const routes = {
     path: "/web/landing/complete_signup/:guid",
     index: void 0,
     caseSensitive: void 0,
-    module: route44
+    module: route50
   },
   "routes/api/user/index": {
     id: "routes/api/user/index",
@@ -22393,7 +23867,7 @@ const routes = {
     path: "api/user",
     index: void 0,
     caseSensitive: void 0,
-    module: route45
+    module: route51
   },
   "routes/api/user/signin": {
     id: "routes/api/user/signin",
@@ -22401,7 +23875,7 @@ const routes = {
     path: "api/user/signin",
     index: void 0,
     caseSensitive: void 0,
-    module: route46
+    module: route52
   },
   "routes/api/user/verifytoken": {
     id: "routes/api/user/verifytoken",
@@ -22409,7 +23883,7 @@ const routes = {
     path: "api/user/verifytoken",
     index: void 0,
     caseSensitive: void 0,
-    module: route47
+    module: route53
   },
   "routes/api/user/user": {
     id: "routes/api/user/user",
@@ -22417,7 +23891,7 @@ const routes = {
     path: "api/user/:guid",
     index: void 0,
     caseSensitive: void 0,
-    module: route48
+    module: route54
   },
   "routes/api/user/change_password": {
     id: "routes/api/user/change_password",
@@ -22425,7 +23899,7 @@ const routes = {
     path: "api/user/change_password/:guid",
     index: void 0,
     caseSensitive: void 0,
-    module: route49
+    module: route55
   },
   "routes/api/user/reset_password_request": {
     id: "routes/api/user/reset_password_request",
@@ -22433,7 +23907,7 @@ const routes = {
     path: "api/user/reset_password_request",
     index: void 0,
     caseSensitive: void 0,
-    module: route50
+    module: route56
   },
   "routes/api/user/reset_password": {
     id: "routes/api/user/reset_password",
@@ -22441,7 +23915,7 @@ const routes = {
     path: "api/user/reset_password/:guid",
     index: void 0,
     caseSensitive: void 0,
-    module: route51
+    module: route57
   },
   "routes/api/user/activate_deactivate": {
     id: "routes/api/user/activate_deactivate",
@@ -22449,7 +23923,7 @@ const routes = {
     path: "api/user/activate_deactivate/:guid",
     index: void 0,
     caseSensitive: void 0,
-    module: route52
+    module: route58
   },
   "routes/api/user/user_profile_image": {
     id: "routes/api/user/user_profile_image",
@@ -22457,7 +23931,7 @@ const routes = {
     path: "api/user/user_profile_image/:guid",
     index: void 0,
     caseSensitive: void 0,
-    module: route53
+    module: route59
   },
   "routes/api/user/user_profile_bg": {
     id: "routes/api/user/user_profile_bg",
@@ -22465,7 +23939,7 @@ const routes = {
     path: "api/user/user_profile_bg/:guid",
     index: void 0,
     caseSensitive: void 0,
-    module: route54
+    module: route60
   },
   "routes/api/user/change_email_request": {
     id: "routes/api/user/change_email_request",
@@ -22473,7 +23947,7 @@ const routes = {
     path: "api/user/change_email_request",
     index: void 0,
     caseSensitive: void 0,
-    module: route55
+    module: route61
   },
   "routes/api/user/change_email": {
     id: "routes/api/user/change_email",
@@ -22481,7 +23955,7 @@ const routes = {
     path: "api/user/change_email",
     index: void 0,
     caseSensitive: void 0,
-    module: route56
+    module: route62
   },
   "routes/api/user/verify_signup": {
     id: "routes/api/user/verify_signup",
@@ -22489,7 +23963,7 @@ const routes = {
     path: "api/user/verify_signup/:user_hash",
     index: void 0,
     caseSensitive: void 0,
-    module: route57
+    module: route63
   },
   "routes/api/listing/index": {
     id: "routes/api/listing/index",
@@ -22497,7 +23971,7 @@ const routes = {
     path: "api/listing",
     index: void 0,
     caseSensitive: void 0,
-    module: route58
+    module: route64
   },
   "routes/api/listing/listing": {
     id: "routes/api/listing/listing",
@@ -22505,7 +23979,7 @@ const routes = {
     path: "api/listing/:guid_or_username",
     index: void 0,
     caseSensitive: void 0,
-    module: route59
+    module: route65
   },
   "routes/api/listing/search": {
     id: "routes/api/listing/search",
@@ -22513,7 +23987,7 @@ const routes = {
     path: "api/listing/search",
     index: void 0,
     caseSensitive: void 0,
-    module: route60
+    module: route66
   },
   "routes/api/listing/searchlisting": {
     id: "routes/api/listing/searchlisting",
@@ -22521,7 +23995,7 @@ const routes = {
     path: "api/listing/searchlisting",
     index: void 0,
     caseSensitive: void 0,
-    module: route61
+    module: route67
   },
   "routes/api/listing/featured_listing": {
     id: "routes/api/listing/featured_listing",
@@ -22529,7 +24003,7 @@ const routes = {
     path: "api/listing/featured_listing",
     index: void 0,
     caseSensitive: void 0,
-    module: route62
+    module: route68
   },
   "routes/api/listing/business_facility_features": {
     id: "routes/api/listing/business_facility_features",
@@ -22537,7 +24011,7 @@ const routes = {
     path: "api/listing/business_facility_features/:business_guid",
     index: void 0,
     caseSensitive: void 0,
-    module: route63
+    module: route69
   },
   "routes/api/listing/listing_by_category": {
     id: "routes/api/listing/listing_by_category",
@@ -22545,7 +24019,7 @@ const routes = {
     path: "api/listing/listing_by_category/:category/:limit",
     index: void 0,
     caseSensitive: void 0,
-    module: route64
+    module: route70
   },
   "routes/api/listing/home_listing_by_category": {
     id: "routes/api/listing/home_listing_by_category",
@@ -22553,7 +24027,7 @@ const routes = {
     path: "api/listing/home_listing_by_category/:category/:limit",
     index: void 0,
     caseSensitive: void 0,
-    module: route65
+    module: route71
   },
   "routes/api/listing/home_latest_businesses": {
     id: "routes/api/listing/home_latest_businesses",
@@ -22561,7 +24035,7 @@ const routes = {
     path: "api/listing/home_latest_businesses/:limit",
     index: void 0,
     caseSensitive: void 0,
-    module: route66
+    module: route72
   },
   "routes/api/listing/business_gallery": {
     id: "routes/api/listing/business_gallery",
@@ -22569,7 +24043,7 @@ const routes = {
     path: "api/listing/business_gallery/:business_guid",
     index: void 0,
     caseSensitive: void 0,
-    module: route67
+    module: route73
   },
   "routes/api/listing/business_profile_image": {
     id: "routes/api/listing/business_profile_image",
@@ -22577,7 +24051,7 @@ const routes = {
     path: "api/listing/business_profile_image/:guid",
     index: void 0,
     caseSensitive: void 0,
-    module: route68
+    module: route74
   },
   "routes/api/listing/business_profile_bg": {
     id: "routes/api/listing/business_profile_bg",
@@ -22585,7 +24059,7 @@ const routes = {
     path: "api/listing/business_profile_bg/:guid",
     index: void 0,
     caseSensitive: void 0,
-    module: route69
+    module: route75
   },
   "routes/api/listing/owner/index": {
     id: "routes/api/listing/owner/index",
@@ -22593,7 +24067,7 @@ const routes = {
     path: "api/listing/owner",
     index: void 0,
     caseSensitive: void 0,
-    module: route70
+    module: route76
   },
   "routes/api/listing/delete_business": {
     id: "routes/api/listing/delete_business",
@@ -22601,7 +24075,7 @@ const routes = {
     path: "api/listing/delete_business/:business_guid",
     index: void 0,
     caseSensitive: void 0,
-    module: route71
+    module: route77
   },
   "routes/api/listing/reassign_business": {
     id: "routes/api/listing/reassign_business",
@@ -22609,7 +24083,7 @@ const routes = {
     path: "api/listing/reassign_business",
     index: void 0,
     caseSensitive: void 0,
-    module: route72
+    module: route78
   },
   "routes/api/listing/business_single_search": {
     id: "routes/api/listing/business_single_search",
@@ -22617,7 +24091,7 @@ const routes = {
     path: "api/listing/business_single_search",
     index: void 0,
     caseSensitive: void 0,
-    module: route73
+    module: route79
   },
   "routes/api/listing/user_single_search": {
     id: "routes/api/listing/user_single_search",
@@ -22625,7 +24099,7 @@ const routes = {
     path: "api/listing/user_single_search",
     index: void 0,
     caseSensitive: void 0,
-    module: route74
+    module: route80
   },
   "routes/api/listing/operating_hours": {
     id: "routes/api/listing/operating_hours",
@@ -22633,7 +24107,7 @@ const routes = {
     path: "api/listing/operating_hours",
     index: void 0,
     caseSensitive: void 0,
-    module: route75
+    module: route81
   },
   "routes/api/listing/gallery": {
     id: "routes/api/listing/gallery",
@@ -22641,7 +24115,7 @@ const routes = {
     path: "api/listing/gallery/:business_guid/:user_guid",
     index: void 0,
     caseSensitive: void 0,
-    module: route76
+    module: route82
   },
   "routes/api/listing/sys_facility_features/index": {
     id: "routes/api/listing/sys_facility_features/index",
@@ -22649,7 +24123,7 @@ const routes = {
     path: "api/listing/sys_facility_features",
     index: void 0,
     caseSensitive: void 0,
-    module: route77
+    module: route83
   },
   "routes/api/listing/selected_facility_features/selected_facility_features": {
     id: "routes/api/listing/selected_facility_features/selected_facility_features",
@@ -22657,7 +24131,7 @@ const routes = {
     path: "api/listing/selected_facility_features/:user_guid/:business_guid",
     index: void 0,
     caseSensitive: void 0,
-    module: route78
+    module: route84
   },
   "routes/api/listing/selected_facility_features/index": {
     id: "routes/api/listing/selected_facility_features/index",
@@ -22665,7 +24139,7 @@ const routes = {
     path: "api/listing/selected_facility_features",
     index: void 0,
     caseSensitive: void 0,
-    module: route79
+    module: route85
   },
   "routes/api/listing/sys_social_media/index": {
     id: "routes/api/listing/sys_social_media/index",
@@ -22673,7 +24147,7 @@ const routes = {
     path: "api/listing/sys_social_media",
     index: void 0,
     caseSensitive: void 0,
-    module: route80
+    module: route86
   },
   "routes/api/listing/selected_social_media/selected_social_media": {
     id: "routes/api/listing/selected_social_media/selected_social_media",
@@ -22681,7 +24155,7 @@ const routes = {
     path: "api/listing/selected_social_media/:user_guid/:business_guid",
     index: void 0,
     caseSensitive: void 0,
-    module: route81
+    module: route87
   },
   "routes/api/listing/selected_social_media/index": {
     id: "routes/api/listing/selected_social_media/index",
@@ -22689,7 +24163,7 @@ const routes = {
     path: "api/listing/selected_social_media",
     index: void 0,
     caseSensitive: void 0,
-    module: route82
+    module: route88
   },
   "routes/api/listing/business_social_media": {
     id: "routes/api/listing/business_social_media",
@@ -22697,7 +24171,7 @@ const routes = {
     path: "api/listing/business_social_media/:business_guid",
     index: void 0,
     caseSensitive: void 0,
-    module: route83
+    module: route89
   },
   "routes/api/listing/activate/activate": {
     id: "routes/api/listing/activate/activate",
@@ -22705,7 +24179,7 @@ const routes = {
     path: "api/listing/activate/:user_guid/:business_guid",
     index: void 0,
     caseSensitive: void 0,
-    module: route84
+    module: route90
   },
   "routes/api/listing/recents": {
     id: "routes/api/listing/recents",
@@ -22713,7 +24187,7 @@ const routes = {
     path: "api/listing/recents",
     index: void 0,
     caseSensitive: void 0,
-    module: route85
+    module: route91
   },
   "routes/api/listing/video_link": {
     id: "routes/api/listing/video_link",
@@ -22721,7 +24195,7 @@ const routes = {
     path: "api/listing/save_video_link",
     index: void 0,
     caseSensitive: void 0,
-    module: route86
+    module: route92
   },
   "routes/api/listing/video_links": {
     id: "routes/api/listing/video_links",
@@ -22729,7 +24203,7 @@ const routes = {
     path: "api/listing/video_links/:business_guid/:user_guid",
     index: void 0,
     caseSensitive: void 0,
-    module: route87
+    module: route93
   },
   "routes/api/listing/video_links_listing": {
     id: "routes/api/listing/video_links_listing",
@@ -22737,7 +24211,7 @@ const routes = {
     path: "api/listing/video_links/:business_guid",
     index: void 0,
     caseSensitive: void 0,
-    module: route88
+    module: route94
   },
   "routes/api/listing/products/index": {
     id: "routes/api/listing/products/index",
@@ -22745,7 +24219,15 @@ const routes = {
     path: "api/listing/products/:business_guid/:user_guid",
     index: void 0,
     caseSensitive: void 0,
-    module: route89
+    module: route95
+  },
+  "routes/api/listing/category": {
+    id: "routes/api/listing/category",
+    parentId: "root",
+    path: "api/listing/category/:category",
+    index: void 0,
+    caseSensitive: void 0,
+    module: route96
   },
   "routes/api/listing/category_city": {
     id: "routes/api/listing/category_city",
@@ -22753,7 +24235,7 @@ const routes = {
     path: "api/listing/category_city/:category/:city",
     index: void 0,
     caseSensitive: void 0,
-    module: route90
+    module: route97
   },
   "routes/api/listing/category_city_sitexml": {
     id: "routes/api/listing/category_city_sitexml",
@@ -22761,7 +24243,15 @@ const routes = {
     path: "api/listing/cat_city_sitexml",
     index: void 0,
     caseSensitive: void 0,
-    module: route91
+    module: route98
+  },
+  "routes/api/listing/category_sitexml": {
+    id: "routes/api/listing/category_sitexml",
+    parentId: "root",
+    path: "api/listing/cat_sitexml",
+    index: void 0,
+    caseSensitive: void 0,
+    module: route99
   },
   "routes/api/rating/index": {
     id: "routes/api/rating/index",
@@ -22769,7 +24259,7 @@ const routes = {
     path: "api/rating",
     index: void 0,
     caseSensitive: void 0,
-    module: route92
+    module: route100
   },
   "routes/api/rating/rating": {
     id: "routes/api/rating/rating",
@@ -22777,7 +24267,7 @@ const routes = {
     path: "api/rating/:user_guid/:business_guid",
     index: void 0,
     caseSensitive: void 0,
-    module: route93
+    module: route101
   },
   "routes/api/rating/business_ratings": {
     id: "routes/api/rating/business_ratings",
@@ -22785,7 +24275,7 @@ const routes = {
     path: "api/rating/business_ratings/:business_guid",
     index: void 0,
     caseSensitive: void 0,
-    module: route94
+    module: route102
   },
   "routes/api/rating/ratings_reviews": {
     id: "routes/api/rating/ratings_reviews",
@@ -22793,7 +24283,7 @@ const routes = {
     path: "api/rating/ratings_reviews/:business_guid",
     index: void 0,
     caseSensitive: void 0,
-    module: route95
+    module: route103
   },
   "routes/api/util/state": {
     id: "routes/api/util/state",
@@ -22801,7 +24291,7 @@ const routes = {
     path: "api/util/state",
     index: void 0,
     caseSensitive: void 0,
-    module: route96
+    module: route104
   },
   "routes/api/util/country": {
     id: "routes/api/util/country",
@@ -22809,7 +24299,7 @@ const routes = {
     path: "api/util/country",
     index: void 0,
     caseSensitive: void 0,
-    module: route97
+    module: route105
   },
   "routes/api/util/country_locale": {
     id: "routes/api/util/country_locale",
@@ -22817,7 +24307,7 @@ const routes = {
     path: "api/util/country_locale",
     index: void 0,
     caseSensitive: void 0,
-    module: route98
+    module: route106
   },
   "routes/api/util/city": {
     id: "routes/api/util/city",
@@ -22825,7 +24315,7 @@ const routes = {
     path: "api/util/city",
     index: void 0,
     caseSensitive: void 0,
-    module: route99
+    module: route107
   },
   "routes/api/util/category": {
     id: "routes/api/util/category",
@@ -22833,7 +24323,7 @@ const routes = {
     path: "api/util/category",
     index: void 0,
     caseSensitive: void 0,
-    module: route100
+    module: route108
   }
 };
 export {

@@ -90,7 +90,7 @@ const BusinessLayout = ({
                 </div> */}
 
             <div className={`px-[12px] w-full`}>
-                <div className={`max-w-[1100px] w-full mx-auto bg-white`}>
+                <div className={`max-w-[1200px] w-full mx-auto bg-white`}>
 
 
                     <div className=''>
@@ -139,7 +139,7 @@ const BusinessLayout = ({
             }
 
             <div className={` md:pt-12 md:px-[12px]`}>
-                <div className={`max-w-[1100px] w-full mx-auto bg-white`}>
+                <div className={`max-w-[1200px] w-full mx-auto bg-white`}>
                     <div className={`grid grid-cols-12 gap-0 md:gap-6 relative
                     `}>
                         <div className={` col-span-12 lg:col-span-8`}>

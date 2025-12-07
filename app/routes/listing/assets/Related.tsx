@@ -68,7 +68,7 @@ const Related = ({
     const [userId, setUserId] = useState('')
     const IMG_BASE_URL = import.meta.env.VITE_IMG_BASE_URL
     const [placeholder, setPlaceholder] = useState('/images/placeholder22.png')
-
+    const fallbackImg = `/images/fallbackBusinessImg.png`
     useEffect(() => {
         if (title && subtitle) {
             setTi(title)
@@ -95,7 +95,7 @@ const Related = ({
 
     return (
         <div className={`px-[15px]`}>
-            <div className={`max-w-[1100px] mx-auto w-full`}>
+            <div className={`max-w-[1200px] mx-auto w-full`}>
                 <div className={`mt-10 border-t pt-5`}>
                     <div className={` mb-[20px] `}>
                         <SectionTitle
@@ -119,20 +119,21 @@ const Related = ({
                                     <div key={userId}>
                                         <div>
                                             <NavLink to={`/${userId}`}>
-                                                <div className={`relative rounded-lg h-[180px] overflow-hidden `}>
+                                                <div className={`relative rounded-lg h-[180px] overflow-hidden border ${data.image_url === null && 'p-12 md:p-8'} flex place-items-center place-content-center`}>
 
                                                     {
                                                         data?.image_url !== null ?
                                                             <img
-                                                                className={`object-scale-down  w-full h-full text-sm border rounded-lg`}
-                                                                src={
-                                                                    data?.image_url &&
-                                                                    IMG_BASE_URL + data?.image_url
-                                                                }
+                                                                className={`object-scale-down  w-full h-full text-sm  `}
+                                                                src={IMG_BASE_URL + data?.image_url}
                                                                 alt={data.title}
                                                             /> :
-                                                            <Placeholder />
+                                                            <img
+                                                                src={fallbackImg}
+                                                                alt={data.title}
+                                                            />
                                                     }
+
 
                                                 </div>
                                             </NavLink>
