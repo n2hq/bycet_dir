@@ -22880,7 +22880,7 @@ const route96 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePrope
 }, Symbol.toStringTag, { value: "Module" }));
 const loader$b = async ({ request, params }) => {
   var _a;
-  const ITEMS_PER_PAGE = 1;
+  const ITEMS_PER_PAGE = 20;
   request.headers.get("Content-Type");
   try {
     const url = new URL(request.url);
@@ -22907,9 +22907,7 @@ const loader$b = async ({ request, params }) => {
     const totalCount = ((_a = countResult[0]) == null ? void 0 : _a.total_count) || 0;
     const totalPages = Math.ceil(totalCount / ITEMS_PER_PAGE);
     const rawdata = await query(`
-                SELECT 
-                    d.id,
-                    d.rating_total,
+                SELECT
                     d.rating_count,
                     d.rating_average,
                     d.username,
@@ -22933,52 +22931,40 @@ const loader$b = async ({ request, params }) => {
                     s.name AS state_name,
                     c.name AS country_name,
                     (
-                        SELECT bpi2.image_url 
+                        SELECT bpi2.image_url
                         FROM tbl_business_profile_image bpi2
-                        WHERE bpi2.business_guid = d.gid 
-                        ORDER BY bpi2.date_created DESC 
+                        WHERE bpi2.business_guid = d.gid
+                        ORDER BY bpi2.date_created DESC
                         LIMIT 1
                     ) AS image_url,
                     (
                         SELECT GROUP_CONCAT(
-                        CONCAT(sm.media_id, '$', sm.user_description, '$', sysm.base_url) 
+                        CONCAT(sm.media_id, '$', sm.user_description, '$', sysm.base_url)
                         SEPARATOR ', '
                         )
                         FROM tbl_selected_social_media sm
                         JOIN tbl_sys_social_media sysm ON sm.media_id = sysm.media_id
                         WHERE d.gid = sm.business_guid
                     ) AS social_media,
-                    MAX(oh.open_status) as open_status,
-                    MAX(oh.no_hours_available) as no_hours_available,
-                    MAX(oh.always_open) as always_open,
-                    MAX(oh.permanently_closed) as permanently_closed,
-                    MAX(oh.temporarily_closed) as temporarily_closed,
-                    MAX(oh.open_selected_hours) as open_selected_hours,
-                    MAX(oh.monday_from) as monday_from,
-                    MAX(oh.monday_to) as monday_to,
-                    MAX(oh.tuesday_from) as tuesday_from,
-                    MAX(oh.tuesday_to) as tuesday_to,
-                    MAX(oh.wednesday_from) as wednesday_from,
-                    MAX(oh.wednesday_to) as wednesday_to,
-                    MAX(oh.thursday_from) as thursday_from,
-                    MAX(oh.thursday_to) as thursday_to,
-                    MAX(oh.friday_from) as friday_from,
-                    MAX(oh.friday_to) as friday_to,
-                    MAX(oh.saturday_from) as saturday_from,
-                    MAX(oh.saturday_to) as saturday_to,
-                    MAX(oh.sunday_from) as sunday_from,
-                    MAX(oh.sunday_to) as sunday_to
+                    -- Use subquery for operating hours instead of JOIN
+                    (
+                        SELECT open_status FROM tbl_operating_hours
+                        WHERE business_guid = d.gid ORDER BY id DESC LIMIT 1
+                    ) as open_status,
+                    (
+                        SELECT no_hours_available FROM tbl_operating_hours
+                        WHERE business_guid = d.gid ORDER BY id DESC LIMIT 1
+                    ) as no_hours_available
+                    -- ... repeat for other oh columns or use JSON/concatenation
                 FROM tbl_dir d
                 LEFT JOIN tbl_country c ON d.country_code = c.iso2
                 LEFT JOIN tbl_state s ON d.state_code = s.iso2 AND d.country_code = s.country_code
                 LEFT JOIN tbl_city ci ON d.city_id = ci.id
-                LEFT JOIN tbl_operating_hours oh ON oh.business_guid = d.gid
-                WHERE d.category = ?  
+                WHERE d.category = ?
                 AND ci.name = ?
                 ${searchParams.criteria ? `AND (d.title LIKE ? OR d.short_description LIKE ?)` : ""}
-                AND 
-                d.active_status = true
-                GROUP BY d.id  -- Group by business ID to remove duplicates
+                AND d.active_status = true
+                -- NO GROUP BY NEEDED!
                 ORDER BY d.date_created DESC
                 LIMIT ? OFFSET ?
             `, [
