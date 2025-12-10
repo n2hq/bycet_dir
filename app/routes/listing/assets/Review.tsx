@@ -69,8 +69,8 @@ const Review = ({ listing }: any) => {
             <div className={``}>
                 <button
                     onClick={() => handleShow()}
-                    className={`bg-gray-500 text-white flex flex-col
-                items-center pt-[2px] pb-[3px] w-full `}>
+                    className={`bg-[#D71616] text-white flex flex-col
+                items-center pt-[2px] pb-[3px] w-full outline-none `}>
                     Write Review
                 </button>
             </div>

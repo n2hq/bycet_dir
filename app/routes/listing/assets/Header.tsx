@@ -32,7 +32,7 @@ const Header = ({ listing, profileImageData, operatingHoursStatus, ratingsData }
                             <img
                                 src={config.IMG_BASE_URL + profileImageData?.image_url}
                                 alt="85x90"
-                                className={` object-scale-down w-full h-full shadow-xl shadow-gray-300 `}
+                                className={` object-cover w-full h-full shadow-xl shadow-gray-300 `}
                             /> :
                             <div className={`h-full w-full p-2 md:p-4 shadow-xl shadow-gray-300`}>
                                 <img

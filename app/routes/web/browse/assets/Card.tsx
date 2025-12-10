@@ -172,8 +172,8 @@ const Card = ({ listing }: any) => {
                                         <img
                                             src={imgscr}
                                             alt={""}
-                                            className={` w-full h-auto text-sm
-                             z-0 bg-gray-100 `}
+                                            className={` w-full h-full text-sm
+                             z-0 bg-gray-100 object-cover `}
                                         /> :
                                         <div className={`h-full w-full  md:p-3`}>
                                             <img

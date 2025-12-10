@@ -125,7 +125,7 @@ const AddressPanelContent = () => {
                         </div>
                     </div>
                     <div>
-                        <div className={`flex place-items-center place-content-center w-[40px] h-[40px] border shadow bg-gray-800 border-blue-100 rounded-md text-white text-[22px] font-bold `}>
+                        <div className={`flex place-items-center place-content-center w-[40px] h-[40px] border shadow bg-[#D71616]  rounded-xl text-white text-[22px] font-bold `}>
                             {
                                 addressCtx.ratingsData?.rating >= 0 ?
                                     formatNumber(Number(addressCtx.ratingsData?.rating)) :
@@ -217,7 +217,7 @@ const AddressPanelContent = () => {
 
                         <div className={`pb-6`}>
 
-                            <div className={`bg-gray-500 mt-[30px] 
+                            <div className={`bg-[#D71616] mt-[30px] 
                         text-white text-center py-2 rounded`}>
                                 {
                                     addressCtx?.businessProfile &&

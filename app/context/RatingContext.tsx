@@ -315,8 +315,8 @@ export default function RatingProvider({ children }: any) {
                                     <button
                                         type="submit"
                                         disabled={working}
-                                        className={`w-full bg-blue-600 text-white py-2 
-                                        rounded-md hover:bg-blue-700 text-sm`}
+                                        className={`w-full bg-[#D71616] text-white py-2 outline-none
+                                        rounded-md hover:bg-[#D71616]/80 text-sm`}
                                     >
                                         {working ? 'Submitting...' : 'Submit Rating'}
                                     </button>
