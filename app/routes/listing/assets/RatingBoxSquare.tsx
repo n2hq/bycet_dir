@@ -16,15 +16,15 @@ export default function RatingBoxSquare({ rating }: RatingBoxProps) {
                 return (
                     <div
                         key={i}
-                        className={`relative w-[20px] h-[20px] ${rating > 0 ? 'bg-blue-400' : 'bg-gray-200'} rounded 
+                        className={`relative w-[20px] h-[20px] ${rating > 0 ? 'bg-gray-200' : 'bg-gray-300'} rounded 
                             overflow-hidden flex place-items-center
                             place-content-center`}
                     >
                         <div
-                            className={`absolute inset-0 bg-green-400 text-white  z-[0]`}
+                            className={`absolute inset-0 bg-[#FF8742] text-white  z-[0]`}
                             style={{ width: `${fillPercent}%` }}
                         />
-                        <Star className={`relative z-[0] w-[14px] h-[14px] `} fill="currentColor" />
+                        <Star className={`relative z-[0] w-[14px] h-[14px] text-white `} fill="currentColor" />
                     </div>
                 )
             })}

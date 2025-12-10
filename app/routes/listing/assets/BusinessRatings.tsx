@@ -3,6 +3,7 @@ import { config, getBusinessRatings, getLocalDate, getRatingsReviews } from '~/l
 import StarRating from './StarRating'
 import SingleStarRating from './SingleStarRating'
 import ComponentTitle from './ComponentTitle'
+import RatingBoxSquare from './RatingBoxSquare'
 
 const BusinessRatings = ({ listing }: any) => {
 
@@ -87,7 +88,8 @@ const BusinessRatings = ({ listing }: any) => {
                                 </div>
                                 <div className={`mt-2`}>
                                     <div>
-                                        <SingleStarRating rating={review.rating} />
+                                        <RatingBoxSquare rating={review.rating} />
+
                                     </div>
                                     <div className={`text-[12px] mt-1`}>
                                         <b>Created at:</b>

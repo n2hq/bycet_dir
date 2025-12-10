@@ -15,6 +15,7 @@ import { ListingType } from '~/lib/types'
 import Tooltip from './Tooltip'
 import { NavLink } from '@remix-run/react'
 import Placeholder from '~/components/content/Placeholder'
+import RatingBoxSquare from '~/routes/listing/assets/RatingBoxSquare'
 
 
 const Card = ({ listing }: any) => {
@@ -204,11 +205,12 @@ const Card = ({ listing }: any) => {
                                             baseListing?.average_rating !== null && baseListing?.average_rating !== "" &&
                                                 baseListing?.average_rating !== undefined ?
                                                 <div className={` flex gap-2 place-items-center`}>
-                                                    <RatingBoxRounded rating={Number(baseListing?.average_rating)} />
+                                                    <RatingBoxSquare rating={Number(baseListing?.average_rating)} />
+
                                                     <RatingCount averageRating={baseListing?.average_rating} />
                                                 </div> :
                                                 <div className={` flex gap-2 place-items-center`}>
-                                                    <RatingBoxRounded rating={Number(0)} />
+                                                    <RatingBoxSquare rating={Number(baseListing?.average_rating)} />
                                                     <RatingCount averageRating={0} />
                                                 </div>
                                         }
@@ -350,7 +352,7 @@ const Card = ({ listing }: any) => {
                         {
                             baseListing?.phone &&
                             <a href={`tel:${baseListing?.phone}`}>
-                                <button className={`bg-gray-500 rounded w-full text-white flex place-items-center place-content-center text-[15px] gap-2 py-[5px]`}>
+                                <button className={`bg-[#D71616] rounded w-full text-white flex place-items-center place-content-center text-[15px] gap-2 py-[5px]`}>
                                     <BiPhone size={20} className={`mt-[2px]`} />
                                     <span>Call</span>
                                 </button>
