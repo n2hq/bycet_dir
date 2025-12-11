@@ -118,7 +118,7 @@ const RelatedAlt = ({
                                             <div className={`flex place-items-start h-full flex-col`}>
                                                 <div className={`text-lg`}>
 
-                                                    <div className={`group-hover:underline`}>
+                                                    <div className={`group-hover:underline leading-[1.3em]`}>
                                                         {item.title}
                                                     </div>
                                                 </div>
