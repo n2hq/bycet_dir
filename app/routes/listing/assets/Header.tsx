@@ -26,7 +26,7 @@ const Header = ({ listing, profileImageData, operatingHoursStatus, ratingsData }
             <div className={`flex gap-3  w-full   md:rounded-xl`}>
 
                 {/** business logo */}
-                <div className={`bg-white w-[60px] min-w-[60px] md:w-[95px] md:min-w-[95px] h-[60px] md:h-[95px] relative rounded-lg overflow-hidden `}>
+                <div className={`bg-white w-[60px] min-w-[60px] md:w-[95px] md:min-w-[95px] h-[60px] md:h-[95px] relative rounded-lg overflow-hidden shadow-md`}>
                     {
                         (profileImageData?.image_url === undefined || profileImageData?.image_url === null || profileImageData?.image_url === '') &&
                         <div className={`absolute top-0 h-full w-full flex place-content-center place-items-center font-bold text-white bg-black/20 text-[8px] tracking-[3px] flex-col`}>
