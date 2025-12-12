@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import StarRatingAlt from './StarRatingAlt'
-import { appConfig, config } from '~/lib/lib'
+import { appConfig, config, removeAllParagraphs, truncateText } from '~/lib/lib'
 import FormattedAddress from './FormattedAddress'
 import Placeholder from '~/components/content/Placeholder'
 import ShareButtons from './ShareButtons'
@@ -127,7 +127,7 @@ const Header = ({ listing, profileImageData, operatingHoursStatus, ratingsData }
                 <div className={`flex w-full gap-3 mt-4`}>
                     <ShareButtons
                         url={fullPath}
-                        title={listing?.title}
+                        title={listing?.title + " - " + removeAllParagraphs(truncateText(listing?.short_description, 150)) + ` via @bycetinc`}
                     />
                 </div>
             }
