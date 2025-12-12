@@ -81,9 +81,13 @@ export interface BlockProp {
 }
 export function SingleBlock({ index, imgs, showCarousel }: BlockProp) {
     const [loaded, setLoaded] = useState(false)
+    const handleShadowDelay = async () => {
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        setLoaded(true)
+    }
 
     useEffect(() => {
-        setLoaded(true)
+        handleShadowDelay()
     }, [])
 
     return (
