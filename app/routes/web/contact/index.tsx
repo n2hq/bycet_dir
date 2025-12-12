@@ -42,7 +42,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
             { name: "description", content: "Discover and connect with businesses worldwide. Bycet.com helps you explore listings, find services, and grow your network across industries and countries." },
             { name: "keywords", content: "Business Directory Service, Location Services" },
             { property: "fb:app_id", content: "1325393508603168" },
-            { property: "og:url", content: "https://bycet.com/web/signup" },
+            { property: "og:url", content: "https://bycet.com/web/contact" },
             { property: "og:type", content: "website" },
             { property: "og:title", content: "Bycet Contact - Online Business Directory, Explore Listings Around The World" },
             { property: "og:description", content: "Discover and connect with businesses worldwide. Bycet.com helps you explore listings, find services, and grow your network across industries and countries." },
