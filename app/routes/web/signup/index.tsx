@@ -41,13 +41,13 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 
 
         return [
-            { title: "Bycet - Signup" },
+            { title: "Bycet Signup - Online Business Directory, Explore Listings Around The World" },
             { name: "description", content: "Discover and connect with businesses worldwide. Bycet.com helps you explore listings, find services, and grow your network across industries and countries." },
             { name: "keywords", content: "Business Directory Service, Location Services" },
             { property: "fb:app_id", content: "1325393508603168" },
             { property: "og:url", content: "https://bycet.com/web/signup" },
             { property: "og:type", content: "website" },
-            { property: "og:title", content: "Bycet - Online Business Directory, Explore Listings Around The World" },
+            { property: "og:title", content: "Bycet Signup - Online Business Directory, Explore Listings Around The World" },
             { property: "og:description", content: "Discover and connect with businesses worldwide. Bycet.com helps you explore listings, find services, and grow your network across industries and countries." },
             { property: "og:image", content: `https://bycet.com/images/bycet.png?v=${randomNo}` },
             { property: "og:image:secure_url", content: `https://bycet.com/images/bycet.png?v=${randomNo}` },
@@ -58,7 +58,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
             { name: "twitter:site", content: "@bycetinc" },
             { name: "twitter:creator", content: "@bycetinc" },
             { name: "twitter:card", content: "summary_large_image" },
-            { name: "twitter:title", content: "Bycet - Online Business Directory, Explore Listings Around The World" },
+            { name: "twitter:title", content: "Bycet Signup - Online Business Directory, Explore Listings Around The World" },
             { name: "twitter:description", content: "Discover and connect with businesses worldwide. Bycet.com helps you explore listings, find services, and grow your network across industries and countries." },
             { name: "twitter:image", content: `https://bycet.com/images/bycet.png?v=${randomNo}` },
             { name: "twitter:image:alt", content: "Bycet Business Directory Logo" }
